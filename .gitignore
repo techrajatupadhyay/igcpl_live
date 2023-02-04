@@ -29,9 +29,9 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
-
-application\config\config.php
-application\database.php
-awsum.indigemcp.com\application\config\app-config.php
-Channel_Partners\application\config\config.php
-Channel_Partners\application\config\database.php
+.gitignore
+application/config/config.php
+application/database.php
+awsum.indigemcp.com/application/config/app-config.php
+Channel_Partners/application/config/config.php
+Channel_Partners/application/config/database.php
