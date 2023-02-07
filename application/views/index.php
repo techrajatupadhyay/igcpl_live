@@ -702,25 +702,181 @@
                </div>
             </div>
          </div>
-         </div>
-          
+         </div>       
       </section>
+      <?php    
+            $web_visiters = $this->db->query("SELECT * FROM  hits ");
+				$visiters= $web_visiters->num_rows();
+				//print_r($this->db->last_query());												
+       ?>                                  	
+      <section id="ft-counterup" class="ft-counterup-section position-relative">
+		<div class="container">
+			<div class="ft-counterup-content">
+				<div class="row">
+					<div class="col-lg-3 col-md-6">
+						<div class="ft-counterup-innerbox d-flex align-items-center position-relative">
+							<div class="ft-counterup-icon d-flex align-items-center justify-content-center">
+								<i class="fal fa-users"></i>
+							</div>
+							<div class="ft-counterup-text headline pera-content">
+								<h3><span class="counter"> <?php echo $visiters;  ?></span>k</h3>
+								<p>Total Visiters</p>
+							</div>
+						</div>
+					</div>
+            <!--
+					<div class="col-lg-3 col-md-6">
+						<div class="ft-counterup-innerbox d-flex align-items-center position-relative">
+							<div class="ft-counterup-icon d-flex align-items-center justify-content-center">
+								<i class="flaticon-office"></i>
+							</div>
+							<div class="ft-counterup-text headline pera-content">
+								<h3><span class="counter">300</span>+</h3>
+								<p>Total Branch</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<div class="ft-counterup-innerbox d-flex align-items-center position-relative">
+							<div class="ft-counterup-icon d-flex align-items-center justify-content-center">
+								<i class="flaticon-community"></i>
+							</div>
+							<div class="ft-counterup-text headline pera-content">
+								<h3><span class="counter">500</span>k</h3>
+								<p>Satisfied Clients</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<div class="ft-counterup-innerbox d-flex align-items-center position-relative">
+							<div class="ft-counterup-icon d-flex align-items-center justify-content-center">
+								<i class="flaticon-free-shipping"></i>
+							</div>
+							<div class="ft-counterup-text headline pera-content">
+								<h3><span class="counter">5</span>M</h3>
+								<p>Delivered Packages</p>
+							</div>
+						</div>
+					</div>
+      -->   
+				</div>	
+			</div>
+		</div>
+	</section>
 
 
-   </body>
-   <script>
-      window.onload=function(){
-      $('.slider').slick({
-      autoplay:true,
-      autoplaySpeed:1500,
-      arrows:true,
-      prevArrow:'<button type="button" class="slick-prev"></button>',
-      nextArrow:'<button type="button" class="slick-next"></button>',
-      centerMode:true,
-      slidesToShow:3,
-      slidesToScroll:1
-      });
-      };
+
+<!--
+
+      <section id="ft-funfact" class="ft-funfact-section">
+		<div class="container">
+			<div class="ft-funfact-content">
+				<div class="row">
+              
+					<div class="col-lg-3 col-md-6">
+						<div class="ft-funfact-innerbox text-center">
+							<div class="ft-funfact-icon">
+								<i class="fal fa-clipboard-list-check"></i>
+							</div>
+							<div class="ft-funfact-text headline pera-content">
+								<h3><span class="counter">4500</span></h3>
+								<p>Project Completed</p>
+							</div>
+						</div>
+					</div>
       
-   </script>
-</html>
+					<div class="col-lg-12 col-md-6">
+						<div class="ft-funfact-innerbox text-center">
+							<div class="ft-funfact-icon">
+								<i class="fal fa-users"></i>
+							</div>
+							<div class="ft-funfact-text headline pera-content">
+								<h3><span class="counter">54</span>+</h3>
+								<p>Active Members</p>
+							</div>
+						</div>
+					</div>
+              <!-- 
+					<div class="col-lg-3 col-md-6">
+						<div class="ft-funfact-innerbox text-center">
+							<div class="ft-funfact-icon">
+								<i class="fas fa-trophy-alt"></i>
+							</div>
+							<div class="ft-funfact-text headline pera-content">
+								<h3><span class="counter">14</span>+</h3>
+								<p>Award Winning</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<div class="ft-funfact-innerbox text-center">
+							<div class="ft-funfact-icon">
+								<i class="fal fa-medal"></i>
+							</div>
+							<div class="ft-funfact-text headline pera-content">
+								<h3><span class="counter">100</span>%</h3>
+								<p>Satisfaction Rate</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+-->
+
+
+<!--            
+<section class="sec grbg back-red1">
+   <link href="https://assets-bg.gem.gov.in/resources/css/custom-v143.css?version=20221223151755" rel="stylesheet">
+   <link href="https://assets-bg.gem.gov.in/resources/css/cart_styles-v1.css?version=20221223151755" rel="stylesheet">
+   <div class="cont text-center">
+      <div class="col-md-12">
+          <h1 class="heading-gem"><span>Why you should choose GeM</span></h1>
+         <br>
+         <div class="border-gem">
+            <ul class="lisload-gem2">
+               <li>
+                  <div class="Highlights-boder">
+                     <h1>3,006,897</h1>
+                     <h4>Products</h4>
+                  </div>
+               </li>
+               <li>
+                  <div class="Highlights-boder">
+                     <h1>408,459</h1>
+                     <h4>Transactions Value (Cr.)</h4>
+                  </div>
+               </li>
+               <li>
+                  <div class="">
+                     <h1>5,886,877</h1>
+                     <h4>Sellers &amp; Service Providers</h4>
+                  </div>
+               </li>
+            </ul>
+            <hr style="border-top: 1px solid #cacaca;">
+            <ul class="lisload-gem">
+               <li><img alt="various products" class="svg " rel="imgLazy" data-src="" src="https://assets-bg.gem.gov.in/resources/images/various-products-v4.svg?version=20221223151755">
+               <p class="p4">Rich Listing of Products / Services</p>
+               </li>
+               <li><img alt="buyer supplier" class="svg " rel="imgLazy" data-src="" src="https://assets-bg.gem.gov.in/resources/images/integrated-payment-system-v4.svg?version=20221223151755">
+               <p class="p4">Integrated Payment System<br>
+               &nbsp;</p>
+               </li>
+               <li><img alt="integrated payment system" class="svg " rel="imgLazy" data-src="" src="https://assets-bg.gem.gov.in/resources/images/direct-purchase-v4.svg?version=20221223151755">
+               <p class="p4">Multiple Procurement Modes - Direct Purchase / Bid / RA</p>
+               </li>
+               <li><img alt="online ordering" class="svg " rel="imgLazy" data-src="" src="https://assets-bg.gem.gov.in/resources/images/online-ordering-v4.svg?version=20221223151755">
+               <p class="p4">Great Transparency and Speed of Procurement</p>
+               </li>
+               <li class="hidden-xs"><img alt="market search" class="svg " rel="imgLazy" data-src="" src="https://assets-bg.gem.gov.in/resources/images/buyer-supplier-v4.svg?version=20221223151755">
+               <p class="p4">Online Ordering and Contract Generation</p>
+               </li>
+            </ul>         </div>
+      </div>
+   </div>
+</section>
+      -->      
+   
