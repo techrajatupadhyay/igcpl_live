@@ -719,7 +719,7 @@
 								<i class="fal fa-users"></i>
 							</div>
 							<div class="ft-counterup-text headline pera-content">
-								<h3><span class="counter"> <?php echo $visiters;  ?></span></h3>
+								<h3><span class="counter"> <?php echo $visiters;  ?></span>k</h3>
 								<p>Total Visiters</p>
 							</div>
 						</div>
