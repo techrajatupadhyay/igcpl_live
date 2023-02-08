@@ -110,7 +110,7 @@
 										</ul>
 									</li>
 									<li class="dropdown">
-										<a href="<?php echo "https://indigemcp.com/Channel_Partners" ;?>">Dashboard Login </a>
+										<a href="<?php echo base_url();?>Channel_Partners">Dashboard Login </a>
 										<!--<a href="<?php echo base_url();?>Registration">Sign In / Sign Up </a>-->
 									</li>
 									<li class="">
