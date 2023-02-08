@@ -684,8 +684,7 @@
                <span class="sub-title">Director's Info</span>
             </div>
             <div class="ft-testimonial-slider-wrapper">
-               <div class="row">
-                  
+               <div class="row">                 
                   <div class="col-md-12 col-sm-12 director_info">
                      <div class="card text-dark my-2" style="box-shadow: 2px 2px 2px 2px #01054c!important; border-radius: 20px!important;">
                         <div class="card-body mx-2">
@@ -698,18 +697,59 @@
                            <p><b>Contact:</b> <i class="fa fa-envelope" aria-hidden="true"> </i> <a href = "mailto:indigeminfo@gmail.com">indigeminfo@gmail.com</a>, <a href = "mailto:contact@indigemcp.com">contact@indigemcp.com</a> </p>
                         </div>
                      </div>
-                  </div>
+                  </div>                 
                </div>
             </div>
          </div>
          </div>       
       </section>
-      <?php    
-            $web_visiters = $this->db->query("SELECT * FROM  hits ");
-				$visiters= $web_visiters->num_rows();
-				//print_r($this->db->last_query());												
-       ?>                                  	
-      <section id="ft-counterup" class="ft-counterup-section position-relative">
+   
+
+   <section id="ft-counterup" class="ft-counterup-section" style="height: 255px !importent">
+		<div class="container" ">
+      <div class="ft-section-title headline pera-content text-center">
+               <span class="sub-title">INDIGEM UPDATES</span>
+            </div><br>
+			<div class="ft-counterup-content">
+				<div class="row">
+
+					<div class="col-lg-6 col-md-6">
+						<div class="ft-counterup-innerbox d-flex align-items-center position-relative" style="margin-right: -15px;">
+							<div class="ft-counterup-icon d-flex align-items-center justify-content-center">
+                     <i class="fa fa-twitter" aria-hidden="true"></i>
+							</div>
+							<div class="ft-counterup-text headline pera-content">
+                        <div class="twitter-timeline twitter-timeline-rendered" style="display: flex; width: 470px; max-width: 100%; margin-top: 0px; margin-bottom: 0px;">
+                           <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" style="position: static; visibility: visible; width: 483px; height: 330px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/indigemcp?dnt=false&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19idXNpbmVzc192ZXJpZmllZF9iYWRnZSI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19leHBlcmltZW50c19jb29raWVfZXhwaXJhdGlvbiI6eyJidWNrZXQiOjEyMDk2MDAsInZlcnNpb24iOm51bGx9LCJ0ZndfZHVwbGljYXRlX3NjcmliZXNfdG9fc2V0dGluZ3MiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3ZpZGVvX2hsc19keW5hbWljX21hbmlmZXN0c18xNTA4MiI6eyJidWNrZXQiOiJ0cnVlX2JpdHJhdGUiLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmx1ZV92ZXJpZmllZF9iYWRnZSI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19nb3ZfdmVyaWZpZWRfYmFkZ2UiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYnVzaW5lc3NfYWZmaWxpYXRlX2JhZGdlIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2Zyb250ZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH19&amp;frame=false&amp;hideBorder=false&amp;hideFooter=true&amp;hideHeader=true&amp;hideScrollBar=false&amp;lang=en&amp;limit=2&amp;maxHeight=330px&amp;origin=https%3A%2F%2Fgem.gov.in%2F&amp;sessionId=46ebb11b63f93d7619f9a380b837a513a2fd1301&amp;showHeader=false&amp;showReplies=false&amp;transparent=false&amp;widgetsVersion=aaf4084522e3a%3A1674595607486"></iframe>
+                        </div>
+                        <script defer="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                     </div>
+						</div>
+					</div>
+					           
+					<div class="col-lg-6 col-md-6">
+						<div class="ft-counterup-innerbox d-flex align-items-center position-relative " style="margin-right: -40px;">
+							<div class="ft-counterup-icon d-flex align-items-center justify-content-center">
+								<i class="fa fa-facebook"></i>
+							</div>
+							<div class="ft-counterup-text headline pera-content">
+                        <div style="height:328px; width:494px; overflow-x:hidden;  overflow-y:scroll; margin: auto;">
+                           <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FgovGeM%2F&amp;tabs=timeline&amp;width=500&amp;height=440&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=true&amp;show_facepile=true&amp;appId" width="100%" data-width="100%" height="328" style="border:none;overflow:hidden" scrolling="no" allowtransparency="true"></iframe>                                 
+                        </div>
+							</div>
+						</div>
+					</div>
+            
+				</div>	
+			</div>
+		</div>
+	</section>
+
+
+
+
+<!--                             	
+   <section id="ft-counterup" class="ft-counterup-section position-relative">
 		<div class="container">
 			<div class="ft-counterup-content">
 				<div class="row">
@@ -719,6 +759,11 @@
 								<i class="fal fa-users"></i>
 							</div>
 							<div class="ft-counterup-text headline pera-content">
+                     <?php    
+                           $web_visiters = $this->db->query("SELECT * FROM  hits ");
+                           $visiters= $web_visiters->num_rows();
+                           //print_r($this->db->last_query());												
+                        ?> 
 								<h3><span class="counter"> <?php echo $visiters;  ?></span></h3>
 								<p>Total Visiters</p>
 							</div>
@@ -758,57 +803,37 @@
 							</div>
 						</div>
 					</div>
-      -->   
+            
 				</div>	
 			</div>
 		</div>
 	</section>
+-->   
 
 
 
-<!--
 
-      <section id="ft-funfact" class="ft-funfact-section">
+   <section id="ft-funfact" class="ft-funfact-section">
 		<div class="container">
 			<div class="ft-funfact-content">
-				<div class="row">
-              
-					<div class="col-lg-3 col-md-6">
-						<div class="ft-funfact-innerbox text-center">
-							<div class="ft-funfact-icon">
-								<i class="fal fa-clipboard-list-check"></i>
-							</div>
-							<div class="ft-funfact-text headline pera-content">
-								<h3><span class="counter">4500</span></h3>
-								<p>Project Completed</p>
-							</div>
-						</div>
-					</div>
-      
-					<div class="col-lg-12 col-md-6">
+				<div class="row">					
+					<div class="col-lg-6 col-md-6">
 						<div class="ft-funfact-innerbox text-center">
 							<div class="ft-funfact-icon">
 								<i class="fal fa-users"></i>
 							</div>
 							<div class="ft-funfact-text headline pera-content">
-								<h3><span class="counter">54</span>+</h3>
-								<p>Active Members</p>
+                        <?php    
+                           $web_visiters = $this->db->query("SELECT * FROM  hits ");
+                           $visiters= $web_visiters->num_rows();
+                           //print_r($this->db->last_query());												
+                        ?>
+								<h3><span class="counter"><?php echo $visiters;  ?></span></h3>
+								<p>Total Visiters</p>
 							</div>
 						</div>
-					</div>
-              <!-- 
-					<div class="col-lg-3 col-md-6">
-						<div class="ft-funfact-innerbox text-center">
-							<div class="ft-funfact-icon">
-								<i class="fas fa-trophy-alt"></i>
-							</div>
-							<div class="ft-funfact-text headline pera-content">
-								<h3><span class="counter">14</span>+</h3>
-								<p>Award Winning</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
+					</div>					
+					<div class="col-lg-6 col-md-6">
 						<div class="ft-funfact-innerbox text-center">
 							<div class="ft-funfact-icon">
 								<i class="fal fa-medal"></i>
@@ -819,7 +844,109 @@
 							</div>
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
+
+
+
+
+
+
+
+
+
+<!--
+
+   <section id="ft-about-2" class="ft-about-section-2">
+		<div class="container">
+      <div class="ft-section-title headline pera-content text-center">
+               <span class="sub-title">Director's Info</span>
+            </div></br>
+			<div class="ft-about-content-2">
+				<div class="row">
+            <!--   
+					<div class="col-lg-6">
+						<div class="ft-about-text-wrapper-2">
+							<div class="ft-section-title-2 headline pera-content">
+								<span class="sub-title">About Company</span>
+								<h2>We Provide
+									a Reliable Services
+									<span>Since 1982</span>
+								</h2>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+							</div>
+							<div class="ft-about-feature-wrapper-2">
+								<div class="row">
+                         
+									<div class="col-lg-6">
+										<div class="ft-about-feature-list-item d-flex align-items-center">
+											<div class="ft-about-feature-icon d-flex align-items-center justify-content-center">
+												<i class="fal fa-bullseye-arrow"></i>
+											</div>
+											<div class="ft-about-feature-text headline pera-content">
+												<h3>Our Mission</h3>
+												<p>Lorem ipsum dolor sit amet sed do eiusmod facilisis. 
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="ft-about-feature-list-item d-flex align-items-center">
+											<div class="ft-about-feature-icon d-flex align-items-center justify-content-center">
+												<i class="fal fa-bullseye-arrow"></i>
+											</div>
+											<div class="ft-about-feature-text headline pera-content">
+												<h3>Our Vision</h3>
+												<p>Lorem ipsum dolor sit amet sed do eiusmod facilisis. 
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="ft-btn-3">
+									<a class="d-flex justify-content-center align-items-center" href="about.html">Explore More <i class="flaticon-right-arrow"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+            
+
+
+               <div class="col-lg-6">
+						<div class="ft-about-img-2-wrapper position-relative">
+                  <!--   
+							<span class="ft-about-shape1 position-absolute"><img src="assets/img/shape/ab-sh1.png" alt=""></span>
+							<span class="ft-about-shape2 position-absolute"><img src="assets/img/shape/ab-sh2.png" alt=""></span>
+                    
+							<div class="ft-about-img-2">
+                                       <div style="height:330px; width:500px; overflow-x:hidden;  overflow-y:scroll; margin: auto;">
+                                          <div class="twitter-timeline twitter-timeline-rendered" style="display: flex; width: 500px; max-width: 100%; margin-top: 0px; margin-bottom: 0px;">
+                                             <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" style="position: static; visibility: visible; width: 483px; height: 330px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/GeM_India?dnt=false&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19idXNpbmVzc192ZXJpZmllZF9iYWRnZSI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19leHBlcmltZW50c19jb29raWVfZXhwaXJhdGlvbiI6eyJidWNrZXQiOjEyMDk2MDAsInZlcnNpb24iOm51bGx9LCJ0ZndfZHVwbGljYXRlX3NjcmliZXNfdG9fc2V0dGluZ3MiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3ZpZGVvX2hsc19keW5hbWljX21hbmlmZXN0c18xNTA4MiI6eyJidWNrZXQiOiJ0cnVlX2JpdHJhdGUiLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmx1ZV92ZXJpZmllZF9iYWRnZSI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19nb3ZfdmVyaWZpZWRfYmFkZ2UiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYnVzaW5lc3NfYWZmaWxpYXRlX2JhZGdlIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2Zyb250ZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH19&amp;frame=false&amp;hideBorder=false&amp;hideFooter=true&amp;hideHeader=true&amp;hideScrollBar=false&amp;lang=en&amp;limit=2&amp;maxHeight=330px&amp;origin=https%3A%2F%2Fgem.gov.in%2F&amp;sessionId=46ebb11b63f93d7619f9a380b837a513a2fd1301&amp;showHeader=false&amp;showReplies=false&amp;transparent=false&amp;widgetsVersion=aaf4084522e3a%3A1674595607486"></iframe></div>
+                                             <script defer="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                          </div>
+                                       </div>
+							</div>
+         
+						</div>
+					</div>
+
+					<div class="col-lg-6">
+						<div class="ft-about-img-2-wrapper position-relative">
+                  <!--   
+							<span class="ft-about-shape1 position-absolute"><img src="assets/img/shape/ab-sh1.png" alt=""></span>
+							<span class="ft-about-shape2 position-absolute"><img src="assets/img/shape/ab-sh2.png" alt=""></span>
+                  
+							<div class="ft-about-img-2">
+                     <div style="height:328px; width:500px; overflow-x:hidden;  overflow-y:scroll; margin: auto;">
+                                             <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FgovGeM%2F&amp;tabs=timeline&amp;width=500&amp;height=440&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=true&amp;show_facepile=true&amp;appId" width="100%" data-width="100%" height="328" style="border:none;overflow:hidden" scrolling="no" allowtransparency="true"></iframe>                                 
+                                          </div>
+							</div>
+         
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -827,56 +954,159 @@
 -->
 
 
-<!--            
-<section class="sec grbg back-red1">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <!--
+   <link href="https://assets-bg.gem.gov.in/resources/css/bootstrap.min.css" rel="stylesheet">   
    <link href="https://assets-bg.gem.gov.in/resources/css/custom-v143.css?version=20221223151755" rel="stylesheet">
-   <link href="https://assets-bg.gem.gov.in/resources/css/cart_styles-v1.css?version=20221223151755" rel="stylesheet">
-   <div class="cont text-center">
-      <div class="col-md-12">
-          <h1 class="heading-gem"><span>Why you should choose GeM</span></h1>
-         <br>
-         <div class="border-gem">
-            <ul class="lisload-gem2">
-               <li>
-                  <div class="Highlights-boder">
-                     <h1>3,006,897</h1>
-                     <h4>Products</h4>
+   <link href="https://assets-bg.gem.gov.in/resources/css/cart_styles-v1.css?version=20221223151755" rel="stylesheet">   
+   <link href="https://assets-bg.gem.gov.in/resources/css/print-v2.css?version=20221223151755" rel="stylesheet">
+   <link href="https://assets-bg.gem.gov.in/resources/css/colorbox-v1.css?version=20221223151755" rel="stylesheet">     
+   <script async="" src="https://assets-bg.gem.gov.in/resources/js/analytics.js"></script>    
+   <script src="https://assets-bg.gem.gov.in/resources/js/jquery-3.6.0.min.js"></script>  
+
+   <section class="sec grbg" id="notification">
+      <div class="cont clearfix">
+         <div class="col-md-12">
+            <div class="row"> 
+               <div class="col-md-12 col-xs-12 col-sm-12 nsset2 notification">
+                  <h2>GeM Connect</h2>
+                  <ul class="nav nav-tabs  notification-tab" id="ulNewsEvent" style="display: none;">
+                     <li class="active"><a data-toggle="tab" href="#notifications-one">GeM Connect</a></li>
+                     <li><a data-toggle="tab" href="#event-one">Events</a></li> 
+                  </ul>
+                  <div class="tab-content clearfix nsset8">
+                     <div class="tab-pane fade in active" id="notifications-one">			                                                      
+                        <div class="clearfix " style="margin-top: 13px;">
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <ul class="nav nav-tabs n2 back-one" id="myTabSocial" role="tablist" style="margin-bottom: 1.8em;">						
+                                    <li class="nav-item active">
+                                       <a class="nav-link" data-toggle="tab" href="#twittertab" role="tab" aria-controls="profile" aria-selected="false" aria-expanded="true"><strong>Twitter</strong></a>
+                                    </li>
+                                    <li class="nav-item">
+                                       <a class="nav-link " data-toggle="tab" href="#fbtab" role="tab" aria-controls="home" aria-selected="true" aria-expanded="false"><strong>Facebook</strong></a>
+                                    </li>
+                                 </ul>
+                                 <div class="clearfix"></div>
+                              </div>
+                              <div class="tab-content" id="divFBTwitter">  
+                                 <div class="tab-pane active" id="twittertab" role="tabpanel">
+                                    <div class="col-md-12">
+                                       <div style="height:330px; width:500px; overflow-x:hidden;  overflow-y:scroll; margin: auto;">
+                                          <div class="twitter-timeline twitter-timeline-rendered" style="display: flex; width: 500px; max-width: 100%; margin-top: 0px; margin-bottom: 0px;">
+                                             <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" style="position: static; visibility: visible; width: 483px; height: 330px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/GeM_India?dnt=false&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19idXNpbmVzc192ZXJpZmllZF9iYWRnZSI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19leHBlcmltZW50c19jb29raWVfZXhwaXJhdGlvbiI6eyJidWNrZXQiOjEyMDk2MDAsInZlcnNpb24iOm51bGx9LCJ0ZndfZHVwbGljYXRlX3NjcmliZXNfdG9fc2V0dGluZ3MiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3ZpZGVvX2hsc19keW5hbWljX21hbmlmZXN0c18xNTA4MiI6eyJidWNrZXQiOiJ0cnVlX2JpdHJhdGUiLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmx1ZV92ZXJpZmllZF9iYWRnZSI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19nb3ZfdmVyaWZpZWRfYmFkZ2UiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYnVzaW5lc3NfYWZmaWxpYXRlX2JhZGdlIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2Zyb250ZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH19&amp;frame=false&amp;hideBorder=false&amp;hideFooter=true&amp;hideHeader=true&amp;hideScrollBar=false&amp;lang=en&amp;limit=2&amp;maxHeight=330px&amp;origin=https%3A%2F%2Fgem.gov.in%2F&amp;sessionId=46ebb11b63f93d7619f9a380b837a513a2fd1301&amp;showHeader=false&amp;showReplies=false&amp;transparent=false&amp;widgetsVersion=aaf4084522e3a%3A1674595607486"></iframe></div>
+                                             <script defer="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="tab-pane" id="fbtab" role="tabpanel">
+                                       <div class="col-md-12">
+                                          <div style="height:328px; width:500px; overflow-x:hidden;  overflow-y:scroll; margin: auto;">
+                                             <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FgovGeM%2F&amp;tabs=timeline&amp;width=500&amp;height=440&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=true&amp;show_facepile=true&amp;appId" width="100%" data-width="100%" height="328" style="border:none;overflow:hidden" scrolling="no" allowtransparency="true"></iframe>                                 
+                                          </div>
+                                       </div>
+                                    </div>
+                              </div>
+                           </div>
+                        </div>                                                                      
+                     </div>
                   </div>
-               </li>
-               <li>
-                  <div class="Highlights-boder">
-                     <h1>408,459</h1>
-                     <h4>Transactions Value (Cr.)</h4>
-                  </div>
-               </li>
-               <li>
-                  <div class="">
-                     <h1>5,886,877</h1>
-                     <h4>Sellers &amp; Service Providers</h4>
-                  </div>
-               </li>
-            </ul>
-            <hr style="border-top: 1px solid #cacaca;">
-            <ul class="lisload-gem">
-               <li><img alt="various products" class="svg " rel="imgLazy" data-src="" src="https://assets-bg.gem.gov.in/resources/images/various-products-v4.svg?version=20221223151755">
-               <p class="p4">Rich Listing of Products / Services</p>
-               </li>
-               <li><img alt="buyer supplier" class="svg " rel="imgLazy" data-src="" src="https://assets-bg.gem.gov.in/resources/images/integrated-payment-system-v4.svg?version=20221223151755">
-               <p class="p4">Integrated Payment System<br>
-               &nbsp;</p>
-               </li>
-               <li><img alt="integrated payment system" class="svg " rel="imgLazy" data-src="" src="https://assets-bg.gem.gov.in/resources/images/direct-purchase-v4.svg?version=20221223151755">
-               <p class="p4">Multiple Procurement Modes - Direct Purchase / Bid / RA</p>
-               </li>
-               <li><img alt="online ordering" class="svg " rel="imgLazy" data-src="" src="https://assets-bg.gem.gov.in/resources/images/online-ordering-v4.svg?version=20221223151755">
-               <p class="p4">Great Transparency and Speed of Procurement</p>
-               </li>
-               <li class="hidden-xs"><img alt="market search" class="svg " rel="imgLazy" data-src="" src="https://assets-bg.gem.gov.in/resources/images/buyer-supplier-v4.svg?version=20221223151755">
-               <p class="p4">Online Ordering and Contract Generation</p>
-               </li>
-            </ul>         </div>
-      </div>
-   </div>
-</section>
-      -->      
+               </div>
+            </div>
+         </div>
+      </div>      
+   </section>
+
+<script src="https://assets-bg.gem.gov.in/resources/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+    $(document).scroll(function(){
+            
+            //imgLazy();
+            
+            if(isScrolledIntoViewBid($('#divBidCarousel')))
+            {
+                if($('#divBidCarousel').hasClass('checkScroll'))
+                {
+                    $('#divBidCarousel').removeClass('checkScroll');
+                    //getExpBids();
+                }
+            }
+            
+            if(isScrolledIntoViewSocial($('#divFBTwitter')))
+            {
+                if($('#divFBTwitter').hasClass('checkScroll'))
+                {
+                    $('#divFBTwitter').removeClass('checkScroll');
+                    getSocialBox();
+                }
+            }
+        
+        });
+        $(document).ready(function(){
+            $('#myCarousel-one img').each(function(i){
+                console.log('------------'+$($('#myCarousel-one img').eq(i)))
+            });
+            $('#myCarousel-one img').each(function(i){
+                let dataSrc = $.trim($(this).attr('src'));
+                if(dataSrc != '')
+                {
+                    $(this).attr('src',dataSrc+'?version=20221223151755');
+                    
+                }
+            });
+        });
+          function isScrolledIntoViewBid(elem)
+   {
+        var docViewTop = $(window).scrollTop();
+        var docViewBottom = docViewTop + $(window).height() + 1000;
+
+        var elemTop = $(elem).offset().top;
+        var elemBottom = elemTop + $(elem).height();
+
+        return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    }
+    
+    function getSocialBox()
+    {
+        console.log('load social box');
+        let conWidth = Math.ceil($('#divFBTwitter').width())-30;
+        fetch('/home/get_social_box/?width='+conWidth).
+                then(res => res.text()).
+                then(data => $('#divFBTwitter').html(data));
+    }
+    
+    function isScrolledIntoViewSocial(elem)
+   {
+        var docViewTop = $(window).scrollTop();
+        var docViewBottom = docViewTop + $(window).height() + 500;
+
+        var elemTop = $(elem).offset().top;
+        var elemBottom = elemTop + $(elem).height();
+
+        return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    }  
+</script>    
+   -->
    

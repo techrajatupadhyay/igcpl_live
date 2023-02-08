@@ -26,6 +26,16 @@ class Home extends CI_Controller
 		$this->load->view('footer');
 	
 	}
+
+	public function gem()
+	{
+		//echo "ascac";			
+		$this->load->view('index_gem');	
+	
+	}
+
+
+
 	
 	
 }
