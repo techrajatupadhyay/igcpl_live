@@ -313,15 +313,15 @@ class SellerRegister extends CI_Controller
 							
 							'state_first'=>$state_first,
 							'district_first'=>$district_first,
-							'present_city'=>$city_second,
-							'present_pincode'=>$pincode_first,
-							'present_full_address'=>$current_address,	
+							'city_first'=>$city_first,
+							'pincode_first'=>$pincode_first,						
+							'current_address'=>$current_address,
 							
 							'state_second'=>$state_second,
 							'district_second'=>$district_second,
-							'permanent_city'=>$city_second,
-							'permanent_pincode'=>$pincode_second,
-							'permanent_full_address'=>$permanent_address,
+							'city_second'=>$city_second,
+							'pincode_second'=>$pincode_second,
+							'permanent_address'=>$permanent_address,
 
 							'companyname'=>$companyname,
 							'proprietor_name'=>$proprietor_name,
@@ -436,15 +436,15 @@ class SellerRegister extends CI_Controller
 					
 					'state_first'=>$state_first,
 					'district_first'=>$district_first,
-					'present_city'=>$city_second,
-					'present_pincode'=>$pincode_first,
-					'present_full_address'=>$current_address,	
+					'city_first'=>$city_first,
+					'pincode_first'=>$pincode_first,						
+					'current_address'=>$current_address,
 							
 					'state_second'=>$state_second,
 					'district_second'=>$district_second,
-					'permanent_city'=>$city_second,
-					'permanent_pincode'=>$pincode_second,
-					'permanent_full_address'=>$permanent_address,
+					'city_second'=>$city_second,
+					'pincode_second'=>$pincode_second,
+					'permanent_address'=>$permanent_address,
 
 					'companyname'=>$companyname,
 					'proprietor_name'=>$proprietor_name,
