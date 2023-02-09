@@ -151,7 +151,7 @@
                            <div class="col-12">
                               <?php $this->load->view('backend/form_top'); ?>                            
                               <div class="card-outline-info">
-                                 <form action="<?php echo base_url();?>SellerRegister/register_seller" method="post" enctype="multipart/form-data">
+                                 <form id="seller_registration_form" action="<?php echo base_url();?>SellerRegister/register_seller" method="post" enctype="multipart/form-data">
                                     <!--<div class="note" style="border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:red;">-->                               
                                     <div class="card-body">
                                        <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 18px; text-transform: capitalize;color:black">
@@ -174,11 +174,11 @@
                                        </div>
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>Seller Name  <span class="red-color">*</span></label>
-                                          <input type="text" name="fname" class="form-control form-control-line" required value="<?php echo $fname; ?>" placeholder="Your first name" minlength="2"  set_value='fname'>
+                                          <input type="text" name="fname" class="form-control form-control-line" id="seller_name" required value="<?php echo $fname; ?>" placeholder="Your first name" minlength="2"  set_value='fname'>
                                        </div>
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>Gender  <span class="red-color">*</span></label>                                         
-                                            <select name="gender" class="form-control custom-select" required >
+                                            <select id="gender" name="gender" class="form-control custom-select" required >
                                                 <option>Select Gender</option>
                                                 <option value="MALE" <?php echo $em_gender == "MALE" ? " selected" : "";?> >Male</option>
                                                 <option value="FEMALE" <?php echo $em_gender == "FEMALE" ? " selected" : "";?> >Female</option>
@@ -200,19 +200,19 @@
                                        </div>
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>Date Of Birth <span class="red-color span1">*</span></label>
-                                          <input type="date" name="dob" value="<?php echo $dob; ?>" class="form-control" placeholder="" required >
+                                          <input type="date" name="dob" id="dob" value="<?php echo $dob; ?>" class="form-control" placeholder="" required >
                                        </div>
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>Email  <span class="red-color">*</span></label>
                                           <input type="text" id="email" name="email" value="<?php echo $email; ?>" required class="form-control" placeholder="email@mail.com" >
                                        </div>
 										  
-									   <div class="form-group col-md-4 m-t-20">
+									            <div class="form-group col-md-4 m-t-20">
                                           <label>Region <span class="red-color"> * </span></label>
                                              <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-												<input type="text" id="region_id" name="regionid" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly > 
-											<!--	
+												           <input type="text" id="region_id" name="regionid" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly > 
+											             <!--	
                                                 <select id="region_id" name="region" class="form-control"  autocomplete="off" required>
                                                    <option value="">-- Select region --</option>
                                                    <?php 
@@ -223,7 +223,7 @@
                                                    <?php  
                                                       }  ?>
                                                 </select>
-											-->	
+										            	-->	
                                              </div>
                                           </div> 
                                        
@@ -326,7 +326,7 @@
                                                       </p>
                                                       <div class="input-group">
                                                          <div class="input-group-addon">
-                                                            <input type='file' accept="image/png, image/gif, image/jpeg, image/jpg" required name="seller_photo" onchange="proPic(this);" />                              
+                                                            <input type='file' accept="image/png, image/gif, image/jpeg, image/jpg" required id="emp_image" name="seller_photo" onchange="proPic(this);" />                              
                                                          </div>
                                                       </div>
                                                       <?php }  ?> 
@@ -382,15 +382,15 @@
                                        </div>
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>City : <span class="red-color span1">*</span></label>
-                                          <input type="text" name="city_second" class="form-control" value="<?php echo $city_second; ?>" required placeholder="city" >                                    
+                                          <input type="text" id="permanent_city" name="city_second" class="form-control" value="<?php echo $city_second; ?>" required placeholder="city" >                                    
                                        </div>
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>Pin Code <span class="red-color span1">*</span></label>
-                                          <input type="number" name="pincode_second" class="form-control" id="pin_code1" value="<?php echo $pincode_second; ?>" required placeholder="pin code" minlength="6" maxlength="6" >
+                                          <input type="number" name="pincode_second" id="pin_code2" class="form-control" id="pin_code1" value="<?php echo $pincode_second; ?>" required placeholder="pin code" minlength="6" maxlength="6" >
                                        </div>
                                        <div class="form-group col-md-12 m-t-20">
                                           <label>Address : <span class="red-color">*</span></label>
-                                          <textarea id="address" name="permanent_address" class="form-control" rows="4" placeholder="full permanaent address" required autocomplete="off" maxlength="100"><?php echo $permanent_full_address; ?></textarea>
+                                          <textarea id="permanent_full_address" name="permanent_address" class="form-control" rows="4" placeholder="full permanaent address" required autocomplete="off" maxlength="100"><?php echo $permanent_full_address; ?></textarea>
                                        </div>
                                     </div>
                                     <!-- ============ End Permanent Address ============ -->
@@ -439,15 +439,15 @@
                                        </div>
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>City : <span class="red-color span1">*</span></label>
-                                          <input type="text" name="city_first" class="form-control" value="<?php echo $city_first; ?>" required placeholder="city" >                       
+                                          <input type="text" name="city_first" id="present_city" class="form-control" value="<?php echo $city_first; ?>" required placeholder="city" >                       
                                        </div>
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>Pin Code <span class="red-color">*</span></label>
-                                          <input type="number" name="pincode_first" class="form-control" id="pin_code2" value="<?php echo $pincode_first; ?>" required placeholder="pin code" minlength="6" maxlength="6" >
+                                          <input type="number" name="pincode_first" class="form-control" id="pin_code1" value="<?php echo $pincode_first; ?>" required placeholder="pin code" minlength="6" maxlength="6" >
                                        </div>
                                        <div class="form-group col-md-12 m-t-20">
                                           <label>Address : <span class="red-color">*</span></label>
-                                          <textarea id="address" name="current_address" class="form-control" rows="4" placeholder="full current address" required autocomplete="off" maxlength="100"><?php echo $current_address; ?></textarea>
+                                          <textarea id="present_full_address" name="current_address" class="form-control" rows="4" placeholder="full current address" required autocomplete="off" maxlength="100"><?php echo $current_address; ?></textarea>
                                        </div>
                                     </div>
                                     <!-- ============ End Current Address ============ --> 
@@ -462,11 +462,11 @@
                                     <div class="row mx-3">
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>Company Name : <span class="red-color">*</span></label>
-                                          <input type="text" name="companyname" class="form-control" value="<?php echo $companyname; ?>" required placeholder="company name">
+                                          <input type="text" id="companyname" name="companyname" class="form-control" value="<?php echo $companyname; ?>" required placeholder="company name">
                                        </div>
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>Director Name : <span class="red-color">*</span></label>
-                                          <input type="text" name="proprietor_name" class="form-control" value="<?php echo $proprietor_name; ?>" required placeholder="company director name">
+                                          <input type="text" id="proprietor_name" name="proprietor_name" class="form-control" value="<?php echo $proprietor_name; ?>" required placeholder="company director name">
                                        </div>
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>PAN Number : <span class="red-color">*</span></label>
@@ -487,7 +487,7 @@
                                           <div class="row">
                                              <div class="col-md-12">
                                                 <div class="" style="float:right;">                                                
-                                                   <button type="submit"  name="submit" class="btn footer-button"><i class="fa fa-check"></i> Save & Next</button>                                                   
+                                                   <button type="submit"  name="submit" onclick='submitForm()' id="sub_btn" class="btn footer-button"><i class="fa fa-check"></i> Save & Next</button>                                                   
                                                 </div>
                                              </div>
                                           </div>
@@ -508,7 +508,141 @@
 <!-- Optional JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    
- 
+<script type="text/javascript">
+
+    function submitForm()
+	{
+				
+		var frm = $('#seller_registration_form');		
+		var user_type = document.getElementById('usertype').value;      		
+		var seller_name = document.getElementById('seller_name').value;
+      var contact = document.getElementById('contact').value;
+      var email = document.getElementById('email').value;
+      var gender = document.getElementById('gender').value;
+      var aadharno = document.getElementById('aadharno').value;		
+		var dob = document.getElementById('dob').value;	
+
+      var region_id = document.getElementById('region_id').value;
+      var region_state = document.getElementById('region_state').value;
+      var district_branch = document.getElementById('district_branch').value;
+	
+		var stateid_first = document.getElementById('stateid_first').value;
+      var district_first = document.getElementById('district_first').value;
+      var city_first = document.getElementById('present_city').value;
+      var pin_code1 = document.getElementById('pin_code1').value;		
+      var present_full_address = document.getElementById('present_full_address').value;
+		
+      var stateid_second = document.getElementById('stateid_second').value;		
+		var district_second = document.getElementById('district_second').value;	
+      var city_second = document.getElementById('permanent_city').value;
+		var pin_code2 = document.getElementById('pin_code2').value;		
+		var permanent_full_address = document.getElementById('permanent_full_address').value;	
+        
+		var companyname = document.getElementById('companyname').value;
+      var proprietor_name = document.getElementById('proprietor_name').value;
+		var panNo = document.getElementById('panNo').value;
+		var gstin = document.getElementById('gstin').value;
+		var emp_image = document.getElementById('emp_image').value;
+		
+		
+		if (user_type =="") 
+		{
+			alert("User Type is Mandatory!");			
+		}
+		else if (seller_name =='') 
+		{
+			alert("Seller Name is Mandatory!");
+		}
+		else if (contact =='') 
+		{
+			alert("Contact Number is Mandatory!");
+		}
+		else if (email =='') 
+		{
+			alert("Email is Mandatory!");
+		}
+		else if (gender =='') 
+		{
+			alert("Gender is Mandatory!");
+		}
+		else if (dob =='') 
+		{
+			alert("Date of Birth is Mandatory!");
+		}
+		else if (stateid_first =='' || district_first =='' || city_first =='' || pin_code1 =='' || present_full_address =='') 
+		{
+			alert("Present Address is Mandatory!");
+		}
+		else if (stateid_second =='' || district_second =='' || city_second =='' || pin_code2 =='' || permanent_full_address =='') 
+		{
+			alert("Permanent Address is Mandatory!");
+		}
+		else if (companyname =='') 
+		{
+			alert("Company name is Mandatory!");
+		}
+      else if (proprietor_name =='') 
+		{
+			alert("Director name is Mandatory!");
+		}
+		else if (aadharno =='') 
+		{
+			alert("Employee Aadhar Number is Mandatory!");
+		}
+		else if (panNo =='') 
+		{
+			alert("PAN Number is Mandatory!");
+		}
+		else if (gstin =='') 
+		{
+			alert("GST Number is Mandatory!");
+		}
+		else if (emp_image =='') 
+		{
+			alert("Seller Image is Mandatory!");
+		}
+      else if (region_id =='') 
+		{
+			alert("Region ID is Mandatory!");
+		}
+		else if (region_state =='') 
+		{
+			alert("Region State is Mandatory!");
+		}
+		else if (district_branch =='') 
+		{
+			alert("State Branch is Mandatory!");
+		}	
+		else
+		{
+
+			document.getElementById("seller_registration_form").submit();
+			
+			$("#sub_btn").html('<i class="fa fa-spinner fa-spin"></i>Submitting...');
+	        document.getElementById('sub_btn').disabled = true;
+			/*	
+				$.ajax({
+					type: frm.attr('method'),
+					url:  frm.attr('action'),				
+					data: frm.serialize(),
+					success: function (data) {
+						//alert('Submission was successful.');
+						console.log(data);
+					},
+					error: function (data) {
+						alert('An error occurred.');
+						console.log('An error occurred.');
+						console.log(data);
+					},
+				});
+			*/	
+		}
+		
+    }
+		
+</script>
+
+
 <script type="text/javascript">
 $(document).ready(function() {
 	

@@ -175,9 +175,10 @@ class SellerRegister extends CI_Controller
             $password = substr( str_shuffle( $chars ), 0, 8 );				
 		    $user_password=hash_hmac('sha256',$password, 'aSm0$i_20eNh3os');
 			
-		if($this->input->post('isedit')==0)
+		if($this->input->post('isedit') == 0)
         {
-			 
+			
+			
 	        $this->db->select('*');
 	        $this->db->from('users');
 	        //$this->db->where('contact_no',$contact);
@@ -189,7 +190,7 @@ class SellerRegister extends CI_Controller
 	        $sellercount = $query->num_rows();
 		    //print_r($this->db->last_query());
 			
-            if($sellercount ==0)
+            if($sellercount == 0)
             {   
 	
 				date_default_timezone_set('Asia/Kolkata');      
@@ -218,7 +219,7 @@ class SellerRegister extends CI_Controller
 				}
 				
 				
-				    $seller_photo = $this->input->post('seller_photo');
+				    //$seller_photo = $this->input->post('seller_photo');
                     $targetDir = "uploads/Seller_Documents/".$regionid."/".$seller_id."/" ;										
 					$allowTypes = array('jpg', 'png', 'jpeg');
 					if (!file_exists($targetDir)) 
@@ -331,7 +332,8 @@ class SellerRegister extends CI_Controller
 													    
 				        if($lastinsertid > 0)
 				        { 
-										 	    
+							echo "vvava";
+							die;			 	    
 							//$this->session->set_userdata('sellerid',$seller_id);
 	                        $this->session->set_flashdata('status_test', 'Data Save Successfully !');
 	                        $this->session->set_flashdata('status_icon', 'success');
@@ -346,7 +348,7 @@ class SellerRegister extends CI_Controller
 				  	        $this->session->set_flashdata('status_test', 'Error due to Faild to Save Data!');
                             $this->session->set_flashdata('status_icon', 'error');
                             $this->session->set_flashdata('status', 'Data Not Saved !');
-                            return redirect('SellerRegister');
+                            return redirect('SellerRegister/index');
 							
 				        }			 
 			}
@@ -356,17 +358,17 @@ class SellerRegister extends CI_Controller
                 $this->session->set_flashdata('status_test', 'This Seller is already Registered !');
                 $this->session->set_flashdata('status_icon', 'info');
                 $this->session->set_flashdata('status', 'Data Not Saved !');
-                return redirect('SellerRegister');
+                return redirect('SellerRegister/index');
 				
 			}
 			
 		}
 		else
 		{
-			
+			echo "edit";
 			$sellerid = $this->input->post('sellerid');
 			$id = $this->input->post('id');
-			
+			die;
 			$usersaveData=array(		   
 					//'user_id'=>$seller_id,							
 					//'user_type'=> $usertype,

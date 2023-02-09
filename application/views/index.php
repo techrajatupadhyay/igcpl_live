@@ -1,157 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <style>
-         /*about*/
-         .ft-about-img {
-         margin-top: -113px;
+   <style>
+         /about/
+         .ft-about-img 
+         {
+            margin-top: -113px;
          }
-         .service{
-         width:100%!important;
-         height:150px!important;    
+         .service
+         {
+            width:100%!important;
+            height:150px!important;    
          }
-         .ft-about-exp-img {
-         float: right;
-         position: absolute;
+         .ft-about-exp-img 
+         {
+            float: right;
+            position: absolute;
          }
          @media only screen and (max-width: 800px)
          {
-         .slider_text
-         {
-         z-index: 9;
-         font-family: Poppins;
-         height: auto;
-         width: auto;
-         color: rgb(0, 0, 0);
-         text-decoration: none;
-         white-space: nowrap;
-         min-height: 0px;
-         min-width: 0px;
-         max-height: none;
-         max-width: none;
-         text-align: left;
-         line-height: 34px;
-         letter-spacing: 0px;
-         font-weight: 700;
-         font-size: 24px;
-         transform-style: preserve-3d;
-         transform-origin: 50% 50%;
-         transform: perspective(600px);
-         opacity: 1;
-         visibility: visible;
-         }
+            .slider_text
+            {
+               z-index: 9;
+               font-family: Poppins;
+               height: auto;
+               width: auto;
+               color: rgb(0, 0, 0);
+               text-decoration: none;
+               white-space: nowrap;
+               min-height: 0px;
+               min-width: 0px;
+               max-height: none;
+               max-width: none;
+               text-align: left;
+               line-height: 34px;
+               letter-spacing: 0px;
+               font-weight: 700;
+               font-size: 24px;
+               transform-style: preserve-3d;
+               transform-origin: 50% 50%;
+               transform: perspective(600px);
+               opacity: 1;
+               visibility: visible;
+            }
          }
          .ft-why-choose-section-img
          {
-         width: 100%;
-         margin-top: 8%;
-         padding-top: 120px;
-         float: left;
-         margin-left: 100px;
-         height: 600px;
+            width: 100%;
+            margin-top: 8%;
+            padding-top: 120px;
+            float: left;
+            margin-left: 100px;
+            height: 600px;
          }
-         .ft-why-choose-text-area{
-         width: 50%;
-         float: right;
-         margin-top: -53%;
+         .ft-why-choose-text-area
+         {
+            width: 50%;
+            float: right;
+            margin-top: -53%;
          }
-         .partner-img{
-         margin-top: 48%;
-         height: 150px;
-         margin-left: 15%;
-         width: 100%;
-         visibility: visible;
-         animation-duration: 1500ms;
-         animation-delay: 0ms;
-         animation-name: fadeInUp;
+         .partner-img
+         {
+            margin-top: 48%;
+            height: 150px;
+            margin-left: 15%;
+            width: 100%;
+            visibility: visible;
+            animation-duration: 1500ms;
+            animation-delay: 0ms;
+            animation-name: fadeInUp;
          }
-         .partner-img-card{
-         margin-left: -37px;
-         /*box-shadow: 2px 2px 2px 2px #acacac;*/
+         .partner-img-card
+         {
+            margin-left: -37px;
          }
-         .ft-about-exp-text{
-         margin-top: -220px;
-         padding: 0px 20px;
+         .ft-about-exp-text
+         {
+            margin-top: -220px;
+            padding: 0px 20px;
          }
-         .service{
-         height: 200px;
-         width: 100%;
+         .service
+         {
+            height: 200px;
+            width: 100%;
          }
-         @media screen and (max-width: 891px){
-         .partner-img{
-         margin-top: 32%;
-         height: 165px;
-         margin-left: -1%;
-         width: 55%;
-         visibility: visible;
-         animation-duration: 1500ms;
-         animation-delay: 0ms;
-         animation-name: fadeInUp;
+         @media screen and (max-width: 891px)
+         {
+            .partner-img
+            {
+               margin-top: 32%;
+               height: 165px;
+               margin-left: -1%;
+               width: 55%;
+               visibility: visible;
+               animation-duration: 1500ms;
+               animation-delay: 0ms;
+               animation-name: fadeInUp;
+            }
+            .partner-img-card
+            {
+               margin-left: 4px
+            }
+            .multifaceted
+            {
+               margin: -108% 0px 0px 103px;
+            }
+            .service
+            {
+               height: 180px !important;
+               width: 100% !important;
+            }
+            .ft-about-exp-text 
+            {
+               margin-top: -180px;
+               padding: 0px 16px;
+            }
          }
-         .partner-img-card{
-         margin-left: 4px
+         @media screen and (max-width: 750px)
+         {
+            .multifaceted 
+            {
+               margin: -107% 0px 0px 81px;
+            }
+            .ft-about-exp-text 
+            {
+               margin-top: -177px;
+               padding: 0px -20px;
+            }
          }
-         .multifaceted{
-         margin: -108% 0px 0px 103px;
+         @media screen and (max-width: 430px)
+         {
+            .ft-about-exp-text 
+            {
+               margin-top: -212px!important;
+               padding: 0px 67px!important;
+            }
          }
-         .service{
-         height: 180px !important;
-         width: 100% !important;
-         }
-         .ft-about-exp-text {
-         margin-top: -180px;
-         padding: 0px 16px;
-         }
-         }
-         @media screen and (max-width: 750px){
-         .multifaceted {
-         margin: -107% 0px 0px 81px;
-         }
-         .ft-about-exp-text {
-         margin-top: -177px;
-         padding: 0px -20px;
-         }
-         }
-         @media screen and (max-width: 430px){
-         .ft-about-exp-text {
-          margin-top: -212px!important;
-          padding: 0px 67px!important;
-          }
-           }
-         @media screen and (max-width: 560px){
-         .ft-about-exp-text {
-          margin-top: -185px!important;
-          padding: 0px 52px!important;
-         }
+         @media screen and (max-width: 560px)
+         {
+            .ft-about-exp-text 
+            {
+               margin-top: -185px!important;
+               padding: 0px 52px!important;
+            }
          }  
-         @media screen and (max-width: 650px){
-         .ft-about-exp-text {
-         margin-top: -179px!important;
-         padding: 0px 52px!important;
+         @media screen and (max-width: 650px)
+         {
+            .ft-about-exp-text 
+            {
+               margin-top: -179px!important;
+               padding: 0px 52px!important;
+            }
+            .service
+            {
+               height: 180px !important;
+               width: 100% !important;
+            }
+            .ft-about-exp-text
+            {
+               margin-top: -195px;
+               padding: 0px 16px;
+            }
+            .ft-why-choose-section-img
+            {
+               display: none;
+            }
+            .ft-why-choose-text-area 
+            {
+               width: 100%;
+               float: right;
+               margin-top: 20%!important;
+            }
          }
-         .service{
-         height: 180px !important;
-         width: 100% !important;
+         .ft-why-choose-text-area 
+         {
+            width: 100%;
+            float: right;
+            margin-top: 10%;
          }
-         .ft-about-exp-text {
-         margin-top: -195px;
-         padding: 0px 16px;
-         }
-         .ft-why-choose-section-img{
-         display: none;
-         }
-         .ft-why-choose-text-area {
-         width: 100%;
-         float: right;
-         margin-top: 20%!important;
-         }
-         }
-         .ft-why-choose-text-area {
-         width: 100%;
-         float: right;
-         margin-top: 10%;
-         }
-         }
+         
          .rev_redraw_on_blurfocus{
          margin-top: -70px!important;
          }
@@ -169,17 +196,114 @@
     transform: translate(0px, 0px);
     opacity: 1;
     
+    
         }
 
-        @media only screen and (max-width: 450px) {
-         .director_info {
-     width: 100%!important; 
-    margin: auto;
+        .twitter-timeline{
+         display: flex; width: 470px; max-width: 100%; margin-top: 0px; margin-bottom: 0px;
+        }
+        #twitter-widget-0{
+         position: static; visibility: visible; width: 483px; height: 330px; display: block; flex-grow: 1;}
+
+          #sub-frame-error 
+         {
+             -webkit-align-items: center;
+             -webkit-flex-flow: column;
+             -webkit-justify-content: center;
+             background-color: #DDD;
+             display: -webkit-flex;
+             height: 100%;
+             left: 0;
+             position: absolute;
+             text-align: center;
+             top: 0;
+             transition: background-color 200ms ease-in-out;
+             width: 100%;
+         }
+
+         
+         .facebook_div{
+           height:328px;
+           width:500px;
+           overflow-x:hidden;
+           /*overflow-y:scroll;*/
+           margin: auto;
+         }
+
+         .ft-counterup-innerbox{
+             margin-right:-10px;
+         }
+
+         .fb{
+             margin-right:-40px;
+         }
+
+
+ @media only screen and (max-width: 450px) 
+ {
+         .director_info 
+         {
+            width: 100%!important; 
+            margin: auto;
+         }
+
+
+         .twitter-timeline {
+    display: flex;
+    width: 200px;
+    max-width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
-        }
 
-      </style>
-   </head>
+         #twitter-widget-0 {
+             position: static;
+             visibility: visible;
+             width: 83px;
+             height: 330px;
+             display: block;
+             flex-grow: 1;
+         }
+
+         #sub-frame-error 
+         {
+             -webkit-align-items: center;
+             -webkit-flex-flow: column;
+             -webkit-justify-content: center;
+             background-color: #DDD;
+             display: -webkit-flex;
+             height: 100%;
+             left: 0;
+             position: absolute;
+             text-align: center;
+             top: 0;
+             transition: background-color 200ms ease-in-out;
+             width: 40%;
+         }
+
+
+         .facebook_div{
+           height:328px;
+           width:194px;
+           overflow-x:hidden;
+           overflow-y:scroll;
+           margin: auto;
+         }
+         .ft-counterup-innerbox{
+             margin-right:0px;
+         }
+                 
+}
+       
+       rs-mask-wrap a {
+         color: #003440!important;
+         font-weight:600;
+       } 
+
+</style>
+
+
+</head>
    <body>
       <div id="preloader"></div>
       <div class="up">
@@ -704,51 +828,48 @@
          </div>       
       </section>
    
-
-   <section id="ft-counterup" class="ft-counterup-section" style="height: 255px !importent">
-		<div class="container" ">
+      <section id="ft-counterup" class="ft-counterup-section" style="height: 255px !importent">
+      <div class="container" >
       <div class="ft-section-title headline pera-content text-center">
                <span class="sub-title">INDIGEM UPDATES</span>
             </div><br>
-			<div class="ft-counterup-content">
-				<div class="row">
+         <div class="ft-counterup-content">
+            <div class="row">
 
-					<div class="col-lg-6 col-md-6">
-						<div class="ft-counterup-innerbox d-flex align-items-center position-relative" style="margin-right: -15px;">
-							<div class="ft-counterup-icon d-flex align-items-center justify-content-center">
+               <div class="col-lg-6 col-md-6">
+                  <div class="ft-counterup-innerbox d-flex align-items-center position-relative" >
+                     <div class="ft-counterup-icon d-flex align-items-center justify-content-center">
                      <i class="fa fa-twitter" aria-hidden="true"></i>
-							</div>
-							<div class="ft-counterup-text headline pera-content">
-                        <div class="twitter-timeline twitter-timeline-rendered" style="display: flex; width: 470px; max-width: 100%; margin-top: 0px; margin-bottom: 0px;">
-                           <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" style="position: static; visibility: visible; width: 483px; height: 330px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/indigemcp?dnt=false&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19idXNpbmVzc192ZXJpZmllZF9iYWRnZSI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19leHBlcmltZW50c19jb29raWVfZXhwaXJhdGlvbiI6eyJidWNrZXQiOjEyMDk2MDAsInZlcnNpb24iOm51bGx9LCJ0ZndfZHVwbGljYXRlX3NjcmliZXNfdG9fc2V0dGluZ3MiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3ZpZGVvX2hsc19keW5hbWljX21hbmlmZXN0c18xNTA4MiI6eyJidWNrZXQiOiJ0cnVlX2JpdHJhdGUiLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmx1ZV92ZXJpZmllZF9iYWRnZSI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19nb3ZfdmVyaWZpZWRfYmFkZ2UiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYnVzaW5lc3NfYWZmaWxpYXRlX2JhZGdlIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2Zyb250ZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH19&amp;frame=false&amp;hideBorder=false&amp;hideFooter=true&amp;hideHeader=true&amp;hideScrollBar=false&amp;lang=en&amp;limit=2&amp;maxHeight=330px&amp;origin=https%3A%2F%2Fgem.gov.in%2F&amp;sessionId=46ebb11b63f93d7619f9a380b837a513a2fd1301&amp;showHeader=false&amp;showReplies=false&amp;transparent=false&amp;widgetsVersion=aaf4084522e3a%3A1674595607486"></iframe>
+                     </div>
+                     <div class="ft-counterup-text headline pera-content">
+
+                        <div class="twitter-timeline twitter-timeline-rendered">
+
+                           <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class=""  title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/indigemcp?dnt=false&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19idXNpbmVzc192ZXJpZmllZF9iYWRnZSI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19leHBlcmltZW50c19jb29raWVfZXhwaXJhdGlvbiI6eyJidWNrZXQiOjEyMDk2MDAsInZlcnNpb24iOm51bGx9LCJ0ZndfZHVwbGljYXRlX3NjcmliZXNfdG9fc2V0dGluZ3MiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3ZpZGVvX2hsc19keW5hbWljX21hbmlmZXN0c18xNTA4MiI6eyJidWNrZXQiOiJ0cnVlX2JpdHJhdGUiLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmx1ZV92ZXJpZmllZF9iYWRnZSI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19nb3ZfdmVyaWZpZWRfYmFkZ2UiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYnVzaW5lc3NfYWZmaWxpYXRlX2JhZGdlIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2Zyb250ZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH19&amp;frame=false&amp;hideBorder=false&amp;hideFooter=true&amp;hideHeader=true&amp;hideScrollBar=false&amp;lang=en&amp;limit=2&amp;maxHeight=330px&amp;origin=https%3A%2F%2Fgem.gov.in%2F&amp;sessionId=46ebb11b63f93d7619f9a380b837a513a2fd1301&amp;showHeader=false&amp;showReplies=false&amp;transparent=false&amp;widgetsVersion=aaf4084522e3a%3A1674595607486"></iframe>
+
                         </div>
                         <script defer="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                      </div>
-						</div>
-					</div>
-					           
-					<div class="col-lg-6 col-md-6">
-						<div class="ft-counterup-innerbox d-flex align-items-center position-relative " style="margin-right: -40px;">
-							<div class="ft-counterup-icon d-flex align-items-center justify-content-center">
-								<i class="fa fa-facebook"></i>
-							</div>
-							<div class="ft-counterup-text headline pera-content">
-                        <div style="height:328px; width:494px; overflow-x:hidden;  overflow-y:scroll; margin: auto;">
-                           <!--<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FgovGeM%2F&amp;tabs=timeline&amp;width=500&amp;height=440&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=true&amp;show_facepile=true&amp;appId" width="100%" data-width="100%" height="328" style="border:none;overflow:hidden" scrolling="no" allowtransparency="true"></iframe>-->                                 
-                           <!--<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100086466156513&tabs=timeline&width=460&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" data-width="100%" height="328" style="border:none;overflow:hidden" scrolling="no" allowtransparency="true"></iframe>-->                                 
-                           <!--<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100084913943938&tabs=timeline&width=460&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" data-width="100%" height="328" style="border:none;overflow:hidden" scrolling="no" allowtransparency="true"></iframe>-->
-                              <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100084913943938&tabs=timeline&amp;width=500&amp;height=440&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=true&amp;show_facepile=true&amp;appId" width="100%" data-width="100%" height="328" style="border:none;overflow:hidden" scrolling="no" allowtransparency="true"></iframe>
-                           </div>
-							</div>
-						</div>
-					</div>
+                  </div>
+               </div>
+                          
+               <div class="col-lg-6 col-md-6">
+                  <div class="ft-counterup-innerbox d-flex align-items-center position-relative fb " >
+                     <div class="ft-counterup-icon d-flex align-items-center justify-content-center">
+                        <i class="fa fa-facebook"></i>
+                     </div>
+                     <div class="ft-counterup-text headline pera-content">
+                        <div class="facebook_div">                         
+                           <iframe  scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100084913943938&tabs=timeline&amp;width=500&amp;height=440&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=true&amp;show_facepile=true&amp;appId" width="100%" data-width="100%" height="328" style="border:none;overflow:hidden" scrolling="no" allowtransparency="true"></iframe>                                
+                        </div>
+                     </div>
+                  </div>
+               </div>
             
-				</div>	
-			</div>
-		</div>
-	</section>
-
-
+            </div>   
+         </div>
+      </div>
+   </section>
 
 
 <!--                             	
@@ -815,41 +936,40 @@
 
 
 
-
    <section id="ft-funfact" class="ft-funfact-section">
-		<div class="container">
-			<div class="ft-funfact-content">
-				<div class="row">					
-					<div class="col-lg-6 col-md-6">
-						<div class="ft-funfact-innerbox text-center">
-							<div class="ft-funfact-icon">
-								<i class="fal fa-users"></i>
-							</div>
-							<div class="ft-funfact-text headline pera-content">
+      <div class="container">
+         <div class="ft-funfact-content">
+            <div class="row">             
+               <div class="col-lg-6 col-md-6">
+                  <div class="ft-funfact-innerbox text-center">
+                     <div class="ft-funfact-icon">
+                        <i class="fal fa-users"></i>
+                     </div>
+                     <div class="ft-funfact-text headline pera-content">
                         <?php    
                            $web_visiters = $this->db->query("SELECT * FROM  hits ");
                            $visiters= $web_visiters->num_rows();
-                           //print_r($this->db->last_query());												
+                           //print_r($this->db->last_query());                                  
                         ?>
-								<h3><span class="counter"><?php echo $visiters;  ?></span></h3>
-								<p>Total Visiters</p>
-							</div>
-						</div>
-					</div>					
-					<div class="col-lg-6 col-md-6">
-						<div class="ft-funfact-innerbox text-center">
-							<div class="ft-funfact-icon">
-								<i class="fal fa-medal"></i>
-							</div>
-							<div class="ft-funfact-text headline pera-content">
-								<h3><span class="counter">100</span>%</h3>
-								<p>Satisfaction Rate</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+                        <h3><span class="counter"><?php echo $visiters;  ?></span></h3>
+                        <p>Total Visiters</p>
+                     </div>
+                  </div>
+               </div>               
+               <div class="col-lg-6 col-md-6">
+                  <div class="ft-funfact-innerbox text-center">
+                     <div class="ft-funfact-icon">
+                        <i class="fal fa-medal"></i>
+                     </div>
+                     <div class="ft-funfact-text headline pera-content">
+                        <h3><span class="counter">100</span>%</h3>
+                        <p>Satisfaction Rate</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
 
    
