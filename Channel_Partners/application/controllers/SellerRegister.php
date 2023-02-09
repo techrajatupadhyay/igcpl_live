@@ -365,10 +365,10 @@ class SellerRegister extends CI_Controller
 		}
 		else
 		{
-			echo "edit";
+			echo "edit11";
 			$sellerid = $this->input->post('sellerid');
 			$id = $this->input->post('id');
-			die;
+			die ;
 			$usersaveData=array(		   
 					//'user_id'=>$seller_id,							
 					//'user_type'=> $usertype,

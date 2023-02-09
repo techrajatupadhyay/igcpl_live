@@ -570,8 +570,7 @@
          </rs-module>
       </rs-module-wrap>
       
-
-   
+   <!--
       <section class="sc scrolltexthide" style="color:#00044b;">
          <div style="background: #f8f8f8;padding: 8px;">
             <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
@@ -579,14 +578,14 @@
             </marquee>
          </div>
       </section>
-   
-
-
+   -->
 
       <!-- End of Booking form section
          ============================================= -->
       <!-- Start of About section
          ============================================= -->
+
+
       <section id="ft-about" class="ft-about-section">
          <div class="container">
             <div class="ft-about-content">
@@ -611,7 +610,7 @@
                            </div>
                         </div>
                      </div>
-                   
+                  
                   </div>
                   <div class="col-lg-6">
                      <div class="ft-about-text-wrapper ">
