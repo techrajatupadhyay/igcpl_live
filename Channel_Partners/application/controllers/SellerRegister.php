@@ -177,8 +177,7 @@ class SellerRegister extends CI_Controller
 			
 		if($this->input->post('isedit') == 0)
         {
-			
-			
+						
 	        $this->db->select('*');
 	        $this->db->from('users');
 	        //$this->db->where('contact_no',$contact);
@@ -365,10 +364,10 @@ class SellerRegister extends CI_Controller
 		}
 		else
 		{
-			echo "edit11";
+			//echo "edit11";
 			$sellerid = $this->input->post('sellerid');
 			$id = $this->input->post('id');
-			die ;
+			//die ;
 			$usersaveData=array(		   
 					//'user_id'=>$seller_id,							
 					//'user_type'=> $usertype,
