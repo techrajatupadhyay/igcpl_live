@@ -156,14 +156,17 @@ class SellerRegister extends CI_Controller
 			$district_first = $this->input->post('district_first');
 			$city_first = $this->input->post('city_first');
 			$pincode_first = $this->input->post('pincode_first');
-			$permanent_address = $this->input->post('permanent_address');
 			$current_address = $this->input->post('current_address');
+						
 			$state_second = $this->input->post('state_second');
 			$district_second = $this->input->post('district_second');
 			$city_second = $this->input->post('city_second');
 			$pincode_second = $this->input->post('pincode_second');
+            $permanent_address = $this->input->post('permanent_address');
+
 			$state = $this->input->post('state');
 			$pincode = $this->input->post('pincode');
+
 			$companyname = $this->input->post('companyname');
 			$proprietor_name = $this->input->post('proprietor_name');
 			$gstin = $this->input->post('gstin');
@@ -267,9 +270,10 @@ class SellerRegister extends CI_Controller
 							
 							'state_second'=>$state_second,
 							'district_second'=>$district_second,
-							'permanent_city'=>$pincode_second,
+							'permanent_city'=>$city_second,
 							'permanent_pincode'=>$pincode_second,
-							'permanent_full_address'=>$permanent_address,							
+							'permanent_full_address'=>$permanent_address,
+														
 							'status'=> 'ACTIVE',														
 							'em_gender'=>$gender,							
 							'aadhar_number'=>$aadhar,
@@ -309,15 +313,16 @@ class SellerRegister extends CI_Controller
 							
 							'state_first'=>$state_first,
 							'district_first'=>$district_first,
-							'city_first'=>$city_first,
-							'pincode_first'=>$pincode_first,						
-							'current_address'=>$current_address,
+							'present_city'=>$city_second,
+							'present_pincode'=>$pincode_first,
+							'present_full_address'=>$current_address,	
 							
 							'state_second'=>$state_second,
 							'district_second'=>$district_second,
-							'city_second'=>$city_second,
-							'pincode_second'=>$pincode_second,
-							'permanent_address'=>$permanent_address,
+							'permanent_city'=>$city_second,
+							'permanent_pincode'=>$pincode_second,
+							'permanent_full_address'=>$permanent_address,
+
 							'companyname'=>$companyname,
 							'proprietor_name'=>$proprietor_name,
 							'gstin'=>$gstin,
@@ -331,8 +336,7 @@ class SellerRegister extends CI_Controller
 													    
 				        if($lastinsertid > 0)
 				        { 
-							echo "vvava";
-							die;			 	    
+										 	    
 							//$this->session->set_userdata('sellerid',$seller_id);
 	                        $this->session->set_flashdata('status_test', 'Data Save Successfully !');
 	                        $this->session->set_flashdata('status_icon', 'success');
@@ -364,10 +368,10 @@ class SellerRegister extends CI_Controller
 		}
 		else
 		{
-			//echo "edit11";
+			
 			$sellerid = $this->input->post('sellerid');
 			$id = $this->input->post('id');
-			//die ;
+			
 			$usersaveData=array(		   
 					//'user_id'=>$seller_id,							
 					//'user_type'=> $usertype,
@@ -381,17 +385,19 @@ class SellerRegister extends CI_Controller
 					//'region'=>$regionid,
 					//'division'=>$fname,
 					//'Laabh_executive'=>$labh_executive_id,							
+					
 					'state_first'=>$state_first,
 					'district_first'=>$district_first,
 					'present_city'=>$city_second,
 					'present_pincode'=>$pincode_first,
 					'present_full_address'=>$current_address,	
 							
-					'state_second'=>$state_second,
+				    'state_second'=>$state_second,
 					'district_second'=>$district_second,
-					'permanent_city'=>$pincode_second,
+					'permanent_city'=>$city_second,
 					'permanent_pincode'=>$pincode_second,
-					'permanent_full_address'=>$permanent_address,							
+					'permanent_full_address'=>$permanent_address,
+
 					'status'=> 'ACTIVE',														
 					'em_gender'=>$gender,							
 					'aadhar_number'=>$aadhar,
@@ -430,14 +436,16 @@ class SellerRegister extends CI_Controller
 					
 					'state_first'=>$state_first,
 					'district_first'=>$district_first,
-					'city_first'=>$city_first,
-					'pincode_first'=>$pincode_first,
-					'permanent_address'=>$permanent_address,
-					'current_address'=>$current_address,
+					'present_city'=>$city_second,
+					'present_pincode'=>$pincode_first,
+					'present_full_address'=>$current_address,	
+							
 					'state_second'=>$state_second,
 					'district_second'=>$district_second,
-					'city_second'=>$city_second,
-					'pincode_second'=>$pincode_second,
+					'permanent_city'=>$city_second,
+					'permanent_pincode'=>$pincode_second,
+					'permanent_full_address'=>$permanent_address,
+
 					'companyname'=>$companyname,
 					'proprietor_name'=>$proprietor_name,
 					'gstin'=>$gstin,
