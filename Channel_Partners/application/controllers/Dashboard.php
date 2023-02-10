@@ -32,7 +32,7 @@ class Dashboard extends CI_Controller
 		else
 		{
 			
-			redirect('Login/login');
+			redirect('Login');
 			
 		}
 		
@@ -206,7 +206,7 @@ class Dashboard extends CI_Controller
 		else
 		{
 			
-			redirect('Login/login');
+			redirect('Login');
 			
 		} 
 		
