@@ -24,20 +24,21 @@
                                                 <div class="col">
                                                     <p class="m-b-5 text-white">Laabh Agents</p>
                                                     <h4 class="m-b-0 text-white"> 
-														<?php 														
-															$this->db->from("users");
-															$this->db->where('user_type',5);
-															$this->db->where('Laabh_executive',$userid);
-															$this->db->where('region',$region);
-															$this->db->where('region_state',$region_state);
-							                                $this->db->where('district_branch',$district_branch);
-															$this->db->where('status','ACTIVE');
-															echo $this->db->count_all_results();
-														?> 
-													</h4>
+                                                      <?php 														
+                                                         $this->db->from("users");
+                                                         $this->db->where('user_type',5);
+                                                         $this->db->where('Laabh_executive',$userid);
+                                                         $this->db->where('region',$region);
+                                                         $this->db->where('region_state',$region_state);
+                                                         $this->db->where('district_branch',$district_branch);
+                                                         $this->db->where('status','ACTIVE');
+                                                         echo $this->db->count_all_results();
+                                                         
+                                                      ?> 
+                                                   </h4>
                                                 </div>
                                                 <div class="col col-auto text-right">
-                                                   <i class="feather icon-users f-50 text-c-green"></i>
+                                                   <i class="feather icon-user-plus f-50 text-c-green"></i>
                                                 </div>
                                              </div>
                                           </div>
@@ -51,19 +52,19 @@
                                                 <div class="col">
                                                    <p class="m-b-5 text-white">Onborded Sellers</p>
                                                     <h4 class="m-b-0 text-white"> 
-														<?php 														
-															$this->db->from("seller");															
-															$this->db->where('region_id',$region);
-															$this->db->where('labh_emp_id',$userid);
-															$this->db->where('region_state',$region_state);
-							                                $this->db->where('district_branch',$district_branch);
-															$this->db->where('seller_status',1);
-															echo $this->db->count_all_results();
-														?> 
-													</h4>
+                                                      <?php 														
+                                                         $this->db->from("seller");															
+                                                         $this->db->where('region_id',$region);
+                                                         $this->db->where('labh_emp_id',$userid);
+                                                         $this->db->where('region_state',$region_state);
+                                                         $this->db->where('district_branch',$district_branch);
+                                                         $this->db->where('seller_status',1);
+                                                         echo $this->db->count_all_results();
+                                                      ?> 
+                                                   </h4>
                                                 </div>
                                                 <div class="col col-auto text-right">
-                                                   <i class="feather icon-user f-50 text-c-yellow"></i>
+                                                   <i class="feather icon-user-check f-50 text-c-yellow"></i>
                                                 </div>
                                              </div>
                                           </div>
@@ -78,16 +79,17 @@
                                                 <div class="col">
                                                    <p class="m-b-5 text-white">Workorders</p>
                                                     <h4 class="m-b-0 text-white"> 
-														<?php 														
-															$this->db->from("work_order");
-															$this->db->where('region_id',$region);
-															$this->db->where('region_state',$region_state);
-															$this->db->where('district_branch',$district_branch);
-															//$this->db->where('user_type',2);
-															//$this->db->where('status','ACTIVE');
-															echo $this->db->count_all_results();
-														?> 
-													</h4>
+                                                      <?php 														
+                                                         $this->db->from("work_order");
+                                                         $this->db->where('executive_id',$userid); 	
+                                                         $this->db->where('region_id',$region);
+                                                         $this->db->where('region_state',$region_state);
+                                                         $this->db->where('district_branch',$district_branch);
+                                                         //$this->db->where('user_type',2);
+                                                         //$this->db->where('status','ACTIVE');
+                                                         echo $this->db->count_all_results();
+                                                      ?> 
+                                                   </h4>
                                                 </div>
                                                 <div class="col col-auto text-right">
                                                    <i class="feather icon-shopping-cart f-50 text-c-blue"></i>
@@ -103,16 +105,17 @@
                                                 <div class="col">
                                                    <p class="m-b-5 text-white">Delivered Workorders</p>
                                                     <h4 class="m-b-0 text-white"> 
-														<?php 														
-															$this->db->from("work_order");
-															$this->db->where('isactive',2);
-															$this->db->where('region_id',$region);
-															$this->db->where('region_state',$region_state);
-															$this->db->where('district_branch',$district_branch);
-															//$this->db->where('status','ACTIVE');
-															echo $this->db->count_all_results();
-														?> 
-													</h4>
+                                                      <?php 														
+                                                         $this->db->from("work_order");
+                                                         $this->db->where('executive_id',$userid);
+                                                         $this->db->where('isactive',2);
+                                                         $this->db->where('region_id',$region);
+                                                         $this->db->where('region_state',$region_state);
+                                                         $this->db->where('district_branch',$district_branch);
+                                                         //$this->db->where('status','ACTIVE');
+                                                         echo $this->db->count_all_results();
+                                                      ?> 
+                                                   </h4>
                                                 </div>
                                                 <div class="col col-auto text-right">
                                                    <i class="feather icon-book f-50 text-c-pink"></i>

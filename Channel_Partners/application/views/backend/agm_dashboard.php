@@ -8,8 +8,9 @@
 				
 	foreach ($data['user_details'] as $user_data) 
 	{  			
-		$region=$user_data->region;	
-		
+		$region=$user_data->region;
+		$region_state=$user_data->region_state;
+		$district_branch=$user_data->district_branch;			
     }
 ?>
                         <div class="row">
@@ -47,16 +48,13 @@
 										   <div class="card-block">
 											  <div class="row align-items-center">
 												 <div class="col">
-													<p class="m-b-5 text-white">All Managers</p>
+													<p class="m-b-5 text-white">Branch Managers</p>
 													<h4 class="m-b-0 text-white"> 
-														<?php 														
-														$this->db->from("users");														
-                                                        $this->db->where('user_type',6);
-                                                        $this->db->where_in('region',$region);														
-														$this->db->where('user_status',1);
-														$this->db->where('status','ACTIVE');
-														echo $this->db->count_all_results();
-														//print_r($this->db->last_query());
+														<?php
+														$sql = "SELECT * FROM `users` WHERE user_type='6' AND region IN (".$region.") AND region_state IN (".$region_state.") AND district_branch IN (".$district_branch.") AND user_status='1' AND status='ACTIVE' ";
+														$query = $this->db->query($sql);
+														echo$result = $query->num_rows();
+														//print_r($this->db->last_query());																																														
 														?> 
 													</h4>
 												 </div>
@@ -75,12 +73,10 @@
 													<p class="m-b-5 text-white">Laabh Executive</p>
 													<h4 class="m-b-0 text-white"> 
 														<?php 														
-														$this->db->from("users");
-														$this->db->where('user_type',2);
-														$this->db->where_in('region',$region);
-														$this->db->where('user_status',1);
-														$this->db->where('status','ACTIVE');
-														echo $this->db->count_all_results();
+															$sql = "SELECT * FROM `users` WHERE user_type='2' AND region IN (".$region.") AND region_state IN (".$region_state.") AND district_branch IN (".$district_branch.") AND user_status='1' AND status='ACTIVE' ";
+															$query = $this->db->query($sql);
+															echo $result = $query->num_rows();
+															//print_r($this->db->last_query());
 														?> 
 													</h4>
 												 </div>
@@ -99,17 +95,15 @@
 													<p class="m-b-5 text-white">Laabh Agents</p>
 													<h4 class="m-b-0 text-white"> 
 														<?php 														
-															$this->db->from("users");
-															$this->db->where('user_type',5);
-															$this->db->where_in('region',$region);
-															$this->db->where('user_status',1);
-															$this->db->where('status','ACTIVE');
-															echo $this->db->count_all_results();
+															$sql = "SELECT * FROM `users` WHERE user_type='5' AND region IN (".$region.") AND region_state IN (".$region_state.") AND district_branch IN (".$district_branch.") AND user_status='1' AND status='ACTIVE' ";
+															$query = $this->db->query($sql);
+															echo $result = $query->num_rows();
+															//print_r($this->db->last_query());
 														?> 
 													</h4>
 												 </div>
 												 <div class="col col-auto text-right">
-													<i class="feather icon-user f-50 text-c-yellow"></i>
+													<i class="feather icon-user-plus f-50 text-c-yellow"></i>
 												 </div>
 											  </div>
 										   </div>
@@ -124,17 +118,15 @@
 													<p class="m-b-5 text-white">Onborded Seller</p>
 													<h4 class="m-b-0 text-white"> 
 													<?php 														
-														$this->db->from("users");
-														$this->db->where('user_type',3);
-                                                        $this->db->where_in('region',$region);														
-														$this->db->where('user_status',1);
-														$this->db->where('status','ACTIVE');
-														echo $this->db->count_all_results();
+														$sql = "SELECT * FROM `users` WHERE user_type='3' AND region IN (".$region.") AND region_state IN (".$region_state.") AND district_branch IN (".$district_branch.") AND user_status='1' AND status='ACTIVE' ";
+														$query = $this->db->query($sql);
+														echo $result = $query->num_rows();
+														//print_r($this->db->last_query());
 													?> 
 													</h4>
 												 </div>
 												 <div class="col col-auto text-right">
-													<i class="feather icon-user f-50 text-c-yellow"></i>
+													<i class="feather icon-user-check f-50 text-c-yellow"></i>
 												 </div>
 											  </div>
 										   </div>
@@ -147,12 +139,11 @@
 												 <div class="col">
 													<p class="m-b-5 text-white">Workorders</p>
 													<h4 class="m-b-0 text-white"> 
-														<?php 														
-														$this->db->from("work_order");
-														$this->db->where_in('region_id',$region);
-														//$this->db->where('user_type',2);
-														//$this->db->where('status','ACTIVE');
-														echo $this->db->count_all_results();
+														<?php 																											
+															$sql = "SELECT * FROM `work_order` WHERE  region_id IN (".$region.") AND region_state IN (".$region_state.") AND district_branch IN (".$district_branch.")  ";
+															$query = $this->db->query($sql);
+															echo $result = $query->num_rows();
+															//print_r($this->db->last_query());
 														?> 
 													</h4>
 												 </div>
@@ -170,12 +161,11 @@
 												 <div class="col">
 													<p class="m-b-5 text-white">Delivered Workorders</p>
 													<h4 class="m-b-0 text-white"> 
-													<?php 														
-														$this->db->from("work_order");
-														$this->db->where_in('region_id',$region);
-														$this->db->where('isactive',2);
-														//$this->db->where('status','ACTIVE');
-														echo $this->db->count_all_results();
+													<?php 																											
+														$sql = "SELECT * FROM `work_order` WHERE  region_id IN (".$region.") AND region_state IN (".$region_state.") AND district_branch IN (".$district_branch.") AND isactive='2' ";
+														$query = $this->db->query($sql);
+														echo $result = $query->num_rows();
+														//print_r($this->db->last_query());
 													?> 
 													</h4>
 												 </div>

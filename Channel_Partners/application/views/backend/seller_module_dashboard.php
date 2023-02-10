@@ -23,15 +23,15 @@
                                           <div class="card-block">
                                              <div class="row align-items-center">
                                                 <div class="col">
-                                                   <p class="m-b-5 text-white">My Workorders</p>
+                                                   <p class="m-b-5 text-white"> Workorders</p>
                                                     <h4 class="m-b-0 text-white"> <?php 
-														$this->db->where('sellerid',$sellerid);
-														$this->db->from("work_order");
-														echo $this->db->count_all_results();
+                                                      $this->db->where('sellerid',$sellerid);
+                                                      $this->db->from("work_order");
+                                                      echo $this->db->count_all_results();
                                                     ?> </h4>
                                                 </div>
                                                 <div class="col col-auto text-right">
-                                                   <i class="feather icon-user f-50 text-c-yellow"></i>
+                                                   <i class="feather icon-shopping-cart f-50 text-c-yellow"></i>
                                                 </div>
                                              </div>
                                           </div>
@@ -44,13 +44,13 @@
                                                 <div class="col">
                                                    <p class="m-b-5 text-white">Completed Workorders</p>
                                                    <h4 class="m-b-0 text-white"> 
-														<?php 														
-															$this->db->from("work_order");
-															$this->db->where('sellerid',$sellerid);
-															$this->db->where('isactive',2);														
-															echo $this->db->count_all_results();
-														?> 
-													</h4>
+                                                      <?php 														
+                                                         $this->db->from("work_order");
+                                                         $this->db->where('sellerid',$sellerid);
+                                                         $this->db->where('isactive',2);														
+                                                         echo $this->db->count_all_results();
+                                                      ?> 
+                                                   </h4>
                                                 </div>
                                                 <div class="col col-auto text-right">
                                                    <i class="feather icon-credit-card f-50 text-c-green"></i>
