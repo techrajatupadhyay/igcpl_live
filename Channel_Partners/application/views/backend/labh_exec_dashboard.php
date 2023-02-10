@@ -17,8 +17,8 @@
                               <div class="col-md-2"></div>
                               <div class="col-md-10 my-3 ">
                                  <div class="row mx-3">
-								    <div class=" col-md-3">
-                                       <div class="card bg-c-green text-white">
+								    <div class=" col-md-4">
+                                       <div class="card bg-c-pink text-white">
                                           <div class="card-block">
                                              <div class="row align-items-center">
                                                 <div class="col">
@@ -38,15 +38,15 @@
                                                    </h4>
                                                 </div>
                                                 <div class="col col-auto text-right">
-                                                   <i class="feather icon-user-plus f-50 text-c-green"></i>
+                                                   <i class="feather icon-user-plus f-50 text-c-pink"></i>
                                                 </div>
                                              </div>
                                           </div>
                                        </div>
                                     </div>
 									
-                                    <div class=" col-md-3">
-                                       <div class="card bg-c-yellow text-white">
+                                    <div class=" col-md-4">
+                                       <div class="card bg-c-yellow text-white" style="background: linear-gradient(to right,#FF7B54,#feb798);">
                                           <div class="card-block">
                                              <div class="row align-items-center">
                                                 <div class="col">
@@ -64,15 +64,14 @@
                                                    </h4>
                                                 </div>
                                                 <div class="col col-auto text-right">
-                                                   <i class="feather icon-user-check f-50 text-c-yellow"></i>
+                                                   <i class="feather icon-user-check f-50 text-c-yellow" style="font-size: 50px;color:#FF7B54"></i>
                                                 </div>
                                              </div>
                                           </div>
                                        </div>
                                     </div>
-                                    
-                                    
-                                    <div class=" col-md-3">
+                                                                        
+                                    <div class=" col-md-4">
                                        <div class="card bg-c-blue text-white">
                                           <div class="card-block">
                                              <div class="row align-items-center">
@@ -98,8 +97,8 @@
                                           </div>
                                        </div>
                                     </div>
-                                    <div class=" col-md-3">
-                                       <div class="card bg-c-pink text-white">
+                                    <div class=" col-md-4">
+                                       <div class="card bg-c-pink text-white" style="background: linear-gradient(to right,#0E5E6F,#3A8891);">
                                           <div class="card-block">
                                              <div class="row align-items-center">
                                                 <div class="col">
@@ -118,7 +117,7 @@
                                                    </h4>
                                                 </div>
                                                 <div class="col col-auto text-right">
-                                                   <i class="feather icon-book f-50 text-c-pink"></i>
+                                                   <i class="fa fa-truck f-50 text-c-pink" style="font-size: 50px;color:#0E5E6F"></i>
                                                 </div>
                                              </div>
                                           </div>

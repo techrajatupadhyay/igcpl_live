@@ -18,8 +18,8 @@
                               <div class="col-md-2"></div>
                               <div class="col-md-10 my-3 ">
                                  <div class="row mx-3">
-                                    <div class=" col-md-3">
-                                       <div class="card bg-c-yellow text-white">
+                                    <div class=" col-md-4">
+                                       <div class="card bg-c-blue text-white">
                                           <div class="card-block">
                                              <div class="row align-items-center">
                                                 <div class="col">
@@ -31,13 +31,13 @@
                                                     ?> </h4>
                                                 </div>
                                                 <div class="col col-auto text-right">
-                                                   <i class="feather icon-shopping-cart f-50 text-c-yellow"></i>
+                                                   <i class="feather icon-shopping-cart f-50 text-c-blue"></i>
                                                 </div>
                                              </div>
                                           </div>
                                        </div>
                                     </div>
-                                    <div class=" col-md-3">
+                                    <div class=" col-md-4">
                                        <div class="card bg-c-green text-white">
                                           <div class="card-block">
                                              <div class="row align-items-center">
@@ -60,12 +60,12 @@
                                        </div>
                                     </div>
                                     
-                                    <div class=" col-md-3">
-                                       <div class="card bg-c-blue text-white">
+                                    <div class=" col-md-4">
+                                       <div class="card bg-c-pink text-white" style="background: linear-gradient(to right,#0E5E6F,#3A8891);">
                                           <div class="card-block">
                                              <div class="row align-items-center">
                                                 <div class="col">
-                                                   <p class="m-b-5 text-white">Delivered</p>
+                                                   <p class="m-b-5 text-white">Delivered Workorders</p>
                                                    <?php 														
                                                       $this->db->from("work_order");
                                                       $this->db->where('sellerid',$sellerid);
@@ -75,13 +75,14 @@
                                                    ?> 
                                                 </div>
                                                 <div class="col col-auto text-right">
-                                                   <i class="feather icon-shopping-cart f-50 text-c-blue"></i>
+                                                   <i class="fa fa-truck f-50 text-c-pink" style="font-size: 50px;color:#0E5E6F"></i>
                                                 </div>
                                              </div>
                                           </div>
                                        </div>
                                     </div>
-                                    <div class=" col-md-3">
+
+                                    <div class=" col-md-4">
                                        <div class="card bg-c-pink text-white">
                                           <div class="card-block">
                                              <div class="row align-items-center">
