@@ -158,7 +158,7 @@
                                            <i class="fa fa-file" aria-hidden="true"></i>
                                         </div>
                                         <div class="file-upload-wrapper " data-text="Upload your resume*">
-                                           <input name="resume_file" type="file" class="custom-file-input"  accept="application/pdf,application/vnd.ms-excel" required>
+                                           <input name="resume_file" type="file" class="custom-file-input"  accept="image/png, image/gif, image/jpeg, image/jpg" required>
                                         </div>
                                      </div>
                                      <div class="submit-btn">

@@ -1,184 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>    
-   <style>
-         /about/
-         .ft-about-img 
-         {
-            margin-top: -113px;
+   <head>
+      <style>
+         /*about*/
+         .ft-about-img {
+         margin-top: -113px;
          }
-         .service
-         {
-            width:100%!important;
-            height:150px!important;    
+         .service{
+         width:100%!important;
+         height:150px!important;    
          }
-         .ft-about-exp-img 
-         {
-            float: right;
-            position: absolute;
+         .ft-about-exp-img {
+         float: right;
+         position: absolute;
          }
          @media only screen and (max-width: 800px)
          {
-            .slider_text
-            {
-               z-index: 9;
-               font-family: Poppins;
-               height: auto;
-               width: auto;
-               color: rgb(0, 0, 0);
-               text-decoration: none;
-               white-space: nowrap;
-               min-height: 0px;
-               min-width: 0px;
-               max-height: none;
-               max-width: none;
-               text-align: left;
-               line-height: 34px;
-               letter-spacing: 0px;
-               font-weight: 700;
-               font-size: 24px;
-               transform-style: preserve-3d;
-               transform-origin: 50% 50%;
-               transform: perspective(600px);
-               opacity: 1;
-               visibility: visible;
-            }
+         .slider_text
+         {
+         z-index: 9;
+         font-family: Poppins;
+         height: auto;
+         width: auto;
+         color: rgb(0, 0, 0);
+         text-decoration: none;
+         white-space: nowrap;
+         min-height: 0px;
+         min-width: 0px;
+         max-height: none;
+         max-width: none;
+         text-align: left;
+         line-height: 34px;
+         letter-spacing: 0px;
+         font-weight: 700;
+         font-size: 24px;
+         transform-style: preserve-3d;
+         transform-origin: 50% 50%;
+         transform: perspective(600px);
+         opacity: 1;
+         visibility: visible;
+         }
          }
          .ft-why-choose-section-img
          {
-            width: 100%;
-            margin-top: 8%;
-            padding-top: 120px;
-            float: left;
-            margin-left: 100px;
-            height: 600px;
+         width: 100%;
+         margin-top: 8%;
+         padding-top: 120px;
+         float: left;
+         margin-left: 100px;
+         height: 600px;
          }
-         .ft-why-choose-text-area
-         {
-            width: 50%;
-            float: right;
-            margin-top: -53%;
+         .ft-why-choose-text-area{
+         width: 50%;
+         float: right;
+         margin-top: -53%;
          }
-         .partner-img
-         {
-            margin-top: 48%;
-            height: 150px;
-            margin-left: 15%;
-            width: 100%;
-            visibility: visible;
-            animation-duration: 1500ms;
-            animation-delay: 0ms;
-            animation-name: fadeInUp;
+         .partner-img{
+         margin-top: 48%;
+         height: 150px;
+         margin-left: 15%;
+         width: 100%;
+         visibility: visible;
+         animation-duration: 1500ms;
+         animation-delay: 0ms;
+         animation-name: fadeInUp;
          }
-         .partner-img-card
-         {
-            margin-left: -37px;
+         .partner-img-card{
+         margin-left: -37px;
+         /*box-shadow: 2px 2px 2px 2px #acacac;*/
          }
-         .ft-about-exp-text
-         {
-            margin-top: -220px;
-            padding: 0px 20px;
+         .ft-about-exp-text{
+         margin-top: -220px;
+         padding: 0px 20px;
          }
-         .service
-         {
-            height: 200px;
-            width: 100%;
+         .service{
+         height: 200px;
+         width: 100%;
          }
-         @media screen and (max-width: 891px)
-         {
-            .partner-img
-            {
-               margin-top: 32%;
-               height: 165px;
-               margin-left: -1%;
-               width: 55%;
-               visibility: visible;
-               animation-duration: 1500ms;
-               animation-delay: 0ms;
-               animation-name: fadeInUp;
-            }
-            .partner-img-card
-            {
-               margin-left: 4px
-            }
-            .multifaceted
-            {
-               margin: -108% 0px 0px 103px;
-            }
-            .service
-            {
-               height: 180px !important;
-               width: 100% !important;
-            }
-            .ft-about-exp-text 
-            {
-               margin-top: -180px;
-               padding: 0px 16px;
-            }
+         @media screen and (max-width: 891px){
+         .partner-img{
+         margin-top: 32%;
+         height: 165px;
+         margin-left: -1%;
+         width: 55%;
+         visibility: visible;
+         animation-duration: 1500ms;
+         animation-delay: 0ms;
+         animation-name: fadeInUp;
          }
-         @media screen and (max-width: 750px)
-         {
-            .multifaceted 
-            {
-               margin: -107% 0px 0px 81px;
-            }
-            .ft-about-exp-text 
-            {
-               margin-top: -177px;
-               padding: 0px -20px;
-            }
+         .partner-img-card{
+         margin-left: 4px
          }
-         @media screen and (max-width: 430px)
-         {
-            .ft-about-exp-text 
-            {
-               margin-top: -212px!important;
-               padding: 0px 67px!important;
-            }
+         .multifaceted{
+         margin: -108% 0px 0px 103px;
          }
-         @media screen and (max-width: 560px)
-         {
-            .ft-about-exp-text 
-            {
-               margin-top: -185px!important;
-               padding: 0px 52px!important;
-            }
+         .service{
+         height: 180px !important;
+         width: 100% !important;
+         }
+         .ft-about-exp-text {
+         margin-top: -180px;
+         padding: 0px 16px;
+         }
+         }
+         @media screen and (max-width: 750px){
+         .multifaceted {
+         margin: -107% 0px 0px 81px;
+         }
+         .ft-about-exp-text {
+         margin-top: -177px;
+         padding: 0px -20px;
+         }
+         }
+         @media screen and (max-width: 430px){
+         .ft-about-exp-text {
+          margin-top: -212px!important;
+          padding: 0px 67px!important;
+          }
+           }
+         @media screen and (max-width: 560px){
+         .ft-about-exp-text {
+          margin-top: -185px!important;
+          padding: 0px 52px!important;
+         }
          }  
-         @media screen and (max-width: 650px)
-         {
-            .ft-about-exp-text 
-            {
-               margin-top: -179px!important;
-               padding: 0px 52px!important;
-            }
-            .service
-            {
-               height: 180px !important;
-               width: 100% !important;
-            }
-            .ft-about-exp-text
-            {
-               margin-top: -195px;
-               padding: 0px 16px;
-            }
-            .ft-why-choose-section-img
-            {
-               display: none;
-            }
-            .ft-why-choose-text-area 
-            {
-               width: 100%;
-               float: right;
-               margin-top: 20%!important;
-            }
+         @media screen and (max-width: 650px){
+         .ft-about-exp-text {
+         margin-top: -179px!important;
+         padding: 0px 52px!important;
          }
-         .ft-why-choose-text-area 
-         {
-            width: 100%;
-            float: right;
-            margin-top: 10%;
+         .service{
+         height: 180px !important;
+         width: 100% !important;
          }
-         
+         .ft-about-exp-text {
+         margin-top: -195px;
+         padding: 0px 16px;
+         }
+         .ft-why-choose-section-img{
+         display: none;
+         }
+         .ft-why-choose-text-area {
+         width: 100%;
+         float: right;
+         margin-top: 20%!important;
+         }
+         }
+         .ft-why-choose-text-area {
+         width: 100%;
+         float: right;
+         margin-top: 10%;
+         }
+         }
          .rev_redraw_on_blurfocus{
          margin-top: -70px!important;
          }
@@ -191,12 +164,10 @@
          }
         .rs_splitted_chars{
          position: relative;
-    display: inline-block;
-    transform-origin: 50% 50%;
-    transform: translate(0px, 0px);
-    opacity: 1;
-    
-    
+         display: inline-block;
+         transform-origin: 50% 50%;
+         transform: translate(0px, 0px);
+         opacity: 1; 
         }
 
         .twitter-timeline{
@@ -221,7 +192,6 @@
              width: 100%;
          }
 
-         
          .facebook_div{
            height:328px;
            width:500px;
@@ -238,23 +208,20 @@
              margin-right:-40px;
          }
 
-
- @media only screen and (max-width: 450px) 
- {
+         @media only screen and (max-width: 450px) 
+         {
          .director_info 
          {
             width: 100%!important; 
             margin: auto;
          }
-
-
          .twitter-timeline {
-    display: flex;
-    width: 200px;
-    max-width: 100%;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
+            display: flex;
+            width: 200px;
+            max-width: 100%;
+            margin-top: 0px;
+            margin-bottom: 0px;
+         }
 
          #twitter-widget-0 {
              position: static;
@@ -281,7 +248,6 @@
              width: 40%;
          }
 
-
          .facebook_div{
            height:328px;
            width:194px;
@@ -292,23 +258,10 @@
          .ft-counterup-innerbox{
              margin-right:0px;
          }
-                 
-}
-       
-       rs-mask-wrap a {
-         color: #003440!important;
-         font-weight:600;
-       } 
 
-</style>
-     
-
-
-      
-
-
-
-</head>
+         }
+      </style>
+   </head>
    <body>
       <div id="preloader"></div>
       <div class="up">
@@ -441,7 +394,7 @@
                      data-frame_1_mask="u:t;"
                      data-frame_999="o:0;st:w;"
                      style="z-index:10;font-family:'Roboto';">
-                     Coordination at Buyer’s doorstep</rs-layer>
+                     Coordination at Buyerâ€™s doorstep</rs-layer>
                   <a
                      id="slider-27-slide-72-layer-5" 
                      class="rs-layer rev-btn"
@@ -569,7 +522,11 @@
             </rs-slides>
          </rs-module>
       </rs-module-wrap>
-      
+
+   <!-- End of Booking form section
+         ============================================= -->
+
+
    <!--
       <section class="sc scrolltexthide" style="color:#00044b;">
          <div style="background: #f8f8f8;padding: 8px;">
@@ -579,13 +536,10 @@
          </div>
       </section>
    -->
-
-      <!-- End of Booking form section
+      
+      
+   <!-- Start of About section
          ============================================= -->
-      <!-- Start of About section
-         ============================================= -->
-
-
       <section id="ft-about" class="ft-about-section">
          <div class="container">
             <div class="ft-about-content">
@@ -610,14 +564,14 @@
                            </div>
                         </div>
                      </div>
-                  
+                   
                   </div>
                   <div class="col-lg-6">
                      <div class="ft-about-text-wrapper ">
                         <div class="ft-section-title headline pera-content">
                            <span class="sub-title">About Company</span>
                            <h2>Indigem Channel Partners Private Limited (IGCPL) </h2>
-                           <p >Is a Private Limited Company Incorporated in the year 2022. It is Primarily a ‘Business to Government’ (B2G) Venture, Coupled with Expansion of Pan-India Market of Sellers, to take them from ‘local to global’.
+                           <p >Is a Private Limited Company Incorporated in the year 2022. It is Primarily a â€˜Business to Governmentâ€™ (B2G) Venture, Coupled with Expansion of Pan-India Market of Sellers, to take them from â€˜local to globalâ€™.
                            </p>
                         </div>
                         <div class="ft-about-feature-list-warpper">
@@ -825,7 +779,8 @@
                <span class="sub-title">Director's Info</span>
             </div>
             <div class="ft-testimonial-slider-wrapper">
-               <div class="row">                 
+               <div class="row">
+                  
                   <div class="col-md-12 col-sm-12 director_info">
                      <div class="card text-dark my-2" style="box-shadow: 2px 2px 2px 2px #01054c!important; border-radius: 20px!important;">
                         <div class="card-body mx-2">
@@ -838,13 +793,14 @@
                            <p><b>Contact:</b> <i class="fa fa-envelope" aria-hidden="true"> </i> <a href = "mailto:indigeminfo@gmail.com">indigeminfo@gmail.com</a>, <a href = "mailto:contact@indigemcp.com">contact@indigemcp.com</a> </p>
                         </div>
                      </div>
-                  </div>                 
+                  </div>
                </div>
             </div>
          </div>
-         </div>       
+         </div>         
       </section>
-  
+
+
    <section id="ft-counterup" class="ft-counterup-section" style="height: 255px !importent">
       <div class="container" >
       <div class="ft-section-title headline pera-content text-center">
@@ -859,11 +815,8 @@
                      <i class="fa fa-twitter" aria-hidden="true"></i>
                      </div>
                      <div class="ft-counterup-text headline pera-content">
-
                         <div class="twitter-timeline twitter-timeline-rendered">
-
                            <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class=""  title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/indigemcp?dnt=false&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19idXNpbmVzc192ZXJpZmllZF9iYWRnZSI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19leHBlcmltZW50c19jb29raWVfZXhwaXJhdGlvbiI6eyJidWNrZXQiOjEyMDk2MDAsInZlcnNpb24iOm51bGx9LCJ0ZndfZHVwbGljYXRlX3NjcmliZXNfdG9fc2V0dGluZ3MiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3ZpZGVvX2hsc19keW5hbWljX21hbmlmZXN0c18xNTA4MiI6eyJidWNrZXQiOiJ0cnVlX2JpdHJhdGUiLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmx1ZV92ZXJpZmllZF9iYWRnZSI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19nb3ZfdmVyaWZpZWRfYmFkZ2UiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYnVzaW5lc3NfYWZmaWxpYXRlX2JhZGdlIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2Zyb250ZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH19&amp;frame=false&amp;hideBorder=false&amp;hideFooter=true&amp;hideHeader=true&amp;hideScrollBar=false&amp;lang=en&amp;limit=2&amp;maxHeight=330px&amp;origin=https%3A%2F%2Fgem.gov.in%2F&amp;sessionId=46ebb11b63f93d7619f9a380b837a513a2fd1301&amp;showHeader=false&amp;showReplies=false&amp;transparent=false&amp;widgetsVersion=aaf4084522e3a%3A1674595607486"></iframe>
-
                         </div>
                         <script defer="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                      </div>
@@ -988,6 +941,23 @@
             </div>
          </div>
       </div>
-   </section>
+   </section>
 
-   
+
+   </body>
+   <script>
+      window.onload=function(){
+      $('.slider').slick({
+      autoplay:true,
+      autoplaySpeed:1500,
+      arrows:true,
+      prevArrow:'<button type="button" class="slick-prev"></button>',
+      nextArrow:'<button type="button" class="slick-next"></button>',
+      centerMode:true,
+      slidesToShow:3,
+      slidesToScroll:1
+      });
+      };
+      
+   </script>
+</html>

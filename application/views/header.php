@@ -100,7 +100,7 @@
 												<li><a href="<?php echo base_url(); ?>Gem_hosting">Gem Hosting and Services </a></li>
 												<li><a href="<?php echo base_url(); ?>Cash_flow_management">Cashflow Management </a></li>
 												<li><a href="<?php echo base_url(); ?>#">Healthcare Ventures </a></li>
-										</ul>
+										</ul>	
 									</li>
 									<li class="dropdown">
 										<a href="<?php echo base_url(); ?>Job_Portal">Careers</a>
@@ -174,7 +174,8 @@
 											</ul>
 										</li>
 										<li class="">
-											<a href="<?php echo base_url();?>Registration">Sign In/Sign Up</a>
+										<a href="<?php echo base_url();?>Channel_Partners">Dashboard Login </a>
+										<!--<a href="<?php echo base_url();?>Registration">Sign In / Sign Up </a>-->
 											
 										</li>
 										<li class="">
