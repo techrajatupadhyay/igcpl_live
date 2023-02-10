@@ -48,11 +48,34 @@
 										</div>
 									</div>
 									<div class=" col-md-4">
+										<div class="card bg-c-green text-white">
+										   <div class="card-block">
+											  <div class="row align-items-center">
+												 <div class="col">
+													<p class="m-b-5 text-white">Assistant General Manager</p>
+													<h4 class="m-b-0 text-white"> 
+														<?php 														
+														$this->db->from("users");														
+                                                        $this->db->or_where('user_type',11);														
+														$this->db->where('user_status',1);
+														$this->db->where('status','ACTIVE');
+														echo $this->db->count_all_results();
+														?> 
+													</h4>
+												 </div>
+												 <div class="col col-auto text-right">
+													<i class="feather icon-user f-50 text-c-green"></i>
+												 </div>
+											  </div>
+										   </div>
+										</div>
+									</div>
+									<div class=" col-md-4">
 										<div class="card bg-c-blue text-white">
 										   <div class="card-block">
 											  <div class="row align-items-center">
 												 <div class="col">
-													<p class="m-b-5 text-white">All Managers</p>
+													<p class="m-b-5 text-white"> Branch Managers</p>
 													<h4 class="m-b-0 text-white"> 
 														<?php 														
 														$this->db->from("users");														
@@ -78,11 +101,11 @@
 													<p class="m-b-5 text-white">Laabh Executive</p>
 													<h4 class="m-b-0 text-white"> 
 														<?php 														
-														$this->db->from("users");
-														$this->db->where('user_type',2);														
-														$this->db->where('user_status',1);
-														$this->db->where('status','ACTIVE');
-														echo $this->db->count_all_results();
+															$this->db->from("users");
+															$this->db->where('user_type',2);														
+															$this->db->where('user_status',1);
+															$this->db->where('status','ACTIVE');
+															echo $this->db->count_all_results();
 														?> 
 													</h4>
 												 </div>
@@ -110,7 +133,7 @@
 													</h4>
 												 </div>
 												 <div class="col col-auto text-right">
-													<i class="feather icon-user f-50 text-c-yellow"></i>
+													<i class="feather icon-user-plus f-50 text-c-yellow"></i>
 												 </div>
 											  </div>
 										   </div>
@@ -134,7 +157,7 @@
 													</h4>
 												 </div>
 												 <div class="col col-auto text-right">
-													<i class="feather icon-user f-50 text-c-yellow"></i>
+													<i class="feather icon-user-check f-50 text-c-yellow"></i>
 												 </div>
 											  </div>
 										   </div>
@@ -148,10 +171,10 @@
 													<p class="m-b-5 text-white">Workorders</p>
 													<h4 class="m-b-0 text-white"> 
 														<?php 														
-														$this->db->from("work_order");
-														//$this->db->where('user_type',2);
-														//$this->db->where('status','ACTIVE');
-														echo $this->db->count_all_results();
+															$this->db->from("work_order");
+															//$this->db->where('user_type',2);
+															//$this->db->where('status','ACTIVE');
+															echo $this->db->count_all_results();
 														?> 
 													</h4>
 												 </div>
