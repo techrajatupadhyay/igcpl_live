@@ -80,7 +80,7 @@ class admin_model extends CI_Model{
 		
     }
 	
-	public function get_managers($user_type,$region)
+	public function get_managers($user_type,$region,$region_state,$district_branch)
     {
 		if($user_type==1)
         {         
@@ -93,7 +93,7 @@ class admin_model extends CI_Model{
 		}
 		else if($user_type==11)
 		{         
-			$sql = "SELECT * FROM `users` WHERE user_type='6' AND region IN (".$region.") AND status='ACTIVE'";
+			$sql = "SELECT * FROM `users` WHERE user_type='6' AND region IN (".$region.") AND region_state IN (".$region_state.") AND district_branch IN (".$district_branch.") AND status='ACTIVE'";
 			$query = $this->db->query($sql);
 			$result = $query->result_array();
 			//print_r($this->db->last_query());
@@ -221,8 +221,6 @@ class admin_model extends CI_Model{
             //print_r($this->db->last_query());
             
     }
-
-
 
 
 

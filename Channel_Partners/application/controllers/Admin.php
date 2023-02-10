@@ -1815,9 +1815,11 @@ class Admin extends CI_Controller
 			
             if($user_type==1)
             {				              
-                $region = 0;             
+                $region = 0;
+				$region_state = 0;
+			    $district_branch = 0;             
                 								
-				$data['employeeslist'] = $this->Admin_model->get_managers($user_type,$region);
+				$data['employeeslist'] = $this->Admin_model->get_managers($user_type,$region,$region_state,$district_branch);
 				$this->load->view('backend/new_header');
 				$this->load->view('backend/new_sidebar'); 
 				$this->load->view('backend/all_managers',$data);            
@@ -1836,7 +1838,7 @@ class Admin extends CI_Controller
                 }
 				
 				$user_id = $this->session->userdata('user_login_id');
-				$data['employeeslist'] = $this->Admin_model->get_managers($user_type,$region);
+				$data['employeeslist'] = $this->Admin_model->get_managers($user_type,$region,$region_state,$district_branch);
 				$this->load->view('backend/new_header');
 				$this->load->view('backend/new_sidebar'); 
 				$this->load->view('backend/all_managers',$data);            
