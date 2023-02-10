@@ -56,7 +56,7 @@
 														$this->db->where('user_status',1);
 														$this->db->where('status','ACTIVE');
 														echo $this->db->count_all_results();
-														print_r($this->db->last_query());
+														//print_r($this->db->last_query());
 														?> 
 													</h4>
 												 </div>
