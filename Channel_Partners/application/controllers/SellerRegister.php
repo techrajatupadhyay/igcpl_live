@@ -131,7 +131,7 @@ class SellerRegister extends CI_Controller
 		
 	public function register_seller()
     {
-		die;				
+						
             date_default_timezone_set('Asia/Kolkata');      
 	        $createddate = date('Y-m-d H:i:s', time());
 	        $fname = $this->input->post('fname');				

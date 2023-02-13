@@ -167,7 +167,7 @@
                         <form id="employee_registration_form" action="<?php echo base_url()?>Admin/add_employee" method="post" enctype="multipart/form-data">
                            <div class="card-header">
                               <h5>Register new Employees</h5>
-                              <span>filds with <b style="color:red;">* </b> is mandetory !</span>
+                              <span>fields with <b style="color:red;">* </b> is mandatory !</span>
                               <div class="card-header-right">
                                  <ul class="list-unstyled card-option">
                                     <li><i class="feather icon-maximize full-card"></i></li>
@@ -264,7 +264,7 @@
                                                 </select>
                                              </div>
                                           </div>
-										  <div class="col-sm-3">
+										            <div class="col-sm-3">
                                              <h4 class="sub-title">Date of Birth <span class="star"> * </span> </h4>
                                              <div class="form-group">
                                                 <div class="input-group date" id="datetimepicker1">
@@ -276,41 +276,41 @@
                                         </div>
 										
                                         <div class="row m-b-30">                                        										  										  
-										    <div class="col-md-4" id="single_reg_id" style="display: block">
-												 <h4 class="sub-title">Region <span class="star"> * </span></h4>
-												 <div class="input-group">
-													<span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>						
-													<select id="sing_region_id" name="single_reg_val" class="form-control"  autocomplete="off" >
-													   <option value=""> --- Select region --- </option>
-													   <option value="1" <?php echo $region == "1" ? " selected" : "";?>>Region 1</option>
-                                                       <option value="2" <?php echo $region == "2" ? " selected" : "";?>>Region 2</option>
-                                                       <option value="3" <?php echo $region == "3" ? " selected" : "";?>>Region 3</option>
-													   <option value="4" <?php echo $region == "4" ? " selected" : "";?>>Region 4</option>
-													   <option value="5" <?php echo $region == "5" ? " selected" : "";?>>Region 5</option>
-													   <option value="6" <?php echo $region == "6" ? " selected" : "";?>>Region 6</option>													   						   
-													</select>
-												 </div>
+                                          <div class="col-md-4" id="single_reg_id" style="display: block">
+                                             <h4 class="sub-title">Region <span class="star"> * </span></h4>
+                                             <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>						
+                                                <select id="sing_region_id" name="single_reg_val" class="form-control"  autocomplete="off" >
+                                                   <option value=""> --- Select region --- </option>
+                                                   <option value="1" <?php echo $region == "1" ? " selected" : "";?>>Region 1</option>
+                                                               <option value="2" <?php echo $region == "2" ? " selected" : "";?>>Region 2</option>
+                                                               <option value="3" <?php echo $region == "3" ? " selected" : "";?>>Region 3</option>
+                                                   <option value="4" <?php echo $region == "4" ? " selected" : "";?>>Region 4</option>
+                                                   <option value="5" <?php echo $region == "5" ? " selected" : "";?>>Region 5</option>
+                                                   <option value="6" <?php echo $region == "6" ? " selected" : "";?>>Region 6</option>													   						   
+                                                </select>
+                                             </div>
                                             </div>                                      
                                             <div class="col-md-4" id="single_reg_sta_id" style="display: block">
-												 <h4 class="sub-title">Region State  <span class="star"> * </span></h4>
-												 <div class="input-group">
-													<span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-													<select id="single_region_state" name="single_reg_sta_val" class="form-control"  autocomplete="off" >                                                  
-														<option value="">-- Select Region State --</option>
-														<?php
-														if(isset($Employee_Details) && $Employee_Details !="") 
-														{ 
-														  //var_dump($country);
-														  foreach($region_state_list as $rc)
-														  {   ?>
-														  
-														  <option value="<?= $rc->id; ?>" <?php echo $region_state == $rc->id ? " selected" : ""; ?> ><?= $rc->region_name; ?></option>
-														  <?php  
-														  }
-														}													  														
-														?> 
-													</select>
-												 </div>
+                                                <h4 class="sub-title">Region State  <span class="star"> * </span></h4>
+                                                <div class="input-group">
+                                                   <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                                   <select id="single_region_state" name="single_reg_sta_val" class="form-control"  autocomplete="off" >                                                  
+                                                      <option value="">-- Select Region State --</option>
+                                                      <?php
+                                                      if(isset($Employee_Details) && $Employee_Details !="") 
+                                                      { 
+                                                      //var_dump($country);
+                                                      foreach($region_state_list as $rc)
+                                                      {   ?>
+                                                      
+                                                      <option value="<?= $rc->id; ?>" <?php echo $region_state == $rc->id ? " selected" : ""; ?> ><?= $rc->region_name; ?></option>
+                                                      <?php  
+                                                      }
+                                                      }													  														
+                                                      ?> 
+                                                   </select>
+                                                </div>
                                             </div>
                                             <div class="col-md-4" id="single_dist_bran_id" style="display: block">
 												 <h4 class="sub-title"> Distinct Branch <span class="star"> * </span></h4>
@@ -340,9 +340,9 @@
 													<span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>                                                
 													   <input type="hidden" class="form-control" id="reg_val" name="reg_val" required value="">
 													   <button class="btn  bg-white text-left dropdown-toggle"  id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"  class="form-control"  autocomplete="off" required> ---  Select Employee Region  --- <span class="fa fa-angle-down ml-3" ></span></button>                                                  
-														<ul class="dropdown-menu checkbox-menu " aria-labelledby="dropdownMenu1"  id="region_id" name="region[]" autocomplete="off" required>                                                     
+														<ul class="dropdown-menu checkbox-menu " aria-labelledby="dropdownMenu1"  id="region_id" name="region[]" autocomplete="off" required style="width:260px;">                                                     
 															<li>
-															<label  class="px-3">
+															<label  class="px-3" >
 															 <p class="mb-2"> --- Selcet Employee Region --- </p>
 															 <input type="checkbox" class="table-wrapper-scroll-y my-custom-scrollbar" onchange="getcheck(1)" id="reg1" name="region[]" value="1" <?php echo $region == 1 ? " selected" : ""; ?>  style="height:13px;">&nbsp; <span style="font-size:16px;"> Region 1</span> <br>
 															 <input type="checkbox" class="table-wrapper-scroll-y my-custom-scrollbar" onchange="getcheck(2)" id="reg2" name="region[]" value="2" <?php echo $region == 2 ? " selected" : ""; ?>  style="height:13px;">&nbsp; <span style="font-size:16px;"> Region 2</span> <br>
@@ -358,29 +358,29 @@
                                             </div>
 											
                                             <div class="col-md-4" id="multiple_reg_sta_id" style="display: none">
-												 <h4 class="sub-title">Region State  <span class="star"> * </span></h4>
-												 <div class="input-group dropdown region_list">
-													<span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>                                               
-														<input type="hidden" class="form-control" id="reg_sta_val" name="reg_sta_val" required value="">
-														<button class="btn  bg-white text-left dropdown-toggle w-100" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"   class="form-control"  autocomplete="off" required> ---  Select region  State --- <span class="fa fa-angle-down ml-5"></span></button>                                                                                                       
-														<ul class="dropdown-menu checkbox-menu " aria-labelledby="dropdownMenu1"  id="region_state" name="region_state" autocomplete="off" required>
-														  <?php
-														  if(isset($Employee_Details) && $Employee_Details !="") 
-														  { 
-															 //var_dump($country);
-															foreach($region_state_list as $rc)
-															{   ?>
-																<li>
-																	<label class="px-3">
-																		<input type="checkbox" class="table-wrapper-scroll-y my-custom-scrollbar"   name="region_state[]" >&nbsp; <?= $c->region_name; ?> 
-																	</label> 
-																</li>
-																<?php  
-															}
-														  }                                                                                            
-														  ?> 
-														</ul>                                               
-												 </div>
+                                                <h4 class="sub-title">Region State  <span class="star"> * </span></h4>
+                                                <div class="input-group dropdown region_list">
+                                                   <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>                                               
+                                                      <input type="hidden" class="form-control" id="reg_sta_val" name="reg_sta_val" required value="">
+                                                      <button class="btn  bg-white text-left dropdown-toggle w-100" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"   class="form-control"  autocomplete="off" required > ---  Select region  State --- <span class="fa fa-angle-down ml-5"></span></button>                                                                                                       
+                                                      <ul class="dropdown-menu checkbox-menu " aria-labelledby="dropdownMenu1"  id="region_state" name="region_state" autocomplete="off" required style="width:260px; height:280px; overflow:scroll;">
+                                                      <?php
+                                                      if(isset($Employee_Details) && $Employee_Details !="") 
+                                                      { 
+                                                         //var_dump($country);
+                                                         foreach($region_state_list as $rc)
+                                                         {   ?>
+                                                            <li>
+                                                               <label class="px-3" >
+                                                                  <input type="checkbox" class="table-wrapper-scroll-y my-custom-scrollbar"   name="region_state[]" >&nbsp; <?= $c->region_name; ?> 
+                                                               </label> 
+                                                            </li>
+                                                            <?php  
+                                                         }
+                                                      }                                                                                            
+                                                      ?> 
+                                                      </ul>                                               
+                                                </div>
                                             </div>
 											
                                             <div class="col-md-4" id="multiple_dist_bran_id" style="display: none">
@@ -389,7 +389,7 @@
 													<span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>                                             
 													   <input type="hidden" class="form-control" id="district_branch_val" name="district_branch_val" required value="">
 													   <button class="btn  bg-white text-left dropdown-toggle w-100" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"  class="form-control"  autocomplete="off" required> ---  District Branch --- <span class="fa fa-angle-down" style="margin-left:5rem!important;"></span>  </button>                                                                                                     
-														<ul class="dropdown-menu checkbox-menu" aria-labelledby="dropdownMenu1" id="district_branch" name="district_branch[]" autocomplete="off" required>
+														<ul class="dropdown-menu checkbox-menu" aria-labelledby="dropdownMenu1" id="district_branch" name="district_branch[]" autocomplete="off" required required style="width:260px; height:280px; overflow:scroll;">
 															<?php
 															if(isset($Employee_Details) && $Employee_Details !="") 
 															{ 
@@ -444,22 +444,22 @@
                                              <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
                                                 <select id="stateid_first" name="state_first" class="form-control"  autocomplete="off" required>
-                                                   <option value="">-- Select State --</option>
+                                                   <option value=""> -- Select State -- </option>
                                                    <?php 
                                                       //var_dump($country);
                                                       foreach($state_list as $c)
                                                       {   ?>
-                                                   <option value="<?= $c->state_id; ?>" <?php echo $state_first == $c->state_id ? " selected" : ""; ?> ><?= $c->statename; ?></option>
+                                                   <option value="<?= $c->statecode; ?>" <?php echo $state_first == $c->statecode ? " selected" : ""; ?> ><?= $c->statename; ?></option>
                                                    <?php  
                                                       }   ?>
                                                 </select>
                                              </div>
                                           </div>
                                           <div class="col-md-3">
-                                             <h4 class="sub-title"> District <span class="star"> * </span></h4>
+                                             <h4 class="sub-title"> District </h4>
                                              <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                                <select id="district_first" name="district_first" class="form-control"  autocomplete="off" required>
+                                                <select id="district_first" name="district_first" class="form-control"  autocomplete="off" >
                                                    <?php                                                  
                                                       if(isset($Employee_Details) && $Employee_Details !="") 
                                                                                           {                                            
@@ -519,17 +519,17 @@
                                                       //var_dump($country);
                                                       foreach($state_list as $c)
                                                       {   ?>
-                                                   <option value="<?= $c->state_id; ?>" <?php echo $state_second == $c->state_id ? " selected" : ""; ?> ><?= $c->statename; ?></option>
+                                                   <option value="<?= $c->statecode; ?>" <?php echo $state_second == $c->statecode ? " selected" : ""; ?> ><?= $c->statename; ?></option>
                                                    <?php  
                                                       }   ?>
                                                 </select>
                                              </div>
                                           </div>
                                           <div class="col-md-3 ">
-                                             <h4 class="sub-title"> District <span class="star"> * </span></h4>
+                                             <h4 class="sub-title"> District </h4>
                                              <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                                <select id="district_second" name="district_second" class="form-control"  autocomplete="off" required>
+                                                <select id="district_second" name="district_second" class="form-control"  autocomplete="off" >
                                                    <?php 
                                                       if(isset($Employee_Details) && $Employee_Details !="") 
                                                                                           {                                            
@@ -655,6 +655,7 @@
                                                          <img id="blah" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Employee_Details)) { echo $em_image; } else{ echo "your-picture.png"; } ?>" height="100" width="100" />                                                                                                                
                                                          </span>
                                                          <p class="text-muted text-left" style="margin-bottom: 5px;">Employee Passport Size Photo Only <span class="star"> * </span></p>
+                                                         <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 10KB to 35KB</b></p>
                                                          <div class="input-group">
                                                             <div class="input-group-addon">
                                                                <input type="file" accept="image/png, image/gif, image/jpeg, image/jpg"  name="em_image" onchange="proPic(this);"  <?php echo $em_image; ?> />
@@ -665,6 +666,7 @@
                                                          <img id="blah" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>assets/images/your-picture.png" height="100" width="100" />                        
                                                          </span>
                                                          <p class="text-muted text-left" style="margin-bottom: 5px;">Employee Passport Size Photo Only <span class="star"> * </span></p>
+                                                         <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 10KB to 35KB</b></p>
                                                          <div class="input-group">
                                                             <div class="input-group-addon">
                                                                <input type="file" accept="image/png, image/gif, image/jpeg, image/jpg"  required id="emp_image" name="em_image" onchange="proPic(this);"  <?php echo $em_image; ?> />
@@ -692,8 +694,8 @@
                                                          <span id="signature" style="display: block;">  
                                                          <img id="la_signature" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Employee_Details)) { echo $signature; } else{ echo "your-picture.png"; } ?>" height="100" width="100" />                        
                                                          </span>
-                                                         <p class="text-muted text-left" style="margin-bottom: 5px;">Employee Scan signature Photo <span class="star"> * </span>
-                                                         </p>
+                                                         <p class="text-muted text-left" style="margin-bottom: 5px;">Employee Scan signature Photo <span class="star"> * </span></p>                                                         
+                                                         <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 10KB to 35KB</b></p>
                                                          <div class="input-group">
                                                             <div class="input-group-addon">
                                                                <input type="file" accept="image/png, image/gif, image/jpeg, image/jpg"  name="em_signature" onchange="signature_pic(this);"/>
@@ -701,10 +703,10 @@
                                                          </div>
                                                          <?php } else { ?>
                                                          <span id="signature" style="display: block;">  
-                                                         <img id="la_signature" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>assets/images/your-picture.png" height="100" width="100" />                        
+                                                         <img id="la_signature" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>assets/images/signature.png" height="100" width="100" />                        
                                                          </span>
-                                                         <p class="text-muted text-left" style="margin-bottom: 5px;">Employee Scan signature Photo <span class="star"> * </span>
-                                                         </p>
+                                                         <p class="text-muted text-left" style="margin-bottom: 5px;">Employee Scan signature Photo <span class="star"> * </span></p>                                                        
+                                                         <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 10KB to 35KB</b></p>                                                        
                                                          <div class="input-group">
                                                             <div class="input-group-addon">
                                                                <input type="file" accept="image/png, image/gif, image/jpeg, image/jpg"  id="emp_sign" name="em_signature" required onchange="signature_pic(this);"/>
@@ -743,6 +745,7 @@
                                                 <input type="file" accept=".pdf"  required class="form-control bg-white" placeholder="Phone"  id="resume" name="resume">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></span>
                                              </div>
+                                             <h4 class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 2MB</b> </h4>
                                           </div>
                                           <?php } ?>
                                           <?php if(isset($Employee_Details)) { ?>
@@ -756,11 +759,12 @@
                                           </div>
                                           <?php } else { ?>
                                           <div class="col-sm-4">
-                                             <h4 class="sub-title">Marksheet of education<span class="star"> * </span></h4>
+                                             <h4 class="sub-title">Marksheet of education <span class="star"> * </span></h4>
                                              <div class="input-group">
                                                 <input type="file" accept=".pdf"  required class="form-control bg-white"  id="edu_file" name="marksheet">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></span>
                                              </div>
+                                             <h4 class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 2MB</b> </h4>
                                           </div>
                                           <?php } ?>
                                           <?php if(isset($Employee_Details)) { ?>
@@ -774,11 +778,12 @@
                                           </div>
                                           <?php } else { ?>
                                           <div class="col-sm-4 ">
-                                             <h4 class="sub-title">experience letter </h4>
+                                             <h4 class="sub-title">experience letter <span class="star">  </span> </h4>
                                              <div class="input-group">
                                                 <input type="file" accept=".pdf" class="form-control bg-white"  name="experience_letter">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></span>
                                              </div>
+                                             <h4 class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 2MB</b> </h4>
                                           </div>
                                           <?php } ?>
                                        </div>

@@ -94,7 +94,7 @@ class Admin extends CI_Controller
             $output = '<li><label> --- Select Region Sate --- </label></</li>';
             foreach( $data as $row )
             {
-                $output .='<li><label class="px-3"><input  type="checkbox" name="region_state[]" onchange="getDistrict('.$row['id'].')"  value="'.$row['id'].'"> '.$row['region_name'].'</label></li>';
+                $output .='<li><label class="px-3" ><input  type="checkbox" name="region_state[]" onchange="getDistrict('.$row['id'].')"  value="'.$row['id'].'"> '.$row['region_name'].'</label></li>';
             }
 
             echo $output;
