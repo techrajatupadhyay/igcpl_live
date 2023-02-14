@@ -791,7 +791,7 @@
                                  </div>
                               </div>
                            </div>
-                           <input type="hidden" name="isedit" value="<?php echo $update; ?>">
+                        <input type="hidden" name="isedit" value="<?php echo $update; ?>">
 						   
 						   <div class="card-block">
 							 <div class="row">
@@ -1334,9 +1334,10 @@ $(document).ready(function() {
     var dcid=[];
     function getDistrict(id)
     {
+        //alert(id);
         //dcid.push(id);
         //alert("hii:" + dcid);
-        if(dcid.includes(id)== true)
+      if(dcid.includes(id)== true)
 		{			
 			const index = dcid.indexOf(id);			
 			if (index > -1) // only splice array when item is found
@@ -1344,12 +1345,12 @@ $(document).ready(function() {
 			   dcid.splice(index, 1); // 2nd parameter means remove one item only
 			}			
 		}
-        else
+      else
 		{  
-          	dcid.push(id);           
+         dcid.push(id);           
 		}
 
-        if(dcid !="")
+      if(dcid !="")
 		{			
 			$.ajax({    
 			url: "<?php  echo base_url(); ?>Admin/get_districtbrance_by_state",                            
@@ -1363,7 +1364,7 @@ $(document).ready(function() {
 				}
 		    })
 		}
-        else
+      else
 		{
 			const index = dcid.indexOf(id);			
 			if (index == -1) // only splice array when item is found
@@ -1373,11 +1374,12 @@ $(document).ready(function() {
             alert("Please select at least 1 Region State! ");
 		}		
     }
+
     var rsbid=[];
     function getDistrictBranch(id)
     {
         //rsbid.push(id);      
-        if(rsbid.includes(id)== true)
+      if(rsbid.includes(id)== true)
 		{			
 			const index = rsbid.indexOf(id);			
 			if (index > -1) // only splice array when item is found

@@ -94,7 +94,7 @@ class Admin extends CI_Controller
             $output = '<li><label> --- Select Region Sate --- </label></</li>';
             foreach( $data as $row )
             {
-                $output .='<li><label class="px-3" ><input  type="checkbox" name="region_state[]" onchange="getDistrict('.$row['id'].')"  value="'.$row['id'].'"> '.$row['region_name'].'</label></li>';
+                $output .="<li><label class='px-3' ><input  type='checkbox' name='region_state[]' onchange='getDistrict(`".$row['id']."`)'   value='".$row['id']."'> ".$row['region_name']."</label></li>";
             }
 
             echo $output;
@@ -106,16 +106,18 @@ class Admin extends CI_Controller
     {
                 
             $id=$this->input->post('region_state_id');
+		   //var_dump($id);
             $this->db->from('district_branch');     
             $this->db->where_in('Statecode',$id);
 			$this->db->where('IsActive',1);
             $query=$this->db->get();
             $data= $query->result_array();
-            //print_r($data);
+			//print_r($this->db->last_query());
+            
             $output = '<li><label> --- Select District Branch --- </label></</li>';
             foreach( $data as $row )
             {
-                $output .='<li><label class="px-3"><input  type="checkbox" name="district_branch[]" onchange="getDistrictBranch('.$row['Districtcode'].')" value="'.$row['Districtcode'].'"> '.$row['Districtname'].'</label></li>';
+                $output .='<li><label class="px-3"><input  type="checkbox" name="district_branch[]" onchange="getDistrictBranch(`'.$row['Districtcode'].'`)" value="'.$row['Districtcode'].'"> '.$row['Districtname'].'</label></li>';
             }
 
             //echo $output;
