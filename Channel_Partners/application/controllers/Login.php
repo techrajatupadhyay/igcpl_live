@@ -48,7 +48,6 @@ class Login extends CI_Controller
 		
     }
 
-
     public function Login_Auth()
     {
 		
@@ -119,11 +118,12 @@ class Login extends CI_Controller
             "em_password" => $password,
             "user_type" => $usertype,
             "status" => "ACTIVE",
+            "user_status" => "1",
         ];
 
         $query = $this->Login_model->getUserForLogin($credential);
 	    //print_r($this->db->last_query());
-		//die();
+		
         if ($query->num_rows() > 0) 
 		{
 		/*	
@@ -193,11 +193,7 @@ class Login extends CI_Controller
         $password_enc = hash_hmac("sha256", $password, 'aSm0$i_20eNh3os');
         ///var_dump($password_enc);	
 		
-        $result = $this->Login_model->login_verify(
-            $email,
-            $password_enc,
-            $usertype
-        );
+        $result = $this->Login_model->login_verify($email,$password_enc,$usertype);
         
         if ($result == true) 
         {
@@ -221,19 +217,7 @@ class Login extends CI_Controller
             $this->session->set_userdata("email", $email);
             $this->session->set_userdata("user_image", $seller_image);
             $this->session->set_userdata("user_type", $usertype);
-
-            /*
-				$session_data = array(							
-							'sellerid' => $sellerid,
-							'firstname' => $firstname,							
-							'email' => $email,
-							'phone' => $phone,
-							'user_type' => $usertype,
-                            'user_image' => $seller_image,                                                       							
-						);
-				$this->session->set_userdata('user_login_access', '1');											
-				$this->session->set_userdata('logged_in',$session_data);
-			*/
+          
 
             $this->session->set_flashdata("status_test","User Login Succcessfully");
             $this->session->set_flashdata("status_icon", "success");

@@ -431,7 +431,9 @@
             </div>
          </div>
       </div>
+
       <!---------------------------------- seller-------------------------------- -->
+      
       <div class="modal" id="seller">
          <div class="modal-dialog">
             <div class="login-box card">
@@ -441,7 +443,7 @@
                      <strong>Danger! </strong><?php echo $this->session->flashdata('feedback')?>
                   </div>
                   <?php } ?>                                          
-                  <form class="form-horizontal form-material" method="post" id="loginform" action="<?php echo base_url();?>Login/Seller_Auth">
+                  <form class="form-horizontal form-material" method="post" id="loginform" action="<?php echo base_url();?>Login/Login_Auth">
                      <a href="javascript:void(0)" class="text-center logo"><br/>
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
