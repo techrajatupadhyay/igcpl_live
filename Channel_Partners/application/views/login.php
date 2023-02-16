@@ -129,6 +129,23 @@
             -moz-box-shadow: -1px 6px 10px 0px rgba(50, 50, 50, 0.25);
             box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
             }
+            .employee{
+            display: inline-block;
+            border-radius: 4px;
+            background-color:#0071c0!important;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 13px;
+            padding: 12px 3px;
+            width: 100%;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px 5px 20px 5px;
+            -webkit-box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
+            -moz-box-shadow: -1px 6px 10px 0px rgba(50, 50, 50, 0.25);
+            box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
+            }
             .agm{
             display: inline-block;
             border-radius: 4px;
@@ -166,7 +183,7 @@
          .laabhagent{
             display: inline-block;
             border-radius: 4px;
-            background-color:#ce59cd;
+            background-color:#ff8c8c;
             border: none;
             color: #FFFFFF;
             text-align: center;
@@ -290,6 +307,10 @@
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 " data-toggle="modal" data-target="#HO">
                            <a href="#" class="ho logo_section"><i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i><br>Ho Login</a>
                         </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 "  data-toggle="modal" data-target="#Employee">
+                           <a href="#" class="employee logo_section"><i class="fa fa-users fa-3x" aria-hidden="true"></i><br> Employee Login </a>
+                        </div>
+                  <!--      
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 "  data-toggle="modal" data-target="#Assistant-General-Manager">
                            <a href="#" class="agm logo_section"><i class="fa fa-user-circle fa-3x" aria-hidden="true"></i><br> Assistant General Manager </a>
                         </div>
@@ -299,6 +320,7 @@
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 " data-toggle="modal" data-target="#laabh_executive">
                            <a href="#" class="laabh logo_section"><i class="fa fa-user fa-3x" aria-hidden="true"></i><br>Laabh Executive</a>
                         </div>
+                  -->      
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 " data-toggle="modal" data-target="#laabh_agent">
                            <a href="#" class="laabhagent logo_section"><i class="fa fa-user-plus fa-3x" aria-hidden="true"></i><br>Laabh Agent</a>
                         </div>
@@ -331,7 +353,7 @@
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
                      <div class="modal-header">
-                        <h5 class="modal-title">HO Login</h5>
+                        <h5 class="modal-title">HO Login →</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
@@ -344,12 +366,12 @@
                      </div>
                      <div class="form-group">
                         <div class="col-xs-12 mx-4">
-                           <input class="form-control" name="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>" type="password" required placeholder="Password">
+                           <input class="form-control" name="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>" type="password" required placeholder="Password">                          
                         </div>
                      </div>
                      <div class="form-group text-center mt-5">
                         <div class="col-xs-12">
-                           <button class="btn btn-info btn-lg btn-login btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
+                        <button class="btn btn-info btn-lg btn-login btn-block" style="border-radius: 34px!important;" type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp; Log In </button>
                         </div>
                         <p class="Forgot_Password"><a href="">Forgot Password</a></p>
                      </div>
@@ -358,6 +380,7 @@
             </div>
          </div>
       </div>
+
       <!---------------------------------- Laabh Executive-------------------------------- -->
       <div class="modal" id="laabh_executive">
          <div class="modal-dialog">
@@ -377,7 +400,7 @@
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
                      <div class="modal-header">
-                        <h5 class="modal-title">Laabh Executive Login</h5>
+                        <h5 class="modal-title">Laabh Executive Login →</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
@@ -395,7 +418,7 @@
                      </div>
                      <div class="form-group text-center mt-5">
                         <div class="col-xs-12">
-                           <button class="btn btn-info btn-lg btn-login btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
+                        <button class="btn btn-info btn-lg btn-login btn-block" style="border-radius: 34px!important;" type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp; Log In </button>
                         </div>
                         <p class="Forgot_Password"><a href="">Forgot Password</a></p>
                      </div>
@@ -419,7 +442,7 @@
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
                      <div class="modal-header">
-                        <h5 class="modal-title">Seller Login</h5>
+                        <h5 class="modal-title">Seller Login →</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
@@ -437,8 +460,7 @@
                      </div>
                      <div class="form-group text-center mt-5">
                         <div class="col-xs-12">
-                           <button class="btn btn-info btn-lg btn-login btn-block text-uppercase waves-effect waves-light" type="submit">Log In
-                           </button>
+                        <button class="btn btn-info btn-lg btn-login btn-block" style="border-radius: 34px!important;" type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp; Log In </button>
                         </div>
                         <p class="Forgot_Password"><a href="">Forgot Password</a></p>
                      </div>
@@ -462,7 +484,7 @@
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
                      <div class="modal-header">
-                        <h5 class="modal-title">Fulfilment Partner Login</h5>
+                        <h5 class="modal-title">Fulfilment Partner Login →</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
@@ -480,8 +502,7 @@
                      </div>
                      <div class="form-group text-center mt-5">
                         <div class="col-xs-12">
-                           <button class="btn btn-info btn-lg btn-login btn-block text-uppercase waves-effect waves-light" type="submit">Log In
-                           </button>
+                        <button class="btn btn-info btn-lg btn-login btn-block" style="border-radius: 34px!important;" type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp; Log In </button>
                         </div>
                         <p class="Forgot_Password"><a href="">Forgot Password</a></p>
                      </div>
@@ -505,7 +526,7 @@
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
                      <div class="modal-header">
-                        <h5 class="modal-title">Laabh Agent Login</h5>
+                        <h5 class="modal-title">Laabh Agent Login →</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
@@ -523,8 +544,7 @@
                      </div>
                      <div class="form-group text-center mt-5">
                         <div class="col-xs-12">
-                           <button class="btn btn-info btn-lg btn-login btn-block text-uppercase waves-effect waves-light" type="submit">Log In
-                           </button>
+                        <button class="btn btn-info btn-lg btn-login btn-block" style="border-radius: 34px!important;" type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp; Log In </button>
                         </div>
                         <p class="Forgot_Password"><a href="">Forgot Password</a></p>
                      </div>
@@ -548,7 +568,7 @@
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
                      <div class="modal-header">
-                        <h5 class="modal-title">Branch-Manager Login</h5>
+                        <h5 class="modal-title">Branch-Manager Login →</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
@@ -566,8 +586,7 @@
                      </div>
                      <div class="form-group text-center mt-5">
                         <div class="col-xs-12">
-                           <button class="btn btn-info btn-lg btn-login btn-block text-uppercase waves-effect waves-light" type="submit">Log In
-                           </button>
+                        <button class="btn btn-info btn-lg btn-login btn-block" style="border-radius: 34px!important;" type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp; Log In </button>
                         </div>
                         <p class="Forgot_Password"><a href="">Forgot Password</a></p>
                      </div>
@@ -579,7 +598,7 @@
 
 
 
-       <!-- --------------------------------Assistant General Manager----------------------------- -->
+   <!-- --------------------------------Assistant General Manager----------------------------- -->
       <div class="modal" id="Assistant-General-Manager">
          <div class="modal-dialog">
             <div class="login-box card">
@@ -594,7 +613,7 @@
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
                      <div class="modal-header">
-                        <h5 class="modal-title">Assistant General Manager Login</h5>
+                        <h5 class="modal-title">Assistant General Manager Login →</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
@@ -612,8 +631,7 @@
                      </div>
                      <div class="form-group text-center mt-5">
                         <div class="col-xs-12">
-                           <button class="btn btn-info btn-lg btn-login btn-block text-uppercase waves-effect waves-light" type="submit">Log In
-                           </button>
+                        <button class="btn btn-info btn-lg btn-login btn-block" style="border-radius: 34px!important;" type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp; Log In </button>
                         </div>
                         <p class="Forgot_Password"><a href="">Forgot Password</a></p>
                      </div>
@@ -622,6 +640,107 @@
             </div>
          </div>
       </div> 
+
+      <!-- -------------------------------- EMPLOYEE LOGIN ----------------------------- -->
+
+      <div class="modal" id="Employee">
+         <div class="modal-dialog">
+            <div class="login-box card">
+               <div class="card-body loginpage" style="height: 655px!important">
+                  <?php if(!empty($this->session->flashdata('feedback'))){ ?>
+                  <div class="message">
+                     <strong>Danger! </strong><?php echo $this->session->flashdata('feedback')?>
+                  </div>
+                  <?php } ?>                                          
+                  <form class="form-horizontal form-material" method="post" id="loginform" action="<?php echo base_url();?>Login/Login_Auth">
+                     <a href="javascript:void(0)" class="text-center logo"><br/>
+                        <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
+                     </a>
+                     <div class="modal-header">
+                        <h5 class="modal-title">Employee Login →</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                        </button>
+                     </div>
+                  
+                     <div class="form-group ">
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-user-secret"></i>&nbsp; User Type :</h4>
+                        <div class="col-xs-12 mx-4">                       
+                           <select id="user_type" name="usertype" onchange ="ShowHideDiv()" class="form-control "required>
+                              <option value=""> - User Type -</option>
+                              <option value="11">Assistant General manager (AGM) →</option>
+                              <option value="6">Branch Manager (BMG) →</option>
+                              <!--<option value="13">Assistant manager (AMG) →</option>-->
+                              <option value="2">Laabh Executive (GLE) →</option> 
+                              <option value="7">Senior Office Executive (SEE) →</option> 												   
+                              <option value="8">Office Executive(GEM)(OFE) →</option>
+                              <option value="9">Office Support Staff (MTS) →</option>                                                                                                     
+                              <option value="10">Customer Care Executive →</option>
+                              <option value="12">Senior Executive (SEE) →</option>                                                                                                
+                           </select>
+                        </div>
+                     </div>
+                     <div class="form-group ">
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-user-circle-o"></i>&nbsp; Username :</h4>                     
+                        <div class="col-xs-12 mx-4">                           
+                           <input class="form-control" name="email" value="<?php if(isset($_COOKIE['email'])) { echo $_COOKIE['email']; } ?>" type="text" required placeholder="Username">
+                        </div>
+                     </div>
+                     <div class="form-group ">
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-lock"></i>&nbsp; Password :</h4>  
+                        <div class="col-xs-12 mx-4">                                                
+                           <input class="form-control " name="password" id="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>" type="password" required placeholder="Password">
+                           <!--<span class="input-group-addon" style="background-color:white;color:#007bff;border-left: none;margin-left: 623px;"><i class="feather icon-eye" id="togglePassword"></i></span>-->                                                 
+                        </div>
+                     </div>
+                     <div class="form-group text-center mt-5">
+                        <div class="col-xs-12">
+                           <button class="btn btn-info btn-lg btn-login btn-block" style="border-radius: 34px!important;" type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp; Log In </button>                          
+                        </div>
+                        <p class="Forgot_Password"><a href="">Forgot Password</a></p>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div> 
+<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+<script src="https://mptriballms.in/Online_Assesment/assets/bower_components/jquery/jquery-3.3.1.min.js"></script>
+<script src="https://mptriballms.in/Online_Assesment/assets/bower_components/sweetalert2/sweetalert2.all.min.js"></script>
+<script>
+         $(document).ready(function () 
+            {
+                  <?php if($this->session->flashdata('status')){ ?>
+                     swal({
+                           title: "<?= $this->session->flashdata('status') ?>",
+                           text: "<?= $this->session->flashdata('status_test') ?>",
+                           icon: "<?= $this->session->flashdata('status_icon') ?>",
+                           button: "OK!",
+						   timer: 1600,
+                        });          
+                  <?php } ?>  
+                  
+             });
+</script>
+<script type="text/javascript">
+   var togglePassword = document.getElementById("togglePassword");
+   var password = document.getElementById("password");
+   //var inp_type = document.getElementById("cnf_password").type ;
+   togglePassword.addEventListener("click", function () {
+      // toggle the type attribute
+      var type = password.getAttribute("type") === "password" ? "text" : "password";
+      password.setAttribute("type", type);         
+      //this.classList.replace("icon-eye-off", "icon-eye");
+      if(type == 'password')
+      {
+         this.classList.replace("icon-eye-off", "icon-eye");       
+      }
+      else if(type=='text')
+      { 
+         this.classList.replace("icon-eye", "icon-eye-off");
+      }
+   });  
+</script>
       <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
       <!-- Bootstrap tether Core JavaScript -->
       <script src="<?php echo base_url(); ?>assets/plugins/bootstrap/js/popper.min.js"></script>

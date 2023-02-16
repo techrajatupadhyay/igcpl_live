@@ -335,13 +335,13 @@
                                     <i class="ti-settings"></i> Account Setting
                                 </a>
                             </li>
-                          <!--    
+                             
                             <li>
                                 <a href="<?php echo base_url();?>Login/change_password">
                                     <i class="feather icon-lock"></i> Change Password
                                 </a>
                             </li>
--->     
+    
                             <li>
                                 <a href="<?php echo base_url();?>Login/logout">
                                     <i class="feather icon-log-out"></i> Logout

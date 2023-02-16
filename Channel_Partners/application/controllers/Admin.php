@@ -278,7 +278,8 @@ class Admin extends CI_Controller
 			
 						date_default_timezone_set('Asia/Kolkata');      
 						$createddate = date('Y-m-d');
-						$year = date('y', strtotime($createddate));
+						//$year = date('y', strtotime($createddate));
+						$year = 22 ;
 						
 						$query_state = $this->db->query('SELECT id  AS user_id FROM users ORDER BY id DESC  limit 1');
 						$usercount= $query_state->result_array() ; 
@@ -528,7 +529,8 @@ class Admin extends CI_Controller
 			
 						date_default_timezone_set('Asia/Kolkata');      
 						$createddate = date('Y-m-d');
-						$year = date('y', strtotime($createddate));
+						//$year = date('y', strtotime($createddate));
+						$year = 22 ;
 						
 						$query_state = $this->db->query('SELECT id  AS user_id FROM users ORDER BY id DESC  limit 1');
 						$usercount= $query_state->result_array() ; 
@@ -778,7 +780,8 @@ class Admin extends CI_Controller
 			
 						date_default_timezone_set('Asia/Kolkata');      
 						$createddate = date('Y-m-d');
-						$year = date('y', strtotime($createddate));
+						//$year = date('y', strtotime($createddate));
+						$year = 22 ;
 						
 						//$regionid = $this->input->post('region');
 						$query_state = $this->db->query('SELECT id  AS user_id FROM users ORDER BY id DESC  limit 1');
@@ -1029,7 +1032,8 @@ class Admin extends CI_Controller
 			
 						date_default_timezone_set('Asia/Kolkata');      
 						$createddate = date('Y-m-d');
-						$year = date('y', strtotime($createddate));
+						//$year = date('y', strtotime($createddate));
+						$year = 22 ;
 											
 						$query_state = $this->db->query('SELECT id  AS user_id FROM users ORDER BY id DESC  limit 1');
 						$usercount= $query_state->result_array() ; 
@@ -1279,7 +1283,8 @@ class Admin extends CI_Controller
 			
 						date_default_timezone_set('Asia/Kolkata');      
 						$createddate = date('Y-m-d');
-						$year = date('y', strtotime($createddate));
+						//$year = date('y', strtotime($createddate));
+						$year = 22 ;
 												
 						$query_state = $this->db->query('SELECT id  AS user_id FROM users ORDER BY id DESC  limit 1');
 						$usercount= $query_state->result_array() ; 
@@ -1944,16 +1949,21 @@ class Admin extends CI_Controller
                     
                     $this->load->library('email');
                                             
-                    $message  = 'Dear Employee <b>'.ucwords(strtolower($seller_name)).'</b>,<br><br>';
-                    $message .= 'Thank you for your Registration with INDIGEM CHANNEL PARTNERS PVT. LTD. <br><br>';
-                    $message .= 'Your Login details is...<br>';
+                    //$message  = 'Dear Employee <b>'.ucwords(strtolower($seller_name)).'</b>,<br><br>';
+					$message  = 'Dear Employee <br>';
+                    $message .= 'Congratulations! You are now registered on the portal of IndiGem Channel Partners Pvt Ltd <br>';
+                    $message .= 'and your login details are : <br><br>';
 					$message .= 'Designation/User Type : <b>'.$des_name." (".$value.")".'</b> <br>';
                     $message .= 'Employee ID : <b>'.$user_id.'</b> <br>';                    
                     $message .= 'User ID : <b>'.$email.'</b> <br>';
-                    $message .= 'Password : <b>'.$password.'</b>';                    
-                    $message .= '<br><br><br>';
-                    $message .= ' Regards <br>';
-                    $message .= 'INDIGEMCP';
+                    $message .= 'Password : <b>'.$password.'</b> <br><br>'; 
+					
+					$message .= 'Please login, check your details and you may change the password. <br>';
+                    $message .= 'Note : Do not share your password with anyone.  <br>';
+
+                    $message .= '<br><br>';
+                    $message .= ' Thank you and Welcome	<br>';
+                    $message .= 'IGCPL';
 
                                 
                     $config = array(

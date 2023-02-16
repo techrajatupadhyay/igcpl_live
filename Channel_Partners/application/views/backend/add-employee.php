@@ -1224,13 +1224,13 @@ $(document).ready(function() {
                 }
             }
 
-            if (opt == "1") 
+         if (opt == "1") 
 			{
 
                 alert(text);
                 //document.form1.text1.focus();
                 $('#bank_ifsc_code').val('');
-				$(this).focus();
+				    $(this).focus();
                 return false;
             } 
 			else 

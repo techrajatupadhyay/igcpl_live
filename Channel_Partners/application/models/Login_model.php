@@ -1,16 +1,12 @@
 <?php
-
 class Login_model extends CI_Model
 {
-
 
 	function __consturct()
 	{
 	    parent::__construct();	
 	}
-	
-	
-	
+		
 	public function getUserForLogin($credential)
 	{	
 	
@@ -27,6 +23,7 @@ class Login_model extends CI_Model
 		$this->db->where('em_email ',$email);
 		$this->db->where('em_password ',$password_enc);
 		$this->db->where('user_type ',$usertype);
+		$this->db->where('user_status ',1);
 		$this->db->where('status ','ACTIVE');
 		$this->db->limit(1);
 		 $query = $this->db->get();

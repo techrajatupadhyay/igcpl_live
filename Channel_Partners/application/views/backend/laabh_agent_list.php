@@ -136,7 +136,7 @@
                                     <th>Email</th>
                                     <th>Address</th>
                                     <th>Pincode</th>
-                                    <th> Approvel Status</th>
+                                    <th> Approval Status</th>
                                     <!--<th>Renew</th>-->
                                     <th>Action</th>
                                  </tr>

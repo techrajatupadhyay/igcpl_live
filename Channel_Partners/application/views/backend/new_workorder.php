@@ -15,9 +15,9 @@
 		   $labh_agent_id =$value->labh_agent_id;
 			$region_state =$value->region_state;
 			$district_branch =$value->district_branch;
+         $permanent_address =$value->permanent_address; 
       }
-		
-		
+			
     /*
         $state = $this->db->query("SELECT statename FROM state_master WHERE state_id=".$state_first." limit 1");
         $state = $state->result_array();
@@ -134,6 +134,19 @@
       <div class="col-sm-12">
          <div class="card">
             <form id="workorder_form" action="" method="post" enctype="multipart/form-data">
+               <div class="card-header">
+                  <h5>Workorder Details</h5>
+                  <span>fields with <b style="color:red;">* </b> is mandatory !</span>
+                  <div class="card-header-right">
+                     <ul class="list-unstyled card-option">
+                        <li><i class="feather icon-maximize full-card"></i></li>
+                        <li><i class="feather icon-minus minimize-card"></i></li>
+                        <li><i class="feather icon-trash-2 close-card"></i></li>
+                     </ul>
+                  </div>
+               </div>
+               <div  style="background-color: #fff;border-top: 1px dashed #1abc9c;padding: 20px 25px;position: inherit"></div>
+               
                <div class="card-block">
                   <div class="row">
                      <div class="col-sm-12">					     
@@ -142,19 +155,19 @@
 						 <input type="hidden" class="form-control" name="region_id" readonly required value="<?php echo $region_id; ?>" >						 
 						 <input type="hidden" class="form-control" name="region_state"  required readonly value="<?php echo $region_state; ?>">
 						 <input type="hidden" class="form-control" name="district_branch" readonly required value="<?php echo $district_branch; ?>" >
-						 
-                        <h4 class="sub-title">Workorder Details</h4>
-                        <div class="card-block inner-card-block">
-                           <div class="row">
+                     <h4 class="sub-title">Order Details</h4>                      
+                     <div class="card-block inner-card-block">
+                        
+                           <div class="row m-b-30">
                               <div class="col-sm-4">
                                  <h4 class="sub-title">Seller Id <span class="star">*</span></h4>
                                  <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon7"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="sellerid" readonly required value="<?php echo $sellerid; ?>" >
+                                    <input type="text" class="form-control" name="sellerid" readonly disabled ="disabled" required value="<?php echo $sellerid; ?>" >
                                  </div>
                               </div>
                               <div class="col-sm-4">
-                                 <h4 class="sub-title">Gem Workorder Id <span class="star">*</span></h4>
+                                 <h4 class="sub-title">Gem Contract No. <span class="star">*</span></h4>
                                  <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon7"><i class="fa fa-id-badge" aria-hidden="true"></i></span>
                                     <input type="text" class="form-control" id="gemNgem_workorder_id" name="gemNgem_workorder_id" required placeholder="Gem Workorder Id" value="<?php echo $gemNgem_workorder_id; ?>">
@@ -166,18 +179,35 @@
                                     <div class="input-group">
                                         <span class="input-group-addon" id="basic-addon7"><i class="fa fa-shopping-basket" aria-hidden="true"></i></span>
                                         <select name="order_type" id="order_type" required class="form-control form-control-primary">
-                                          <option value="">Order Type</option>
-                                          <!-- <option value="01" <?php echo $order_type == "01" ? " selected" : "";?>>Gem Work Order</option> -->
-                                          <!-- <option value="02">Non Gem Work Order</option> -->
-                                          <option value="01" <?php echo $order_type == "01" ? " selected" : "";?>>Gem Work Order</option>
+                                          <option value="">Order Type</option>                                                                                  
+                                          <option value="01" <?php echo $order_type == "01" ? " selected" : "";?>>GeM Work Order</option>
+                                          <option value="02" <?php echo $order_type == "02" ? " selected" : "";?>>Non GeM Work Order</option>
                                         </select>
                                     </div>
                                  </div>
                               </div>
+
+                              <div class="col-sm-11">
+                                 <h4 class="sub-title">Pickup Location <span class="star">*</span></h4>
+                                 <div class="input-group">
+                                    <div class="input-group">
+                                       <textarea class="form-control max-textarea" id="pick_location" name="pick_location"  disabled ="disabled" placeholder="Seller Full Address" maxlength="5000" rows="2"><?php echo $permanent_address; ?></textarea>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <div class="col-sm-1">
+                                 <!--<h4 class="sub-title uppercaser" style="text-align:left;" >Actio</h4>-->                                
+                                 <div class="input-group" style="margin-top:55px;">                                  
+									         <button  id='change_address' onclick='changeAddress()' class="btn  btn-round btn-block text-white btn-out-dashed" style="background: #00acaf; border: 1px solid #00acaf;padding: 7px 19px"> <i class="fa fa-pencil-square-o"></i> </Address></button>
+                                 </div>
+                                 
+                              </div>                           
                            </div>
                         </div>
                      </div>
                   </div>
+               <!--      
                   <div class="card-block">
                      <div class="row">
                         <div class="col-sm-12">
@@ -196,11 +226,11 @@
                                              { 
                                                 if($state_first == $c->state_id)
                                                 {
-                                          ?>
-                                          <option value="<?= $c->state_id; ?>" selected ><?= $c->statename; ?></option>
-                                          <?php  } else {  ?>
-                                          <option value="<?= $c->state_id; ?>" ><?= $c->statename; ?></option>
-                                          <?php }  
+                                                   ?>
+                                                   <option value="<?= $c->state_id; ?>" selected ><?= $c->statename; ?></option>
+                                                   <?php  } else {  ?>
+                                                   <option value="<?= $c->state_id; ?>" ><?= $c->statename; ?></option>
+                                                   <?php }  
                                                         
                                                 } 
                                                 } 
@@ -250,14 +280,18 @@
                               </div>
                               <div class="row m-b-30">
                                  <div class="col-sm-12">
-                                    <h4 class="sub-title"><i class="fa fa-home" aria-hidden="true"></i> Seller Full Address <span class="star">*</span></h4>
-                                    <textarea class="form-control max-textarea" name="pick_location" placeholder="Seller Full Address" maxlength="5000" rows="3"><?php echo $pick_location; ?></textarea>
+                                    <h4 class="sub-title"><i class="fa fa-home" aria-hidden="true"></i> Pickup Location <span class="star">*</span></h4>
+                                    <textarea class="form-control max-textarea" name="pick_location" placeholder="Seller Full Address" maxlength="5000" rows="3" readonly><?php echo $permanent_address; ?></textarea>
                                  </div>
                               </div>
                            </div>
                         </div>
                      </div>
                   </div>
+               -->
+
+
+               <!--
                   <div class="card-block">
                      <div class="row">
                         <div class="col-sm-12">
@@ -295,7 +329,9 @@
                         </div>
                      </div>
                   </div>
-                  <div class="card-block">
+               -->
+
+                <!--<div class="card-block"> this is for space from left side and right side in this page-->
                      <div class="row">
                         <div class="col-sm-12">
                            <h4 class="sub-title">Buyer Details </h4>
@@ -309,12 +345,22 @@
                                     </div>
                                  </div>
                                  <div class="col-sm-4">
+                                    <h4 class="sub-title">Organization Name <span class="star"> *</span></h4>
+                                    <div class="input-group">
+                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-university" aria-hidden="true"></i></span>
+                                       <input type="text" class="form-control" id="organization_name" placeholder="Organization Name" name="organization_name" value="<?php echo $organization_name?>">
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4">
                                     <h4 class="sub-title">Phone Number <span class="star">*</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-phone" aria-hidden="true"></i></span>
                                        <input type="text" class="form-control" placeholder="Phone" required id="phone" name="contact" minlength="10" maxlength="12" value="<?php echo $contact;?>">
                                     </div>
                                  </div>
+                                 
+                              </div>
+                              <div class="row m-b-30">                               
                                  <div class="col-sm-4">
                                     <h4 class="sub-title">Email Id  <span class="star">*</span></h4>
                                     <div class="input-group">
@@ -322,9 +368,13 @@
                                        <input type="email" class="form-control" required id="email" name="email" placeholder="Email" value="<?php echo $email;?>">
                                     </div>
                                  </div>
-                              </div>
-                               <div class="row m-b-30">
-                                 
+                                 <div class="col-sm-8">
+                                    <h4 class="sub-title"> Buyer Full Address <span class="star">*</span></h4>
+                                    <textarea class="form-control max-textarea" maxlength="255" rows="1" id="consignee_address" name="consignee_address" placeholder="Buyer Full Address" required="" ><?php echo $consignee_address; ?></textarea>
+                                 </div>
+                              </div> 
+
+                              <div class="row m-b-30">
                                  <div class="col-sm-4">
                                     <h4 class="sub-title">Value of Gem Order (GMV) <span class="star">*</span></h4>
                                     <div class="input-group">
@@ -365,13 +415,7 @@
                                        <input type="number" class="form-control" name="quantity" id="quantity" placeholder="Quantity" required="" minlength="1" value="<?php echo $quantity;?>">
                                     </div>
                                  </div>
-								      <div class="col-sm-4">
-                                    <h4 class="sub-title">Organization Name <span class="star"> *</span></h4>
-                                    <div class="input-group">
-                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-building" aria-hidden="true"></i></span>
-                                       <input type="text" class="form-control" id="organization_name" placeholder="Organization Name" name="organization_name" value="<?php echo $organization_name?>">
-                                    </div>
-                                 </div>
+								      
                                  <div class="col-sm-4">
                                     <h4 class="sub-title">GSTIN <span class="star"> *</span></h4>
                                     <div class="input-group">
@@ -468,12 +512,7 @@
                                     </div>
                                  </div>
                               </div>
-                              <div class="row m-b-30">
-                                 <div class="col-sm-12">
-                                    <h4 class="sub-title"><i class="fa fa-home" aria-hidden="true"></i> Consignee  Full Address <span class="star">*</span></h4>
-                                    <textarea class="form-control max-textarea" maxlength="255" rows="3" id="consignee_address" name="consignee_address" placeholder="Buyer Full Address" required="" ><?php echo $consignee_address; ?></textarea>
-                                 </div>
-                              </div>
+                              
                              
                               <div class="row m-b-30">
                                  <div class="col-sm-4">
@@ -530,10 +569,10 @@
                               </div>                          							  
                            </div>
                         </div>
-                     </div>
-                  </div>
+                    </div>
+                  
 				  
-				  <div class="card-block">
+				  
                      <div class="row">
                         <div class="col-sm-12">
                             <h4 class="sub-title"><i class="fa fa-truck " aria-hidden="true"></i> Shipping Rate Calculation </h4>
@@ -647,38 +686,32 @@
                         </div>
                      </div>
                   </div>
-				 
-                  <div class="card-block">
-                     <div class="row">
-                        <div class="col-lg-12 col-md-12">
-                            <h4 class="sub-title"> </h4>                           
-                        </div>
-                     </div>
-                  </div>
+                  
+                  <div  style="background-color: #fff;border-top: 1px dashed #1abc9c;padding: 20px 25px;position: inherit"></div>
 
-<?php
-/*
-$ch = curl_init("http://twitter.com/statuses/user_timeline/{yourtwitterfeed}.rss");
-curl_setopt($ch,CURLOPT_HEADER,0);
-curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+                     <?php
+                     /*
+                     $ch = curl_init("http://twitter.com/statuses/user_timeline/{yourtwitterfeed}.rss");
+                     curl_setopt($ch,CURLOPT_HEADER,0);
+                     curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
 
-$data = simplexml_load_string(curl_exec($ch));
-curl_close($ch);
+                     $data = simplexml_load_string(curl_exec($ch));
+                     curl_close($ch);
 
-echo $data->channel->item[0]->title;
-*/
-?>
+                     echo $data->channel->item[0]->title;
+                     */
+                     ?>
 
-				  
+				      
                   <div class="row">				  
-                     <div class="col-lg-4 col-md-4"></div>					 
+                     <div class="col-lg-4 col-md-4"></div>                                           					 
                      <div class="col-lg-4 col-md-4">
                         <div class="form-group">
                            <input type="hidden"  name="isedit" value="<?php echo $update ; ?>"> 
                            <input type="hidden"  name="igcpl_workorder_id" value="<?php echo $igcpl_workorder_id; ?>">                       
                            <!--<button type="submit"  name="submit" onclick='submitForm()' class="btn  btn-round btn-block text-white" style="background: #00acaf; border: 1px solid #00acaf;"><i class="fa fa-user-plus"></i>Generate Workorder </button>-->
                            <a onclick='submitForm()' id="sub_btn" class="btn  btn-round btn-block text-white" style="background: #00acaf; border: 1px solid #00acaf;"><i class="fa fa-user-plus"></i>Generate Workorder</a>
-						</div>
+						      </div>
                      </div>
                      <div class="col-lg-4 col-md-4"></div>
                   </div>
@@ -692,6 +725,17 @@ echo $data->channel->item[0]->title;
 </div>
 </div>
 </div>
+
+<script type="text/javascript">
+    function changeAddress() 
+    {
+
+        document.getElementById("pick_location").disabled = false;
+                  
+    }
+</script>
+
+
 <script type="text/javascript">
 /*
 document.getElementById("product_width").onchange = function() {upp()};
@@ -737,8 +781,8 @@ function upp() {
 </script>
 <script>
 
-    function calculateShipping()
-	{
+function calculateShipping()
+{
         //document.getElementById('shipping_price').disabled = true;
 			
 		var pickup_pincode = document.getElementById('pickup_pincode').value;
@@ -803,8 +847,7 @@ function upp() {
 				    }
 				})
 		}
-									
-    }
+}
 		
 </script>
 	
@@ -1006,6 +1049,10 @@ function upp() {
 	}
 	
 </script>
+
+
+
+
 	
 <script type="text/javascript">
     function ShowHideDiv() 

@@ -18,10 +18,13 @@ class Login extends CI_Controller
      * map to /index.php/welcome/<method_name>
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
+
+
     function __construct()
     {
         parent::__construct();
         $this->load->database();
+        $this->load->library('session');
         $this->load->model("Login_model");
         $this->load->model("dashboard_model");
     }
@@ -37,7 +40,8 @@ class Login extends CI_Controller
         } 
 		else 
 		{
-            $this->load->view("login");
+            $data['Employee_Designation'] = $this->db->select('*')->from('designation')->where('status', '1')->get()->result();
+            $this->load->view("login",$data);
         }
 		
     }
@@ -81,11 +85,12 @@ class Login extends CI_Controller
         } 
 	    else				
 		{
-                $this->session->set_flashdata(
-                    "feedback",
-                    "UserEmail or Password is Invalid"
-                );
-                redirect(base_url() . "login", "refresh");          
+            $this->session->set_flashdata("feedback","User id or Password is Invalid");
+
+            $this->session->set_flashdata("status_test","Invalid id of password");
+            $this->session->set_flashdata("status_icon", "info");
+            $this->session->set_flashdata("status", "Login Failed !");
+            redirect(base_url() . "login", "refresh");          
         }
 		
 		
@@ -181,14 +186,13 @@ class Login extends CI_Controller
         );
         
 
-        if ($result == true) {
-            $User_Data = $this->Login_model->get_seller_details(
-                $email,
-                $password_enc
-            );
-           
+        if ($result == true) 
+        {
 
-            foreach ($User_Data as $userdata) {
+            $User_Data = $this->Login_model->get_seller_details($email,$password_enc); 
+
+            foreach ($User_Data as $userdata) 
+            {
                 $sellerid = $userdata->seller_id;
                 $firstname = $userdata->fname;
                 $email = $userdata->email;
@@ -217,33 +221,122 @@ class Login extends CI_Controller
 				$this->session->set_userdata('user_login_access', '1');											
 				$this->session->set_userdata('logged_in',$session_data);
 			*/
-            $this->session->set_flashdata(
-                "status_test",
-                "User Login Succcessfully"
-            );
+
+            $this->session->set_flashdata("feedback","User id or Password is Invalid");
+            
+            $this->session->set_flashdata("status_test","User Login Succcessfully");
             $this->session->set_flashdata("status_icon", "success");
             $this->session->set_flashdata("status", "Login Succcessful");
 
             return redirect("Seller_module");
-        } else {
-            $this->session->set_flashdata(
-                "status_test",
-                "Invalid id of password"
-            );
-            $this->session->set_flashdata("status_icon", "error");
+
+        } 
+        else 
+        {       
+            $this->session->set_flashdata("status_test","Invalid id of password");
+            $this->session->set_flashdata("status_icon", "info");
             $this->session->set_flashdata("status", "Login Failed !");
             return redirect("Login");
         }
     }
 
 
- 
     function logout()
     {
+
         $this->session->sess_destroy();
         $this->session->set_flashdata("feedback", "logged_out");
         redirect(base_url(), "refresh");
+
     }
+
+
+    public function change_password()
+    {
+        
+        $this->load->view('backend/new_header');
+        $this->load->view('backend/new_sidebar'); 
+        $this->load->view('backend/change_password');
+        $this->load->view('backend/new_footer');
+
+    }
+
+    public function reset_password()
+    {
+
+        $user_id = $this->input->post("user_id");
+        $email = $this->input->post("email");
+        $usertype = $this->input->post("usertype");
+
+        $current_password = $this->input->post("current_password");
+        $new_password = $this->input->post("new_password");
+        $cnf_password = $this->input->post("cnf_password");
+        $current_password_enc = hash_hmac("sha256", $current_password, 'aSm0$i_20eNh3os');
+        
+        $credential = [
+            "user_id" => $user_id,
+            "em_email" => $email,
+            "em_password" => $current_password_enc,
+            "user_type" => $usertype,
+            "status" => "ACTIVE",
+            "user_status" => 1,
+        ];
+
+        $query = $this->Login_model->getUserForLogin($credential);
+
+        if ($query->num_rows() > 0)
+        {
+
+
+
+        } 
+        else
+        {
+
+            $this->session->set_flashdata('status_test', 'Password does not match !');
+            $this->session->set_flashdata('status_icon', 'error');
+            $this->session->set_flashdata('status', 'Password Not Changed !');
+            
+            return redirect("Login/change_password");
+
+        }
+
+        //$userinfo = $this->Login_model->GetUserInfo($key);
+    /*
+        if ($password == $confirm) {
+            if ($userinfo->password != sha1($password)) {
+                $data = [];
+                $data = [
+                    "forgotten_code" => 0,
+                    "password" => sha1($password),
+                ];
+                $update = $this->Login_model->UpdatePassword($key, $data);
+                if ($this->db->affected_rows()) {
+                    $data["message"] = "Successfully Updated your password!!";
+                    $this->load->view("backend/login", $data);
+                }
+            } else {
+                $this->session->set_flashdata(
+                    "feedback",
+                    "You enter your old password.Please enter new password"
+                );
+                redirect("Reset_password?p=" . $key);
+            }
+        } else {
+            $this->session->set_flashdata(
+                "feedback",
+                "Password does not match"
+            );
+            redirect("Reset_password?p=" . $key);
+        }
+
+    */    
+}
+
+
+
+
+
 
    
 
@@ -407,6 +500,9 @@ class Login extends CI_Controller
             redirect("Retriev");
         }
     }
+
+   
+
     public function Reset_password_validation()
     {
         $password = $this->input->post("password");
