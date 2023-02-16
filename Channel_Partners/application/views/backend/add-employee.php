@@ -692,7 +692,7 @@
                                                       <div class="box-body box-profile">
                                                          <?php if(isset($Employee_Details) ) { ?>
                                                          <span id="signature" style="display: block;">  
-                                                         <img id="la_signature" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Employee_Details)) { echo $signature; } else{ echo "your-picture.png"; } ?>" height="100" width="100" />                        
+                                                            <img id="la_signature" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Employee_Details)) { echo $signature; } else{ echo "your-picture.png"; } ?>" height="100" width="100" />                        
                                                          </span>
                                                          <p class="text-muted text-left" style="margin-bottom: 5px;">Employee Scan signature Photo <span class="star"> * </span></p>                                                         
                                                          <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 10KB to 35KB</b></p>

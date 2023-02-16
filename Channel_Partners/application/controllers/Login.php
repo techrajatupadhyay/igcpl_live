@@ -289,10 +289,7 @@ class Login extends CI_Controller
 
         if ($query->num_rows() > 0)
         {
-
-            if($usertype==1)
-            {
-               
+              
                 $savedata = [
                     "em_password" => $new_password_enc,
                     "password_dec" => $cnf_password,                    
@@ -319,7 +316,7 @@ class Login extends CI_Controller
                     return redirect("Login/change_password");
                 }
 
-            }
+            
 
         } 
         else

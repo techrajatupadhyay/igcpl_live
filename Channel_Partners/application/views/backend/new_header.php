@@ -1,6 +1,6 @@
 <?php
     
-    $sellerid = $this->session->userdata('user_login_id');  
+   $userid = $this->session->userdata('user_login_id');  
 	$usertype = $this->session->userdata('user_type');
 	$user_image = $this->session->userdata('user_image');
 	$user_name = $this->session->userdata('name');
@@ -212,7 +212,7 @@
          margin-right: 10px;
          line-height: 1.4;
          }
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+       /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');*/
          h1,h2,h3,h4,h5,h6,p,li,a tr th td span{
          font-family: 'Poppins', sans-serif;
          color:#67757c;
@@ -278,10 +278,7 @@
                      </a>
                   </li>
                </ul>
-               <ul class="nav-right">
-			   
-			       
-				   
+               <ul class="nav-right">						      				   
                     <li class="header-notification">
 						<div class="dropdown-primary dropdown">
 						
@@ -326,7 +323,7 @@
                         </div>
                         <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">                          
                             <li>
-                                <a href="#">
+                                <a href="<?php echo base_url();?>Employee/Employee_Details/<?php echo $userid;?>/<?php echo $usertype;?>">
                                    <i class="ti-user"></i>My Profile
                                 </a>
                             </li>

@@ -22,14 +22,17 @@ class Employee extends CI_Controller {
         parent::__construct();
         $this->load->database();
         $this->load->model('dashboard_model');
-        $this->load->model('employee_model');
+        $this->load->model('Employee_model');
         $this->load->model('login_model');
         $this->load->model('payroll_model');
         $this->load->model('settings_model');
         $this->load->model('leave_model');
+        $this->load->library('form_validation');
+		$this->load->model('Seller_model');
+		$this->load->model('Admin_model');
   
     }
-    
+/*    
 	public function index()
 	{
 		if ($this->session->userdata('user_login_access') != 1)
@@ -38,22 +41,65 @@ class Employee extends CI_Controller {
           $data= array();
         redirect('employee/Employees');
 	}
-    public function Employees(){
+*/
+
+    public function Employee_Details($user_id,$user_type)
+    {
+
+        if ($this->session->userdata('user_login_access') != False)
+        {
+            
+            $data['Employee_Details'] = $this->Employee_model->get_employee_details($user_id,$user_type);
+            $this->load->view('backend/new_header');
+            $this->load->view('backend/new_sidebar'); 
+            $this->load->view('backend/user_profile',$data);            
+            $this->load->view('backend/new_footer');					
+			
+        } 
+        else 
+        {
+            redirect(base_url(), 'refresh');
+        }
+        
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function Employees()
+    {
         if($this->session->userdata('user_login_access') != False) { 
         $data['employee'] = $this->employee_model->emselect();
         $this->load->view('backend/employees',$data);
         }
-    else{
-		redirect(base_url() , 'refresh');
-	}        
+        else
+        {
+            redirect(base_url() , 'refresh');
+        }        
     }
-    public function Add_employee(){
+
+
+    public function Add_employee()
+    {
         if($this->session->userdata('user_login_access') != False) { 
         $this->load->view('backend/add-employee');
         }
-    else{
-		redirect(base_url() , 'refresh');
-	}            
+        else
+        {
+            redirect(base_url() , 'refresh');
+        }            
     }
 
 
@@ -652,26 +698,19 @@ class Employee extends CI_Controller {
 		redirect(base_url() , 'refresh');
 	}        
     }
-    public function Department(){
-        if($this->session->userdata('user_login_access') != False) {
+
+    public function Department()
+    {
+        if($this->session->userdata('user_login_access') != False) 
+        {
         $data['department'] = $this->employee_model->depselect();
         $this->load->view('backend/department',$data);
         }
-    else{
-		redirect(base_url() , 'refresh');
-	}            
+        else
+        {
+            redirect(base_url() , 'refresh');
+        }            
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -980,7 +1019,7 @@ class Employee extends CI_Controller {
 
 
 
-      public function Add_Education(){
+      public function Add_Education_new(){
         if($this->session->userdata('user_login_access') != False) {
         $id = $this->input->post('id');
         $em_id = $this->input->post('emid');

@@ -3,10 +3,23 @@
 	class Employee_model extends CI_Model{
 
 
-	function __consturct(){
-	parent::__construct();
-	
-	}
+    function __consturct()
+    {
+        parent::__construct();	
+    }
+
+
+  public function get_employee_details($user_id,$user_type)
+  {
+			
+      $sql = "SELECT * FROM `users` WHERE user_id='".$user_id."' and user_type='".$user_type."'  and status='ACTIVE' and user_status='1' ";
+      $query = $this->db->query($sql);
+      $result = $query->result();
+      //print_r($this->db->last_query());
+          
+      return $result;
+				
+  }
 
 	public function getdesignation(){
 	$query = $this->db->get('designation');

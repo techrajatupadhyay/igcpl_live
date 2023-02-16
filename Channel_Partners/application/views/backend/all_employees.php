@@ -2,7 +2,7 @@
     
     $userid = $this->session->userdata('user_login_id');
     $usertype = $this->session->userdata('user_type');
-	$user_type ="";
+    $user_type ="";
 	
     if($usertype=='1')
 	{
@@ -27,6 +27,34 @@
 	else if($usertype=='6')
 	{
        $user_type='Branch Manager';
+	}
+	else if($usertype=='7')
+	{
+       $user_type='Senior Office Executive';
+	}
+	else if($usertype=='8')
+	{
+       $user_type='Office Executive (GEM)';
+	}
+	else if($usertype=='9')
+	{
+       $user_type='Office Support Staff';
+	}
+	else if($usertype=='10')
+	{
+       $user_type='Customer Care Executive ';
+	}
+	else if($usertype=='11')
+	{
+       $user_type='Assistant General Manager';
+	}
+	else if($usertype=='12')
+	{
+       $user_type='Senior Executive';
+	}
+	else if($usertype=='13')
+	{
+       $user_type='Assistant manager';
 	}
           
 ?>

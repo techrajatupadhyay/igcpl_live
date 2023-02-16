@@ -66,7 +66,7 @@
 						<div class="col-lg-8">
 						 <div class="page-header-title">
 							<div class="d-inline">
-							   <h4>Employees</h4>
+							   <h4>My Profile</h4>
 							</div>
 						 </div>
 						</div>
@@ -76,8 +76,7 @@
 							   <li class="breadcrumb-item">
 								  <a href="index.html"> <i class="feather icon-home"></i> </a>
 							   </li>
-							   <li class="breadcrumb-item"><a href="#!">All Employees</a></li>
-							   <li class="breadcrumb-item"><a href="#!">Employee Details</a></li>
+							   <li class="breadcrumb-item"><a href="#!">My Profile</a></li>
 							</ul>
 						 </div>
 					  </div>
@@ -86,7 +85,7 @@
 			<section class="content card p-3" >
 				<div class="row my-3">
 					<div class="col-sm-9 col-md-9 col-lg-9">
-						<h3 class="box-title">Employee Approvel Details :</h3>
+						<h3 class="box-title">User Profile Details :</h3>
 					</div>
 					<div class="col-sm-3 col-md-3 col-lg-3 text-right">
 						<a onclick="history.back()">
@@ -221,7 +220,7 @@
 								</tbody>
 							</table>			 
 						</div>
-					</div>
+					</div><br><br>
 					
 					<div class="row">
 						<div class="col-md-12">
@@ -279,7 +278,7 @@
 										</tbody>
 									</table>
 								</div>
-					</div><br>
+					</div><br><br><br>
 					
 					<div class="row">
 						<div class="col-md-12">
@@ -291,8 +290,7 @@
 										<th>Account Number</th>
 										<th>IFSC  Code</th>
 										<th>PF Number</th>								
-										<th>Manager Approvel</th>
-										
+										<th>Profileer Status</th>										
 									 </tr>
 								  </thead>
 								  <tbody>
@@ -321,8 +319,8 @@
 								  </tbody>
 							</table> 
 						 </div>
-					</div><br>
-									
+					</div><br><br>
+				<!--					
 					<div class="row">
 						<div class="col-md-12">
 							<table class="table table-bordered">
@@ -394,7 +392,8 @@
 								</tbody>
 							</table>
 						</div>
-					</div>	
+					</div>
+                    -->	
 					<?php } }?>
 			    </div>
 			</section>
