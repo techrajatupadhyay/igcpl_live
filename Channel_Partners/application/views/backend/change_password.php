@@ -3,7 +3,11 @@
    {
       return redirect('Login'); 
    }
-   
+   //$current_password="admin123";
+   //echo $current_password_enc = hash_hmac("sha256", $current_password, 'aSm0$i_20eNh3os');
+   //echo "__";
+   //$current_password2="Admin123";
+   //echo $current_password_enc1 = hash_hmac("sha256", $current_password2, 'aSm0$i_20eNh3os');
    $login_id = $this->session->userdata('user_login_id');
    $email = $this->session->userdata('email');
    $user_type = $this->session->userdata('user_type');

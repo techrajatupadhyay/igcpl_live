@@ -22,11 +22,13 @@ class Login extends CI_Controller
 
     function __construct()
     {
+
         parent::__construct();
         $this->load->database();
         $this->load->library('session');
         $this->load->model("Login_model");
         $this->load->model("dashboard_model");
+
     }
 
 
@@ -65,7 +67,16 @@ class Login extends CI_Controller
         $response["login_status"] = $login_status;
         if ($login_status == "success") 
 	    {
-                if ($remember) {
+                     
+            $this->session->set_flashdata("status_test","User Login Succcessfully");
+            $this->session->set_flashdata("status_icon", "success");
+            $this->session->set_flashdata("status", "Login Succcessful"); 
+          
+            redirect(base_url() . "dashboard");
+
+            /*
+                if ($remember) 
+                {
                     setcookie("email", $email, time() + 86400 * 30);
                     setcookie(
                         "password",
@@ -73,7 +84,9 @@ class Login extends CI_Controller
                         time() + 86400 * 30
                     );
                     redirect(base_url() . "login", "refresh");
-                } else {
+                } 
+                else 
+                {
                     if (isset($_COOKIE["email"])) {
                         setcookie("email", " ");
                     }
@@ -82,6 +95,7 @@ class Login extends CI_Controller
                     }
                     redirect(base_url() . "login", "refresh");
                 }
+            */    
         } 
 	    else				
 		{
@@ -185,7 +199,6 @@ class Login extends CI_Controller
             $usertype
         );
         
-
         if ($result == true) 
         {
 
@@ -222,8 +235,6 @@ class Login extends CI_Controller
 				$this->session->set_userdata('logged_in',$session_data);
 			*/
 
-            $this->session->set_flashdata("feedback","User id or Password is Invalid");
-            
             $this->session->set_flashdata("status_test","User Login Succcessfully");
             $this->session->set_flashdata("status_icon", "success");
             $this->session->set_flashdata("status", "Login Succcessful");
@@ -232,11 +243,15 @@ class Login extends CI_Controller
 
         } 
         else 
-        {       
+        { 
+
+            $this->session->set_flashdata("feedback","User id or Password is Invalid");
+
             $this->session->set_flashdata("status_test","Invalid id of password");
             $this->session->set_flashdata("status_icon", "info");
             $this->session->set_flashdata("status", "Login Failed !");
             return redirect("Login");
+
         }
     }
 
@@ -272,7 +287,11 @@ class Login extends CI_Controller
         $new_password = $this->input->post("new_password");
         $cnf_password = $this->input->post("cnf_password");
         $current_password_enc = hash_hmac("sha256", $current_password, 'aSm0$i_20eNh3os');
-        
+        $new_password_enc = hash_hmac("sha256", $cnf_password, 'aSm0$i_20eNh3os');
+        $ip = $this->input->ip_address();
+        date_default_timezone_set('Asia/Kolkata');      
+        $created_on = date('Y-m-d H:i:s', time());
+
         $credential = [
             "user_id" => $user_id,
             "em_email" => $email,
@@ -287,58 +306,51 @@ class Login extends CI_Controller
         if ($query->num_rows() > 0)
         {
 
+            if($usertype==1)
+            {
+               
+                $savedata = [
+                    "em_password" => $new_password_enc,
+                    "password_dec" => $cnf_password,                    
+                    "last_pass_changed_on" => $created_on,
+                    "last_pass_changed_ip" => $ip,                    
+                ];
+        
+                $result = $this->Login_model->reset_password($savedata,$user_id,$email,$usertype);
 
+                if($result == true)
+                {
+                    $this->session->set_flashdata('status_test', 'Successfully Updated your password!!');
+                    $this->session->set_flashdata('status_icon', 'success');
+                    $this->session->set_flashdata('status', 'Password Updated !');
+                    
+                    return redirect("Login/change_password");
+                }
+                else
+                {
+                    $this->session->set_flashdata('status_test', 'Somthing went Wrong ! Please try Again !');
+                    $this->session->set_flashdata('status_icon', 'error');
+                    $this->session->set_flashdata('status', 'Password not Changed !');
+                    
+                    return redirect("Login/change_password");
+                }
+
+            }
 
         } 
         else
         {
 
             $this->session->set_flashdata('status_test', 'Password does not match !');
-            $this->session->set_flashdata('status_icon', 'error');
-            $this->session->set_flashdata('status', 'Password Not Changed !');
+            $this->session->set_flashdata('status_icon', 'warning');
+            $this->session->set_flashdata('status', 'Password not Changed !');
             
             return redirect("Login/change_password");
 
         }
+ 
+    }
 
-        //$userinfo = $this->Login_model->GetUserInfo($key);
-    /*
-        if ($password == $confirm) {
-            if ($userinfo->password != sha1($password)) {
-                $data = [];
-                $data = [
-                    "forgotten_code" => 0,
-                    "password" => sha1($password),
-                ];
-                $update = $this->Login_model->UpdatePassword($key, $data);
-                if ($this->db->affected_rows()) {
-                    $data["message"] = "Successfully Updated your password!!";
-                    $this->load->view("backend/login", $data);
-                }
-            } else {
-                $this->session->set_flashdata(
-                    "feedback",
-                    "You enter your old password.Please enter new password"
-                );
-                redirect("Reset_password?p=" . $key);
-            }
-        } else {
-            $this->session->set_flashdata(
-                "feedback",
-                "Password does not match"
-            );
-            redirect("Reset_password?p=" . $key);
-        }
-
-    */    
-}
-
-
-
-
-
-
-   
 
     public function confirm_mail_send($email, $randcode)
     {

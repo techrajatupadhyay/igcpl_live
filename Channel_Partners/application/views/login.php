@@ -340,7 +340,7 @@
       <div class="modal" id="HO">
          <div class="modal-dialog">
             <div class="login-box card">
-               <div class="card-body loginpage">
+               <div class="card-body loginpage" style="height: 650px!important">
                   <?php 
                      if(!empty($this->session->flashdata('feedback')))
                      {   ?>
@@ -352,19 +352,21 @@
                      <a href="javascript:void(0)" class="text-center logo"><br/>
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
-                     <div class="modal-header">
+                     <div class="modal-header" style="margin: 60px 0;">
                         <h5 class="modal-title">HO Login →</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
                      </div>
                      <input  type="hidden" name="usertype" value="1" placeholder="usertype">
-                     <div class="form-group m-t-40">
+                     <div class="form-group">
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-user-circle-o"></i>&nbsp; Username :</h4>   
                         <div class="col-xs-12 mx-4">
                            <input class="form-control" name="email" value="<?php if(isset($_COOKIE['email'])) { echo $_COOKIE['email']; } ?>" type="text" required placeholder="Username">
                         </div>
                      </div>
                      <div class="form-group">
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-lock"></i>&nbsp; Password :</h4>
                         <div class="col-xs-12 mx-4">
                            <input class="form-control" name="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>" type="password" required placeholder="Password">                          
                         </div>
@@ -385,7 +387,7 @@
       <div class="modal" id="laabh_executive">
          <div class="modal-dialog">
             <div class="login-box card">
-               <div class="card-body loginpage">
+               <div class="card-body loginpage" style="height: 650px!important">
                   <?php 
                      if(!empty($this->session->flashdata('feedback')))
                      {   ?>
@@ -399,21 +401,23 @@
                      <a href="javascript:void(0)" class="text-center logo"><br/>
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
-                     <div class="modal-header">
+                     <div class="modal-header" style="margin: 60px 0;">
                         <h5 class="modal-title">Laabh Executive Login →</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
                      </div>
                      <input  type="hidden" name="usertype" value="2" placeholder="usertype">
-                     <div class="form-group m-t-40">
+                     <div class="form-group">
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-user-circle-o"></i>&nbsp; Username :</h4>   
                         <div class="col-xs-12 mx-4">
                            <input class="form-control" name="email" value="<?php if(isset($_COOKIE['email'])) { echo $_COOKIE['email']; } ?>" type="text" required placeholder="Username">
                         </div>
                      </div>
                      <div class="form-group">
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-lock"></i>&nbsp; Password :</h4>
                         <div class="col-xs-12 mx-4">
-                           <input class="form-control" name="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>" type="password" required placeholder="Password">
+                           <input class="form-control" name="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>" type="password" required placeholder="Password">                          
                         </div>
                      </div>
                      <div class="form-group text-center mt-5">
@@ -431,7 +435,7 @@
       <div class="modal" id="seller">
          <div class="modal-dialog">
             <div class="login-box card">
-               <div class="card-body loginpage">
+               <div class="card-body loginpage" style="height: 650px!important"> 
                   <?php if(!empty($this->session->flashdata('feedback'))){ ?>
                   <div class="message">
                      <strong>Danger! </strong><?php echo $this->session->flashdata('feedback')?>
@@ -441,21 +445,23 @@
                      <a href="javascript:void(0)" class="text-center logo"><br/>
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
-                     <div class="modal-header">
+                     <div class="modal-header" style="margin: 60px 0;">
                         <h5 class="modal-title">Seller Login →</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
                      </div>
                      <input  type="hidden" name="usertype" value="3" placeholder="usertype">
-                     <div class="form-group m-t-40">
+                     <div class="form-group">
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-user-circle-o"></i>&nbsp; Username :</h4>   
                         <div class="col-xs-12 mx-4">
                            <input class="form-control" name="email" value="<?php if(isset($_COOKIE['email'])) { echo $_COOKIE['email']; } ?>" type="text" required placeholder="Username">
                         </div>
                      </div>
                      <div class="form-group">
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-lock"></i>&nbsp; Password :</h4>
                         <div class="col-xs-12 mx-4">
-                           <input class="form-control" name="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>" type="password" required placeholder="Password">
+                           <input class="form-control" name="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>" type="password" required placeholder="Password">                          
                         </div>
                      </div>
                      <div class="form-group text-center mt-5">
@@ -473,7 +479,7 @@
       <div class="modal" id="fulfilment">
          <div class="modal-dialog">
             <div class="login-box card">
-               <div class="card-body loginpage">
+               <div class="card-body loginpage" style="height: 650px!important">
                   <?php if(!empty($this->session->flashdata('feedback'))){ ?>
                   <div class="message">
                      <strong>Danger! </strong><?php echo $this->session->flashdata('feedback')?>
@@ -483,21 +489,23 @@
                      <a href="javascript:void(0)" class="text-center logo"><br/>
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
-                     <div class="modal-header">
+                     <div class="modal-header" style="margin: 60px 0;">
                         <h5 class="modal-title">Fulfilment Partner Login →</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
                      </div>
                      <input  type="hidden" name="usertype" value="4" placeholder="usertype">
-                     <div class="form-group m-t-40">
+                     <div class="form-group">
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-user-circle-o"></i>&nbsp; Username :</h4>   
                         <div class="col-xs-12 mx-4">
                            <input class="form-control" name="email" value="<?php if(isset($_COOKIE['email'])) { echo $_COOKIE['email']; } ?>" type="text" required placeholder="Username">
                         </div>
                      </div>
                      <div class="form-group">
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-lock"></i>&nbsp; Password :</h4>
                         <div class="col-xs-12 mx-4">
-                           <input class="form-control" name="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>" type="password" required placeholder="Password">
+                           <input class="form-control" name="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>" type="password" required placeholder="Password">                          
                         </div>
                      </div>
                      <div class="form-group text-center mt-5">
@@ -515,7 +523,7 @@
       <div class="modal" id="laabh_agent">
          <div class="modal-dialog">
             <div class="login-box card">
-               <div class="card-body loginpage">
+               <div class="card-body loginpage" style="height: 650px!important">
                   <?php if(!empty($this->session->flashdata('feedback'))){ ?>
                   <div class="message">
                      <strong>Danger! </strong><?php echo $this->session->flashdata('feedback')?>
@@ -525,21 +533,23 @@
                      <a href="javascript:void(0)" class="text-center logo"><br/>
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
-                     <div class="modal-header">
+                     <div class="modal-header" style="margin: 60px 0;">
                         <h5 class="modal-title">Laabh Agent Login →</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
                      </div>
                      <input  type="hidden" name="usertype" value="5" placeholder="usertype">
-                     <div class="form-group m-t-40">
+                     <div class="form-group">
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-user-circle-o"></i>&nbsp; Username :</h4>   
                         <div class="col-xs-12 mx-4">
                            <input class="form-control" name="email" value="<?php if(isset($_COOKIE['email'])) { echo $_COOKIE['email']; } ?>" type="text" required placeholder="Username">
                         </div>
                      </div>
                      <div class="form-group">
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-lock"></i>&nbsp; Password :</h4>
                         <div class="col-xs-12 mx-4">
-                           <input class="form-control" name="password" value="<?php if(isset($_COOKIE['email'])) { echo $_COOKIE['email']; } ?>" type="password" required placeholder="Password">
+                           <input class="form-control" name="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>" type="password" required placeholder="Password">                          
                         </div>
                      </div>
                      <div class="form-group text-center mt-5">
@@ -557,7 +567,7 @@
       <div class="modal" id="Branch-Manager">
          <div class="modal-dialog">
             <div class="login-box card">
-               <div class="card-body loginpage">
+               <div class="card-body loginpage" style="height: 650px!important">
                   <?php if(!empty($this->session->flashdata('feedback'))){ ?>
                   <div class="message">
                      <strong>Danger! </strong><?php echo $this->session->flashdata('feedback')?>
@@ -567,21 +577,23 @@
                      <a href="javascript:void(0)" class="text-center logo"><br/>
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
-                     <div class="modal-header">
+                     <div class="modal-header" style="margin: 60px 0;">
                         <h5 class="modal-title">Branch-Manager Login →</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
                      </div>
                      <input  type="hidden" name="usertype" value="6" placeholder="usertype">
-                     <div class="form-group m-t-40">
+                     <div class="form-group">
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-user-circle-o"></i>&nbsp; Username :</h4>   
                         <div class="col-xs-12 mx-4">
                            <input class="form-control" name="email" value="<?php if(isset($_COOKIE['email'])) { echo $_COOKIE['email']; } ?>" type="text" required placeholder="Username">
                         </div>
                      </div>
                      <div class="form-group">
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-lock"></i>&nbsp; Password :</h4>
                         <div class="col-xs-12 mx-4">
-                           <input class="form-control" name="password" value="<?php if(isset($_COOKIE['email'])) { echo $_COOKIE['email']; } ?>" type="password" required placeholder="Password">
+                           <input class="form-control" name="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>" type="password" required placeholder="Password">                          
                         </div>
                      </div>
                      <div class="form-group text-center mt-5">
@@ -597,12 +609,13 @@
       </div> 
 
 
-
    <!-- --------------------------------Assistant General Manager----------------------------- -->
+
+
       <div class="modal" id="Assistant-General-Manager">
          <div class="modal-dialog">
             <div class="login-box card">
-               <div class="card-body loginpage">
+               <div class="card-body loginpage" style="height: 650px!important">
                   <?php if(!empty($this->session->flashdata('feedback'))){ ?>
                   <div class="message">
                      <strong>Danger! </strong><?php echo $this->session->flashdata('feedback')?>
@@ -612,21 +625,23 @@
                      <a href="javascript:void(0)" class="text-center logo"><br/>
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
-                     <div class="modal-header">
+                     <div class="modal-header" style="margin: 60px 0;">
                         <h5 class="modal-title">Assistant General Manager Login →</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
                      </div>
                      <input  type="hidden" name="usertype" value="11" placeholder="usertype">
-                     <div class="form-group m-t-40">
+                     <div class="form-group">
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-user-circle-o"></i>&nbsp; Username :</h4>   
                         <div class="col-xs-12 mx-4">
                            <input class="form-control" name="email" value="<?php if(isset($_COOKIE['email'])) { echo $_COOKIE['email']; } ?>" type="text" required placeholder="Username">
                         </div>
                      </div>
                      <div class="form-group">
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-lock"></i>&nbsp; Password :</h4>
                         <div class="col-xs-12 mx-4">
-                           <input class="form-control" name="password" value="<?php if(isset($_COOKIE['email'])) { echo $_COOKIE['email']; } ?>" type="password" required placeholder="Password">
+                           <input class="form-control" name="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>" type="password" required placeholder="Password">                          
                         </div>
                      </div>
                      <div class="form-group text-center mt-5">
@@ -646,7 +661,7 @@
       <div class="modal" id="Employee">
          <div class="modal-dialog">
             <div class="login-box card">
-               <div class="card-body loginpage" style="height: 655px!important">
+               <div class="card-body loginpage" style="height: 735px!important">
                   <?php if(!empty($this->session->flashdata('feedback'))){ ?>
                   <div class="message">
                      <strong>Danger! </strong><?php echo $this->session->flashdata('feedback')?>
@@ -656,7 +671,7 @@
                      <a href="javascript:void(0)" class="text-center logo"><br/>
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
-                     <div class="modal-header">
+                     <div class="modal-header" style="margin: 60px 0;">
                         <h5 class="modal-title">Employee Login →</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
@@ -664,10 +679,10 @@
                      </div>
                   
                      <div class="form-group ">
-                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-user-secret"></i>&nbsp; User Type :</h4>
+                        <h4 class="sub-title" style="color:#0071c0;font-size:16px;margin-left:26px;"><i class="fa fa-user-secret"></i>&nbsp; User Designation :</h4>
                         <div class="col-xs-12 mx-4">                       
-                           <select id="user_type" name="usertype" onchange ="ShowHideDiv()" class="form-control "required>
-                              <option value=""> - User Type -</option>
+                           <select id="user_type" name="usertype"  class="form-control "required>
+                              <option value=""> - User Designation -</option>
                               <option value="11">Assistant General manager (AGM) →</option>
                               <option value="6">Branch Manager (BMG) →</option>
                               <!--<option value="13">Assistant manager (AMG) →</option>-->

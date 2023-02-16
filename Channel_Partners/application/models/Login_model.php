@@ -26,12 +26,37 @@ class Login_model extends CI_Model
 		$this->db->where('user_status ',1);
 		$this->db->where('status ','ACTIVE');
 		$this->db->limit(1);
-		 $query = $this->db->get();
+		$query = $this->db->get();
 	    //print_r($this->db->last_query());
 		  
 	    if ($query->num_rows() > 0) 
 		{
 			
+			return true ;
+		} 
+		else 
+		{
+			return false ;
+		}
+      
+	}
+
+
+	public function reset_password($savedata,$user_id,$email,$usertype)
+	{
+
+		$this->db->set($savedata);								
+		$this->db->where('user_id',$user_id);
+		$this->db->where('em_email',$email);
+		$this->db->where('user_type',$usertype);						
+		$this->db->where('STATUS','ACTIVE');
+		$this->db->where('user_status','1');
+		$this->db->update('users', $savedata);
+		$queryresult1 = $this->db->affected_rows();
+		//print_r($this->db->last_query());
+		
+	    if ($queryresult1 == 1) 
+		{		
 			return true ;
 		} 
 		else 

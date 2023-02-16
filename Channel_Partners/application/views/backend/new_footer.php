@@ -44,7 +44,7 @@
 <script src="https://colorlib.com/polygon/adminty/files/assets/js/vartical-layout.min.js"></script>
 <script src="https://colorlib.com/polygon/adminty/files/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="https://colorlib.com/polygon/adminty/files/assets/js/script.js"></script>
-<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"7729a56a58cd6efa","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2022.11.3","si":100}' crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>

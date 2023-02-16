@@ -278,8 +278,8 @@ class Admin extends CI_Controller
 			
 						date_default_timezone_set('Asia/Kolkata');      
 						$createddate = date('Y-m-d');
-						//$year = date('y', strtotime($createddate));
-						$year = 22 ;
+						$year = date('y', strtotime($createddate));
+						//$year = 22 ;
 						
 						$query_state = $this->db->query('SELECT id  AS user_id FROM users ORDER BY id DESC  limit 1');
 						$usercount= $query_state->result_array() ; 
@@ -421,6 +421,8 @@ class Admin extends CI_Controller
 									'username'=> $em_email,
 									'em_password'=>$user_password,
 									'password_dec'=>$password,
+                                    'last_pass_changed_on'=>$created_on,
+
 									'em_birthday'=> $em_birthday,
 									'district_first'=>$district_first,
 									
@@ -529,8 +531,8 @@ class Admin extends CI_Controller
 			
 						date_default_timezone_set('Asia/Kolkata');      
 						$createddate = date('Y-m-d');
-						//$year = date('y', strtotime($createddate));
-						$year = 22 ;
+						$year = date('y', strtotime($createddate));
+						//$year = 22 ;
 						
 						$query_state = $this->db->query('SELECT id  AS user_id FROM users ORDER BY id DESC  limit 1');
 						$usercount= $query_state->result_array() ; 
@@ -671,6 +673,7 @@ class Admin extends CI_Controller
 									'em_gender'=> $em_gender,
 									'username'=> $em_email,
 									'em_password'=>$user_password,
+									'last_pass_changed_on'=>$created_on,
 									'password_dec'=>$password,
 									'em_birthday'=> $em_birthday,
 									'district_first'=>$district_first,
@@ -780,8 +783,8 @@ class Admin extends CI_Controller
 			
 						date_default_timezone_set('Asia/Kolkata');      
 						$createddate = date('Y-m-d');
-						//$year = date('y', strtotime($createddate));
-						$year = 22 ;
+						$year = date('y', strtotime($createddate));
+						//$year = 22 ;
 						
 						//$regionid = $this->input->post('region');
 						$query_state = $this->db->query('SELECT id  AS user_id FROM users ORDER BY id DESC  limit 1');
@@ -923,6 +926,7 @@ class Admin extends CI_Controller
 									'username'=> $em_email,
 									'em_password'=>$user_password,
 									'password_dec'=>$password,
+									'last_pass_changed_on'=>$created_on,
 									'em_birthday'=> $em_birthday,
 									'district_first'=>$district_first,
 									
@@ -1032,8 +1036,8 @@ class Admin extends CI_Controller
 			
 						date_default_timezone_set('Asia/Kolkata');      
 						$createddate = date('Y-m-d');
-						//$year = date('y', strtotime($createddate));
-						$year = 22 ;
+						$year = date('y', strtotime($createddate));
+						//$year = 22 ;
 											
 						$query_state = $this->db->query('SELECT id  AS user_id FROM users ORDER BY id DESC  limit 1');
 						$usercount= $query_state->result_array() ; 
@@ -1174,6 +1178,7 @@ class Admin extends CI_Controller
 									'username'=> $em_email,
 									'em_password'=>$user_password,
 									'password_dec'=>$password,
+									'last_pass_changed_on'=>$created_on,
 									'em_birthday'=> $em_birthday,
 									'district_first'=>$district_first,
 									
@@ -1283,8 +1288,8 @@ class Admin extends CI_Controller
 			
 						date_default_timezone_set('Asia/Kolkata');      
 						$createddate = date('Y-m-d');
-						//$year = date('y', strtotime($createddate));
-						$year = 22 ;
+						$year = date('y', strtotime($createddate));
+						//$year = 22 ;
 												
 						$query_state = $this->db->query('SELECT id  AS user_id FROM users ORDER BY id DESC  limit 1');
 						$usercount= $query_state->result_array() ; 
@@ -1425,6 +1430,7 @@ class Admin extends CI_Controller
 									'username'=> $em_email,
 									'em_password'=>$user_password,
 									'password_dec'=>$password,
+									'last_pass_changed_on'=>$created_on,
 									'em_birthday'=> $em_birthday,
 									'district_first'=>$district_first,
 									

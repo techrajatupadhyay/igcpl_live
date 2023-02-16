@@ -10143,9 +10143,9 @@ button.btn.btn-info.btn-lg.btn-logino {
 /*end progress bar*/
 .message{
 	position: fixed;
-    top: 223px;
-    right: -14px;
-    padding: 6px;
+    top: 158px;
+    right: 0px;
+    padding: 8px;
     z-index: 9999999!important;
     background-color: #4CAF50;
     color: #fff;
