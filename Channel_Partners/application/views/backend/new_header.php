@@ -62,7 +62,10 @@
 	}	
           
 ?>
-<html lang="en">
+
+<!--<html lang="en">-->
+<DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml">   
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -331,16 +334,14 @@
                                 <a href="#">
                                     <i class="ti-settings"></i> Account Setting
                                 </a>
-                            </li>
-                             
+                            </li>                            
                             <li>
                                 <a href="<?php echo base_url();?>Login/change_password">
                                     <i class="feather icon-lock"></i> Change Password
                                 </a>
-                            </li>
-    
+                            </li>  
                             <li>
-                                <a href="<?php echo base_url();?>Login/logout">
+                                <a href="#" onclick='return submitForm()' id="logout_btn">
                                     <i class="feather icon-log-out"></i> Logout
                                 </a>
                             </li>
@@ -351,3 +352,81 @@
             </div>
          </div>
       </nav>
+
+      
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript">
+
+   function submitForm()
+	{
+		alert("asa");
+      //document.getElementById('sub_btn').disabled = true;  <?php echo base_url();?>Login/logout
+		//$("#sub_btn").html('<i class="fa fa-spinner fa-spin"></i>Submitting...');
+	   //document.getElementById('sub_btn').disabled = true;		
+		//var frm = $('#employee_registration_form');		
+		//var user_type = document.getElementById('user_type').value;
+      //var designation = document.getElementById('designation').value;        		
+		//var emp_name = document.getElementById('emp_name').value;
+
+      const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+               confirmButton: 'btn btn-success',
+               cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+            title: 'Are you sure?',
+            text: "You want  to Logout!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, Logout!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+            }).then((result) => {
+            if (result.isConfirmed) {
+               swalWithBootstrapButtons.fire(
+                  'Deleted!',
+                  'Your file has been deleted.',
+                  'success'
+               )
+            } 
+            /* Read more about handling dismissals below */
+            else if ( result.dismiss === Swal.DismissReason.cancel)                         
+            {
+               swalWithBootstrapButtons.fire(
+                  'Cancelled',
+                  'Your imaginary file is safe :)',
+                  'error'
+               )
+            }
+            })
+
+
+		   /*	
+			document.getElementById("employee_registration_form").submit();
+			
+			$("#sub_btn").html('<i class="fa fa-spinner fa-spin"></i>Submitting...');
+	        document.getElementById('sub_btn').disabled = true;
+			
+				$.ajax({
+					type: frm.attr('method'),
+					url:  frm.attr('action'),				
+					data: frm.serialize(),
+					success: function (data) {
+						//alert('Submission was successful.');
+						console.log(data);
+					},
+					error: function (data) {
+						alert('An error occurred.');
+						console.log('An error occurred.');
+						console.log(data);
+					},
+				});
+			*/	
+		}
+		
+    
+		
+</script>

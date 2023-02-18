@@ -646,7 +646,7 @@
                                     <div class="card-block inner-card-block">
                                        <div class="row m-b-30">
                                           <div class="col-sm-12">
-                                             <div class="note" style="border: 2px solid;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a">
+                                             <div class="note"  id="pro_img" style="border: 2px solid;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a">
                                                 <div class="box">
                                                    <div class="box-body">
                                                       <div class="box-body box-profile">
@@ -655,7 +655,7 @@
                                                          <img id="blah" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Employee_Details)) { echo $em_image; } else{ echo "your-picture.png"; } ?>" height="100" width="100" />                                                                                                                
                                                          </span>
                                                          <p class="text-muted text-left" style="margin-bottom: 5px;">Employee Passport Size Photo Only <span class="star"> * </span></p>
-                                                         <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 10KB to 35KB</b></p>
+                                                         <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
                                                          <div class="input-group">
                                                             <div class="input-group-addon">
                                                                <input type="file" accept="image/png, image/gif, image/jpeg, image/jpg"  name="em_image" onchange="proPic(this);"  <?php echo $em_image; ?> />
@@ -666,7 +666,7 @@
                                                          <img id="blah" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>assets/images/your-picture.png" height="100" width="100" />                        
                                                          </span>
                                                          <p class="text-muted text-left" style="margin-bottom: 5px;">Employee Passport Size Photo Only <span class="star"> * </span></p>
-                                                         <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 10KB to 35KB</b></p>
+                                                         <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
                                                          <div class="input-group">
                                                             <div class="input-group-addon">
                                                                <input type="file" accept="image/png, image/gif, image/jpeg, image/jpg"  required id="emp_image" name="em_image" onchange="proPic(this);"  <?php echo $em_image; ?> />
@@ -686,16 +686,16 @@
                                     <div class="card-block inner-card-block">
                                        <div class="row m-b-30">
                                           <div class="col-sm-12">
-                                             <div class="note" style="border: 2px solid;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a">
+                                             <div class="note" id="sign_img" style="border: 2px solid ;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a">
                                                 <div class="box">
                                                    <div class="box-body">
                                                       <div class="box-body box-profile">
                                                          <?php if(isset($Employee_Details) ) { ?>
                                                          <span id="signature" style="display: block;">  
-                                                            <img id="la_signature" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Employee_Details)) { echo $signature; } else{ echo "your-picture.png"; } ?>" height="100" width="100" />                        
+                                                            <img id="la_signature" style="border:1px solid grey !important;"  accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Employee_Details)) { echo $signature; } else{ echo "your-picture.png"; } ?>" height="100" width="100" />                        
                                                          </span>
                                                          <p class="text-muted text-left" style="margin-bottom: 5px;">Employee Scan signature Photo <span class="star"> * </span></p>                                                         
-                                                         <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 10KB to 35KB</b></p>
+                                                         <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
                                                          <div class="input-group">
                                                             <div class="input-group-addon">
                                                                <input type="file" accept="image/png, image/gif, image/jpeg, image/jpg"  name="em_signature" onchange="signature_pic(this);"/>
@@ -703,10 +703,10 @@
                                                          </div>
                                                          <?php } else { ?>
                                                          <span id="signature" style="display: block;">  
-                                                         <img id="la_signature" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>assets/images/signature.png" height="100" width="100" />                        
+                                                         <img id="la_signature" style="border:1px solid grey !important;" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>assets/images/signature.png" height="100" width="100" />                        
                                                          </span>
                                                          <p class="text-muted text-left" style="margin-bottom: 5px;">Employee Scan signature Photo <span class="star"> * </span></p>                                                        
-                                                         <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 10KB to 35KB</b></p>                                                        
+                                                         <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>                                                        
                                                          <div class="input-group">
                                                             <div class="input-group-addon">
                                                                <input type="file" accept="image/png, image/gif, image/jpeg, image/jpg"  id="emp_sign" name="em_signature" required onchange="signature_pic(this);"/>
@@ -780,7 +780,7 @@
                                           <div class="col-sm-4 ">
                                              <h4 class="sub-title">experience letter <span class="star">  </span> </h4>
                                              <div class="input-group">
-                                                <input type="file" accept=".pdf" class="form-control bg-white"  name="experience_letter">
+                                                <input type="file" accept=".pdf" class="form-control bg-white"  id="experience_letter" name="experience_letter">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></span>
                                              </div>
                                              <h4 class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 2MB</b> </h4>
@@ -806,7 +806,7 @@
                                  <div class="col-lg-9 col-md-9"></div>
                                  <div class="col-lg-3 col-md-3">
                                     <div class="form-group">                             
-                                       <button type="submit"  name="submit" onclick='submitForm()' id="sub_btn" class="btn  btn-round btn-block text-white" style="background: #00acaf; border: 1px solid #00acaf;"><i class="fa fa-user-plus"></i>Register Employee </button>                                      
+                                       <button type="submit"  name="submit" onclick='return submitForm()' id="sub_btn" class="btn  btn-round btn-block text-white" style="background: #00acaf; border: 1px solid #00acaf;"><i class="fa fa-user-plus"></i>Register Employee </button>                                      
 									</div>
                                  </div>
                               </div>
@@ -825,7 +825,7 @@
 
 <script type="text/javascript">
 
-    function submitForm()
+   function submitForm()
 	{
 		
         //document.getElementById('sub_btn').disabled = true;
@@ -867,19 +867,23 @@
 	
 		if (user_type =="") 
 		{
-			alert("User Type is Mandatory!");			
+			alert("User Type is Mandatory!");
+         return	false;			
 		}
 		else if (designation =='') 
 		{
 			alert("Designation is Mandatory!");
+         return	false;
 		}
 		else if (emp_name =='') 
 		{
 			alert("Employee Name is Mandatory!");
+         return	false;
 		}
 		else if (contact =='') 
 		{
 			alert("Contact Number is Mandatory!");
+         return	false;
 		}
 		else if (email =='') 
 		{
@@ -888,82 +892,103 @@
 		else if (gender =='') 
 		{
 			alert("Gender is Mandatory!");
+         return	false;
 		}
 		else if (dob =='') 
 		{
 			alert("Date of Birth is Mandatory!");
+         return	false;
 		}
 		else if (stateid_first =='' || district_first =='' || city_first =='' || pin_code1 =='' || present_full_address =='') 
 		{
 			alert("Present Address is Mandatory!");
+         return	false;
 		}
 		else if (stateid_second =='' || district_second =='' || city_second =='' || pin_code2 =='' || permanent_full_address =='') 
 		{
 			alert("Permanent Address is Mandatory!");
+         return	false;
 		}
 		else if (joining_date =='') 
 		{
 			alert("Joining date is Mandatory!");
+         return	false;
 		}
 		else if (aadharno =='') 
 		{
 			alert("Employee Aadhar Number is Mandatory!");
+         return	false;
 		}
 		else if (panNo =='') 
 		{
 			alert("PAN Number is Mandatory!");
+         return	false;
 		}
 		else if (bank_name =='') 
 		{
 			alert("Bank name is Mandatory!");
+         return	false;
 		}
 		else if (bank_acc =='') 
 		{
 			alert("Bank Account number is Mandatory!");
+         return	false;
 		}
 		else if (bank_ifsc_code =='') 
 		{
 			alert("Bank IFSC Code is Mandatory!");
+         return	false;
 		}
 		else if (emp_image =='') 
 		{
 			alert("Employee Image is Mandatory!");
+         return	false;
 		}
 		else if (emp_sign =='') 
 		{
 			alert("Employee Signature is Mandatory!");
+         return	false;
 		}
 		else if (resume =='') 
 		{
 			alert("Employee Resume is Mandatory!");
+         return	false;
 		}
 		else if (edu_file =='') 
 		{
 			alert("Education Decument is Mandatory!");
+         return	false;
 		}
 		else
 		{
-			
-			document.getElementById("employee_registration_form").submit();
-			
-			$("#sub_btn").html('<i class="fa fa-spinner fa-spin"></i>Submitting...');
-	        document.getElementById('sub_btn').disabled = true;
-			/*	
+         
+         $("#sub_btn").html('<i class="fa fa-spinner fa-spin"></i>Submitting...');
+	      //document.getElementById('sub_btn').disabled = true;
+			return true;
+			//document.getElementById("employee_registration_form").submit();		
+			//$("#sub_btn").html('<i class="fa fa-spinner fa-spin"></i>Submitting...');
+	      //document.getElementById('sub_btn').disabled = true;
+			//alert(frm.serialize());
+			/*
 				$.ajax({
 					type: frm.attr('method'),
 					url:  frm.attr('action'),				
 					data: frm.serialize(),
 					success: function (data) {
 						//alert('Submission was successful.');
-						console.log(data);
+						//console.log(data);
+						$("#sub_btn").html('<i class="fa fa-spinner fa-spin"></i>Submitting...');
+	                    document.getElementById('sub_btn').disabled = true;
 					},
 					error: function (data) {
-						alert('An error occurred.');
-						console.log('An error occurred.');
-						console.log(data);
+						//alert('An error occurred.');
+						//console.log('An error occurred.');
+						//console.log(data);
+						$("#sub_btn").html('<i class="fa fa-spinner fa-spin"></i>Submitting...');
+	                    document.getElementById('sub_btn').disabled = true;
 					},
 				});
-			*/	
+			*/
 		}
 		
     }
@@ -1217,7 +1242,7 @@ $(document).ready(function() {
                     text += "\n -Starting 4 should be only alphabets[A-Z].";
                     text += "\n -Remaining 7 should be accepting only alphanumeric.";
                     $('#bank_ifsc_code').val('');                    
-					$("#bank_ifsc_code").attr('style', 'border:1px solid #d03100 !important;');
+					     $("#bank_ifsc_code").attr('style', 'border:1px solid #d03100 !important;');
                     $("#bank_ifsc_code").css({ "background-color": "#fff2ee" });
 					
                     opt = 1;
@@ -1239,6 +1264,64 @@ $(document).ready(function() {
             }
             return true;
     });
+
+
+   $('#resume').on('change', function ()
+		{   		    
+            var fileEmpty = $('#resume').get(0).files.length === 0;
+            var size = parseFloat(resume.files[0].size / 1048576).toFixed(2);
+            
+            if (!fileEmpty && size > 2) 
+            {
+               alert("File size must under 2MB !");
+               $('#resume').val('');                               
+               $("#resume").attr('style', 'border:1px solid #d03100 !important;');
+               $("#resume").css({ "background-color": "#fff2ee" });
+            } 
+            else
+            {                 
+               $('#resume').attr('style', 'border:1px solid green !important;');
+               $('#resume').css({ "background-color": "#ffffff" });
+            }         
+   });
+
+   $('#edu_file').on('change', function ()
+		{   		    
+            var fileEmpty = $('#edu_file').get(0).files.length === 0;
+            var size = parseFloat(edu_file.files[0].size / 1048576).toFixed(2);
+            
+            if (!fileEmpty && size > 2) 
+            {
+               alert("File size must under 2MB !");
+               $('#edu_file').val('');                               
+               $("#edu_file").attr('style', 'border:1px solid #d03100 !important;');
+               $("#edu_file").css({ "background-color": "#fff2ee" });
+            } 
+            else
+            {                 
+               $('#edu_file').attr('style', 'border:1px solid green !important;');
+               $('#edu_file').css({ "background-color": "#ffffff" });
+            }         
+   });
+
+   $('#experience_letter').on('change', function ()
+		{   		    
+            var fileEmpty = $('#experience_letter').get(0).files.length === 0;
+            var size = parseFloat(experience_letter.files[0].size / 1048576).toFixed(2);
+            
+            if (!fileEmpty && size > 2) 
+            {
+               alert("File size must under 2MB !");
+               $('#experience_letter').val('');                               
+               $("#experience_letter").attr('style', 'border:1px solid #d03100 !important;');
+               $("#experience_letter").css({ "background-color": "#fff2ee" });
+            } 
+            else
+            {                  
+               $('#experience_letter').attr('style', 'border:1px solid green !important;');
+               $('#experience_letter').css({ "background-color": "#ffffff" });
+            }         
+   });
 		
 		
 		
@@ -1278,11 +1361,11 @@ $(document).ready(function() {
         {
             $("#single_reg_id").show();
             $("#single_reg_sta_id").show();
-			$("#single_dist_bran_id").show();
+			   $("#single_dist_bran_id").show();
 			
-			$("#multiple_reg_id").hide();
-			$("#multiple_reg_sta_id").hide();
-			$("#multiple_dist_bran_id").hide();           
+			   $("#multiple_reg_id").hide();
+			   $("#multiple_reg_sta_id").hide();
+			   $("#multiple_dist_bran_id").hide();           
         }		
     }
 </script>
@@ -1408,22 +1491,74 @@ $(document).ready(function() {
 
 
 <script>
-   function signature_pic(input) 
+
+   function proPic(input) 
    {
-       if (input.files && input.files[0]) 
-       {
-           var reader = new FileReader();
-           reader.onload = function (e) 
-           {
-               $('#la_signature')
-               .attr('src', e.target.result)
-               .width(80)
-               .height(100);
-           };
-           document.getElementById("signature").style.display = "block";
-     
-           reader.readAsDataURL(input.files[0]);
-       }
+            var fileEmpty = $('#emp_image').get(0).files.length === 0;
+            var size = parseFloat(emp_image.files[0].size / 1048576).toFixed(2);
+            
+            if (!fileEmpty && size > 1) 
+            {
+               alert("File size must be under 1MB !");
+               $('#emp_image').val('');                             
+               document.getElementById("blah").src = "<?php  echo base_url(); ?>assets/images/your-picture.png";
+               $("#pro_img").attr('style', 'border: 1px solid #d03100 !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');                                
+            }
+            else
+            {
+               if (input.files && input.files[0]) 
+               {
+
+                  var reader = new FileReader();
+                  reader.onload = function (e) 
+                  {
+                     $('#blah')
+                     .attr('src', e.target.result)
+                     .width(100)
+                     .height(100);
+                  };
+                  document.getElementById("pro_pic").style.display = "block";
+                  reader.readAsDataURL(input.files[0]);
+                  $('#blah').attr('style', 'border:1px solid grey !important;');
+                  $("#pro_img").attr('style', 'border: 1px solid green !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');
+                  
+               }
+            }
+   }
+
+   
+   function signature_pic(input) 
+   {  
+         var fileEmpty = $('#emp_sign').get(0).files.length === 0;
+         var size = parseFloat(emp_sign.files[0].size / 1048576).toFixed(2);
+            
+            if (!fileEmpty && size > 1) 
+            {
+               alert("File size must be under 1MB !");
+               $('#emp_sign').val('');                             
+               document.getElementById("blah").src = "<?php  echo base_url(); ?>assets/images/your-picture.png";
+               $("#sign_img").attr('style', 'border: 1px solid #d03100 !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');                                
+            }
+            else
+            {
+               if (input.files && input.files[0]) 
+               {
+                  var reader = new FileReader();
+                  reader.onload = function (e) 
+                  {
+                     $('#la_signature')
+                     .attr('src', e.target.result)
+                     .width(100)
+                     .height(100);
+                  };
+                  document.getElementById("signature").style.display = "block";
+                  reader.readAsDataURL(input.files[0]);
+                  
+                  $('#la_signature').attr('style', 'border:1px solid grey !important;');
+                  $("#sign_img").attr('style', 'border: 1px solid green !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');
+                  
+               }
+            }
    }
 </script>
 
@@ -1444,25 +1579,6 @@ $(document).ready(function() {
 		    }
         })         
     });                      
-</script>
-
-<script>
-   function proPic(input) 
-   {
-       if (input.files && input.files[0]) 
-       {
-           var reader = new FileReader();
-           reader.onload = function (e) 
-           {
-               $('#blah')
-               .attr('src', e.target.result)
-               .width(80)
-               .height(100);
-           };
-           document.getElementById("pro_pic").style.display = "block";
-           reader.readAsDataURL(input.files[0]);
-       }
-   }
 </script>
 
 <script type="text/javascript">
