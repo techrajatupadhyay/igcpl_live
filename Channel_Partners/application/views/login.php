@@ -5,15 +5,15 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="">
       <meta name="author" content="">
-      <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url();?>assets/images/logo-icon.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url();?>assets/images/logo_new.png">
       <title>INDIGEM CHANNEL PARTNERS</title>
       <link href="<?php echo base_url(); ?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
       <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
       <link href="<?php echo base_url(); ?>assets/css/colors/blue.css" id="theme" rel="stylesheet">
 
       <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
       <style>
          body{
             background-color:#f6f2e7;
@@ -284,7 +284,7 @@
          <div class="container-fluid whitebg myheader">
             <div class="row tophead">
                <div class="col-xs-12 col-sm-3 col-md-1 col-lg-1">
-                  <a href="https://indigemcp.com/"><img src="https://indigemcp.tsdemo.co.in/assets/img/logo/logo_new.png" class="img-responsive logo my-1 " alt="INDIGEM CHANNEL PARTNERS"></a>
+                  <a href="https://indigemcp.com/"><img src="<?php echo base_url()?>assets/images/logo_new.png" class="img-responsive logo my-1 " alt="INDIGEM CHANNEL PARTNERS"></a>
                </div>
                <div class="col-xs-12 col-sm-9 col-md-5 col-lg-6 logo company_name">
                   <a href="https://indigemcp.com/">
@@ -433,7 +433,7 @@
       </div>
 
       <!---------------------------------- seller-------------------------------- -->
-      
+
       <div class="modal" id="seller">
          <div class="modal-dialog">
             <div class="login-box card">
@@ -724,20 +724,21 @@
 <!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
 <script src="https://mptriballms.in/Online_Assesment/assets/bower_components/jquery/jquery-3.3.1.min.js"></script>
 <script src="https://mptriballms.in/Online_Assesment/assets/bower_components/sweetalert2/sweetalert2.all.min.js"></script>
+
 <script>
-         $(document).ready(function () 
-            {
-                  <?php if($this->session->flashdata('status')){ ?>
-                     swal({
-                           title: "<?= $this->session->flashdata('status') ?>",
-                           text: "<?= $this->session->flashdata('status_test') ?>",
-                           icon: "<?= $this->session->flashdata('status_icon') ?>",
-                           button: "OK!",
-						   timer: 1600,
-                        });          
-                  <?php } ?>  
+   $(document).ready(function () 
+   {
+      <?php if($this->session->flashdata('login_status')){ ?>
+         swal({
+            title: "<?= $this->session->flashdata('login_status') ?>",
+            text: "<?= $this->session->flashdata('status_test') ?>",
+            type: "<?= $this->session->flashdata('status_icon') ?>",
+            button: "OK!",
+            timer: 1600,
+         });          
+      <?php } ?>  
                   
-             });
+   });
 </script>
 <script type="text/javascript">
    var togglePassword = document.getElementById("togglePassword");

@@ -69,7 +69,7 @@ class Login extends CI_Controller
                      
             $this->session->set_flashdata("status_test","User Login Succcessfully");
             $this->session->set_flashdata("status_icon", "success");
-            $this->session->set_flashdata("status", "Login Succcessful"); 
+            $this->session->set_flashdata("login_status", "Login Succcessful"); 
           
             redirect(base_url() . "dashboard");
 
@@ -101,8 +101,8 @@ class Login extends CI_Controller
             $this->session->set_flashdata("feedback","User id or Password is Invalid");
 
             $this->session->set_flashdata("status_test","Invalid id of password");
-            $this->session->set_flashdata("status_icon", "info");
-            $this->session->set_flashdata("status", "Login Failed !");
+            $this->session->set_flashdata("status_icon", "error");
+            $this->session->set_flashdata("login_status", "Login Failed !");
             redirect(base_url() . "login", "refresh");          
         }
 		

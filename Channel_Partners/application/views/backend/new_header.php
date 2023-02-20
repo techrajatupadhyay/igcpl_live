@@ -8,11 +8,11 @@
 	
 	$user_type ="";
 	
-    if($usertype=='1')
+   if($usertype=='1')
 	{
        $user_type='HO';
 	}		
-    else if($usertype=='2')
+   else if($usertype=='2')
 	{
        $user_type='Laabh Executive';
 	}
@@ -63,9 +63,7 @@
           
 ?>
 
-<!--<html lang="en">-->
-<DOCTYPE html>
-<html xmlns="https://www.w3.org/1999/xhtml">   
+<html lang="en">
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -73,40 +71,28 @@
       <meta name="description" content="#">
       <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
       <meta name="author" content="#">
+   	<title>INDIGEM CHANNEL PARTNERS</title>  
+	   <link rel="icon" href="<?php echo base_url();?>assets/images/logo_new.png" >
 	
-	<link rel="icon" href="<?php echo base_url();?>assets/images/logo_new.png" type="image/x-icon">
-	
-	<link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/bower_components/bootstrap/css/bootstrap.min.css">
-
-	<link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/icon/themify-icons/themify-icons.css">
-
-	<link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/icon/icofont/css/icofont.css">
-
-	<link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/icon/feather/css/feather.css">
-
-	<link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
-
-	<link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/pages/data-table/css/buttons.dataTables.min.css">
-
-	<link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
-
-	<link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/pages/data-table/extensions/buttons/css/buttons.dataTables.min.css">
-
-	<link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/css/style.css">
-
-	<link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/css/jquery.mCustomScrollbar.css">
-	<meta name="robots" content="noindex, nofollow">
-
-	<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js" nonce="8b135931-f7e3-4677-b913-fa4eba157b8d"></script>
-   
-   <!-- <script defer="" referrerpolicy="origin" src="/cdn-cgi/zaraz/s.js?z=JTdCJTIyZXhlY3V0ZWQlMjIlM0ElNUIlNUQlMkMlMjJ0JTIyJTNBJTIyQWRtaW50eSUyMC0lMjBQcmVtaXVtJTIwQWRtaW4lMjBUZW1wbGF0ZSUyMGJ5JTIwQ29sb3JsaWIlMjAlMjIlMkMlMjJ4JTIyJTNBMC4yMzAwODk1Mzg1NzM5MjYxJTJDJTIydyUyMiUzQTEzNjYlMkMlMjJoJTIyJTNBNzY4JTJDJTIyaiUyMiUzQTg2NSUyQyUyMmUlMjIlM0ExODIxJTJDJTIybCUyMiUzQSUyMmh0dHBzJTNBJTJGJTJGY29sb3JsaWIuY29tJTJGJTJGcG9seWdvbiUyRmFkbWludHklMkZkZWZhdWx0JTJGZHQtZXh0LWJ1dHRvbnMtaHRtbC01LWRhdGEtZXhwb3J0Lmh0bWwlMjIlMkMlMjJyJTIyJTNBJTIyaHR0cHMlM0ElMkYlMkZjb2xvcmxpYi5jb20lMkYlMkZwb2x5Z29uJTJGYWRtaW50eSUyRmRlZmF1bHQlMkZkdC1leHQtYmFzaWMtYnV0dG9ucy5odG1sJTIyJTJDJTIyayUyMiUzQTI0JTJDJTIybiUyMiUzQSUyMlVURi04JTIyJTJDJTIybyUyMiUzQS0zMzAlMkMlMjJxJTIyJTNBJTVCJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIwJTIyJTJDJTIyVSUyMiUyQyU3QiUyMnNjb3BlJTIyJTNBJTIycGFnZSUyMiU3RCU1RCU3RCUyQyU3QiUyMm0lMjIlM0ElMjJzZXQlMjIlMkMlMjJhJTIyJTNBJTVCJTIyMSUyMiUyQyUyMkElMjIlMkMlN0IlMjJzY29wZSUyMiUzQSUyMnBhZ2UlMjIlN0QlNUQlN0QlMkMlN0IlMjJtJTIyJTNBJTIyc2V0JTIyJTJDJTIyYSUyMiUzQSU1QiUyMjIlMjIlMkMlMjItJTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTJDJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIzJTIyJTJDJTIyMiUyMiUyQyU3QiUyMnNjb3BlJTIyJTNBJTIycGFnZSUyMiU3RCU1RCU3RCUyQyU3QiUyMm0lMjIlM0ElMjJzZXQlMjIlMkMlMjJhJTIyJTNBJTVCJTIyNCUyMiUyQyUyMjMlMjIlMkMlN0IlMjJzY29wZSUyMiUzQSUyMnBhZ2UlMjIlN0QlNUQlN0QlMkMlN0IlMjJtJTIyJTNBJTIyc2V0JTIyJTJDJTIyYSUyMiUzQSU1QiUyMjUlMjIlMkMlMjI1JTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTJDJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjI2JTIyJTJDJTIyOCUyMiUyQyU3QiUyMnNjb3BlJTIyJTNBJTIycGFnZSUyMiU3RCU1RCU3RCUyQyU3QiUyMm0lMjIlM0ElMjJzZXQlMjIlMkMlMjJhJTIyJTNBJTVCJTIyNyUyMiUyQyUyMjElMjIlMkMlN0IlMjJzY29wZSUyMiUzQSUyMnBhZ2UlMjIlN0QlNUQlN0QlMkMlN0IlMjJtJTIyJTNBJTIyc2V0JTIyJTJDJTIyYSUyMiUzQSU1QiUyMjglMjIlMkMlMjI1JTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTJDJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjI5JTIyJTJDJTIyNiUyMiUyQyU3QiUyMnNjb3BlJTIyJTNBJTIycGFnZSUyMiU3RCU1RCU3RCUyQyU3QiUyMm0lMjIlM0ElMjJzZXQlMjIlMkMlMjJhJTIyJTNBJTVCJTIyMTAlMjIlMkMlMjI4JTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTJDJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIxMSUyMiUyQyUyMi0lMjIlMkMlN0IlMjJzY29wZSUyMiUzQSUyMnBhZ2UlMjIlN0QlNUQlN0QlMkMlN0IlMjJtJTIyJTNBJTIyc2V0JTIyJTJDJTIyYSUyMiUzQSU1QiUyMjEyJTIyJTJDJTIyMSUyMiUyQyU3QiUyMnNjb3BlJTIyJTNBJTIycGFnZSUyMiU3RCU1RCU3RCUyQyU3QiUyMm0lMjIlM0ElMjJzZXQlMjIlMkMlMjJhJTIyJTNBJTVCJTIyMTMlMjIlMkMlMjIzJTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTVEJTdE"></script> -->
-   <!--<script nonce="8b135931-f7e3-4677-b913-fa4eba157b8d">(function(w,d){!function(eK,eL,eM,eN){eK.zarazData=eK.zarazData||{};eK.zarazData.executed=[];eK.zaraz={deferred:[],listeners:[]};eK.zaraz.q=[];eK.zaraz._f=function(eO){return function(){var eP=Array.prototype.slice.call(arguments);eK.zaraz.q.push({m:eO,a:eP})}};for(const eQ of["track","set","debug"])eK.zaraz[eQ]=eK.zaraz._f(eQ);eK.zaraz.init=()=>{var eR=eL.getElementsByTagName(eN)[0],eS=eL.createElement(eN),eT=eL.getElementsByTagName("title")[0];eT&&(eK.zarazData.t=eL.getElementsByTagName("title")[0].text);eK.zarazData.x=Math.random();eK.zarazData.w=eK.screen.width;eK.zarazData.h=eK.screen.height;eK.zarazData.j=eK.innerHeight;eK.zarazData.e=eK.innerWidth;eK.zarazData.l=eK.location.href;eK.zarazData.r=eL.referrer;eK.zarazData.k=eK.screen.colorDepth;eK.zarazData.n=eL.characterSet;eK.zarazData.o=(new Date).getTimezoneOffset();if(eK.dataLayer)for(const eX of Object.entries(Object.entries(dataLayer).reduce(((eY,eZ)=>({...eY[1],...eZ[1]})))))zaraz.set(eX[0],eX[1],{scope:"page"});eK.zarazData.q=[];for(;eK.zaraz.q.length;){const e_=eK.zaraz.q.shift();eK.zarazData.q.push(e_)}eS.defer=!0;for(const fa of[localStorage,sessionStorage])Object.keys(fa||{}).filter((fc=>fc.startsWith("_zaraz_"))).forEach((fb=>{try{eK.zarazData["z_"+fb.slice(7)]=JSON.parse(fa.getItem(fb))}catch{eK.zarazData["z_"+fb.slice(7)]=fa.getItem(fb)}}));eS.referrerPolicy="origin";eS.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(eK.zarazData)));eR.parentNode.insertBefore(eS,eR)};["complete","interactive"].includes(eL.readyState)?zaraz.init():eK.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,0,"script");})(window,document);</script>
-   -->
-
-    <link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/pages/j-pro/css/demo.css">
-	<link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/pages/j-pro/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/pages/j-pro/css/j-pro-modern.css">
-	<link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/css/jquery.mCustomScrollbar.css">	
+      <link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/bower_components/bootstrap/css/bootstrap.min.css">
+	   <link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/icon/themify-icons/themify-icons.css">
+	   <link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/icon/icofont/css/icofont.css">
+	   <link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/icon/feather/css/feather.css">
+	   <link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+	   <link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/pages/data-table/css/buttons.dataTables.min.css">
+	   <link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
+	   <link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/pages/data-table/extensions/buttons/css/buttons.dataTables.min.css">
+	   <link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/css/style.css">
+	   <link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/css/jquery.mCustomScrollbar.css">
+	   <meta name="robots" content="noindex, nofollow">
+	   <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js" nonce="8b135931-f7e3-4677-b913-fa4eba157b8d"></script>
+      <!-- <script defer="" referrerpolicy="origin" src="/cdn-cgi/zaraz/s.js?z=JTdCJTIyZXhlY3V0ZWQlMjIlM0ElNUIlNUQlMkMlMjJ0JTIyJTNBJTIyQWRtaW50eSUyMC0lMjBQcmVtaXVtJTIwQWRtaW4lMjBUZW1wbGF0ZSUyMGJ5JTIwQ29sb3JsaWIlMjAlMjIlMkMlMjJ4JTIyJTNBMC4yMzAwODk1Mzg1NzM5MjYxJTJDJTIydyUyMiUzQTEzNjYlMkMlMjJoJTIyJTNBNzY4JTJDJTIyaiUyMiUzQTg2NSUyQyUyMmUlMjIlM0ExODIxJTJDJTIybCUyMiUzQSUyMmh0dHBzJTNBJTJGJTJGY29sb3JsaWIuY29tJTJGJTJGcG9seWdvbiUyRmFkbWludHklMkZkZWZhdWx0JTJGZHQtZXh0LWJ1dHRvbnMtaHRtbC01LWRhdGEtZXhwb3J0Lmh0bWwlMjIlMkMlMjJyJTIyJTNBJTIyaHR0cHMlM0ElMkYlMkZjb2xvcmxpYi5jb20lMkYlMkZwb2x5Z29uJTJGYWRtaW50eSUyRmRlZmF1bHQlMkZkdC1leHQtYmFzaWMtYnV0dG9ucy5odG1sJTIyJTJDJTIyayUyMiUzQTI0JTJDJTIybiUyMiUzQSUyMlVURi04JTIyJTJDJTIybyUyMiUzQS0zMzAlMkMlMjJxJTIyJTNBJTVCJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIwJTIyJTJDJTIyVSUyMiUyQyU3QiUyMnNjb3BlJTIyJTNBJTIycGFnZSUyMiU3RCU1RCU3RCUyQyU3QiUyMm0lMjIlM0ElMjJzZXQlMjIlMkMlMjJhJTIyJTNBJTVCJTIyMSUyMiUyQyUyMkElMjIlMkMlN0IlMjJzY29wZSUyMiUzQSUyMnBhZ2UlMjIlN0QlNUQlN0QlMkMlN0IlMjJtJTIyJTNBJTIyc2V0JTIyJTJDJTIyYSUyMiUzQSU1QiUyMjIlMjIlMkMlMjItJTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTJDJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIzJTIyJTJDJTIyMiUyMiUyQyU3QiUyMnNjb3BlJTIyJTNBJTIycGFnZSUyMiU3RCU1RCU3RCUyQyU3QiUyMm0lMjIlM0ElMjJzZXQlMjIlMkMlMjJhJTIyJTNBJTVCJTIyNCUyMiUyQyUyMjMlMjIlMkMlN0IlMjJzY29wZSUyMiUzQSUyMnBhZ2UlMjIlN0QlNUQlN0QlMkMlN0IlMjJtJTIyJTNBJTIyc2V0JTIyJTJDJTIyYSUyMiUzQSU1QiUyMjUlMjIlMkMlMjI1JTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTJDJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjI2JTIyJTJDJTIyOCUyMiUyQyU3QiUyMnNjb3BlJTIyJTNBJTIycGFnZSUyMiU3RCU1RCU3RCUyQyU3QiUyMm0lMjIlM0ElMjJzZXQlMjIlMkMlMjJhJTIyJTNBJTVCJTIyNyUyMiUyQyUyMjElMjIlMkMlN0IlMjJzY29wZSUyMiUzQSUyMnBhZ2UlMjIlN0QlNUQlN0QlMkMlN0IlMjJtJTIyJTNBJTIyc2V0JTIyJTJDJTIyYSUyMiUzQSU1QiUyMjglMjIlMkMlMjI1JTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTJDJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjI5JTIyJTJDJTIyNiUyMiUyQyU3QiUyMnNjb3BlJTIyJTNBJTIycGFnZSUyMiU3RCU1RCU3RCUyQyU3QiUyMm0lMjIlM0ElMjJzZXQlMjIlMkMlMjJhJTIyJTNBJTVCJTIyMTAlMjIlMkMlMjI4JTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTJDJTdCJTIybSUyMiUzQSUyMnNldCUyMiUyQyUyMmElMjIlM0ElNUIlMjIxMSUyMiUyQyUyMi0lMjIlMkMlN0IlMjJzY29wZSUyMiUzQSUyMnBhZ2UlMjIlN0QlNUQlN0QlMkMlN0IlMjJtJTIyJTNBJTIyc2V0JTIyJTJDJTIyYSUyMiUzQSU1QiUyMjEyJTIyJTJDJTIyMSUyMiUyQyU3QiUyMnNjb3BlJTIyJTNBJTIycGFnZSUyMiU3RCU1RCU3RCUyQyU3QiUyMm0lMjIlM0ElMjJzZXQlMjIlMkMlMjJhJTIyJTNBJTVCJTIyMTMlMjIlMkMlMjIzJTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTVEJTdE"></script> -->
+      <!--<script nonce="8b135931-f7e3-4677-b913-fa4eba157b8d">(function(w,d){!function(eK,eL,eM,eN){eK.zarazData=eK.zarazData||{};eK.zarazData.executed=[];eK.zaraz={deferred:[],listeners:[]};eK.zaraz.q=[];eK.zaraz._f=function(eO){return function(){var eP=Array.prototype.slice.call(arguments);eK.zaraz.q.push({m:eO,a:eP})}};for(const eQ of["track","set","debug"])eK.zaraz[eQ]=eK.zaraz._f(eQ);eK.zaraz.init=()=>{var eR=eL.getElementsByTagName(eN)[0],eS=eL.createElement(eN),eT=eL.getElementsByTagName("title")[0];eT&&(eK.zarazData.t=eL.getElementsByTagName("title")[0].text);eK.zarazData.x=Math.random();eK.zarazData.w=eK.screen.width;eK.zarazData.h=eK.screen.height;eK.zarazData.j=eK.innerHeight;eK.zarazData.e=eK.innerWidth;eK.zarazData.l=eK.location.href;eK.zarazData.r=eL.referrer;eK.zarazData.k=eK.screen.colorDepth;eK.zarazData.n=eL.characterSet;eK.zarazData.o=(new Date).getTimezoneOffset();if(eK.dataLayer)for(const eX of Object.entries(Object.entries(dataLayer).reduce(((eY,eZ)=>({...eY[1],...eZ[1]})))))zaraz.set(eX[0],eX[1],{scope:"page"});eK.zarazData.q=[];for(;eK.zaraz.q.length;){const e_=eK.zaraz.q.shift();eK.zarazData.q.push(e_)}eS.defer=!0;for(const fa of[localStorage,sessionStorage])Object.keys(fa||{}).filter((fc=>fc.startsWith("_zaraz_"))).forEach((fb=>{try{eK.zarazData["z_"+fb.slice(7)]=JSON.parse(fa.getItem(fb))}catch{eK.zarazData["z_"+fb.slice(7)]=fa.getItem(fb)}}));eS.referrerPolicy="origin";eS.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(eK.zarazData)));eR.parentNode.insertBefore(eS,eR)};["complete","interactive"].includes(eL.readyState)?zaraz.init():eK.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,0,"script");})(window,document);</script>-->
+      
+      <link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/pages/j-pro/css/demo.css">
+      <link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/pages/j-pro/css/font-awesome.min.css">
+	   <!--<link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/pages/j-pro/css/j-pro-modern.css">-->
+	   <link rel="stylesheet" type="text/css" href="https://colorlib.com/polygon/adminty/files/assets/css/jquery.mCustomScrollbar.css">	
 		
       <style id="" media="all">/* cyrillic-ext */
          .wizard>.content>.body {
@@ -223,24 +209,24 @@
          }
 		 
 		  .pcoded-main-container{
-      margin-top: -63.9844px;
-   }
-   .header-navbar .navbar-wrapper .navbar-logo {
-    position: relative;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    float: left;
-    height: 64px;
-    text-align: center;
-    text-transform: uppercase;
-    width: 240px;
-    padding: 10px;
-}
-      </style>
+         margin-top: -63.9844px;
+         }
+         .header-navbar .navbar-wrapper .navbar-logo {
+         position: relative;
+         -webkit-box-align: center;
+         -ms-flex-align: center;
+         align-items: center;
+         display: -webkit-box;
+         display: -ms-flexbox;
+         display: flex;
+         float: left;
+         height: 64px;
+         text-align: center;
+         text-transform: uppercase;
+         width: 240px;
+         padding: 10px;
+      }
+   </style>
    </head>
    
    <body>
@@ -341,8 +327,8 @@
                                 </a>
                             </li>  
                             <li>
-                                <a href="#" onclick='return submitForm()' id="logout_btn">
-                                    <i class="feather icon-log-out"></i> Logout
+                                <a href="#" onclick='Logout()' id="logout_btn">
+                                    <i id="logout" class="feather icon-log-out second"></i> Logout
                                 </a>
                             </li>
                         </ul>
@@ -352,47 +338,125 @@
             </div>
          </div>
       </nav>
-
-      
+ 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+<!--    
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://mptriballms.in/Online_Assesment/assets/bower_components/jquery/jquery-3.3.1.min.js"></script>
+<script src="https://mptriballms.in/Online_Assesment/assets/bower_components/sweetalert2/sweetalert2.all.min.js"></script>
+-->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+   $(document).ready(function () 
+   {
+      <?php if($this->session->flashdata('login_status')){ ?>
+         var toastMixin = Swal.mixin({
+            toast: true,
+            icon: 'success',
+            title: 'General Title',
+            animation: false,
+            position: 'top-right',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+               toast.addEventListener('mouseenter', Swal.stopTimer)
+               toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+         });                
+         toastMixin.fire({
+               animation: true,
+               title: 'Signed in Successfully'
+            });          
+      <?php } ?>                   
+   });
+</script>
+
 <script type="text/javascript">
 
-   function submitForm()
-	{
-		alert("asa");
-      //document.getElementById('sub_btn').disabled = true;  <?php echo base_url();?>Login/logout
-		//$("#sub_btn").html('<i class="fa fa-spinner fa-spin"></i>Submitting...');
-	   //document.getElementById('sub_btn').disabled = true;		
-		//var frm = $('#employee_registration_form');		
-		//var user_type = document.getElementById('user_type').value;
-      //var designation = document.getElementById('designation').value;        		
-		//var emp_name = document.getElementById('emp_name').value;
+   function Logout()
+	{		
+      Swal.fire({
+      title: 'Logout',
+      text: "Are you sure you want to logout ?",
+      icon: "question",
+      showConfirmButton: true,
+      showCancelButton: true,  
+      confirmButtonText: 'Yes, Logout!',
+      cancelButtonText: 'Cancel',
+      confirmButtonColor: "rgb(48 133 214)",
+      cancelButtonColor: "rgb(235 87 87)",
+      focusConfirm: true,
+      focusCancel: false
+      //closeOnConfirm: false,
+      //closeOnCancel: false
+      //reverseButtons: true  
+      }).then((result) => {
+         if (result.isConfirmed) 
+         {
+            window.location.href = "<?php echo base_url();?>Login/logout";
+            /*
+            Swal.fire(
+               'Deleted!',
+               'Your file has been deleted.',
+               'success'
+            )
+            */
+         }            
+         else                         
+         {
+            //alert("ccwc");
+         }
+      })
 
-      const swalWithBootstrapButtons = Swal.mixin({
+      /*    
+      for Login alert with time
+      var toastMixin = Swal.mixin({
+            toast: true,
+            icon: 'success',
+            title: 'General Title',
+            animation: false,
+            position: 'top-right',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+               toast.addEventListener('mouseenter', Swal.stopTimer)
+               toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+         });      
+ 
+         toastMixin.fire({
+            animation: true,
+            title: 'Signed in Successfully'
+         });
+      */        
+      /*
+         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
                confirmButton: 'btn btn-success',
                cancelButton: 'btn btn-danger'
             },
             buttonsStyling: false
             })
-
             swalWithBootstrapButtons.fire({
-            title: 'Are you sure?',
-            text: "You want  to Logout!",
-            icon: 'warning',
+            title: 'Logout',
+            text: "Are you sure you want to logout ?",
+            icon: 'question',
             showCancelButton: true,
             confirmButtonText: 'Yes, Logout!',
-            cancelButtonText: 'No, cancel!',
+            cancelButtonText: 'Cancel',
             reverseButtons: true
             }).then((result) => {
-            if (result.isConfirmed) {
+            if (result.isConfirmed) 
+            {
                swalWithBootstrapButtons.fire(
                   'Deleted!',
                   'Your file has been deleted.',
                   'success'
                )
-            } 
-            /* Read more about handling dismissals below */
+            }         
             else if ( result.dismiss === Swal.DismissReason.cancel)                         
             {
                swalWithBootstrapButtons.fire(
@@ -402,31 +466,6 @@
                )
             }
             })
-
-
-		   /*	
-			document.getElementById("employee_registration_form").submit();
-			
-			$("#sub_btn").html('<i class="fa fa-spinner fa-spin"></i>Submitting...');
-	        document.getElementById('sub_btn').disabled = true;
-			
-				$.ajax({
-					type: frm.attr('method'),
-					url:  frm.attr('action'),				
-					data: frm.serialize(),
-					success: function (data) {
-						//alert('Submission was successful.');
-						console.log(data);
-					},
-					error: function (data) {
-						alert('An error occurred.');
-						console.log('An error occurred.');
-						console.log(data);
-					},
-				});
-			*/	
-		}
-		
-    
-		
+      */      		   
+	}		
 </script>

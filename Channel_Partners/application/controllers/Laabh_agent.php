@@ -28,7 +28,7 @@ class Laabh_agent extends CI_Controller
           
             $this->load->view('backend/new_header');
             $this->load->view('backend/new_sidebar'); 
-            $this->load->view('backend/add-employee',$data);
+            //$this->load->view('backend/add-employee',$data);
             $this->load->view('backend/new_footer'); 
         } 
         else 
@@ -186,7 +186,7 @@ class Laabh_agent extends CI_Controller
 					}
 					
 				   
-						$agent_image = $this->input->post('agent_image');                  
+						//$agent_image = $this->input->post('agent_image');                  
 						$targetDir = "uploads/Agent_Documents/".$regionid."/".$user_id."/" ;
 						$allowTypes = array('jpg', 'png', 'jpeg');
 						if (!file_exists($targetDir)) 
@@ -206,7 +206,7 @@ class Laabh_agent extends CI_Controller
 							move_uploaded_file($_FILES["agent_image"]["tmp_name"], $targetFilePath); 
 						}
 						
-						$agent_signature = $this->input->post('agent_signature');                  
+						//$agent_signature = $this->input->post('agent_signature');                  
 						$targetDir = "uploads/Agent_Documents/".$regionid."/".$user_id."/" ;
 						$allowTypes = array('jpg', 'png', 'jpeg');
 						if (!file_exists($targetDir)) 
@@ -226,7 +226,7 @@ class Laabh_agent extends CI_Controller
 							move_uploaded_file($_FILES["agent_signature"]["tmp_name"], $targetFilePath2); 
 						}
 						
-						$resume = $this->input->post('resume');                  
+						//$resume = $this->input->post('resume');                  
 						$targetDir = "uploads/Agent_Documents/".$regionid."/".$user_id."/" ;
 						$allowTypes = array('pdf','doc','csv');
 						if (!file_exists($targetDir)) 
@@ -246,7 +246,7 @@ class Laabh_agent extends CI_Controller
 							move_uploaded_file($_FILES["resume"]["tmp_name"], $targetFilePath3); 
 						}
 						
-						$marksheet = $this->input->post('marksheet');                  
+						//$marksheet = $this->input->post('marksheet');                  
 						$targetDir = "uploads/Agent_Documents/".$regionid."/".$user_id."/" ;
 						$allowTypes = array('pdf','doc','csv');
 						if (!file_exists($targetDir)) 
@@ -268,7 +268,7 @@ class Laabh_agent extends CI_Controller
 						
 						if($_FILES['experience_letter']['name'] != null || $_FILES['experience_letter']['name'] !="")
 						{
-							$experience_letter = $this->input->post('experience_letter');                  
+							//$experience_letter = $this->input->post('experience_letter');                  
 							$targetDir = "uploads/Agent_Documents/".$regionid."/".$user_id."/" ;
 							$allowTypes = array('pdf','doc','csv');
 							if (!file_exists($targetDir)) 
@@ -293,7 +293,7 @@ class Laabh_agent extends CI_Controller
 							$targetFilePath5="";
 						}
 						
-						$contract_letter = $this->input->post('contract_letter');                  
+						//$contract_letter = $this->input->post('contract_letter');                  
 						$targetDir = "uploads/Agent_Documents/".$regionid."/".$user_id."/" ;
 						$allowTypes = array('pdf','doc','csv');
 						if (!file_exists($targetDir)) 
@@ -476,7 +476,7 @@ class Laabh_agent extends CI_Controller
 			
 			if($_FILES['agent_image']['name'] !=null || $_FILES['agent_image']['name'] !="")
 			{
-			        $agent_image = $this->input->post('agent_image');                  
+			        //$agent_image = $this->input->post('agent_image');                  
                     $targetDir = "uploads/Agent_Documents/".$regionid."/".$user_id."/" ;
                     $allowTypes = array('jpg', 'png', 'jpeg');
                     if (!file_exists($targetDir)) 
@@ -526,7 +526,7 @@ class Laabh_agent extends CI_Controller
 			if($_FILES['agent_signature']['name'] !=null || $_FILES['agent_signature']['name'] !="")
 			{
 				
-					$agent_signature = $this->input->post('agent_signature');                  
+					//$agent_signature = $this->input->post('agent_signature');                  
                     $targetDir = "uploads/Agent_Documents/".$regionid."/".$user_id."/" ;
                     $allowTypes = array('jpg', 'png', 'jpeg');
                     if (!file_exists($targetDir)) 
@@ -576,7 +576,7 @@ class Laabh_agent extends CI_Controller
 			
 			if($_FILES['resume']['name'] !=null || $_FILES['resume']['name'] !="")
 			{
-					$resume = $this->input->post('resume');                  
+					//$resume = $this->input->post('resume');                  
                     $targetDir = "uploads/Agent_Documents/".$regionid."/".$user_id."/" ;
                     $allowTypes = array('pdf','doc','csv');
                     if (!file_exists($targetDir)) 
@@ -626,7 +626,7 @@ class Laabh_agent extends CI_Controller
 			
 			if($_FILES['marksheet']['name'] !=null || $_FILES['marksheet']['name'] !="")
 			{
-					$marksheet = $this->input->post('marksheet');                  
+					//$marksheet = $this->input->post('marksheet');                  
                     $targetDir = "uploads/Agent_Documents/".$regionid."/".$user_id."/" ;
                     $allowTypes = array('pdf','doc','csv');
                     if (!file_exists($targetDir)) 
@@ -676,7 +676,7 @@ class Laabh_agent extends CI_Controller
 			
 			if($_FILES['experience_letter']['name'] != null || $_FILES['experience_letter']['name'] !="")
 			{
-						$experience_letter = $this->input->post('experience_letter');                  
+						//$experience_letter = $this->input->post('experience_letter');                  
 						$targetDir = "uploads/Agent_Documents/".$regionid."/".$user_id."/" ;
 						$allowTypes = array('pdf','doc','csv');
 						if (!file_exists($targetDir)) 
@@ -725,7 +725,7 @@ class Laabh_agent extends CI_Controller
 			
 			if($_FILES['contract_letter']['name'] != null || $_FILES['contract_letter']['name'] !="")
 			{			
-					$contract_letter = $this->input->post('contract_letter');                  
+					//$contract_letter = $this->input->post('contract_letter');                  
                     $targetDir = "uploads/Agent_Documents/".$regionid."/".$user_id."/" ;
                     $allowTypes = array('pdf','doc','csv');
                     if (!file_exists($targetDir)) 
@@ -775,7 +775,7 @@ class Laabh_agent extends CI_Controller
                     $usersaveData=array(           
                            
 							//'user_id'=> $user_id,
-							'user_type'=> $usertype,
+							//'user_type'=> $usertype,
                             'des_id' => $designation,							
 							'first_name'=> $first_name,
 							//'em_email'=> $em_email,

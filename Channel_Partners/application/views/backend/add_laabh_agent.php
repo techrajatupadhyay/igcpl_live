@@ -156,7 +156,7 @@
                         <form id="agent_registration_form" action="<?php echo base_url();?>Laabh_agent/add_agent" method="post"enctype="multipart/form-data">
                            <div class="card-header">
                               <h5>Register new Laabh Agent</h5>
-                              <span>filds with <b style="color:red;">* </b> is mandetory !</span>
+                              <span>fields with <b style="color:red;">* </b> is mandatory !</span>
                               <div class="card-header-right">
                                  <ul class="list-unstyled card-option">
                                     <li><i class="feather icon-maximize full-card"></i></li>
@@ -165,6 +165,7 @@
                                  </ul>
                               </div>
                            </div>
+                           <div  style="background-color: #fff;border-top: 1px dashed #1abc9c;padding: 20px 25px;position: inherit"></div>
                            <div class="card-block">
                               <div class="row">
                                  <div class="col-sm-12">
@@ -180,14 +181,13 @@
                                              <h4 class="sub-title">Designation <span class="star"> * </span></h4>
                                              <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
-                                                <select id="designation" name="designation" class="form-control form-control" required>
+                                                <select id="designation" name="designation" class="form-control form-control" required readonly disabled ="disabled">
                                                    <option value=""> select designation </option>												   
                                                    <?php 
-												       if(isset($designation) && $designation !="")
+                                                      if(isset($designation) && $designation !="")
                                                       {
-												        foreach($designation as $designation) {  ?>
-                                                   
-                                                   <option selected value="<?= $designation->value; ?>" ><?= $designation->des_name; ?> (<?= $designation->value; ?>)</option>
+                                                         foreach($designation as $designation) {  ?>
+                                                         <option selected value="<?= $designation->value; ?>" ><?= $designation->des_name; ?> (<?= $designation->value; ?>)</option>
                                                    <?php  } } ?>
                                                 </select>                                                  
                                              </div>
@@ -249,7 +249,7 @@
                                                 </div>
                                              </div>
                                           </div>
-										  <div class="col-sm-6">
+										            <div class="col-sm-6">
                                              <h4 class="sub-title">Division  <span class="star"> * </span></h4>
                                              <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
@@ -257,20 +257,20 @@
                                                    <option value=""> select division </option>
                                                     <?php  foreach($division as $division){  ?>
 												   
-														<option value="<?= $division->id; ?>" <?php echo $division_id == $division->id ? "selected" : ""; ?> ><?= $division->division_name; ?></option> 
-														   													   
-												    <?php  }  ?>
-                                                </select>
+                                                      <option value="<?= $division->id; ?>" <?php echo $division_id == $division->id ? "selected" : ""; ?> ><?= $division->division_name; ?></option> 
+                                                                                                   
+                                                   <?php  }  ?>
+                                                   </select>
+                                                </div>
                                              </div>
-                                          </div>
-										</div>  
+										            </div>  
                                         <div class="row m-b-30">  	
                                           <div class="col-md-4">
                                              <h4 class="sub-title">Region <span class="star"> * </span></h4>
                                              <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-												<input type="text" id="region_id" name="region" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly > 
-											<!--	
+                                                <input type="text" id="region_id" name="region" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled" > 
+                                             <!--	
                                                 <select id="region_id" name="region" class="form-control"  autocomplete="off" required>
                                                    <option value="">-- Select region --</option>
                                                    <?php 
@@ -281,7 +281,7 @@
                                                    <?php  
                                                       }  ?>
                                                 </select>
-											-->	
+											            -->	
                                              </div>
                                           </div> 
                                        
@@ -289,35 +289,35 @@
                                              <h4 class="sub-title">Region State  <span class="star"> * </span></h4>
                                              <div class="input-group">
                                                 <?php  
-												    $sta = $this->db->query("SELECT * FROM region WHERE id=".$region_state." ");
-													$state_det= $sta->result();
-													//print_r($this->db->last_query());
-													foreach($state_det as $dec)
-													{			
-														$state_name = $dec->region_name ;																																												
-													}  
-												?>
-												<span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>												
-												<input type="text"  value="<?php echo $state_name; ?>" class="form-control"  autocomplete="off" required readonly>
-                                                <input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state; ?>" class="form-control"  autocomplete="off" required readonly>
-											<!--    
-												<select id="region_state" name="region_state" class="form-control"  autocomplete="off" required>                                                  
-                                                    <option value="">-- Select Region State --</option>
-													<?php
-													if(isset($Laabhagent_Details) && $Laabhagent_Details !="") 
-                                                    { 
-                                                      //var_dump($country);
-                                                      foreach($region_state_list as $rc)
-                                                      {   ?>
-													  
-                                                      <option value="<?= $rc->id; ?>" <?php echo $region_state == $rc->id ? " selected" : ""; ?> ><?= $rc->region_name; ?></option>
-                                                      <?php  
-													  }
-													}													  
-													
-													?> 
-                                                </select>
-											-->	
+                                                $sta = $this->db->query("SELECT * FROM region WHERE id=".$region_state." ");
+                                                $state_det= $sta->result();
+                                                //print_r($this->db->last_query());
+                                                foreach($state_det as $dec)
+                                                {			
+                                                   $state_name = $dec->region_name ;																																												
+                                                }  
+                                             ?>
+                                             <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>												
+                                             <input type="text"  value="<?php echo $state_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled">
+                                             <input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled">
+                                          <!--    
+                                             <select id="region_state" name="region_state" class="form-control"  autocomplete="off" required>                                                  
+                                                            <option value="">-- Select Region State --</option>
+                                                <?php
+                                                if(isset($Laabhagent_Details) && $Laabhagent_Details !="") 
+                                                            { 
+                                                               //var_dump($country);
+                                                               foreach($region_state_list as $rc)
+                                                               {   ?>
+                                                
+                                                               <option value="<?= $rc->id; ?>" <?php echo $region_state == $rc->id ? " selected" : ""; ?> ><?= $rc->region_name; ?></option>
+                                                               <?php  
+                                                }
+                                                }													  
+                                                
+                                                ?> 
+                                                         </select>
+                                          -->	
                                              </div>
                                           </div>
 
@@ -325,34 +325,34 @@
                                              <h4 class="sub-title"> Distinct Branch <span class="star"> * </span></h4>
                                              <div class="input-group">
                                                 <?php  
-												    $dist = $this->db->query("SELECT * FROM district_branch WHERE Districtcode=".$district_branch." ");
-													$state_dest= $dist->result();
-													//print_r($this->db->last_query());
-													foreach($state_dest as $t)
-													{			
-														$dist_name = $t->Districtname ;																																												
-													}  
-												?>
-												<span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-												<input type="text" value="<?php echo $dist_name; ?>" class="form-control"  autocomplete="off"  readonly>
-												<input type="hidden" id="district_branch" name="district_branch" value="<?php echo $district_branch; ?>" class="form-control"  autocomplete="off" required readonly>
-                                            <!--    
-												<select id="district_branch" name="district_branch" class="form-control"  autocomplete="off" required>
-                                                   <option value="">-- Select Distinct Branch --</option> 
-                                                   <?php
-												    if(isset($Laabhagent_Details) && $Laabhagent_Details !="") 
-                                                    { 
-                                                        //var_dump($country);
-                                                        foreach($districtbranch as $c)
-                                                        { ?>														 
-														  <option value="<?= $c->Districtcode; ?>" <?php echo $district_branch == $c->Districtcode ? " selected" : ""; ?> ><?= $c->Districtname; ?></option>														
-														  <?php  
-													    }
-													}													
-													  ?> 
-                                                </select>
-                                            --> 
-											 </div>
+                                                   $dist = $this->db->query("SELECT * FROM district_branch WHERE Districtcode=".$district_branch." ");
+                                                   $state_dest= $dist->result();
+                                                   //print_r($this->db->last_query());
+                                                   foreach($state_dest as $t)
+                                                   {			
+                                                      $dist_name = $t->Districtname ;																																												
+                                                   }  
+                                                ?>
+                                                <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                                <input type="text" value="<?php echo $dist_name; ?>" class="form-control"  autocomplete="off"  readonly disabled ="disabled">
+                                                <input type="hidden" id="district_branch" name="district_branch" value="<?php echo $district_branch; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled">
+                                                      <!--    
+                                                <select id="district_branch" name="district_branch" class="form-control"  autocomplete="off" required>
+                                                               <option value="">-- Select Distinct Branch --</option> 
+                                                               <?php
+                                                   if(isset($Laabhagent_Details) && $Laabhagent_Details !="") 
+                                                               { 
+                                                                  //var_dump($country);
+                                                                  foreach($districtbranch as $c)
+                                                                  { ?>														 
+                                                      <option value="<?= $c->Districtcode; ?>" <?php echo $district_branch == $c->Districtcode ? " selected" : ""; ?> ><?= $c->Districtname; ?></option>														
+                                                      <?php  
+                                                      }
+                                                   }													
+                                                   ?> 
+                                                            </select>
+                                                      --> 
+                                             </div>
                                           </div>
 
                                                                                                                            
@@ -377,7 +377,7 @@
                                                       //var_dump($country);
                                                       foreach($state_list as $c)
                                                       {   ?>
-                                                   <option value="<?= $c->state_id; ?>" <?php echo $state_first == $c->state_id ? " selected" : ""; ?> ><?= $c->statename; ?></option>
+                                                   <option value="<?= $c->statecode; ?>" <?php echo $state_first == $c->statecode ? " selected" : ""; ?> ><?= $c->statename; ?></option>
                                                    <?php  
                                                       }  ?>
                                                 </select>
@@ -446,7 +446,7 @@
                                                       //var_dump($country);
                                                       foreach($state_list as $c)
                                                       {   ?>
-                                                   <option value="<?= $c->state_id; ?>" <?php echo $state_second == $c->state_id ? " selected" : ""; ?> ><?= $c->statename; ?></option>
+                                                   <option value="<?= $c->statecode; ?>" <?php echo $state_second == $c->statecode ? " selected" : ""; ?> ><?= $c->statename; ?></option>
                                                    <?php  
                                                       }  ?>
                                                 </select>
@@ -572,38 +572,40 @@
                                     <div class="card-block inner-card-block">
                                         <div class="row m-b-30">
                                             <div class="col-sm-12">
-                                             <div class="note" style="border: 2px solid;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a">
+                                             <div class="note" id="pro_img" style="border: 2px solid;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a">
                                                 <div class="box">
                                                    <div class="box-body">
-                                                        <div class="box-body box-profile">
-															<?php if(isset($Laabhagent_Details)) { ?>
-															 
-															 <span id="pro_pic" style="display: block;">  
-															 <img id="blah" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Laabhagent_Details)) { echo $em_image; } else{ echo "your-picture.png"; } ?>" height="100" width="100" />                        
-															 </span>
-															 <p class="text-muted text-left" style="margin-bottom: 5px;">Laabh Agent Passport Size Photo Only <span class="star"> * </span>
-															 </p>
-															 <div class="input-group">
-																<div class="input-group-addon">
-																   <input type='file'accept="image/png,image/gif, image/jpeg, image/jpg"   name="agent_image"onchange="proPic(this);"  <?php echo $em_image; ?> />
-																</div>
-															 </div>
-															
-															<?php } else { ?> 
-															
-															 <span id="pro_pic" style="display: block;">  
-															 <img id="blah" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>assets/images/your-picture.png" height="100" width="100" />                        
-															 </span>
-															 <p class="text-muted text-left" style="margin-bottom: 5px;">Laabh Agent Passport Size Photo Only <span class="star"> * </span>
-															 </p>
-															 <div class="input-group">
-																<div class="input-group-addon">
-																   <input type='file'accept="image/png,image/gif, image/jpeg, image/jpg"  id="agent_image" required name="agent_image"onchange="proPic(this);"  <?php echo $em_image; ?> />
-																</div>
-															 </div>															
-															
-															<?php } ?> 
-                                                        </div>
+                                                      <div class="box-body box-profile">
+                                                         <?php if(isset($Laabhagent_Details)) { ?>
+                                                         
+                                                         <span id="pro_pic" style="display: block;">  
+                                                         <img id="blah" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Laabhagent_Details)) { echo $em_image; } else{ echo "your-picture.png"; } ?>" height="100" width="100" />                        
+                                                         </span>
+                                                         <p class="text-muted text-left" style="margin-bottom: 5px;">Laabh Agent Passport Size Photo Only <span class="star"> * </span>
+                                                         </p>
+                                                         <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
+                                                         <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                               <input type='file'accept="image/png,image/gif, image/jpeg, image/jpg"   name="agent_image"onchange="proPic(this);"  <?php echo $em_image; ?> />
+                                                            </div>
+                                                         </div>
+                                                         
+                                                         <?php } else { ?> 
+                                                         
+                                                         <span id="pro_pic" style="display: block;">  
+                                                         <img id="blah" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>assets/images/your-picture.png" height="100" width="100" />                        
+                                                         </span>
+                                                         <p class="text-muted text-left" style="margin-bottom: 5px;">Laabh Agent Passport Size Photo Only <span class="star"> * </span>
+                                                         </p>
+                                                         <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
+                                                         <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                               <input type='file'accept="image/png,image/gif, image/jpeg, image/jpg"  id="agent_image" required name="agent_image"onchange="proPic(this);"  <?php echo $em_image; ?> />
+                                                            </div>
+                                                         </div>															
+                                                         
+                                                         <?php } ?> 
+                                                      </div>
                                                    </div>
                                                 </div>
                                              </div>
@@ -616,36 +618,36 @@
                                     <div class="card-block inner-card-block">
                                         <div class="row m-b-30">
                                             <div class="col-sm-12">
-                                             <div class="note" style="border: 2px solid;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a">
+                                             <div class="note" id="sign_img" style="border: 2px solid;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a">
                                                 <div class="box">
                                                    <div class="box-body">
                                                       <div class="box-body box-profile">
-													    <?php if(isset($Laabhagent_Details)) { ?>														
+													                  <?php if(isset($Laabhagent_Details)) { ?>														
                                                             <span id="signature" style="display: block;">  
-                                                                <img id="la_signature" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Laabhagent_Details)) { echo $signature; } else{ echo "your-picture.png"; } ?>" height="100" width="100" />                        
+                                                               <img id="la_signature" style="border:1px solid grey !important;" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Laabhagent_Details)) { echo $signature; } else{ echo "assets/images/signature.png"; } ?>" height="100" width="100" />                        
                                                             </span>
-                                                           <p class="text-muted text-left" style="margin-bottom: 5px;">Laabh Agent Scan signature Photo <span class="star"> * </span></p>
-                                                         
-                                                         <div class="input-group">
-                                                            <div class="input-group-addon">
-                                                               <input type='file' accept="image/png,image/gif, image/jpeg, image/jpg"  name="agent_signature"  onchange="signature_pic(this);"/>
+                                                            <p class="text-muted text-left" style="margin-bottom: 5px;">Laabh Agent Scan signature Photo <span class="star"> * </span></p>
+                                                            <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
+                                                            <div class="input-group">
+                                                               <div class="input-group-addon">
+                                                                  <input type='file' accept="image/png,image/gif, image/jpeg, image/jpg"  name="agent_signature"  onchange="signature_pic(this);"/>
+                                                               </div>
                                                             </div>
-                                                         </div>
 														 
-														<?php } else { ?>
-
-                                                         <span id="signature" style="display: block;">  
-                                                         <img id="la_signature" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>assets/images/your-picture.png" height="100" width="100" />                        
-                                                         </span>
-                                                         <p class="text-muted text-left" style="margin-bottom: 5px;">Laabh Agent Scan signature Photo <span class="star"> * </span>
-                                                         </p>
-                                                         <div class="input-group">
-                                                            <div class="input-group-addon">
-                                                               <input type='file' accept="image/png,image/gif, image/jpeg, image/jpg"  id="agent_signature" name="agent_signature" required onchange="signature_pic(this);"/>
+														               <?php } else { ?>
+                                                            <span id="signature" style="display: block;">  
+                                                               <img id="la_signature" style="border:1px solid grey !important;" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>assets/images/signature.png" height="100" width="100" />                        
+                                                            </span>
+                                                            <p class="text-muted text-left" style="margin-bottom: 5px;">Laabh Agent Scan signature Photo <span class="star"> * </span></p>
+                                                            <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
+                                                            
+                                                            <div class="input-group">
+                                                               <div class="input-group-addon">
+                                                                  <input type='file' accept="image/png,image/gif, image/jpeg, image/jpg"  id="agent_signature" name="agent_signature" required onchange="signature_pic(this);"/>
+                                                               </div>
                                                             </div>
-                                                         </div>
 														 
-														<?php } ?>
+														               <?php } ?>
                                                       </div>
                                                    </div>
                                                 </div>
@@ -666,7 +668,7 @@
 												<div class="col-sm-3">
 												 <h4 class="sub-title">Contract Letter <span class="star"> * </span></h4>
 												 <div class="input-group">
-													<input type="file" accept=".pdf" id="file2_input"  class="form-control bg-white" placeholder="Phone"   name="contract_letter" value="<?php echo$resume ?>">
+													<input type="file" accept=".pdf" id="file2_input"  class="form-control bg-white" placeholder="Phone"   name="contract_letter">
 													<span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></span>
 												 </div>												 
 												 <h4 class="sub-title" style="color:#357EC7;"><?php echo $contract_letter; ?> </h4>												 
@@ -675,9 +677,10 @@
 												<div class="col-sm-3">
 												 <h4 class="sub-title">Contract Letter <span class="star"> * </span></h4>
 												 <div class="input-group">
-													<input type="file" accept=".pdf"   required class="form-control bg-white"   id="contract_letter" name="contract_letter" value="<?php echo$resume ?>">
+													<input type="file" accept=".pdf"   required class="form-control bg-white"   id="contract_letter" name="contract_letter">
 													<span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></span>
-												 </div>												 
+												 </div>
+                                     <h4 class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 2MB</b> </h4>												 
 												</div>											
 											<?php } ?>
 											
@@ -685,7 +688,7 @@
 												<div class="col-sm-3">
 												 <h4 class="sub-title">Upload Resume <span class="star"> * </span></h4>
 												 <div class="input-group">
-													<input type="file" accept=".pdf"   class="form-control bg-white" name="resume" value="<?php echo $resume ?>">
+													<input type="file" accept=".pdf"   class="form-control bg-white" name="resume">
 													<span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></span>
 												 </div>												 
 												 <h4 class="sub-title" style="color:#357EC7;"><?php echo $upload_resume; ?> </h4>												 
@@ -694,10 +697,10 @@
 											    <div class="col-sm-3">
 												 <h4 class="sub-title">Upload Resume <span class="star"> * </span></h4>
 												 <div class="input-group">
-													<input type="file" accept=".pdf"   required class="form-control bg-white" placeholder="Phone"  id="resume" name="resume" value="<?php echo $resume ?>">
+													<input type="file" accept=".pdf"   required class="form-control bg-white" placeholder="Phone"  id="resume" name="resume" >
 													<span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></span>
 												 </div>												 
-												 												 
+												 <h4 class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 2MB</b> </h4>												 
 											    </div>
 											<?php } ?>
 											<?php if(isset($Laabhagent_Details)) { ?>
@@ -716,6 +719,7 @@
 													<input type="file" accept=".pdf"  required class="form-control bg-white" id="edu_file" name="marksheet">
 													<span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></span>
 												 </div>
+                                     <h4 class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 2MB</b> </h4>
 											    </div>
 											<?php } ?>
                                             <?php if(isset($Laabhagent_Details)) { ?>
@@ -731,9 +735,10 @@
 											    <div class="col-sm-3">
 												 <h4 class="sub-title">experience letter </h4>
 												 <div class="input-group">
-													<input type="file" accept=".pdf" class="form-control bg-white"  name="experience_letter">
+													<input type="file" accept=".pdf" class="form-control bg-white"  id="experience_letter" name="experience_letter">
 													<span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></span>
 												 </div>
+                                     <h4 class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 2MB</b> </h4>
 												</div>
                                             <?php } ?>
                                        </div>
@@ -741,22 +746,17 @@
                                  </div>
                               </div>
                             </div>
-							<input type="hidden" name="isedit" value="<?php echo $update; ?>">
+
+							      <input type="hidden" name="isedit" value="<?php echo $update; ?>">
 							
-							<div class="card-block">
-							 <div class="row">
-								<div class="col-lg-12 col-md-12">
-									<h4 class="sub-title"> </h4>                           
-								</div>
-							 </div>
-						    </div>
+							      <div  style="background-color: #fff;border-top: 1px dashed #1abc9c;padding: 20px 25px;position: inherit"></div>
 							
                             <div class="card-block">
                                 <div class="row">
                                  <div class="col-lg-9 col-md-9"></div>
                                  <div class="col-lg-3 col-md-3">
 									 <div class="form-group">                             
-										<button type="submit"  name="submit" onclick='submitForm()' id="sub_btn" class="btn  btn-round btn-block text-white" style="background: #00acaf; border: 1px solid #00acaf;"><i class="fa fa-user-plus"></i>Add Laabh Agent </button>
+										<button type="submit"  name="submit" onclick='return submitForm()' id="sub_btn" class="btn  btn-round btn-block text-white" style="background: #00acaf; border: 1px solid #00acaf;"><i class="fa fa-user-plus"></i>Add Laabh Agent </button>
 									 </div>
                                  </div>
                                 </div>    
@@ -774,7 +774,7 @@
 
 <script type="text/javascript">
 
-    function submitForm()
+   function submitForm()
 	{
 		      		
 		var frm = $('#agent_registration_form');		
@@ -814,47 +814,58 @@
 	
 		if (user_type =="") 
 		{
-			alert("User Type is Mandatory!");			
+			alert("User Type is Mandatory!");
+         return	false;			
 		}
 		else if (designation =='') 
 		{
 			alert("Designation is Mandatory!");
+         return	false;
 		}
 		else if (agent_name =='') 
 		{
 			alert("Agent Name is Mandatory!");
+         return	false;
 		}
 		else if (contact =='') 
 		{
 			alert("Contact Number is Mandatory!");
+         return	false;
 		}
 		else if (email =='') 
 		{
 			alert("Email is Mandatory!");
+         return	false;
 		}
 		else if (gender =='') 
 		{
 			alert("Gender is Mandatory!");
+         return	false;
 		}
 		else if (dob =='') 
 		{
 			alert("Date of Birth is Mandatory!");
+         return	false;
 		}
 		else if (stateid_first =='' || district_first =='' || city_first =='' || pin_code1 =='' || present_full_address =='') 
 		{
 			alert("Present Address is Mandatory!");
+         return	false;
 		}
 		else if (stateid_second =='' || district_second =='' || city_second =='' || pin_code2 =='' || permanent_full_address =='') 
 		{
 			alert("Permanent Address is Mandatory!");
+         return	false;
 		}
 		else if (joining_date =='') 
 		{
 			alert("Joining date is Mandatory!");
+         return	false;
 		}
 		else if (aadharno =='') 
 		{
 			alert("Employee Aadhar Number is Mandatory!");
+         return	false;
 		}
 		else if (panNo =='') 
 		{
@@ -863,42 +874,51 @@
 		else if (bank_name =='') 
 		{
 			alert("Bank name is Mandatory!");
+         return	false;
 		}
 		else if (bank_acc =='') 
 		{
 			alert("Bank Account number is Mandatory!");
+         return	false;
 		}
 		else if (bank_ifsc_code =='') 
 		{
 			alert("Bank IFSC Code is Mandatory!");
+         return	false;
 		}
 		else if (agent_image =='') 
 		{
 			alert("Agent Image is Mandatory!");
+         return	false;
 		}
 		else if (agent_signature =='') 
 		{
 			alert("Employee Signature is Mandatory!");
+         return	false;
 		}
 		else if (contract_letter =='') 
 		{
 			alert("Contract Letter is Mandatory!");
+         return	false;
 		}
 		else if (resume =='') 
 		{
 			alert("Employee Resume is Mandatory!");
+         return	false;
 		}
 		else if (edu_file =='') 
 		{
 			alert("Education Decument is Mandatory!");
+         return	false;
 		}
 		else
 		{
 			
-			document.getElementById("agent_registration_form").submit();
+			//document.getElementById("agent_registration_form").submit();
 			
 			$("#sub_btn").html('<i class="fa fa-spinner fa-spin"></i>Submitting...');
-	        document.getElementById('sub_btn').disabled = true;
+	      //document.getElementById('sub_btn').disabled = true;
+         return true;
 			/*	
 				$.ajax({
 					type: frm.attr('method'),
@@ -1044,34 +1064,6 @@ $(document).ready(function() {
         }
 		  
 	});
-
-/*	
-	$('#uanno').change(function () {
-		//alert("aaadaa");
-		var text = "";
-		var match = "";		
-		var uanno = $(this).val();
-        //var regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-		var uan_format = ^(A-Z\d{5}(/)\d{7})*$;
-       
-		if (uanno.match(uan_format))	       
-		{
-			$('#uanno').attr('style', 'border:1px solid green !important;');
-            $('#uanno').css({ "background-color": "#ffffff" });
-			return true;			           
-        }
-		else
-		{
-            $("#uanno").attr('style', 'border:1px solid #d03100 !important;');
-            $("#uanno").css({ "background-color": "#fff2ee" });
-	        text += " \u002A" + "Please Enter Valid UAN(PF) Number.";
-			alert(text);
-		    $("#uanno").val("");
-            $(this).focus();
-            return false; 		
-        }
-    });
-*/
 	
 	$('#pin_code1').change(function () {
 		
@@ -1191,6 +1183,82 @@ $(document).ready(function() {
             }
             return true;
     });
+     
+    $('#contract_letter').on('change', function ()
+		{   		    
+            var fileEmpty = $('#contract_letter').get(0).files.length === 0;
+            var size = parseFloat(contract_letter.files[0].size / 1048576).toFixed(2);
+            
+            if (!fileEmpty && size > 2) 
+            {
+               alert("File size must under 2MB !");
+               $('#contract_letter').val('');                               
+               $("#contract_letter").attr('style', 'border:1px solid #d03100 !important;');
+               $("#contract_letter").css({ "background-color": "#fff2ee" });
+            } 
+            else
+            {                 
+               $('#contract_letter').attr('style', 'border:1px solid green !important;');
+               $('#contract_letter').css({ "background-color": "#ffffff" });
+            }         
+   });
+
+    $('#resume').on('change', function ()
+		{   		    
+            var fileEmpty = $('#resume').get(0).files.length === 0;
+            var size = parseFloat(resume.files[0].size / 1048576).toFixed(2);
+            
+            if (!fileEmpty && size > 2) 
+            {
+               alert("File size must under 2MB !");
+               $('#resume').val('');                               
+               $("#resume").attr('style', 'border:1px solid #d03100 !important;');
+               $("#resume").css({ "background-color": "#fff2ee" });
+            } 
+            else
+            {                 
+               $('#resume').attr('style', 'border:1px solid green !important;');
+               $('#resume').css({ "background-color": "#ffffff" });
+            }         
+   });
+
+   $('#edu_file').on('change', function ()
+		{   		    
+            var fileEmpty = $('#edu_file').get(0).files.length === 0;
+            var size = parseFloat(edu_file.files[0].size / 1048576).toFixed(2);
+            
+            if (!fileEmpty && size > 2) 
+            {
+               alert("File size must under 2MB !");
+               $('#edu_file').val('');                               
+               $("#edu_file").attr('style', 'border:1px solid #d03100 !important;');
+               $("#edu_file").css({ "background-color": "#fff2ee" });
+            } 
+            else
+            {                 
+               $('#edu_file').attr('style', 'border:1px solid green !important;');
+               $('#edu_file').css({ "background-color": "#ffffff" });
+            }         
+   });
+
+   $('#experience_letter').on('change', function ()
+		{   		    
+            var fileEmpty = $('#experience_letter').get(0).files.length === 0;
+            var size = parseFloat(experience_letter.files[0].size / 1048576).toFixed(2);
+            
+            if (!fileEmpty && size > 2) 
+            {
+               alert("File size must under 2MB !");
+               $('#experience_letter').val('');                               
+               $("#experience_letter").attr('style', 'border:1px solid #d03100 !important;');
+               $("#experience_letter").css({ "background-color": "#fff2ee" });
+            } 
+            else
+            {                  
+               $('#experience_letter').attr('style', 'border:1px solid green !important;');
+               $('#experience_letter').css({ "background-color": "#ffffff" });
+            }         
+   });
 		
 
 });
@@ -1239,24 +1307,85 @@ $(document).ready(function() {
    });         
    });                      
 </script>
+
+
+
 <script>
+
    function proPic(input) 
    {
-       if (input.files && input.files[0]) 
-       {
-           var reader = new FileReader();
-           reader.onload = function (e) 
-           {
-               $('#blah')
-               .attr('src', e.target.result)
-               .width(80)
-               .height(100);
-           };
-           document.getElementById("pro_pic").style.display = "block";
-           reader.readAsDataURL(input.files[0]);
-       }
+            var fileEmpty = $('#agent_image').get(0).files.length === 0;
+            var size = parseFloat(agent_image.files[0].size / 1048576).toFixed(2);
+            
+            if (!fileEmpty && size > 1) 
+            {
+               alert("File size must be under 1MB !");
+               $('#agent_image').val('');                             
+               document.getElementById("blah").src = "<?php  echo base_url(); ?>assets/images/your-picture.png";
+               $("#pro_img").attr('style', 'border: 1px solid #d03100 !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');                                
+            }
+            else
+            {
+               if (input.files && input.files[0]) 
+               {
+
+                  var reader = new FileReader();
+                  reader.onload = function (e) 
+                  {
+                     $('#blah')
+                     .attr('src', e.target.result)
+                     .width(100)
+                     .height(100);
+                  };
+                  document.getElementById("pro_pic").style.display = "block";
+                  reader.readAsDataURL(input.files[0]);
+                  $('#blah').attr('style', 'border:1px solid grey !important;');
+                  $("#pro_img").attr('style', 'border: 1px solid green !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');
+                  
+               }
+            }
+   }
+
+   
+   function signature_pic(input) 
+   {  
+         var fileEmpty = $('#agent_signature').get(0).files.length === 0;
+         var size = parseFloat(agent_signature.files[0].size / 1048576).toFixed(2);
+            
+            if (!fileEmpty && size > 1) 
+            {
+               alert("File size must be under 1MB !");
+               $('#agent_signature').val('');                             
+               document.getElementById("la_signature").src = "<?php  echo base_url(); ?>assets/images/signature.png";
+               $("#sign_img").attr('style', 'border: 1px solid #d03100 !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');                                
+            }
+            else
+            {
+               if (input.files && input.files[0]) 
+               {
+                  var reader = new FileReader();
+                  reader.onload = function (e) 
+                  {
+                        $('#la_signature')
+                        .attr('src', e.target.result)
+                        .width(80)
+                        .height(100);
+                  };
+                  document.getElementById("signature").style.display = "block";
+                  
+                  reader.readAsDataURL(input.files[0]);
+                  
+                  $('#la_signature').attr('style', 'border:1px solid grey !important;');
+                  $("#sign_img").attr('style', 'border: 1px solid green !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');                 
+               }
+            }
    }
 </script>
+
+
+
+
+
 
 <script>
 $(document).ready(function()

@@ -191,7 +191,7 @@
                                        </div>
                                        <div class="form-group col-md-3 m-t-20">
                                           
-										  <label>Mobile Number  <span class="red-color">*</span></label>
+										         <label>Mobile Number  <span class="red-color">*</span></label>
                                           <input type="number" name="contact" id="contact" class="form-control"  value="<?php echo $contact; ?>" required placeholder="Please enter mobile number" minlength="10" maxlength="12" >
                                        </div>
                                        <div class="form-group col-md-3 m-t-20">

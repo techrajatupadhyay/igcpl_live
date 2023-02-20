@@ -68,39 +68,44 @@
                            text: "<?= $this->session->flashdata('status_test') ?>",
                            icon: "<?= $this->session->flashdata('status_icon') ?>",
                            button: "OK!",
-						   timer: 1600,
+						               timer: 1600,
                         });          
                   <?php } ?>  
                   
              });
 </script>
 <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'UA-23581568-13');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());         
+  gtag('config', 'UA-23581568-13');
 </script>
 <!-- table filter  -->
 <script>
-         function myFunction() {
-           var input, filter, table, tr, td, i, txtValue;
-           input = document.getElementById("myInput");
-           filter = input.value.toUpperCase();
-           table = document.getElementById("myTable");
-           tr = table.getElementsByTagName("tr");
-           for (i = 0; i < tr.length; i++) {
-             td = tr[i].getElementsByTagName("td")[0];
-             if (td) {
-               txtValue = td.textContent || td.innerText;
-               if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                 tr[i].style.display = "";
-               } else {
-                 tr[i].style.display = "none";
-               }
-             }       
-           }
-         }
+  function myFunction() 
+  {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) 
+    {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td)
+      {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) 
+        {
+          tr[i].style.display = "";
+        }
+        else
+        {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
 </script>
 <script>
          function toggleFullScreen()

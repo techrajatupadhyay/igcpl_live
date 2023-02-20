@@ -176,6 +176,7 @@
                                  </ul>
                               </div>
                            </div>
+                           <div  style="background-color: #fff;border-top: 1px dashed #1abc9c;padding: 20px 25px;position: inherit"></div>
                            <div class="card-block">
                               <div class="row">
                                  <div class="col-sm-12">
@@ -692,7 +693,7 @@
                                                       <div class="box-body box-profile">
                                                          <?php if(isset($Employee_Details) ) { ?>
                                                          <span id="signature" style="display: block;">  
-                                                            <img id="la_signature" style="border:1px solid grey !important;"  accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Employee_Details)) { echo $signature; } else{ echo "your-picture.png"; } ?>" height="100" width="100" />                        
+                                                            <img id="la_signature" style="border:1px solid grey !important;"  accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Employee_Details)) { echo $signature; } else{ echo "assets/images/signature.png"; } ?>" height="100" width="100" />                        
                                                          </span>
                                                          <p class="text-muted text-left" style="margin-bottom: 5px;">Employee Scan signature Photo <span class="star"> * </span></p>                                                         
                                                          <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
@@ -793,13 +794,7 @@
                            </div>
                         <input type="hidden" name="isedit" value="<?php echo $update; ?>">
 						   
-						   <div class="card-block">
-							 <div class="row">
-								<div class="col-lg-12 col-md-12">
-									<h4 class="sub-title"> </h4>                           
-								</div>
-							 </div>
-						  </div>
+                        <div  style="background-color: #fff;border-top: 1px dashed #1abc9c;padding: 20px 25px;position: inherit"></div>
 					   
                            <div class="card-block">
                               <div class="row">
@@ -1330,8 +1325,6 @@ $(document).ready(function() {
 
 </script>
 
-
-
 <script type="text/javascript">
     function ShowHideDiv() 
     {
@@ -1536,7 +1529,7 @@ $(document).ready(function() {
             {
                alert("File size must be under 1MB !");
                $('#emp_sign').val('');                             
-               document.getElementById("blah").src = "<?php  echo base_url(); ?>assets/images/your-picture.png";
+               document.getElementById("la_signature").src = "<?php  echo base_url(); ?>assets/images/signature.png";
                $("#sign_img").attr('style', 'border: 1px solid #d03100 !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');                                
             }
             else
