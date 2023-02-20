@@ -321,24 +321,21 @@
                 $('#fieldAuthForm').find('[name="projectID"]').val(response.project_id).end();
                 $('#fieldAuthForm').find('[name="emid"]').val(response.emp_id).end();
                 $('#fieldAuthForm').find('[name="fieldLocation"]').val(response.field_location
-).end();
-                $('#fieldAuthForm').find('[name="startdate"]').val(response.start_date
-).end();
-                $('#fieldAuthForm').find('[name="enddate"]').val(response.approx_end_date).end();
+                  ).end();
+                                 $('#fieldAuthForm').find('[name="startdate"]').val(response.start_date
+                  ).end();
+                                 $('#fieldAuthForm').find('[name="enddate"]').val(response.approx_end_date).end();
 
-var date1 = new Date(response.start_date);
-var date2 = new Date(response.approx_end_date);
-var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+                  var date1 = new Date(response.start_date);
+                  var date2 = new Date(response.approx_end_date);
+                  var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+                  var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
 
                 $('#fieldAuthForm').find('[name="totalDays"]').val(diffDays).end();
                 $('#fieldAuthForm').find('[name="notes"]').val(response.notes).end();
 
                 $('#fieldAuthForm').find('[id="returnDate"]').css("display", "block").end();
                 $('#fieldAuthForm').find('[name="actualReturnDate"]').val(response.actual_return_date).end();
-
-
-
 
             });
         });

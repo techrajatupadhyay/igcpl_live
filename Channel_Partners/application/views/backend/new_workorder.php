@@ -124,6 +124,7 @@
    .star
    {
       color:red;
+      font-size: 18px;
    }
 </style>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/seller.css">
@@ -146,18 +147,17 @@
                   </div>
                </div>
                <div  style="background-color: #fff;border-top: 1px dashed #1abc9c;padding: 20px 25px;position: inherit"></div>
-               
+
                <div class="card-block">
                   <div class="row">
                      <div class="col-sm-12">					     
-						 <input type="hidden" class="form-control" name="labh_emp_id" readonly required value="<?php echo $labh_emp_id; ?>" >
-						 <input type="hidden" class="form-control" name="labh_agent_id" readonly required value="<?php echo $labh_agent_id; ?>" >
-						 <input type="hidden" class="form-control" name="region_id" readonly required value="<?php echo $region_id; ?>" >						 
-						 <input type="hidden" class="form-control" name="region_state"  required readonly value="<?php echo $region_state; ?>">
-						 <input type="hidden" class="form-control" name="district_branch" readonly required value="<?php echo $district_branch; ?>" >
-                     <h4 class="sub-title">Order Details</h4>                      
-                     <div class="card-block inner-card-block">
-                        
+						   <input type="hidden" class="form-control" name="labh_emp_id" readonly required value="<?php echo $labh_emp_id; ?>" >
+						   <input type="hidden" class="form-control" name="labh_agent_id" readonly required value="<?php echo $labh_agent_id; ?>" >
+						   <input type="hidden" class="form-control" name="region_id" readonly required value="<?php echo $region_id; ?>" >						 
+						   <input type="hidden" class="form-control" name="region_state"  required readonly value="<?php echo $region_state; ?>">
+						   <input type="hidden" class="form-control" name="district_branch" readonly required value="<?php echo $district_branch; ?>" >                     
+                     <h4 class="sub-title" style="color:red;"><i class="feather icon-shopping-cart"></i>&nbsp; Order Details :</h4>
+                     <div class="card-block inner-card-block">                        
                            <div class="row m-b-30">
                               <div class="col-sm-4">
                                  <h4 class="sub-title">Seller Id <span class="star">*</span></h4>
@@ -199,7 +199,7 @@
                               <div class="col-sm-1">
                                  <!--<h4 class="sub-title uppercaser" style="text-align:left;" >Actio</h4>-->                                
                                  <div class="input-group" style="margin-top:55px;">                                  
-									         <button  id='change_address' onclick='changeAddress()' class="btn  btn-round btn-block text-white btn-out-dashed" style="background: #00acaf; border: 1px solid #00acaf;padding: 7px 19px"> <i class="fa fa-pencil-square-o"></i> </Address></button>
+									         <a  id='change_address' onclick='changeAddress()' class="btn  btn-round btn-block text-white btn-out-dashed" style="background: #00acaf; border: 1px solid #00acaf;padding: 7px 19px"> <i class="fa fa-pencil-square-o"></i> </Address></a>
                                  </div>
                                  
                               </div>                           
@@ -334,7 +334,8 @@
                 <!--<div class="card-block"> this is for space from left side and right side in this page-->
                      <div class="row">
                         <div class="col-sm-12">
-                           <h4 class="sub-title">Buyer Details </h4>
+                           <h4 class="sub-title" style="color:red;"><i class="fa fa-user-secret"></i>&nbsp; Buyer Details :</h4>
+                           
                            <div class="card-block inner-card-block">
                               <div class="row m-b-30">
                                  <div class="col-sm-4">
@@ -372,23 +373,46 @@
                                     <h4 class="sub-title"> Buyer Full Address <span class="star">*</span></h4>
                                     <textarea class="form-control max-textarea" maxlength="255" rows="1" id="consignee_address" name="consignee_address" placeholder="Buyer Full Address" required="" ><?php echo $consignee_address; ?></textarea>
                                  </div>
-                              </div> 
+                              </div>                                                                                                   							  
+                           </div>
+                        </div>
+                     </div>
 
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <h4 class="sub-title" style="color:red;"><i class="fa fa-newspaper-o"></i>&nbsp; Contract Details :</h4>
+                           <div class="card-block inner-card-block">                              
+                              <div class="row m-b-30">                                                                
+                                 <div class="col-sm-12">
+                                    <h4 class="sub-title"> Product Category <span class="star">*</span></h4>
+                                    <textarea class="form-control max-textarea" rows="2" id="select_product" name="select_product" placeholder="Product Category" required="" ><?php echo $select_product; ?></textarea>
+                                 </div>
+                              </div> 
                               <div class="row m-b-30">
-                                 <div class="col-sm-4">
-                                    <h4 class="sub-title">Value of Gem Order (GMV) <span class="star">*</span></h4>
+                                 <div class="col-sm-6">
+                                    <h4 class="sub-title">Quantity (as on gem workorder) <span class="star">*</span></h4>
+                                    <div class="input-group">
+                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
+                                       <input type="number" class="form-control" name="quantity" id="quantity" placeholder="Quantity" required="" minlength="1" value="<?php echo $quantity;?>">
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                    <h4 class="sub-title">Contract Value (GMV) <span class="star">*</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-inr" aria-hidden="true"></i></span>
                                        <input type="number" class="form-control" id="value_gem_order" name="value_gem_order" placeholder="Value of Gem Order" required value="<?php echo $value_gem_order; ?>">
                                     </div>
-                                 </div>
-                                 <div class="col-sm-4">
-                                    <h4 class="sub-title"> GST Value in Gem Order <span class="star">*</span></h4>
-                                    <div class="input-group">
-                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-inr" aria-hidden="true"></i></span>
-                                       <input type="text" class="form-control" id="including_gst"  name="including_gst" placeholder="Including gst(GMV)" required value="<?php echo $including_gst; ?>">
-                                    </div>
-                                 </div>
+                                 </div>                                  
+                              </div>                                                  
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <h4 class="sub-title" style="color:red;"><i class="fa fa-handshake-o"></i>&nbsp; Service Requirement :</h4>
+                           <div class="card-block inner-card-block">                                                            
+                              <div class="row m-b-30">                                                                                           
                                  <div class="col-sm-4">
                                     <h4 class="sub-title">Is There a Sample Clause in work Order ? <span class="star">*</span></h4>
                                     <div class="form-radio">
@@ -406,117 +430,8 @@
                                        </div>
                                     </div>
                                  </div>
-                              </div>
-                              <div class="row m-b-30">
                                  <div class="col-sm-4">
-                                    <h4 class="sub-title">Quantity (as on gem workorder) <span class="star">*</span></h4>
-                                    <div class="input-group">
-                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
-                                       <input type="number" class="form-control" name="quantity" id="quantity" placeholder="Quantity" required="" minlength="1" value="<?php echo $quantity;?>">
-                                    </div>
-                                 </div>
-								      
-                                 <div class="col-sm-4">
-                                    <h4 class="sub-title">GSTIN <span class="star"> *</span></h4>
-                                    <div class="input-group">
-                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-inr" aria-hidden="true"></i></span>
-                                       <input type="text" class="form-control" placeholder="GSTIN" id="gstin" name="gstin" maxlength="12" value="<?php echo $gstin?>">
-                                    </div>
-                                 </div>                               
-							  </div> 
-							  
-                              <div class="row m-b-30">
-                                 <div class="col-sm-4">
-                                    <h4 class="sub-title">Logistics <span class="star"> *</span></h4>
-									<div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon7"><i class="fa fa-truck" aria-hidden="true"></i></span>
-									    <select name="logistics" id="logistics_type" onchange ="ShowHideDiv()" required class="form-control " value="<?php echo $logistics?>">
-											<option>---- select logistics ----</option>
-											<option value="Picemeal" onClick="showDiv()" <?php echo $logistics == "Picemeal" ? " selected" : "";?>>Picemeal</option>
-											<option value="BulkFulfilment" <?php echo $logistics == "BulkFulfilment" ? " selected" : "";?>>Bulk Fulfilment</option>
-											<option value="selfFulfillment" <?php echo $logistics == "selfFulfillment" ? " selected" : "";?>>self Fulfillment</option>
-										</select>
-									</div>
-                                 </div>
-                                 <div class="col-sm-4" id="ready_date" style="display: block">
-                                    <h4 class="sub-title">Ready for Delivery Date <span class="star">*</span></h4>
-                                    <div class="form-group">
-                                       <div class="input-group date" id="datetimepicker1">
-                                          <span class="input-group-addon ">
-                                             <span class="icofont icofont-ui-calendar"></span>
-                                          </span>
-                                          <input type="date" class="form-control" id="ready_delivery_date" name="ready_delivery_date" value="<?php echo $ready_delivery_date; ?>">
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-4" id="delivery_date" style="display: block">
-                                    <h4 class="sub-title">Expected Delivery Date <span class="star">*</span></h4>
-                                    <div class="form-group">
-                                       <div class="input-group date" id="datetimepicker1">
-                                          <span class="input-group-addon " style="">
-                                              <span class="icofont icofont-ui-calendar"></span>
-                                          </span>
-                                          <input type="date" class="form-control" id="expected_date"  name="expected_date" value="<?php echo $expected_date; ?>">
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="row m-b-30">
-                                 <div class="col-sm-3">
-                                    <h4 class="sub-title"> State <span class="star">*</span></h4>
-									         <div class="input-group">
-                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>  
-         										<select name="statename" id="buyer_stateid" required class="form-control">   
-         										   <option value="">-- Select State --</option>
-         										   <?php 
-         											  //var_dump($country);
-         											  foreach($state_list as $c)
-         											  {   ?>
-         										   <option value="<?= $c->state_id; ?>" <?php echo $statename == $c->state_id ? " selected" : ""; ?> ><?= $c->statename; ?></option>
-         										   <?php  }  ?>
-         										</select>
-									         </div>
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h4 class="sub-title"> District <span class="star">*</span></h4>
-									         <div class="input-group">
-                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-         										<select id="buyer_district"  name="districtname"  autocomplete="off" class="form-control">
-         										  <!--  <option value="">Select District</option> -->
-         										   <?php if(isset($workorder)) 
-         										   {                                            
-         											  foreach($district_list as $dist)
-         										   {  ?>
-         										   <option value="<?= $dist->Districtcode; ?>" <?php echo $districtname == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
-         										   <?php } 
-         												 }
-         										   else 
-         										   {  ?>                                        
-         										   <option value="">-- Select District --</option>
-         										   <?php } ?> 
-         										</select>
-									         </div>
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h4 class="sub-title"> City <span class="star">*</span></h4>
-                                    <div class="input-group">
-                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>   
-                                       <input type="text" class="form-control" name="city" id="city" placeholder="city" required="" value="<?php echo $city; ?>">
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h4 class="sub-title">Pincode <span class="star">*</span></h4>
-                                    <div class="input-group">
-                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                       <input type="text" class="form-control" id="pincode" name="pincode" placeholder="pincode" required="" minlength="6" maxlength="6" value="<?php echo $pincode; ?>">
-                                    </div>
-                                 </div>
-                              </div>
-                              
-                             
-                              <div class="row m-b-30">
-                                 <div class="col-sm-4">
-                                    <h4 class="sub-title">Would You like to opt for Bill Discounting <span class="star">*</span></h4>
+                                    <h4 class="sub-title">Would You like to opt for Bill Discounting ? <span class="star">*</span></h4>
                                     <div class="form-radio">
                                        <div class="radio radiofill radio-primary radio-inline">
                                           <label>
@@ -530,29 +445,91 @@
                                              <i class="helper"></i>No
                                           </label>
                                        </div>
+                                       <!--   
                                        <div class="radio radiofill radio-primary radio-inline">
                                           <label>
                                              <input type="radio" id="bill_discounting" name="bill_discounting" value="Cant_say" data-bv-field="member" <?php echo $bill_discounting == "Cant_say" ? " checked" : "";?>>
                                              <i class="helper"></i>Can't say now
                                           </label>
                                        </div>
+                                       -->   
                                     </div>
                                  </div>
+
                                  <div class="col-sm-4">
-                                    <h4 class="sub-title">Upload Gem Work Order Doc. (Only: pdf / zip) <span class="star">*</span></h4>
+                                    <h4 class="sub-title">Coordination ? <span class="star">*</span>  </br></h4>
+                                    <div class="form-radio">
+                                       <div class="radio radiofill radio-primary radio-inline">
+                                          <label>
+                                             <input type="radio" id="coordination" name="coordination" value="yes" data-bv-field="member" <?php echo $sample_clause == "yes" ? " checked" : "";?>>
+                                             <i class="helper"></i>Yes  
+                                          </label>
+                                       </div>
+                                       <div class="radio radiofill radio-primary radio-inline">
+                                          <label>
+                                             <input type="radio" id="coordination" name="coordination" value="no" data-bv-field="member" <?php echo $sample_clause == "no" ? " checked" : "";?> >
+                                             <i class="helper"></i>No
+                                          </label>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                             						  
+                              <div class="row m-b-30">
+                                 <div class="col-sm-6">
+                                    <h4 class="sub-title">upload GeM Contract Doc. (Only: pdf / zip) <span class="star">*</span></h4>
                                     <?php if(isset($workorder) && $workorder !="") { ?>
                                        <div class="input-group">
                                           <input type="file" accept=".pdf,.zip" id="gem_workorder_doc"  class="form-control bg-white" name="gem_workorder_doc"  value="<?php echo $gem_workorder_doc; ?>">
                                           <span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-o" aria-hidden="true"></i></span>
                                        </div>
+                                       
                                     <?php } else { ?>
                                       <div class="input-group">
                                           <input type="file" accept=".pdf,.zip" id="gem_workorder_doc"  class="form-control bg-white" name="gem_workorder_doc" required="" value="<?php echo $gem_workorder_doc; ?>">
                                           <span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-o" aria-hidden="true"></i></span>
                                        </div>
+                                       <h4 class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 2MB</b> </h4>
                                     <?php } ?>
                                  </div>
-								 <div class="col-sm-4">
+                                 <div class="col-sm-6">
+                                    <h4 class="sub-title">Logistics <span class="star"> *</span></h4>
+                                       <div class="input-group">
+                                          <span class="input-group-addon" id="basic-addon7"><i class="fa fa-truck" aria-hidden="true"></i></span>
+                                          <select name="logistics" id="logistics_type" onchange ="ShowHideDiv()" required class="form-control " value="<?php echo $logistics?>">
+                                             <option>---- select logistics ----</option>
+                                             <option value="selfFulfillment" <?php echo $logistics == "selfFulfillment" ? " selected" : "";?>>Self Fulfillment</option>
+                                             <option value="Picemeal" <?php echo $logistics == "Picemeal" ? " selected" : "";?>>Picemeal Fulfilment</option>
+                                             <option value="BulkFulfilment" <?php echo $logistics == "BulkFulfilment" ? " selected" : "";?>>Bulk Fulfilment</option>                                            
+                                          </select>
+                                       </div>
+                                 </div>                                
+                              </div>                                                       
+                             
+                              <div class="row m-b-30">                              
+                                 <div class="col-sm-4" id="ready_date" style="display: block">
+                                    <h4 class="sub-title">Ready for Delivery Date <span class="star">*</span></h4>
+                                    <div class="form-group">
+                                       <div class="input-group date" id="datetimepicker1">
+                                          <span class="input-group-addon ">
+                                             <span class="icofont icofont-ui-calendar"></span>
+                                          </span>
+                                          <input type="date" class="form-control" id="ready_delivery_date" name="ready_delivery_date" value="<?php echo $ready_delivery_date; ?>">
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-4" id="delivery_date" style="display: block">
+                                    <h4 class="sub-title"> Delivery Completion Date <span class="star">*</span></h4>
+                                    <div class="form-group">
+                                       <div class="input-group date" id="datetimepicker1">
+                                          <span class="input-group-addon " style="">
+                                              <span class="icofont icofont-ui-calendar"></span>
+                                          </span>
+                                          <input type="date" class="form-control" id="expected_date"  name="expected_date" value="<?php echo $expected_date; ?>">
+                                       </div>
+                                    </div>
+                                 </div>
+								         <div class="col-sm-4" id="eway_bil" style="display: block">
                                     <h4 class="sub-title">Upload E-Way Bill(Part 1) (Only: pdf) <span class="star">*</span></h4>
                                     <?php if(isset($workorder) && $workorder !="") { ?>
                                        <div class="input-group">
@@ -564,21 +541,19 @@
                                           <input type="file" accept=".pdf,.zip"  id="eway_bill_part_1" class="form-control bg-white" name="eway_bill_part_1" required="" value="<?php echo $eway_bill_part_1; ?>">
                                           <span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-o" aria-hidden="true"></i></span>
                                        </div>
+                                       <h4 class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 2MB</b> </h4>
                                     <?php } ?>
                                  </div>
                               </div>                          							  
                            </div>
                         </div>
-                    </div>
-                  
-				  
-				  
-                     <div class="row">
+                     </div>
+	  
+                     <div class="row" id="shipping_calculation" style="display: block">
                         <div class="col-sm-12">
-                            <h4 class="sub-title"><i class="fa fa-truck " aria-hidden="true"></i> Shipping Rate Calculation </h4>
-                            <div class="card-block inner-card-block">
-				                <div class="row m-b-30">
-								
+                           <h4 class="sub-title" style="color:red;"><i class="fa fa-truck " aria-hidden="true"></i>&nbsp; Shipping Rate Calculation :</h4>                           
+                           <div class="card-block inner-card-block">
+				                  <div class="row m-b-30">								
                                  <div class="col-sm-4">
                                     <h4 class="sub-title">Pickup Pincode <span class="star"> *</span></h4>
                                     <div class="input-group">
@@ -591,6 +566,14 @@
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
                                        <input type="number" class="form-control" id="delivery_pincode" name="delivered_pincode" placeholder="delivery pincode" required="" minlength="6" maxlength="6" value="">
+                                    </div>
+                                 </div>
+                                 
+                                 <div class="col-sm-4">
+                                    <h4 class="sub-title">No of Packages/Box<span class="star"> *</span></h4>
+                                    <div class="input-group">
+                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
+                                       <input type="text" class="form-control" id="noofpackages" name="noofpackages" placeholder="no of packages" required="" value="" value="" minlength="1" maxlength="5">
                                     </div>
                                  </div> 
 								
@@ -609,16 +592,8 @@
                                        <input type="text" class="form-control" id="declared_value" name="declared_value" placeholder="declared value of consignment" required="" value="" value="" minlength="2" maxlength="10">
                                     </div>
                                  </div>  
-
-                                 <div class="col-sm-4">
-                                     <h4 class="sub-title">No of Packages/Box<span class="star"> *</span></h4>
-                                    <div class="input-group">
-                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
-                                       <input type="text" class="form-control" id="noofpackages" name="noofpackages" placeholder="no of packages" required="" value="" value="" minlength="1" maxlength="5">
-                                    </div>
-                                 </div> 							 
-								 
-								 <div class="col-sm-4">
+                                														 
+								         <div class="col-sm-4">
                                     <h4 class="sub-title">Product Box Length (in cm) <span class="star">*</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-inr" aria-hidden="true"></i></span>
@@ -632,59 +607,87 @@
                                        <input type="number" class="form-control" id="product_width" onchange="javascript:getChangedWeight()" name="product_width" placeholder="Product Width (in cm)" required minlength="1">
                                     </div>
                                  </div>
-								 <div class="col-sm-4">
+								         <div class="col-sm-4">
                                     <h4 class="sub-title">Product Box Height (in cm)<span class="star"> *</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-inr" aria-hidden="true"></i></span>
                                        <input type="number" class="form-control" id="product_height" onchange="javascript:getChangedWeight()" name="product_height" placeholder="Product Height (in cm)" required minlength="1">
                                     </div>
-                                 </div>	
-								 							
+                                 </div>									 							
                                  <div class="col-sm-4">
-                                     <h4 class="sub-title">Actual Weight of Consignment<span class="star"> *</span></h4>
+                                     <h4 class="sub-title">Actual Weight of Consignment (in kg)<span class="star"> *</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
                                        <input type="text" class="form-control" id="actual_weight" name="actual_weight" placeholder="actual weight" required="" value="" value="" minlength="1" >
                                     </div>
                                  </div>
-
                                  <div class="col-sm-4">
-                                     <h4 class="sub-title">Charged Weight of Consignment (in kg)<span class="star">*</span></h4>
+                                    <h4 class="sub-title">Charged Weight of Consignment (in kg)<span class="star">*</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
                                        <input type="text" class="form-control" id="charged_weight" name="charged_weight" placeholder="charged weight (in kg)" required="" value="" minlength="1" readonly>
                                     </div>
                                  </div>
-
                                  <div class="col-sm-4">
                                     <h4 class="sub-title">COD/DOD <span class="star">*</span></h4>
-									<div class="input-group">
+									         <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon7"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
-									<select id="cod_dod" name="cod_dod" required class="form-control " >                                      
-                                       <option value="Y" <?php echo $logistics == "Picemeal" ? " selected" : "";?>>Yes</option>
-                                       <option value="N" <?php echo $logistics == "BulkFulfilment" ? " selected" : "";?>>No</option>                                       
-                                    </select>
-									</div>
-                                 </div>
-                                 
+                                       <select id="cod_dod" name="cod_dod" required class="form-control " >                                      
+                                          <option value="Y" <?php echo $logistics == "Picemeal" ? " selected" : "";?>>Yes</option>
+                                          <option value="N" <?php echo $logistics == "BulkFulfilment" ? " selected" : "";?>>No</option>                                       
+                                       </select>
+									         </div>
+                                 </div>                                
                                  <div class="col-sm-4">
-                                     <h4 class="sub-title uppercaser">Shipping Price <span class="star">*</span></h4>
+                                    <h4 class="sub-title uppercaser">Shipping Price <span class="star">*</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-inr" aria-hidden="true"></i></span>
                                        <input type="text" class="form-control" id="shipping_charges" name="shipment_charges"  value="0.00" readonly required >
                                     </div>
                                  </div>
                                  <div class="col-sm-4">
-                                     <h4 class="sub-title uppercaser" style="text-align:left;" >Action<span class="star"> *</span></h4>
-                                      <div class="input-group">
-                                        <!--<a id='shipping_price' onclick='calculateShipping()' class="btn  btn-round btn-block text-white btn-out-dashed" style="background: #00acaf; border: 2px solid #00acaf;font-size:18px;"><i class="fa fa-calculator"></i>Calculate Shipping price</a>-->
-									   <button  id='shipping_price' onclick='calculateShipping()' class="btn  btn-round btn-block text-white btn-out-dashed" style="background: #00acaf; border: 1px solid #00acaf;padding: 7px 19px"> <i class="fa fa-calculator"></i> Calculate Shipping price</button>
-                                     </div>
+                                    <h4 class="sub-title uppercaser" style="text-align:left;" >Action<span class="star"> *</span></h4>
+                                    <div class="input-group">
+                                       <!--<a id='shipping_price' onclick='calculateShipping()' class="btn  btn-round btn-block text-white btn-out-dashed" style="background: #00acaf; border: 2px solid #00acaf;font-size:18px;"><i class="fa fa-calculator"></i>Calculate Shipping price</a>-->
+									            <button  id='shipping_price' onclick='calculateShipping()' class="btn  btn-round btn-block text-white btn-out-dashed" style="background: #00acaf; border: 1px solid #00acaf;padding: 7px 19px"> <i class="fa fa-calculator"></i> Calculate Shipping price</button>
+                                    </div>
                                  </div>
-								</div>
-				            </div>
+								      </div>
+				               </div>
                         </div>
                      </div>
+                     
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <h4 class="sub-title" style="color:red;"><i class="fa fa-calculator" aria-hidden="true"></i>&nbsp; Estimate of Charges :</h4>
+                           <div class="card-block inner-card-block">                              
+                              <div class="row m-b-30">                                                                
+                                 <div class="col-sm-12">
+                                    <h4 class="sub-title"> Product Category <span class="star">*</span></h4>
+                                    <textarea class="form-control max-textarea" rows="2" id="select_product" name="select_product" placeholder="Product Category" required="" ><?php echo $select_product; ?></textarea>
+                                 </div>
+                              </div> 
+                              <div class="row m-b-30">
+                                 <div class="col-sm-6">
+                                    <h4 class="sub-title">Quantity (as on gem workorder) <span class="star">*</span></h4>
+                                    <div class="input-group">
+                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
+                                       <input type="number" class="form-control" name="quantity" id="quantity" placeholder="Quantity" required="" minlength="1" value="<?php echo $quantity;?>">
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-6">
+                                    <h4 class="sub-title">Contract Value (GMV) <span class="star">*</span></h4>
+                                    <div class="input-group">
+                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-inr" aria-hidden="true"></i></span>
+                                       <input type="number" class="form-control" id="value_gem_order" name="value_gem_order" placeholder="Value of Gem Order" required value="<?php echo $value_gem_order; ?>">
+                                    </div>
+                                 </div>                                  
+                              </div>                                                  
+                           </div>
+                        </div>
+                     </div>
+
+
                   </div>
                   
                   <div  style="background-color: #fff;border-top: 1px dashed #1abc9c;padding: 20px 25px;position: inherit"></div>
@@ -727,72 +730,77 @@
 </div>
 
 <script type="text/javascript">
-    function changeAddress() 
-    {
-
-        document.getElementById("pick_location").disabled = false;
-                  
-    }
+   function changeAddress() 
+   {
+      document.getElementById("pick_location").disabled = false;
+      /*
+         if(document.getElementById("pick_location").disabled == true)
+         {    
+            document.getElementById("pick_location").disabled = false;
+         }
+         else
+         {
+            document.getElementById("pick_location").disabled = true;
+         }
+      */                
+   }
 </script>
 
 
 <script type="text/javascript">
-/*
-document.getElementById("product_width").onchange = function() {upp()};
-function upp() {
-  var dat = document.getElementById("product_width");
-  dat.value = dat.value.toUpperCase();
-}
-*/
-    function getChangedWeight()
+   /*
+   document.getElementById("product_width").onchange = function() {upp()};
+   function upp() {
+   var dat = document.getElementById("product_width");
+   dat.value = dat.value.toUpperCase();
+   }
+   */
+   function getChangedWeight()
 	{
      			
 		var product_length = document.getElementById('product_length').value;
-        var product_width = document.getElementById('product_width').value;
-        var product_height = document.getElementById('product_height').value;
-        //alert(product_length); 
-	/*	 
-		if (product_length =='') 
-		{
-			alert("Length of Product Box is Mandatory!");			
-		}
-		else if (product_width =='') 
-		{
-			alert("Width of Product Box is Mandatory!");	
-		}
-		else if (product_height =='') 
-		{
-			alert("Height of Product is Mandatory!");
-		}	
-		else if (product_length !='' && product_width !='' && product_height !='')
-		{
-	*/					
-			var Volumetric_Weight = (product_length * product_width * product_height)/ 4700;
-			
-			var Charged_Weight = Number(Volumetric_Weight).toFixed(2);
-			
-			//alert(Volumetric_Weight);
-            //alert(Charged_Weight);			
-			$("#charged_weight").val(Charged_Weight);
-  		    		
+      var product_width = document.getElementById('product_width').value;
+      var product_height = document.getElementById('product_height').value;
+      //alert(product_length); 
+      /*	 
+         if (product_length =='') 
+         {
+            alert("Length of Product Box is Mandatory!");			
+         }
+         else if (product_width =='') 
+         {
+            alert("Width of Product Box is Mandatory!");	
+         }
+         else if (product_height =='') 
+         {
+            alert("Height of Product is Mandatory!");
+         }	
+         else if (product_length !='' && product_width !='' && product_height !='')
+         {
+      */					
+		var Volumetric_Weight = (product_length * product_width * product_height)/ 4700;	
+		var Charged_Weight = Number(Volumetric_Weight).toFixed(2);	
+		//alert(Volumetric_Weight);
+      //alert(Charged_Weight);			
+		$("#charged_weight").val(Charged_Weight);	    		
 		//}
 									
-    }
+   }
 </script>
+
 <script>
 
 function calculateShipping()
 {
-        //document.getElementById('shipping_price').disabled = true;
-			
+      //document.getElementById('shipping_price').disabled = true;	
 		var pickup_pincode = document.getElementById('pickup_pincode').value;
-        var delivery_pincode = document.getElementById('delivery_pincode').value;
-        var travle_mode = document.getElementById('travle_mode').value;
-        var declared_value = document.getElementById('declared_value').value;
-        var noofpackages = document.getElementById('noofpackages').value;
-        var actual_weight = document.getElementById('actual_weight').value;		
+      var delivery_pincode = document.getElementById('delivery_pincode').value;
+      var travle_mode = document.getElementById('travle_mode').value;
+      var declared_value = document.getElementById('declared_value').value;
+      var noofpackages = document.getElementById('noofpackages').value;
+      var actual_weight = document.getElementById('actual_weight').value;		
 		var charged_weight = document.getElementById('charged_weight').value;	
-        var cod_dod = document.getElementById('cod_dod').value;	
+      var cod_dod = document.getElementById('cod_dod').value;	
 	
 		if (pickup_pincode =='') 
 		{
@@ -833,18 +841,17 @@ function calculateShipping()
 			
         	$.ajax(
 				{     
-				    url: "<?php  echo base_url(); ?>Seller_module/calculate_shipping_price",
-				    method:"POST", 
-				    data:{pickup_pincode:pickup_pincode,delivery_pincode:delivery_pincode,travle_mode:travle_mode,declared_value:declared_value,noofpackages:noofpackages,actual_weight:actual_weight,charged_weight:charged_weight,cod_dod:cod_dod},
-				    success: function(data) 
-				    { 
-					    //alert(data);
-					    //$('#seller_district').html(data);
-					    $("#shipping_charges").val(data);
-						$("#shipping_price").html('<i class="fa fa-calculator"></i> Calculate Shipping price');
-			            document.getElementById('shipping_price').disabled = false;
-                       					   
-				    }
+				   url: "<?php  echo base_url(); ?>Seller_module/calculate_shipping_price",
+				   method:"POST", 
+				   data:{pickup_pincode:pickup_pincode,delivery_pincode:delivery_pincode,travle_mode:travle_mode,declared_value:declared_value,noofpackages:noofpackages,actual_weight:actual_weight,charged_weight:charged_weight,cod_dod:cod_dod},
+				   success: function(data) 
+				   { 
+                     //alert(data);
+                     //$('#seller_district').html(data);
+                     $("#shipping_charges").val(data);
+                     $("#shipping_price").html('<i class="fa fa-calculator"></i> Calculate Shipping price');
+                     document.getElementById('shipping_price').disabled = false;           					   
+				   }
 				})
 		}
 }
@@ -1049,10 +1056,6 @@ function calculateShipping()
 	}
 	
 </script>
-
-
-
-
 	
 <script type="text/javascript">
     function ShowHideDiv() 
@@ -1063,11 +1066,15 @@ function calculateShipping()
         {
           $("#ready_date").hide();
           $("#delivery_date").hide();
+          $("#eway_bil").hide();
+          $("#shipping_calculation").hide();
         }
         else 
         {
           $("#ready_date").show();
-          $("#delivery_date").show();           
+          $("#delivery_date").show();
+          $("#eway_bil").show(); 
+          $("#shipping_calculation").show();          
         }           
     }
 </script>

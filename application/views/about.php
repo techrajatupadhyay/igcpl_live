@@ -14,11 +14,11 @@
          .nav-pills .nav-link.active, .nav-pills .show>.nav-link 
          {
             color: #fff!important;
-            background-color: #00054c!important;
+            background-color: #1746A2!important;
          }
          .tab-content
          {
-            box-shadow: 1px 1px 1px 1px #00054c8f;
+            box-shadow: 1px 1px 1px 1px #ff731d;
             padding: 20px;
             margin: 2px;
          }
@@ -82,7 +82,7 @@
                                  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                     <li class="nav-item mr-2" role="presentation">
                                        <button class="nav-link  active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><h5 class="mr-3">
-                                          <img src="<?php base_url();?>assets/img/about/mtp.webp" class="about_icon"> <b>MTP</b></h5></button>&nbsp &nbsp
+                                          <img src="<?php base_url();?>assets/img/about/mtp.png" class="about_icon"> <b>MTP</b></h5></button>&nbsp &nbsp
                                     </li>
                                     <li class="nav-item" role="presentation">
                                        <button class="nav-link " id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><h5 class="mr-3"> 
@@ -91,7 +91,7 @@
                                     <li class="nav-item" role="presentation">
                                        <button class="nav-link " id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
                                        	<h5 class="mr-3">
-                                           <img src="<?php base_url();?>assets/img/about/vision-icon.png" class="about_icon"><b>Our Vision</b></h5></button>&nbsp &nbsp
+                                           <img src="<?php base_url();?>assets/img/about/vision.png" class="about_icon"><b>Our Vision</b></h5></button>&nbsp &nbsp
                                     </li>
                                  </ul>
                                  <div class="tab-content" id="pills-tabContent">
@@ -234,203 +234,12 @@
       </section>
       <!-- End of goodness feature section
          ============================================= -->
-      <!-- Start of Video section
-         ============================================= -->
-      <!-- <section id="ft-video" class="ft-video-section">
-         <div class="container">
-         	<div class="ft-video-content position-relative"> -->
-      <!-- <div class="ft-video-img-play-btn">
-         <div class="ft-video-img">
-         	<img src="assets/img/bg/v-bg.jpg" alt="">
-         </div>
-         <div class="ft-video-play">
-         	<a class="d-flex justify-content-center align-items-center position-relative video_box" href="../watch-4.php?v=C4jjFanHZo8">
-         		<i class="fas fa-play"></i>
-         		<span class="video_btn_border border_wrap-1"></span>
-         		<span class="video_btn_border border_wrap-2"></span>
-         	</a>
-         </div>
-         </div> -->
-      <!-- </div>
-         </div>		
-         </section>	 -->
-      <!-- End of Video section
-         ============================================= -->
-      <!-- Start of Testimonial section
-         ============================================= -->
-      <!-- <section id="ft-testimonial-2" class="ft-testimonial-section-2">
-         <div class="container">
-         	<div class="ft-testimonial-top-content-2 d-flex justify-content-between align-items-end flex-wrap">
-         		<div class="ft-section-title-2 headline pera-content">
-         			<span class="sub-title">Testimonial</span>
-         			<h2>What People & Clients
-         				Think About Us?
-         			</h2>
-         		</div>
-         		<div class="ft-title-text">
-         			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. 
-         		</div>
-         	</div>
-         	<div class="ft-testimonial-slider-wrapper-2  swiper-container">
-         		<div class="ft-testimonial-slider-2">
-         			<div class="choose_slider_items ul-li choose_slider">
-         				<ul id="mySlider1">
-         					<li class="current_item">
-         						<div class="ft-testimonial-innerbox-item-2 text-center">
-         							<div class="ft-testimonial-img">
-         								<img src="assets/img/testimonial/test2.1.jpg" alt="">
-         							</div>
-         							<div class="ft-testimonial-text headline pera-content">
-         								<div class="ft-testimonial-meta">
-         									<h3>Gallen  Maxwell</h3>
-         									<span>UI/UX Designer</span>
-         								</div>
-         								<p>Lncididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-         								<div class="ft-testimonial-rate ul-li">
-         									<ul>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         									</ul>
-         								</div>
-         							</div>
-         						</div>
-         					</li>
-         					<li class="current_item">
-         						<div class="ft-testimonial-innerbox-item-2 text-center">
-         							<div class="ft-testimonial-img">
-         								<img src="assets/img/testimonial/test2.1.jpg" alt="">
-         							</div>
-         							<div class="ft-testimonial-text headline pera-content">
-         								<div class="ft-testimonial-meta">
-         									<h3>Gallen  Maxwell</h3>
-         									<span>UI/UX Designer</span>
-         								</div>
-         								<p>Lncididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-         								<div class="ft-testimonial-rate ul-li">
-         									<ul>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         									</ul>
-         								</div>
-         							</div>
-         						</div>
-         					</li>
-         					<li class="current_item">
-         						<div class="ft-testimonial-innerbox-item-2 text-center">
-         							<div class="ft-testimonial-img">
-         								<img src="assets/img/testimonial/test2.1.jpg" alt="">
-         							</div>
-         							<div class="ft-testimonial-text headline pera-content">
-         								<div class="ft-testimonial-meta">
-         									<h3>Gallen  Maxwell</h3>
-         									<span>UI/UX Designer</span>
-         								</div>
-         								<p>Lncididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-         								<div class="ft-testimonial-rate ul-li">
-         									<ul>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         									</ul>
-         								</div>
-         							</div>
-         						</div>
-         					</li>
-         					<li class="current_item">
-         						<div class="ft-testimonial-innerbox-item-2 text-center">
-         							<div class="ft-testimonial-img">
-         								<img src="assets/img/testimonial/test2.1.jpg" alt="">
-         							</div>
-         							<div class="ft-testimonial-text headline pera-content">
-         								<div class="ft-testimonial-meta">
-         									<h3>Gallen  Maxwell</h3>
-         									<span>UI/UX Designer</span>
-         								</div>
-         								<p>Lncididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-         								<div class="ft-testimonial-rate ul-li">
-         									<ul>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         									</ul>
-         								</div>
-         							</div>
-         						</div>
-         					</li>
-         					<li class="current_item">
-         						<div class="ft-testimonial-innerbox-item-2 text-center">
-         							<div class="ft-testimonial-img">
-         								<img src="assets/img/testimonial/test2.1.jpg" alt="">
-         							</div>
-         							<div class="ft-testimonial-text headline pera-content">
-         								<div class="ft-testimonial-meta">
-         									<h3>Gallen  Maxwell</h3>
-         									<span>UI/UX Designer</span>
-         								</div>
-         								<p>Lncididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-         								<div class="ft-testimonial-rate ul-li">
-         									<ul>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         									</ul>
-         								</div>
-         							</div>
-         						</div>
-         					</li>
-         					<li class="current_item">
-         						<div class="ft-testimonial-innerbox-item-2 text-center">
-         							<div class="ft-testimonial-img">
-         								<img src="assets/img/testimonial/test2.1.jpg" alt="">
-         							</div>
-         							<div class="ft-testimonial-text headline pera-content">
-         								<div class="ft-testimonial-meta">
-         									<h3>Gallen  Maxwell</h3>
-         									<span>UI/UX Designer</span>
-         								</div>
-         								<p>Lncididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-         								<div class="ft-testimonial-rate ul-li">
-         									<ul>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         										<li><i class="fas fa-star"></i></li>
-         									</ul>
-         								</div>
-         							</div>
-         						</div>
-         					</li>
-         				</ul>
-         				<div><a id="btn_next1" href="#"><i class="far fa-arrow-right"></i></a></div>
-         				<div><a id="btn_prev1" href="#"><i class="far fa-arrow-left"></i></a></div>
-         			</div>
-         		</div>
-         	</div>
-         </div>
-         </section> -->
-      <!-- End of Testimonial section
-         ============================================= -->		
-      <!-- Start of Footer   section
-         ============================================= -->
       <footer id="ft-footer-2" class="ft-footer-section-2" data-background="assets/img/bg/f-bg.png">
       <div class="ft-footer-newslatter position-relative">
          <div class="container">
             <div class="ft-footer-newslatter-content d-flex justify-content-between align-items-center flex-wrap">
                <div class="ft-footer-newslatter-text headline mx-3">
-                  <p class="text-white mx-3 text-center "  style="color: #01054c; font-family: serif; font-style: inherit;
+                  <p class="mx-3 text-center "  style="color: #000; font-family: serif; font-style: inherit;
                      font-size: 18px;" >Are you a GeM registered Vendor? Send us a message to avail end-to-end services of IGCPL and experience true ease of business in the B2G Sector</p>
                </div>
                <div class="ft-footer-newslatter-form position-relative">

@@ -10,7 +10,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
       <title>ID Card</title>
       <style> 
-         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');  
+        /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap'); */ 
          /*.container{
          max-width:630px;
          border:2px solid #ccc;

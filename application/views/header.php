@@ -27,18 +27,21 @@
 		        height:85px;
 		    }
             .logo_text 
-            {
+            {   
+            	color:#000000c2;
 	            font-size: 27px;
-	            font-weight: 750;
+	            font-weight:900;
 	            letter-spacing: 6px;
 	            margin-left: -2px;
 	            font-family: 'Poppins', sans-serif!important;
             }
             .logo_subtext
             {
+            	color:#000000c2;
 	            margin-left: 90px;
                 margin-top: -32px;
                 letter-spacing: 1px;
+                font-weight: 600;
             }
             @media only screen and (max-width: 800px) 
             {
@@ -68,17 +71,17 @@
 					<div class="ft-brand-logo">
 						
 						<a href="<?php base_url();?>Home"><img src="<?php echo base_url();?>assets/img/logo/logo_new.png" alt="" class="header_logo"></a>
-						<span class="text-white logo_text">INDIGEM</b></span><p class="text-white logo_subtext">CHANNEL PARTNERS </p> 
+						<span class="logo_text">INDIGEM</b></span><p class="logo_subtext">CHANNEL PARTNERS </p> 
 						  
 					</div>
 					<div class="ft-header-menu-top-cta position-relative">
 						<div class="ft-header-top ul-li">
 							<div class="row">
 								<div class="col-md-5 col-sm-12">
-								   <p style="font-weight: 100!important; font-size:13px !important;"><i class="fal fa-envelope"></i> <a href="mailto:indigeminfo@gmail.com"></a>indigeminfo@gmail.com, <a href="mailto:contact@indigemcp.com">contact@indigemcp.com</a></p>
+								   <p style="font-weight: 600!important; color:#000000c2; font-size:13px !important;"><i class="fal fa-envelope"></i> <a href="mailto:indigeminfo@gmail.com"></a>indigeminfo@gmail.com, <a href="mailto:contact@indigemcp.com">contact@indigemcp.com</a></p>
                                 </div>
                                 <div class="col-md-7 col-sm-12">
-								    <p style="font-weight: 100!important; font-size:13px !important;"><i class="fal fa-map-marker-alt"></i> Corporate Address: 637, Star Chambers, Harihar Chowk, Rajkot, Gujrat,360001</p>
+								    <p style="font-weight: 600!important; color:#000000c2; font-size:13px !important;"><i class="fal fa-map-marker-alt"></i> Corporate Address: 637, Star Chambers, Harihar Chowk, Rajkot, Gujrat,360001</p>
 							    </div>
 							</div>
 						</div>

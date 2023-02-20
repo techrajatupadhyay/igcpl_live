@@ -132,7 +132,7 @@
                       <div class="col-md-12 col-sm-12">
                          <div class="right-description ">
                             <div class="apply-section" id="careerform">
-                               <h3 class="text-center my-1" style="color:#00054c; font-weight: 800; font-size: 22px;">Apply Now</h3>
+                               <h3 class="text-center my-1" style="color:#1746A2; font-weight: 800; font-size: 22px;">Apply Now</h3>
                                <div class="form-box custom-form-section">
                                   <form class="contact-form" method="post" action="<?= base_url(); ?>Job_Portal/actionresume" method="post" name="job_request" enctype="multipart/form-data" id="job-apply-form">
                                      <div class="input-box">
@@ -162,7 +162,7 @@
                                         </div>
                                      </div>
                                      <div class="submit-btn">
-                                        <button type="submit" name="submit" class="btn  btn-lg ladda-button mt-5 text-white" style="background:#00054c; padding: 7px 40px;" data-style="expand-left" data-size="m" id="tost_message">
+                                        <button type="submit" name="submit" class="btn  btn-lg ladda-button mt-5 text-white" style="background:#1746A2; padding: 7px 40px;" data-style="expand-left" data-size="m" id="tost_message">
                                         <span class="ladda-label">Submit</span>
                                         </button>
                                      </div>
@@ -183,13 +183,13 @@
                             <div class="apply-section" id="careerform">
                               <!--  <h3 class="text-center" style="color:#00054c; font-weight: 800; font-size: 22px;">Apply Now</h3> -->
                                <div class="form-box custom-form-section">
-                                 <h3  class="mt-2 mb-4" style="color:#01054c;">Current Vacancies </h3>
+                                 <h3  class="mt-2 mb-4" style="color:#1746A2;">Current Vacancies </h3>
                             <table class="table">
                                 <thead>
                                <tr>
-                                  <th scope="col" style="color:#01054c;">Sr.</th>
-                                  <th scope="col" style="color:#01054c;">Role</th>
-                                  <th scope="col" style="color:#01054c;">Location</th>
+                                  <th scope="col" style="color:#1746A2;">Sr.</th>
+                                  <th scope="col" style="color:#1746A2;">Role</th>
+                                  <th scope="col" style="color:#1746A2;">Location</th>
                                </tr>
                                 </thead>
                                 <tbody>

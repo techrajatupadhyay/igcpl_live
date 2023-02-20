@@ -145,9 +145,9 @@
                                                         <label>Department</label>
                                                         <select name="dept" <?php if($this->session->userdata('user_type')=='EMPLOYEE'){ ?>  <?php } ?> class="form-control custom-select">
                                                             <option value="<?php echo $basic->id; ?>"><?php echo $basic->dep_name; ?></option>
-                                            <?Php foreach($depvalue as $value): ?>
-                                             <option value="<?php echo $value->id ?>"><?php echo $value->dep_name ?></option>
-                                            <?php endforeach; ?>
+                                                            <?Php foreach($depvalue as $value): ?>
+                                                            <option value="<?php echo $value->id ?>"><?php echo $value->dep_name ?></option>
+                                                            <?php endforeach; ?>
                                                         </select>
                                                     </div>
                                                     <?php } ?>
@@ -156,9 +156,9 @@
                                                         <label>Designation </label>
                                                         <select name="deg" <?php if($this->session->userdata('user_type')=='EMPLOYEE'){ ?>  <?php } ?> class="form-control custom-select">
                                                             <option value="<?php echo $basic->id; ?>"><?php echo $basic->des_name; ?></option>
-                                            <?Php foreach($degvalue as $value): ?>
-                                            <option value="<?php echo $value->id ?>"><?php echo $value->des_name ?></option>
-                                            <?php endforeach; ?>
+                                                            <?Php foreach($degvalue as $value): ?>
+                                                            <option value="<?php echo $value->id ?>"><?php echo $value->des_name ?></option>
+                                                            <?php endforeach; ?>
                                                         </select>
                                                     </div>
                                                     <?php } ?>
@@ -175,11 +175,11 @@
                                                         <input type="email" id="example-email2" name="email" class="form-control" <?php if($this->session->userdata('user_type')=='EMPLOYEE'){ ?>  <?php } ?> value="<?php echo $basic->em_email; ?>" placeholder="email@mail.com" minlength="7" required> 
                                                     </div>
                                                     <div class="form-group col-md-12 m-t-10">
-                                   <?php if(!empty($basic->em_image)){ ?>
-                                    <img src="<?php echo base_url(); ?>assets/images/users/<?php echo $basic->em_image; ?>" class="img-circle" width="150" />
-                                    <?php } else { ?>
-                                    <img src="<?php echo base_url(); ?>assets/images/users/user.png" class="img-circle" width="150" alt="<?php echo $basic->first_name ?>" title="<?php echo $basic->first_name ?>"/>                                   
-                                    <?php } ?>
+                                                    <?php if(!empty($basic->em_image)){ ?>
+                                                    <img src="<?php echo base_url(); ?>assets/images/users/<?php echo $basic->em_image; ?>" class="img-circle" width="150" />
+                                                    <?php } else { ?>
+                                                    <img src="<?php echo base_url(); ?>assets/images/users/user.png" class="img-circle" width="150" alt="<?php echo $basic->first_name ?>" title="<?php echo $basic->first_name ?>"/>                                   
+                                                    <?php } ?>
                                                         <label>Image </label>
                                                         <input type="file" <?php if($this->session->userdata('user_type')=='EMPLOYEE'){ ?>  <?php } ?> name="image_url" class="form-control" value=""> 
                                                     </div>
@@ -256,50 +256,50 @@
                                 </div>
                                 <div class="tab-pane" id="education" role="tabpanel">
                                     <div class="card">
-                <div class="card-body">
-                    <div class="table-responsive ">
-                        <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <th>ID </th>
-                                    <th>Certificate name</th>
-                                    <th>Institute </th>
-                                    <th>Result </th>
-                                    <th>year</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>ID </th>
-                                    <th>Certificate name</th>
-                                    <th>Institute </th>
-                                    <th>Result </th>
-                                    <th>year</th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                               <?php foreach($education as $value): ?>
-                                <tr>
-                                    <td><?php echo $value->id ?></td>
-                                    <td><?php echo $value->edu_type ?></td>
-                                    <td><?php echo $value->institute ?></td>
-                                    <td><?php echo $value->result ?></td>
-                                    <td><?php echo $value->year ?></td>
-                                   <?php if($this->session->userdata('user_type')=='EMPLOYEE'){ ?>
-                                                    <?php } else { ?>
-                                    <td class="jsgrid-align-center ">
-                                        <a href="#" title="Edit" class="btn btn-sm btn-info waves-effect waves-light education" data-id="<?php echo $value->id ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                        <a onclick="confirm('Are you sure want to delet this Value?')" href="#" title="Delete" class="btn btn-sm btn-info waves-effect waves-light edudelet"  data-id="<?php echo $value->id ?>"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                    <?php } ?>
-                                </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>                                    
+                                        <div class="card-body">
+                                            <div class="table-responsive ">
+                                                <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID </th>
+                                                            <th>Certificate name</th>
+                                                            <th>Institute </th>
+                                                            <th>Result </th>
+                                                            <th>year</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th>ID </th>
+                                                            <th>Certificate name</th>
+                                                            <th>Institute </th>
+                                                            <th>Result </th>
+                                                            <th>year</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </tfoot>
+                                                    <tbody>
+                                                    <?php foreach($education as $value): ?>
+                                                        <tr>
+                                                            <td><?php echo $value->id ?></td>
+                                                            <td><?php echo $value->edu_type ?></td>
+                                                            <td><?php echo $value->institute ?></td>
+                                                            <td><?php echo $value->result ?></td>
+                                                            <td><?php echo $value->year ?></td>
+                                                        <?php if($this->session->userdata('user_type')=='EMPLOYEE'){ ?>
+                                                                            <?php } else { ?>
+                                                            <td class="jsgrid-align-center ">
+                                                                <a href="#" title="Edit" class="btn btn-sm btn-info waves-effect waves-light education" data-id="<?php echo $value->id ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                                                <a onclick="confirm('Are you sure want to delet this Value?')" href="#" title="Delete" class="btn btn-sm btn-info waves-effect waves-light edudelet"  data-id="<?php echo $value->id ?>"><i class="fa fa-trash-o"></i></a>
+                                                            </td>
+                                                            <?php } ?>
+                                                        </tr>
+                                                        <?php endforeach; ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>                                    
                                     </div>
                                     <div class="card">
                                       
@@ -335,47 +335,47 @@
                                 </div>
                                 <div class="tab-pane" id="experience" role="tabpanel">
                                     <div class="card">
-                <div class="card-body">
-                    <div class="table-responsive ">
-                        <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <th>ID </th>
-                                    <th>Company name</th>
-                                    <th>Position </th>
-                                    <th>Work Duration </th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>ID </th>
-                                    <th>Company name</th>
-                                    <th>Position </th>
-                                    <th>Work Duration </th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                               <?php foreach($experience as $value): ?>
-                                <tr>
-                                    <td><?php echo $value->id ?></td>
-                                    <td><?php echo $value->exp_company ?></td>
-                                    <td><?php echo $value->exp_com_position ?></td>
-                                    <td><?php echo $value->exp_workduration ?></td>
-                                    <td class="jsgrid-align-center ">
-                                       <?php if($this->session->userdata('user_type')=='EMPLOYEE'){ ?>
-                                       <?php } else { ?>
-                                        <a href="#" title="Edit" class="btn btn-sm btn-info waves-effect waves-light experience" data-id="<?php echo $value->id ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                        <a onclick="confirm('Are you sure want to delet this Value?')" href="#" title="Delete" class="btn btn-sm btn-info waves-effect waves-light deletexp" data-id="<?php echo $value->id ?>"><i class="fa fa-trash-o"></i></a>
-                                        <?php } ?>
-                                    </td>
-                                </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>                                     
+                                        <div class="card-body">
+                                            <div class="table-responsive ">
+                                                <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID </th>
+                                                            <th>Company name</th>
+                                                            <th>Position </th>
+                                                            <th>Work Duration </th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th>ID </th>
+                                                            <th>Company name</th>
+                                                            <th>Position </th>
+                                                            <th>Work Duration </th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </tfoot>
+                                                    <tbody>
+                                                    <?php foreach($experience as $value): ?>
+                                                        <tr>
+                                                            <td><?php echo $value->id ?></td>
+                                                            <td><?php echo $value->exp_company ?></td>
+                                                            <td><?php echo $value->exp_com_position ?></td>
+                                                            <td><?php echo $value->exp_workduration ?></td>
+                                                            <td class="jsgrid-align-center ">
+                                                            <?php if($this->session->userdata('user_type')=='EMPLOYEE'){ ?>
+                                                            <?php } else { ?>
+                                                                <a href="#" title="Edit" class="btn btn-sm btn-info waves-effect waves-light experience" data-id="<?php echo $value->id ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                                                <a onclick="confirm('Are you sure want to delet this Value?')" href="#" title="Delete" class="btn btn-sm btn-info waves-effect waves-light deletexp" data-id="<?php echo $value->id ?>"><i class="fa fa-trash-o"></i></a>
+                                                                <?php } ?>
+                                                            </td>
+                                                        </tr>
+                                                        <?php endforeach; ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>                                     
                                         <div class="card-body">
                                             <form class="row" action="Add_Experience" method="post" enctype="multipart/form-data">
                                                     <div class="form-group col-md-6 m-t-5">

@@ -8,19 +8,17 @@
                <div class="ft-footer-widget ul-li-block headline pera-content">
                   <div class="logo-widget">
                      <div class="site-logo">
-                        <!-- <h3 class="widget-title">IGCPL Logo</h3> -->
                         <a href="#"><img src="assets/img/logo/logo_new.png" alt="" class="header_logo"></a>
                      </div>
-                     <p><!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do ut labore et dolore magna aliqua. --></p>
-                     <!-- <div class="ft-btn">
-                        <a class="d-flex justify-content-center align-items-center" href="#">Get In Touch</a> 
-                        
-                        </div> -->
                      <div class="footer_social_icon">
-                        <a href="https://www.facebook.com/profile.php?id=100084913943938" class="text-white px-2"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#!" class="text-white px-2"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.linkedin.com/in/indigem-channel-partners-82a92824a" class="text-white px-2"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#!" class="text-white px-2"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100084913943938" class="px-2">
+                           <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="" class="px-2"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/indigem-channel-partners-82a92824a" class="px-2">
+                           <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="" class="px-2"><i class="fab fa-instagram"></i></a>
                      </div>
                   </div>
                </div>
@@ -59,11 +57,11 @@
                   <div class="menu-widget">
                      <h3 class="widget-title">Contact Us </h3>
                      <ul>
-                        <li class="text-white"><i class="fa fa-location-arrow" aria-hidden="true"></i>  305-306,3rd Floor, Tower A, Spacedge, Sector 46, Sohna Road Gurgaon, Haryana, India, 122018</li>
-                        <li class="text-white"><a href="mailto:indigeminfo@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i>  indigeminfo@gmail.com</a></li>
-                        <li class="text-white"><a href="mailto:contact@indigemcp.com"><i class="fa fa-envelope" aria-hidden="true"></i>  contact@indigemcp.com</a></li>
-                        <li class="text-white"><i class="fa fa-phone" aria-hidden="true"></i><a href="https://api.whatsapp.com/send?phone=+918780982388">  +91 8780982388</a> 
-                        <li class="text-white"><i class="fa fa-phone" aria-hidden="true"></i><a href="https://api.whatsapp.com/send?phone=+918555022837"> +91 6265891349</a></li>
+                        <li><i class="fa fa-location-arrow" aria-hidden="true"></i>  305-306,3rd Floor, Tower A, Spacedge, Sector 46, Sohna Road Gurgaon, Haryana, India, 122018</li>
+                        <li><a href="mailto:indigeminfo@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i>  indigeminfo@gmail.com</a></li>
+                        <li><a href="mailto:contact@indigemcp.com"><i class="fa fa-envelope" aria-hidden="true"></i>  contact@indigemcp.com</a></li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i><a href="https://api.whatsapp.com/send?phone=+918780982388">  +91 8780982388</a> 
+                        <li><i class="fa fa-phone" aria-hidden="true"></i><a href="https://api.whatsapp.com/send?phone=+918555022837"> +91 6265891349</a></li>
                      </ul>
                   </div>
                </div>

@@ -260,6 +260,9 @@
          }
 
          }
+         .rs-layer .rev-btn{
+            color:#1746A2 ;
+         }
       </style>
    </head>
    <body>
@@ -267,7 +270,7 @@
       <div class="up">
          <a href="#" class="scrollup text-center"><i class="fas fa-chevron-up mt-3"></i></a>
       </div>
-     <rs-module-wrap id="rev_slider_27_1_wrapper" data-alias="slider-7" data-source="gallery" style="visibility:hidden;background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
+      <rs-module-wrap id="rev_slider_27_1_wrapper" data-alias="slider-7" data-source="gallery" style="visibility:hidden;background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
          <rs-module id="rev_slider_27_1" style="" data-version="6.5.8">
             <rs-slides>
                <rs-slide style="position: absolute; opacity: 0.3;" data-key="rs-70" data-title="Slide" data-thumb="assets/slider-1.jpg" data-in="o:0;" data-out="a:false;">
@@ -281,7 +284,7 @@
                      data-basealign="slide"
                      data-frame_999="o:0;st:w;"
                      style="z-index:8;background-color: rgb(0 0 0 / 70%);"
-                     ><<!-- img src="assets/slider-shape1.png" alt="" class="tp-rs-img" width="1903" height="901" data-c="cover-proportional" data-no-retina>  -->
+                     >
                   </rs-layer>
                   <rs-layer
                      id="slider-27-slide-70-layer-1" 
@@ -322,14 +325,14 @@
                      data-text="w:normal;s:18,14,10,14;l:52,42,31,40;fw:500;a:center;"
                      data-dim="w:200px,165px,125px,120px;h:55px,45px,34px,45px;minh:0px,none,none,none;"
                      data-padding="r:40,33,25,15;l:40,33,25,15;"
-                     data-border="bos:solid;boc:#ffffff;bow:2px,2px,2px,2px;bor:3px,3px,3px,3px;"
+                     data-border="bos:solid;boc:#f5f5f5;bow:2px,2px,2px,2px;bor:3px,3px,3px,3px;"
                      data-frame_0="x:175%;o:1;"
                      data-frame_0_mask="u:t;x:-100%;"
                      data-frame_1="e:power3.out;st:1500;sp:1000;"
                      data-frame_1_mask="u:t;"
                      data-frame_999="o:0;st:w;"
-                     data-frame_hover="bgc:#ea1e00;boc:#ea1e00;bor:3px,3px,3px,3px;bos:solid;bow:2px,2px,2px,2px;sp:100;e:power1.inOut;bri:120%;"
-                     style="z-index:12;background-color:#00044b;font-family:'Poppins'; margin-top: 30px;"
+                     data-frame_hover="bgc:#f99417;boc:#f5f5f5;bor:3px,3px,3px,3px;bos:solid;bow:2px,2px,2px,2px;sp:100;e:power1.inOut;bri:120%;"
+                     style="z-index:12;background-color:#1746A2;font-family:'Poppins'; margin-top: 30px;"
                      >About Us 
                   </a>
                   <a
@@ -339,17 +342,17 @@
                      data-type="button"
                      data-rsp_ch="on"
                      data-xy="xo:15px,10px,9px,5px;yo:620px,512px,389px,274px;"
-                     data-text="w:normal;s:18,14,10,12;l:52,42,31,40;fw:500;a:center;"
+                     data-text="w:normal;s:18,14,10,12;l:52,42,31,40;fw:500;c:#000; a:center;"
                      data-dim="w:200px,165px,125px,120px;h:55px,45px,34px,45px;minh:0px,none,none,none;"
                      data-padding="r:40,33,25,15;l:40,33,25,15;"
-                     data-border="bos:solid;boc:#ffffff;bow:2px,2px,2px,2px;bor:3px,3px,3px,3px;"
+                     data-border="bos:solid;boc:#f5f5f5;bow:2px,2px,2px,2px;bor:3px,3px,3px,3px;"
                      data-frame_0="x:-175%;o:1;"
                      data-frame_0_mask="u:t;x:100%;"
                      data-frame_1="e:power3.out;st:1200;sp:1000;"
                      data-frame_1_mask="u:t;"
                      data-frame_999="o:0;st:w;"
-                     data-frame_hover="bgc:#ea1e00;boc:#ea1e00;bor:3px,3px,3px,3px;bos:solid;bow:2px,2px,2px,2px;sp:100;e:power1.inOut;bri:120%;"
-                     style="z-index:11;background-color:#00044b;font-family:'Poppins'; margin-top: 30px; width: 105px !important;"
+                     data-frame_hover="bgc:#f99417;boc:#f99417;bor:3px,3px,3px,3px;bos:solid;bow:2px,2px,2px,2px;sp:100;e:power1.inOut;bri:120%;"
+                     style="z-index:11;background-color:#1746A2; font-family:'Poppins'; color:#000; margin-top: 30px; width: 105px !important;"
                      >Our Services 
                   </a>
                </rs-slide>
@@ -364,7 +367,9 @@
                      data-basealign="slide"
                      data-frame_999="o:0;st:w;"
                      style="z-index:8;background-color: rgb(0 0 0 / 70%);"
-                     ><!-- <img src="assets/slider-shape1.png" alt="" class="tp-rs-img" width="1903" height="901" data-c="cover-proportional" data-no-retina>  --></rs-layer>
+                     >
+                        
+                     </rs-layer>
                   <rs-layer
                      id="slider-27-slide-72-layer-1" 
                      data-type="text"
@@ -378,8 +383,7 @@
                      data-frame_999="o:0;st:w;"
                      style="z-index:9;font-family:'Poppins';"
                      >
-                     <!-- We Are Global<br />
-                        Logistic Provider  -->
+                     
                      Opportunity for vendors <br>selling on GeM<!-- <br> Government-e-Marketplace -->
                   </rs-layer>
                   <rs-layer
@@ -394,7 +398,7 @@
                      data-frame_1_mask="u:t;"
                      data-frame_999="o:0;st:w;"
                      style="z-index:10;font-family:'Roboto';">
-                     Coordination at Buyerâ€™s doorstep</rs-layer>
+                     Coordination at Buyer’s doorstep</rs-layer>
                   <a
                      id="slider-27-slide-72-layer-5" 
                      class="rs-layer rev-btn"
@@ -405,14 +409,14 @@
                      data-text="w:normal;s:18,14,10,14;l:52,42,31,40;fw:500;a:center;"
                      data-dim="w:200px,165px,125px,120px;h:55px,45px,34px,45px;minh:0px,none,none,none;"
                      data-padding="r:40,33,25,15;l:40,33,25,15;"
-                     data-border="bos:solid;boc:#ffffff;bow:2px,2px,2px,2px;bor:3px,3px,3px,3px;"
+                     data-border="bos:solid;boc:#f5f5f5;bow:2px,2px,2px,2px;bor:3px,3px,3px,3px;"
                      data-frame_0="x:175%;o:1;"
                      data-frame_0_mask="u:t;x:-100%;"
                      data-frame_1="e:power3.out;st:1500;sp:1000;"
                      data-frame_1_mask="u:t;"
                      data-frame_999="o:0;st:w;"
-                     data-frame_hover="bgc:#ea1e00;boc:#ea1e00;bor:3px,3px,3px,3px;bos:solid;bow:2px,2px,2px,2px;sp:100;e:power1.inOut;bri:120%;"
-                     style="z-index:12;background-color:#00044b;font-family:'Poppins';"
+                     data-frame_hover="bgc:#f99417;boc:#f99417;bor:3px,3px,3px,3px;bos:solid;bow:2px,2px,2px,2px;sp:100;e:power1.inOut;bri:120%;"
+                     style="z-index:12;background-color:#1746A2; color:#F0EEED; font-family:'Poppins';"
                      >About Us 
                   </a>
                   <a
@@ -425,14 +429,14 @@
                      data-text="w:normal;s:18,14,10,12;l:52,42,31,40;fw:500;a:center;"
                      data-dim="w:200px,165px,125px,120px;h:55px,45px,34px,45px;minh:0px,none,none,none;"
                      data-padding="r:40,33,25,15;l:40,33,25,15;"
-                     data-border="bos:solid;boc:#ffffff;bow:2px,2px,2px,2px;bor:3px,3px,3px,3px;"
+                     data-border="bos:solid;boc:#f5f5f5;bow:2px,2px,2px,2px;bor:3px,3px,3px,3px;"
                      data-frame_0="x:-175%;o:1;"
                      data-frame_0_mask="u:t;x:100%;"
                      data-frame_1="e:power3.out;st:1200;sp:1000;"
                      data-frame_1_mask="u:t;"
                      data-frame_999="o:0;st:w;"
-                     data-frame_hover="bgc:#ea1e00;boc:#ea1e00;bor:3px,3px,3px,3px;bos:solid;bow:2px,2px,2px,2px;sp:100;e:power1.inOut;bri:120%;"
-                     style="z-index:11;background-color:#00044b;font-family:'Poppins'; width: 105px!important;"
+                     data-frame_hover="bgc:#f99417;boc:#f99417;bor:3px,3px,3px,3px;bos:solid;bow:2px,2px,2px,2px;sp:100;e:power1.inOut;bri:120%;"
+                     style="z-index:11;background-color:#1746A2;font-family:'Poppins'; width: 105px!important;"
                      >Our Services 
                   </a>
                </rs-slide>
@@ -447,7 +451,9 @@
                      data-basealign="slide"
                      data-frame_999="o:0;st:w;"
                      style="z-index:8;background-color: rgb(0 0 0 / 70%);"
-                     ><!-- <img src="assets/slider-shape1.png" alt="" class="tp-rs-img" width="1903" height="901" data-c="cover-proportional" data-no-retina> --> </rs-layer>
+                     >
+                        
+                     </rs-layer>
                   <rs-layer
                      id="slider-27-slide-73-layer-1" 
                      data-type="text"
@@ -461,8 +467,7 @@
                      data-frame_999="o:0;st:w;"
                      style="z-index:9;font-family:'Poppins';"
                      >
-                     <!-- We Are Global<br />
-                        Logistic Provider  -->
+                    
                      GeM , CRAC, Sample <br> Clause, delivery <br> and Bill processing
                   </rs-layer>
                   <rs-layer
@@ -488,14 +493,14 @@
                      data-text="w:normal;s:18,14,10,14;l:52,42,31,40;fw:500;a:center;"
                      data-dim="w:200px,165px,125px,120px;h:55px,45px,34px,45px;minh:0px,none,none,none;"
                      data-padding="r:40,33,25,15;l:40,33,25,15;"
-                     data-border="bos:solid;boc:#ffffff;bow:2px,2px,2px,2px;bor:3px,3px,3px,3px;"
+                     data-border="bos:solid;boc:#f5f5f5;bow:2px,2px,2px,2px;bor:3px,3px,3px,3px;"
                      data-frame_0="x:175%;o:1;"
                      data-frame_0_mask="u:t;x:-100%;"
                      data-frame_1="e:power3.out;st:1500;sp:1000;"
                      data-frame_1_mask="u:t;"
                      data-frame_999="o:0;st:w;"
-                     data-frame_hover="bgc:#ea1e00;boc:#ea1e00;bor:3px,3px,3px,3px;bos:solid;bow:2px,2px,2px,2px;sp:100;e:power1.inOut;bri:120%;"
-                     style="z-index:12;background-color:#00044b;font-family:'Poppins'; margin-top: 25px;"
+                     data-frame_hover="bgc:#f99417;boc:#f99417;bor:3px,3px,3px,3px;bos:solid;bow:2px,2px,2px,2px;sp:100;e:power1.inOut;bri:120%;"
+                     style="z-index:12;background-color:#1746A2; color:#F0EEED; font-family:'Poppins'; margin-top: 25px;"
                      >About Us 
                   </a>
                   <a
@@ -508,14 +513,14 @@
                      data-text="w:normal;s:18,14,10,12;l:52,42,31,40;fw:500;a:center;"
                      data-dim="w:200px,165px,125px,120px;h:55px,45px,34px,45px;minh:0px,none,none,none;"
                      data-padding="r:40,33,25,15;l:40,33,25,15;"
-                     data-border="bos:solid;boc:#ffffff;bow:2px,2px,2px,2px;bor:3px,3px,3px,3px;"
+                     data-border="bos:solid;boc:#f5f5f5;bow:2px,2px,2px,2px;bor:3px,3px,3px,3px;"
                      data-frame_0="x:-175%;o:1;"
                      data-frame_0_mask="u:t;x:100%;"
                      data-frame_1="e:power3.out;st:1200;sp:1000;"
                      data-frame_1_mask="u:t;"
                      data-frame_999="o:0;st:w;"
-                     data-frame_hover="bgc:#ea1e00;boc:#ea1e00;bor:3px,3px,3px,3px;bos:solid;bow:2px,2px,2px,2px;sp:100;e:power1.inOut;bri:120%;"
-                     style="z-index:11;background-color:#00044b;font-family:'Poppins'; margin-top: 25px; width: 105px!important;"
+                     data-frame_hover="bgc:#f99417;boc:#f99417;bor:3px,3px,3px,3px;bos:solid;bow:2px,2px,2px,2px;sp:100;e:power1.inOut;bri:120%;"
+                     style="z-index:11;background-color:#1746A2;font-family:'Poppins'; margin-top: 25px; width: 105px!important;"
                      >Our Services 
                   </a>
                </rs-slide>
@@ -523,24 +528,7 @@
          </rs-module>
       </rs-module-wrap>
 
-   <!-- End of Booking form section
-         ============================================= -->
-
-
-   <!--
-      <section class="sc scrolltexthide" style="color:#00044b;">
-         <div style="background: #f8f8f8;padding: 8px;">
-            <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
-               <h4>Seller's Registration with India Post is affected due to a technical issue in India Post, Please try again after some time, Inconvenience is highly regretted || Due to the ongoing Issue at MCA CIN, the problem may be faced during the CIN validation process. Please try again after some time. Inconvenience caused is regretted, || Minimum Service Charges for all commission based Manpower Outsourcing services have been revised to 3.85% basis approval from DoE OM No.F.6/1/2023-PPD dated 06.01.2023|| Beware of fraudulent calls asking for money for closure of incidents. Action on incidents are taken solely based on merits as per IM policy and GeM does not charge anything for closure of incident.  GEM assumes no responsibility for any funds transfers or cash deposits or any financial loss on this account. || Transaction charges will be applicable on Forward Auctions published on or after 27.05.2022 as per the <a href="https://assets-bg.gem.gov.in/resources/upload/shared_doc/revenue-policy-v1_1660736081.pdf" style="color:#F5821F;">Revenue policy of GeM.</a> || Beware of fraudulent entities &amp; websites impersonating GeM. GeM does not charge any fee for registration, bidding and product approvals. || <span style="color:purple">GeM is conducting regular online training sessions for Buyers and Sellers (https://gem.gov.in/training). These trainings are free of cost and open for all.</span></h4>
-            </marquee>
-         </div>
-      </section>
-   -->
-      
-      
-   <!-- Start of About section
-         ============================================= -->
-      <section id="ft-about" class="ft-about-section">
+  <section id="ft-about" class="ft-about-section">
          <div class="container">
             <div class="ft-about-content">
                <div class="row" >
@@ -558,7 +546,7 @@
                            </div>
                            <div class="col-md-6 col-sm-6">
                               <div class="multifaceted">
-                                 <img src="<?php echo base_url(); ?>assets/img/about/exp-sh2.png" alt="" class="partner-img-card">
+                                 <img src="<?php echo base_url(); ?>assets/img/about/exp-sh.png" alt="" class="partner-img-card">
                               
                               </div>
                            </div>
@@ -626,7 +614,7 @@
                      <div class="ft-service-text-area">
                         <div class="ft-section-title headline pera-content">
                            <span class="sub-title">What We  Do</span>
-                           <h5 class="mt-2" style="color: #00044b;line-height: 30px;font-size: 18px; font-weight: 600;">We work as your Channel Partner across India to co-ordinate your business concerns and maintain your cash-flow </h5>
+                           <h5 class="mt-2" style="color: #1746A2;line-height: 30px;font-size: 18px; font-weight: 600;">We work as your Channel Partner across India to co-ordinate your business concerns and maintain your cash-flow </h5>
                         </div>
                         <div class="ft-btn">
                            <a class="d-flex justify-content-center align-items-center" href="<?php echo base_url(); ?>Home">
@@ -736,10 +724,7 @@
                                  <i class="flaticon-logistics"></i>
                               </div>
                               <div class="ft-why-choose-feature-text headline pera-content">
-                                 <h3>
-                                    <!-- Fast Transportion Service -->
-                                 </h3>
-                                 <p class="text-dark">We will coordinate with the GeM Buyer organizations on your behalf for CRAC, Sample Clause, Delivery, Staggered Delivery, Bill co-ordination amongst others</p>
+                                                                  <p class="text-dark">We will coordinate with the GeM Buyer organizations on your behalf for CRAC, Sample Clause, Delivery, Staggered Delivery, Bill co-ordination amongst others</p>
                               </div>
                            </div>
                            <div class="ft-why-choose-feature-item d-flex align-items-center wow fadeInUp" data-wow-delay="400ms" data-wow-duration="1500ms">
@@ -747,10 +732,7 @@
                                  <i class="flaticon-shield-1"></i>
                               </div>
                               <div class="ft-why-choose-feature-text headline pera-content">
-                                 <h3>
-                                    <!-- Safety and Reliability -->
-                                 </h3>
-                                 <p class="text-dark">We are the pioneers and aim to establish 50 offices/ Stores across India in the next two years</p>
+                                                                  <p class="text-dark">We are the pioneers and aim to establish 50 offices/ Stores across India in the next two years</p>
                               </div>
                            </div>
                            <div class="ft-why-choose-feature-item d-flex align-items-center wow fadeInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
@@ -758,9 +740,7 @@
                                  <i class="flaticon-global-shipping"></i>
                               </div>
                               <div class="ft-why-choose-feature-text headline pera-content">
-                                 <h3>
-                                    <!-- Shipping Worldwide -->
-                                 </h3>
+                                 
                                  <p class="text-dark">We provide end-to-end solution from pick, pack, delivery to Buyer and cashflow management of Seller</p>
                               </div>
                            </div>
@@ -782,7 +762,7 @@
                <div class="row">
                   
                   <div class="col-md-12 col-sm-12 director_info">
-                     <div class="card text-dark my-2" style="box-shadow: 2px 2px 2px 2px #01054c!important; border-radius: 20px!important;">
+                     <div class="card text-dark my-2" style="box-shadow: 2px 2px 2px 2px #ff8e00!important; border-radius: 20px!important;">
                         <div class="card-body mx-2">
                            <h4 class="card-title mb-2">Smt. Devika Sinha</h4>
                            <h6 class="card-title my-2"><b>MD & CEO</b></h6>

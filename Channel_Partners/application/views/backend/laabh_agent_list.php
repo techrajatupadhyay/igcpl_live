@@ -24,7 +24,7 @@
 ?>
 
 <style>
-   <!--@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');-->
+   /*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');*/
    h1,h2,h3,h4,h5,h6,p,li,a tr th td span{
    font-family: 'Poppins', sans-serif;
    color:#67757c;
@@ -124,13 +124,13 @@
                               <thead>
                                  <tr>
                                     <th>Sr.</th>
-									<th>Image</th>
+									         <th>Image</th>
                                     <th>Agent ID</th>
                                     <th>Agent Name</th>
-									<th>Region</th>
-									<th>Region State </th>									
-					                <th>State Branch </th>
-									<th>Division </th>
+                                    <th>Region</th>
+                                    <th>Region State </th>									
+                                    <th>State Branch </th>
+                                    <th>Division </th>
                                     <th>Laabh Executive Id</th>
                                     <th>Contact</th>
                                     <th>Email</th>
