@@ -21,21 +21,184 @@ class Dashboard extends CI_Controller
 	
 	public function index()
 	{
+		if($this->session->userdata('user_login_access') != False)
+		{		
+			if($this->session->userdata('user_type')==1)
+			{	
 		
-        if ($this->session->userdata('user_login_access') == 1)
-		{	
-	
-            redirect('dashboard/Dashboard');
-            $data=array();
-            
-		}
+                $this->load->view('backend/new_header');         
+				$this->load->view('backend/new_sidebar');
+                $this->load->view('backend/ho_dashboard'); 				
+				$this->load->view('backend/new_footer');
+				
+			}
+			else if($this->session->userdata('user_type')==2)
+			{
+								
+				$this->load->view('backend/new_header');         
+				$this->load->view('backend/new_sidebar');
+                $this->load->view('backend/labh_exec_dashboard'); 				
+				$this->load->view('backend/new_footer');
+				
+			}
+			else if($this->session->userdata('user_type')==3)
+			{
+				
+				$data['title'] = 'Register - Tech Arise';
+				$data['metaDescription'] = 'Register';
+				$data['metaKeywords'] = 'Register';
+				$data['state_list'] = @$this->db->get('state_master')->result();
+				$data['district_list'] = @$this->db->get('district_master')->result();
+				$this->load->view('backend/new_header');
+				$this->load->view('backend/new_sidebar'); 
+				$this->load->view('backend/seller_module_dashboard',$data);
+				$this->load->view('backend/new_footer');
+				
+			}
+			else if($this->session->userdata('user_type')==4)
+			{
+				
+				$data['title'] = 'Register - Tech Arise';
+				$data['metaDescription'] = 'Register';
+				$data['metaKeywords'] = 'Register';
+				$data['state_list'] = @$this->db->get('state_master')->result();
+				$data['district_list'] = @$this->db->get('district_master')->result();
+				$this->load->view('backend/new_header');
+				$this->load->view('backend/new_sidebar'); 
+				$this->load->view('backend/fulfilment_dashboard',$data);
+				$this->load->view('backend/new_footer');
+				
+			}
+
+			else if($this->session->userdata('user_type')==5)
+			{
+				
+				$data['title'] = 'Register - Tech Arise';
+				$data['metaDescription'] = 'Register';
+				$data['metaKeywords'] = 'Register';
+				$data['state_list'] = @$this->db->get('state_master')->result();
+				$data['district_list'] = @$this->db->get('district_master')->result();
+				$this->load->view('backend/new_header');
+				$this->load->view('backend/new_sidebar'); 
+				$this->load->view('backend/agent_dashboard',$data);
+				$this->load->view('backend/new_footer');
+				
+			}
+			else if($this->session->userdata('user_type')==6)
+			{				
+				$data['title'] = 'Register - Tech Arise';
+				$data['metaDescription'] = 'Register';
+				$data['metaKeywords'] = 'Register';
+				$data['state_list'] = @$this->db->get('state_master')->result();
+				$data['district_list'] = @$this->db->get('district_master')->result();
+				$this->load->view('backend/new_header');
+				$this->load->view('backend/new_sidebar'); 
+				$this->load->view('backend/manager_dashboard',$data);
+				$this->load->view('backend/new_footer');				
+			}
+			else if($this->session->userdata('user_type')==7)
+			{				
+				$data['title'] = 'Register - Tech Arise';
+				$data['metaDescription'] = 'Register';
+				$data['metaKeywords'] = 'Register';
+				$data['state_list'] = @$this->db->get('state_master')->result();
+				$data['district_list'] = @$this->db->get('district_master')->result();
+				$this->load->view('backend/new_header');
+				$this->load->view('backend/new_sidebar'); 
+				$this->load->view('backend/manager_dashboard',$data);
+				$this->load->view('backend/new_footer');				
+			}
+			else if($this->session->userdata('user_type')==8)
+			{				
+				$data['title'] = 'Register - Tech Arise';
+				$data['metaDescription'] = 'Register';
+				$data['metaKeywords'] = 'Register';
+				$data['state_list'] = @$this->db->get('state_master')->result();
+				$data['district_list'] = @$this->db->get('district_master')->result();
+				$this->load->view('backend/new_header');
+				$this->load->view('backend/new_sidebar'); 
+				$this->load->view('backend/manager_dashboard',$data);
+				$this->load->view('backend/new_footer');				
+			}
+			else if($this->session->userdata('user_type')==9)
+			{				
+				$data['title'] = 'Register - Tech Arise';
+				$data['metaDescription'] = 'Register';
+				$data['metaKeywords'] = 'Register';
+				$data['state_list'] = @$this->db->get('state_master')->result();
+				$data['district_list'] = @$this->db->get('district_master')->result();
+				$this->load->view('backend/new_header');
+				$this->load->view('backend/new_sidebar'); 
+				$this->load->view('backend/manager_dashboard',$data);
+				$this->load->view('backend/new_footer');				
+			}
+			else if($this->session->userdata('user_type')==10)
+			{				
+				$data['title'] = 'Register - Tech Arise';
+				$data['metaDescription'] = 'Register';
+				$data['metaKeywords'] = 'Register';
+				$data['state_list'] = @$this->db->get('state_master')->result();
+				$data['district_list'] = @$this->db->get('district_master')->result();
+				$this->load->view('backend/new_header');
+				$this->load->view('backend/new_sidebar'); 
+				$this->load->view('backend/manager_dashboard',$data);
+				$this->load->view('backend/new_footer');				
+			}
+			else if($this->session->userdata('user_type')==11)
+			{				
+				$data['title'] = 'Register - Tech Arise';
+				$data['metaDescription'] = 'Register';
+				$data['metaKeywords'] = 'Register';
+				$data['state_list'] = @$this->db->get('state_master')->result();
+				$data['district_list'] = @$this->db->get('district_master')->result();
+				$this->load->view('backend/new_header');
+				$this->load->view('backend/new_sidebar'); 
+				$this->load->view('backend/agm_dashboard',$data);
+				$this->load->view('backend/new_footer');				
+			}
+			else if($this->session->userdata('user_type')==12)
+			{				
+				$data['title'] = 'Register - Tech Arise';
+				$data['metaDescription'] = 'Register';
+				$data['metaKeywords'] = 'Register';
+				$data['state_list'] = @$this->db->get('state_master')->result();
+				$data['district_list'] = @$this->db->get('district_master')->result();
+				$this->load->view('backend/new_header');
+				$this->load->view('backend/new_sidebar'); 
+				$this->load->view('backend/manager_dashboard',$data);
+				$this->load->view('backend/new_footer');				
+			}
+			else if($this->session->userdata('user_type')==13)
+			{				
+				$data['title'] = 'Register - Tech Arise';
+				$data['metaDescription'] = 'Register';
+				$data['metaKeywords'] = 'Register';
+				$data['state_list'] = @$this->db->get('state_master')->result();
+				$data['district_list'] = @$this->db->get('district_master')->result();
+				$this->load->view('backend/new_header');
+				$this->load->view('backend/new_sidebar'); 
+				$this->load->view('backend/manager_dashboard',$data);
+				$this->load->view('backend/new_footer');				
+			}
+			
+        }
 		else
 		{
 			
 			redirect('Login');
 			
+		} 
+		/*	
+        if ($this->session->userdata('user_login_access') == 1)
+		{		
+            redirect('Dashboard/Dashboard');
+            $data=array();           
 		}
-		
+		else
+		{		
+			redirect('Login');		
+		}
+		*/	
 	}
 	
 	

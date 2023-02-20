@@ -71,7 +71,7 @@ class Login extends CI_Controller
             $this->session->set_flashdata("status_icon", "success");
             $this->session->set_flashdata("login_status", "Login Succcessful"); 
           
-            redirect(base_url() . "dashboard");
+            redirect(base_url() . "Dashboard");
 
             /*
                 if ($remember) 
