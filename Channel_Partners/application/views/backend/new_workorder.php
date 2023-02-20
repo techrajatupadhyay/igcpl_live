@@ -657,7 +657,7 @@
                         </div>
                      </div>
                      
-                     <div class="row">-
+                     <div class="row">
                         <div class="col-sm-12">
                            <h4 class="sub-title" style="color:red;"><i class="fa fa-calculator" aria-hidden="true"></i>&nbsp; Estimate of Charges :</h4>
                            <div class="card-block inner-card-block">                              
