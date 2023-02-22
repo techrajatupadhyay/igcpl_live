@@ -735,7 +735,7 @@
                                                 <th>Discount (5%) :</th>
                                                 <td>45.00</td>
                                              </tr>
-                                          -->   
+                                          --->   
                                              <tr class="text-info">
                                                 <td>
                                                    <hr>
