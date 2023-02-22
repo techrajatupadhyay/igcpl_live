@@ -90,7 +90,7 @@ class Seller_module extends CI_Controller
 		echo $region_id = $this->input->post('region_id');
 		echo $region_state = $this->input->post('region_state');
         echo $district_branch = $this->input->post('district_branch');
-			
+		die();	
 		$labh_emp_id = $this->input->post('labh_emp_id');
 		$labh_agent_id = $this->input->post('labh_agent_id');
 		$gemNgem_workorder_id = $this->input->post('gemNgem_workorder_id');
@@ -936,11 +936,6 @@ class Seller_module extends CI_Controller
 		}	
 			
     }
-
-
-
-
-   
 
 
     public function Documents_workorder()

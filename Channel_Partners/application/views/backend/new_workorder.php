@@ -464,13 +464,13 @@
                                     <div class="form-radio">
                                        <div class="radio radiofill radio-primary radio-inline">
                                           <label>
-                                             <input type="radio" id="coordination" name="coordination" value="yes" checked data-bv-field="member" <?php echo $sample_clause == "yes" ? " checked" : "";?>>
+                                             <input type="radio" id="coordination" name="coordination" value="yes" disabled ="disabled" data-bv-field="member" <?php echo $sample_clause == "yes" ? " checked" : "";?>>
                                              <i class="helper"></i>Yes  
                                           </label>
                                        </div>
                                        <div class="radio radiofill radio-primary radio-inline">
                                           <label>
-                                             <input type="radio" id="coordination" name="coordination" value="no" data-bv-field="member" <?php echo $sample_clause == "no" ? " checked" : "";?> >
+                                             <input type="radio" id="coordination" name="coordination" value="no" disabled ="disabled" data-bv-field="member" <?php echo $sample_clause == "no" ? " checked" : "";?> >
                                              <i class="helper"></i>No
                                           </label>
                                        </div>
@@ -723,12 +723,12 @@
                                        <table class="table table-responsive invoice-table invoice-total">
                                           <tbody>
                                              <tr>
-                                                <th>Sub Total :</th>
-                                                <td>₹ 4725.00</td>
+                                                <th>&nbsp; Sub Total  ₹ : &nbsp;</th>
+                                                <td id="total_amount"> 00.00 </td>
                                              </tr>
                                              <tr>
-                                                <th>Taxes GST (18%) :</th>
-                                                <td>₹  57.00</td>
+                                                <th>&nbsp; Taxes GST (18%)  ₹  : &nbsp;</th>
+                                                <td id="total_gst"> 00.00 </td>
                                              </tr>
                                           <!--   
                                              <tr>
@@ -739,11 +739,11 @@
                                              <tr class="text-info">
                                                 <td>
                                                    <hr>
-                                                   <h5 class="text-primary">Total :</h5>
+                                                   <h5 class="text-primary">&nbsp; Payable Total ₹ : &nbsp;</h5>
                                                 </td>
                                                 <td>
                                                    <hr>
-                                                   <h5 class="text-primary">₹  4827.00</h5>
+                                                   <h5 class="text-primary" id="total_payable_amount"> 00.00 </h5>
                                                 </td>
                                              </tr>
                                           </tbody>
@@ -751,7 +751,7 @@
                                     </div>   
                                  </div>                                 
                                  <div class="col-sm-12">
-                                    <h6>Terms And Condition :</h6>
+                                    <h6><b> Note : </b></h6>
                                     <p>This is Preliminary Estimation. Discount is negotiable on case to case basis.Cash flow bill discounting charges of financer are not included in this estimate. </p>
                                  </div>
                               </div>
@@ -819,18 +819,16 @@
 <script type="text/javascript">
    function EnableDisableTextBox() 
    {       
-   var chkYes = $('#tac').is(':checked'); 
-   
-   if(chkYes == true)
-   {
-   $('#sub_btn').attr('disabled',false);
-   }
-   else
-   {
-   $('#sub_btn').attr('disabled',true);
-   }       
-   }
-   
+      var chkYes = $('#tac').is(':checked');    
+      if(chkYes == true)
+      {
+         $('#sub_btn').attr('disabled',false);
+      }
+      else
+      {
+         $('#sub_btn').attr('disabled',true);
+      }       
+   }   
 </script>
 
 <script type="text/javascript">
@@ -894,8 +892,44 @@
 
 <script>
 
-function calculateShipping()
-{
+   var Coordination_Charges=0;
+   var Logistics_Charges=0;
+   var Sample_Clause_Charges=0;
+   var Cash_flow_Charges=0;
+   var totalprice=0;
+   var gst_value=0;
+   var payable_amount=0;
+
+   function ShowHideDiv() 
+   {
+         var logistics_type = document.getElementById("logistics_type");
+         //alert(logistics_type);
+         if(logistics_type.value == "selfFulfillment")
+         {
+            $("#ready_date").hide();
+            $("#delivery_date").hide();
+            $("#eway_bil").hide();
+            $("#shipping_calculation").hide();
+
+            $('#logistics_amount').html("00.00");
+            $('#logistics_total').html("00.00");
+            $("#shipping_charges").val("00.00");
+            Logistics_Charges= '00.00';
+				addvalue();
+         }
+         else 
+         {
+            $("#ready_date").show();
+            $("#delivery_date").show();
+            $("#eway_bil").show(); 
+            $("#shipping_calculation").show();
+            
+            addvalue();
+         }           
+   }
+
+   function calculateShipping()
+   {
       //document.getElementById('shipping_price').disabled = true;	
 		var pickup_pincode = document.getElementById('pickup_pincode').value;
       var delivery_pincode = document.getElementById('delivery_pincode').value;
@@ -950,8 +984,7 @@ function calculateShipping()
 				   data:{pickup_pincode:pickup_pincode,delivery_pincode:delivery_pincode,travle_mode:travle_mode,declared_value:declared_value,noofpackages:noofpackages,actual_weight:actual_weight,charged_weight:charged_weight,cod_dod:cod_dod},
 				   datatype:'json',
                success: function(data) 
-				   { 
-                     
+				   {     
                      //alert(data);            
                      const obj = JSON.parse(data);
                      //alert(obj.status);
@@ -966,25 +999,24 @@ function calculateShipping()
                         {
                            var  shipping_charges = matches[0];
                         }
-                        const  shipping_charges_per = (10 / 100) * shipping_charges;
+                        const  shipping_charges_per = Number((10 / 100) * shipping_charges).toFixed(2);
                         const  total_shipping_charges =  +shipping_charges + +shipping_charges_per ;
-                        //alert(shipping_charges);
-                        //alert(shipping_charges_per);
-                        //alert(total_shipping_charges);
-                        $("#shipping_charges").val(total_shipping_charges);
+                                              
+                        $("#shipping_charges").val(Number(total_shipping_charges).toFixed(2));
                         $("#shipping_price").html('<i class="fa fa-calculator"></i> Calculate Shipping price');
                         document.getElementById('shipping_price').disabled = false;
 
                         /**** THIS IS FOR LOGISTICE ESTIMATES */
                         var logistics_charges = total_shipping_charges;
                         var logistics_discount = document.getElementById('logistics_discount').innerHTML;
-                        var logistics_discount_value = (logistics_discount / 100) * logistics_charges;
+                        var logistics_discount_value = Number((logistics_discount / 100) * logistics_charges).toFixed(2);
                         var logistics_total = logistics_charges - logistics_discount_value;
-                        //alert(coordination_charges);
-                        //alert(coordination_discount);
-                        $('#logistics_amount').html(logistics_charges);
-                        $('#logistics_total').html(logistics_total);
+                        
+                        $('#logistics_amount').html(Number(logistics_charges).toFixed(2));
+                        $('#logistics_total').html(Number(logistics_total).toFixed(2));
 
+                        Logistics_Charges=Number(logistics_total).toFixed(2);
+						      addvalue();
                      }
                      else
                      {
@@ -993,6 +1025,10 @@ function calculateShipping()
                         $("#shipping_charges").val("00.00");
                         $('#logistics_amount').html("00.00");
                         $('#logistics_total').html("00.00");
+
+                        Logistics_Charges= '00.00';
+				            addvalue();
+
                         alert(data);
                      }
      
@@ -1000,9 +1036,186 @@ function calculateShipping()
 
 				})
 		}
-}
+   }
 		
+
+   $(document).ready(function()
+   { 
+      $(document).on('change', '#coordination', function()
+      { 
+         var coordination= document.querySelector('input[name="coordination"]:checked').value;
+
+         if(coordination=="yes")
+         {
+            var value_gem_order = document.getElementById('value_gem_order').value;
+            
+            if(value_gem_order)
+            {
+               var coordination_discount = document.getElementById('coordination_discount').innerHTML;
+               var coordination_charges =  Number((10 / 100) * value_gem_order).toFixed(2);
+               var coordination_discount_value = Number((coordination_discount / 100) * coordination_charges).toFixed(2) ;
+               var coordination_total = coordination_charges - coordination_discount_value;
+               
+               $('#coordination_charges').html(Number(coordination_charges).toFixed(2));
+               $('#coordination_total').html(Number(coordination_total).toFixed(2));
+
+               Coordination_Charges=Number(coordination_total).toFixed(2);
+					addvalue();
+            }
+            else
+            {
+               alert("Please Enter GMV Value first !");
+            }
+         }
+         else if(coordination=="no")
+         {
+            $('#coordination_charges').html("00.00");
+            $('#coordination_total').html("00.00");
+
+            Coordination_Charges= '00.00';
+				addvalue();
+         }       
+      });
+     
+      $('#value_gem_order').on('change', function ()
+      { 
+         var value_gem_order = document.getElementById('value_gem_order').value;
+         if(value_gem_order)
+         {
+            document.getElementsByName("coordination").forEach((e) => {
+               e.disabled = false;
+            });        
+            /*   
+               var coordination_discount = document.getElementById('coordination_discount').innerHTML;
+               var coordination_charges = (10 / 100) * value_gem_order;
+               var coordination_discount_value = (coordination_discount / 100) * coordination_charges;
+               var coordination_total = coordination_charges - coordination_discount_value;
+               //alert(coordination_charges);
+               //alert(coordination_discount_value);
+               //alert(coordination_discount);
+               $('#coordination_charges').html(coordination_charges);
+               $('#coordination_total').html(coordination_total);
+            */
+            
+            var cashflow_discount = document.getElementById('cashflow_discount').innerHTML;
+            var cashflow_amount = "0.00";
+            
+            if(value_gem_order > 0 && value_gem_order <= 1000000)
+            {
+               var cashflow_amount = 249 ; 
+               var cashflow_discount_value = Number((cashflow_discount / 100) * cashflow_amount).toFixed(2);
+               var cashflow_total = cashflow_amount - cashflow_discount_value;               
+               
+               $('#cashflow_amount').html(Number(cashflow_amount).toFixed(2));
+               $('#cashflow_total').html(Number(cashflow_total).toFixed(2));
+
+               Cash_flow_Charges=Number(cashflow_total).toFixed(2);
+					addvalue();
+            }
+            else if(value_gem_order > 1000000 && value_gem_order <= 5000000)
+            {
+               var cashflow_amount = 599 ; 
+               var cashflow_discount_value =  Number((cashflow_discount / 100) * cashflow_amount).toFixed(2)
+               var cashflow_total = cashflow_amount - cashflow_discount_value; 
+               
+               $('#cashflow_amount').html(Number(cashflow_amount).toFixed(2));
+               $('#cashflow_total').html(Number(cashflow_total).toFixed(2));
+               
+               Cash_flow_Charges=Number(cashflow_total).toFixed(2);
+					addvalue();
+            }
+            else if(value_gem_order > 5000000 )
+            {
+               var cashflow_amount = 999 ; 
+               var cashflow_discount_value =  Number((cashflow_discount / 100) * cashflow_amount).toFixed(2);
+               var cashflow_total = cashflow_amount - cashflow_discount_value; 
+               
+               $('#cashflow_amount').html(Number(cashflow_amount).toFixed(2));
+               $('#cashflow_total').html(Number(cashflow_total).toFixed(2)); 
+               
+               Cash_flow_Charges=Number(cashflow_total).toFixed(2);
+					addvalue();
+            }
+         }
+         else
+         {            
+            document.getElementsByName("coordination").forEach((e) => {
+               e.disabled = true;
+            });
+
+            Cash_flow_Charges= '00.00';
+				addvalue();
+         }
+
+      });
+
+      $('#shipping_charges').on('change', function ()
+      { 
+         var logistics_charges = document.getElementById('shipping_charges').value;
+         var logistics_discount = document.getElementById('logistics_discount').innerHTML;
+      
+         var logistics_discount_value =  Number((logistics_discount / 100) * logistics_charges).toFixed(2)
+         var logistics_total = logistics_charges - logistics_discount_value;
+         
+         $('#logistics_amount').html(Number(logistics_charges).toFixed(2));
+         $('#logistics_total').html(Number(logistics_total).toFixed(2));
+      });
+
+      $(document).on('change', '#sample_clause', function()
+      { 
+         var sample_clause_amount = 249;
+         var sample_clause_discount = document.getElementById('sample_clause_discount').innerHTML;
+
+         var sample_clause_discount_value =  Number((sample_clause_discount / 100) * sample_clause_amount).toFixed(2);
+         var sample_clause_total = sample_clause_amount - sample_clause_discount_value;
+
+         var sample_clause= document.querySelector('input[name="sample_clause"]:checked').value;
+
+         if(sample_clause=="yes")
+         {
+
+            $('#sample_clause_amount').html(Number(sample_clause_amount).toFixed(2));
+            $('#sample_clause_total').html(Number(sample_clause_total).toFixed(2));
+
+            Sample_Clause_Charges=Number(sample_clause_total).toFixed(2);
+				addvalue();
+         }
+         else if(sample_clause=="no")
+         {
+            $('#sample_clause_amount').html("00.00");
+            $('#sample_clause_total').html("00.00");
+
+            Sample_Clause_Charges= '00.00';
+				addvalue();
+         }
+        
+      });
+
+   });
+
+  
+   function addvalue()
+	{
+		//var motorid = document.getElementById('motor').value;
+      console.log(Coordination_Charges);
+		console.log(Logistics_Charges);
+		console.log(Sample_Clause_Charges);	
+     	console.log(Cash_flow_Charges);	
+		totalprice = +Coordination_Charges +  +Logistics_Charges +  +Sample_Clause_Charges +  +Cash_flow_Charges ;
+      gst_value =  Number((18 / 100) * totalprice).toFixed(2);
+
+      payable_amount = +totalprice +  +gst_value;
+      $("#total_amount").html(Number(totalprice).toFixed(2));
+      $("#total_gst").html(Number(gst_value).toFixed(2));
+		$("#total_payable_amount").html(Number(payable_amount).toFixed(2));
+     
+      //alert(totalprice);
+      //alert(gst_value);
+      //alert(payable_amount);
+   }
+
 </script>
+
 	
 <script type="text/javascript">	
 	
@@ -1204,28 +1417,7 @@ function calculateShipping()
 </script>
 	
 <script type="text/javascript">
-   function ShowHideDiv() 
-   {
-         var logistics_type = document.getElementById("logistics_type");
-         //alert(logistics_type);
-         if(logistics_type.value == "selfFulfillment")
-         {
-            $("#ready_date").hide();
-            $("#delivery_date").hide();
-            $("#eway_bil").hide();
-            $("#shipping_calculation").hide();
-
-            $('#logistics_amount').html("00.00");
-            $('#logistics_total').html("00.00");
-         }
-         else 
-         {
-            $("#ready_date").show();
-            $("#delivery_date").show();
-            $("#eway_bil").show(); 
-            $("#shipping_calculation").show();          
-         }           
-   }
+   
 </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -1252,7 +1444,6 @@ function calculateShipping()
             })
          }
       });
-
 
       $('#buyer_stateid').change(function()
       {        
@@ -1320,93 +1511,5 @@ $(document).ready(function()
    }).change();
 });
 </script>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script>
-   $(document).ready(function()
-   {   
-      $('#value_gem_order').on('change', function ()
-      { 
 
-         var value_gem_order = document.getElementById('value_gem_order').value;
-         var coordination_discount = document.getElementById('coordination_discount').innerHTML;
-         var coordination_charges = (10 / 100) * value_gem_order;
-         var coordination_discount_value = (coordination_discount / 100) * coordination_charges;
-         var coordination_total = coordination_charges - coordination_discount_value;
-         //alert(coordination_charges);
-         //alert(coordination_discount_value);
-         //alert(coordination_discount);
-         $('#coordination_charges').html(coordination_charges);
-         $('#coordination_total').html(coordination_total);
-
-         
-         var cashflow_discount = document.getElementById('cashflow_discount').innerHTML;
-         var cashflow_amount = "0.00";
-         
-         if(value_gem_order > 0 && value_gem_order <= 1000000)
-         {
-            var cashflow_amount = 249 ; 
-            var cashflow_discount_value = (cashflow_discount / 100) * cashflow_amount;
-            var cashflow_total = cashflow_amount - cashflow_discount_value; 
-            
-            $('#cashflow_amount').html(cashflow_amount);
-            $('#cashflow_total').html(cashflow_total);
-         }
-         else if(value_gem_order > 1000000 && value_gem_order <= 5000000)
-         {
-            var cashflow_amount = 599 ; 
-            var cashflow_discount_value = (cashflow_discount / 100) * cashflow_amount;
-            var cashflow_total = cashflow_amount - cashflow_discount_value; 
-            
-            $('#cashflow_amount').html(cashflow_amount);
-            $('#cashflow_total').html(cashflow_total);                                                    
-         }
-         else if(value_gem_order > 5000000 )
-         {
-            var cashflow_amount = 999 ; 
-            var cashflow_discount_value = (cashflow_discount / 100) * cashflow_amount;
-            var cashflow_total = cashflow_amount - cashflow_discount_value; 
-            
-            $('#cashflow_amount').html(cashflow_amount);
-            $('#cashflow_total').html(cashflow_total);                                                    
-         }
-
-      });
-
-      $('#shipping_charges').on('change', function ()
-      { 
-         var logistics_charges = document.getElementById('shipping_charges').value;
-         var logistics_discount = document.getElementById('logistics_discount').innerHTML;
-      
-         var logistics_discount_value = (logistics_discount / 100) * logistics_charges;
-         var logistics_total = logistics_charges - logistics_discount_value;
-         
-         $('#logistics_amount').html(logistics_charges);
-         $('#logistics_total').html(logistics_total);
-      });
-
-      $(document).on('change', '#sample_clause', function()
-      { 
-         var sample_clause_amount = 249;
-         var sample_clause_discount = document.getElementById('sample_clause_discount').innerHTML;
-
-         var sample_clause_discount_value = (sample_clause_discount / 100) * sample_clause_amount;
-         var sample_clause_total = sample_clause_amount - sample_clause_discount_value;
-
-         var sample_clause= document.querySelector('input[name="sample_clause"]:checked').value;
-
-         if(sample_clause=="yes")
-         {
-            $('#sample_clause_amount').html(sample_clause_amount);
-            $('#sample_clause_total').html(sample_clause_total);
-         }
-         else if(sample_clause=="no")
-         {
-            $('#sample_clause_amount').html("00.00");
-            $('#sample_clause_total').html("00.00");
-         }
-        
-      });
-
-   });
-</script>
 
