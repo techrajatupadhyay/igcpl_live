@@ -739,7 +739,7 @@
                                              <tr class="text-info">
                                                 <td>
                                                    <hr>
-                                                   <h5 class="text-primary">Total22 :</h5>
+                                                   <h5 class="text-primary">Total :</h5>
                                                 </td>
                                                 <td>
                                                    <hr>
@@ -757,8 +757,26 @@
                               </div>
                            </div>
                         </div>         
-                     </div>                                    
-                  </div>                
+                     </div>
+                     
+                     <div class="card-body">
+                        <div class="row my-4">
+                           <div class="form-actions col-md-12">
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="" style="float:center;">															   
+                                       <b><span> <input type="checkbox" id='tac' name="terms_and_conditions" value="yes" onclick="EnableDisableTextBox()" >&nbsp; I have read and agree to the
+                                       <a href="https://indigemcp.tsdemo.co.in/uploads/Terms_and_conditions/terms_and_conditions1.pdf" style="color:#3a8ace;" target="_blank">  Terms and Conditions</a>
+                                       </span></b>                                             
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                  </div>
+            
                   <div  style="background-color: #fff;border-top: 1px dashed #1abc9c;padding: 20px 25px;position: inherit"></div>
 
                      <?php
@@ -773,7 +791,6 @@
                      echo $data->channel->item[0]->title;
                      */
                      ?>
-
 				      
                   <div class="row">				  
                      <div class="col-lg-4 col-md-4"></div>                                           					 
@@ -782,7 +799,7 @@
                            <input type="hidden"  name="isedit" value="<?php echo $update ; ?>"> 
                            <input type="hidden"  name="igcpl_workorder_id" value="<?php echo $igcpl_workorder_id; ?>">                       
                            <!--<button type="submit"  name="submit" onclick='submitForm()' class="btn  btn-round btn-block text-white" style="background: #00acaf; border: 1px solid #00acaf;"><i class="fa fa-user-plus"></i>Generate Workorder </button>-->
-                           <button onclick='submitForm()' id="sub_btn" class="btn  btn-round btn-block text-white" style="background: #00acaf; border: 1px solid #00acaf;"><i class="feather icon-shopping-cart"></i>Generate Workorder request</button>
+                           <button onclick='submitForm()' id="sub_btn" disabled="disabled" class="btn  btn-round btn-block text-white" style="background: #00acaf; border: 1px solid #00acaf;"><i class="feather icon-shopping-cart"></i>Generate Workorder request</button>
 						      </div>
                      </div>
                      <div class="col-lg-4 col-md-4"></div>
@@ -799,6 +816,22 @@
 </div>
 </div>
 
+<script type="text/javascript">
+   function EnableDisableTextBox() 
+   {       
+   var chkYes = $('#tac').is(':checked'); 
+   
+   if(chkYes == true)
+   {
+   $('#sub_btn').attr('disabled',false);
+   }
+   else
+   {
+   $('#sub_btn').attr('disabled',true);
+   }       
+   }
+   
+</script>
 
 <script type="text/javascript">
    function changeAddress() 
