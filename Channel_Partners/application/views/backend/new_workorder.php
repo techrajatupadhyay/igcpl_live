@@ -679,7 +679,7 @@
                                           <tbody>
                                              <tr>
                                                 <td>
-                                                <h6>Coordination Charges</h6>
+                                                <h6>Coordination Charges :</h6>
                                                 <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
                                                 </td>                                               
                                                 <td id="coordination_charges"> 00.00 </td>                                      
@@ -688,7 +688,7 @@
                                              </tr>
                                              <tr>
                                                 <td>
-                                                <h6>Logistics Charges</h6>
+                                                <h6>Logistics Charges :</h6>
                                                 <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
                                                 </td>                                              
                                                 <td id="logistics_amount"> 00.00 </td>                                               
@@ -697,7 +697,7 @@
                                              </tr>
                                              <tr>
                                                 <td>
-                                                <h6>Sample Clause Facilitation Charges</h6>
+                                                <h6>Sample Clause Facilitation Charges :</h6>
                                                 <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
                                                 </td>                                              
                                                 <td id="sample_clause_amount"> 00.00 </td>                                               
@@ -706,7 +706,7 @@
                                              </tr>
                                              <tr>
                                                 <td>
-                                                <h6>Cash flow Documentation Charges </h6>
+                                                <h6>Cash flow Documentation Charges :</h6>
                                                 <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
                                                 </td>                                              
                                                 <td id="cashflow_amount"> 00.00 </td>                                               
