@@ -122,7 +122,7 @@ class agent_model extends CI_Model{
 		
         if($user_type==1)
 		{     
-			$sql = "SELECT * FROM laabh_agents WHERE  user_id='".$user_id."' status='ACTIVE' limit 1";
+			$sql = "SELECT * FROM laabh_agents WHERE  user_id='".$user_id."' AND  status='ACTIVE' limit 1";
 			$data['laabhagent_details'] = $this->db->query($sql)->result();
 			//print_r($this->db->last_query());
 			//var_dump($Seller_Details);
