@@ -180,8 +180,8 @@
                                           <div class="col-sm-4">
                                              <h4 class="sub-title">Designation <span class="star"> * </span></h4>
                                              <div class="input-group">
-                                                <span class="input-group-addon" id="basic-addon7"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
-                                                <select id="designation" name="designation" class="form-control form-control" required readonly disabled ="disabled">
+                                                <span class="input-group-addon" id="basic-addon7"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>												
+                                                <select class="form-control form-control" required readonly disabled ="disabled">
                                                    <option value=""> select designation </option>												   
                                                    <?php 
                                                       if(isset($designation) && $designation !="")
@@ -189,7 +189,8 @@
                                                          foreach($designation as $designation) {  ?>
                                                          <option selected value="<?= $designation->value; ?>" ><?= $designation->des_name; ?> (<?= $designation->value; ?>)</option>
                                                    <?php  } } ?>
-                                                </select>                                                  
+                                                </select> 
+                                                <input type="hidden" id="designation" name="designation"  value="<?php echo $designation->value;?>" placeholder="">												
                                              </div>
                                           </div>
                                           <div class="col-sm-4">
@@ -269,7 +270,8 @@
                                              <h4 class="sub-title">Region <span class="star"> * </span></h4>
                                              <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                                <input type="text" id="region_id" name="region" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled" > 
+												<input type="text" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled" >
+                                                <input type="hidden" id="region_id" name="region" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly > 
                                              <!--	
                                                 <select id="region_id" name="region" class="form-control"  autocomplete="off" required>
                                                    <option value="">-- Select region --</option>
@@ -299,7 +301,7 @@
                                              ?>
                                              <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>												
                                              <input type="text"  value="<?php echo $state_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled">
-                                             <input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled">
+                                             <input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state; ?>" class="form-control"  autocomplete="off" required readonly >
                                           <!--    
                                              <select id="region_state" name="region_state" class="form-control"  autocomplete="off" required>                                                  
                                                             <option value="">-- Select Region State --</option>
@@ -335,7 +337,7 @@
                                                 ?>
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
                                                 <input type="text" value="<?php echo $dist_name; ?>" class="form-control"  autocomplete="off"  readonly disabled ="disabled">
-                                                <input type="hidden" id="district_branch" name="district_branch" value="<?php echo $district_branch; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled">
+                                                <input type="hidden" id="district_branch" name="district_branch" value="<?php echo $district_branch; ?>" class="form-control"  autocomplete="off" required readonly >
                                                       <!--    
                                                 <select id="district_branch" name="district_branch" class="form-control"  autocomplete="off" required>
                                                                <option value="">-- Select Distinct Branch --</option> 

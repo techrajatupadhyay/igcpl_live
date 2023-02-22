@@ -377,7 +377,7 @@
 								<td>Action</td>
 								<td style="float:right; border:none;">
 								    <?php if($laabhagent_details->approvel_status==0){ ?>
-										<a class="btn btn-success">
+										<a  href="<?php echo base_url();?>Laabh_agent/Laabhagent_approvel/<?php echo $laabhagent_details->user_id; ?>/<?php echo $laabhagent_details->id; ?>/<?php echo $laabhagent_details->laabh_executive; ?>"  class="btn btn-success">
 											<i class="fa fa-check"></i> Approve 
 										</a>
 										<a class="btn btn-danger">
