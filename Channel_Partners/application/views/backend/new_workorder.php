@@ -155,7 +155,8 @@
 						   <input type="hidden" class="form-control" name="labh_agent_id" readonly required value="<?php echo $labh_agent_id; ?>" >
 						   <input type="hidden" class="form-control" name="region_id" readonly required value="<?php echo $region_id; ?>" >						 
 						   <input type="hidden" class="form-control" name="region_state"  required readonly value="<?php echo $region_state; ?>">
-						   <input type="hidden" class="form-control" name="district_branch" readonly required value="<?php echo $district_branch; ?>" >                     
+						   <input type="hidden" class="form-control" name="district_branch" readonly required value="<?php echo $district_branch; ?>" >
+
                      <h4 class="sub-title" style="color:red;"><i class="feather icon-shopping-cart"></i>&nbsp; Order Details :</h4>
                      <div class="card-block inner-card-block">                        
                            <div class="row m-b-30">
@@ -166,13 +167,7 @@
                                     <input type="text" class="form-control" name="sellerid" readonly disabled ="disabled" required value="<?php echo $sellerid; ?>" >
                                  </div>
                               </div>
-                              <div class="col-sm-4">
-                                 <h4 class="sub-title">Gem Contract No. <span class="star">*</span></h4>
-                                 <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon7"><i class="fa fa-id-badge" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" id="gemNgem_workorder_id" name="gemNgem_workorder_id" required placeholder="Gem Workorder Id" value="<?php echo $gemNgem_workorder_id; ?>">
-                                 </div>
-                              </div>
+
                               <div class="col-sm-4">
                                  <h4 class="sub-title">Order Type <span class="star">*</span></h4>
                                  <div class="input-group">
@@ -187,6 +182,14 @@
                                  </div>
                               </div>
 
+                              <div class="col-sm-4">
+                                 <h4 class="sub-title">Gem Contract No. <span class="star">*</span></h4>
+                                 <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon7"><i class="fa fa-id-badge" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" id="gemNgem_workorder_id" name="gemNgem_workorder_id" required placeholder="Gem Workorder Id" value="<?php echo $gemNgem_workorder_id; ?>">
+                                 </div>
+                              </div>
+                              
                               <div class="col-sm-11">
                                  <h4 class="sub-title">Pickup Location <span class="star">*</span></h4>
                                  <div class="input-group">
@@ -461,7 +464,7 @@
                                     <div class="form-radio">
                                        <div class="radio radiofill radio-primary radio-inline">
                                           <label>
-                                             <input type="radio" id="coordination" name="coordination" value="yes" data-bv-field="member" <?php echo $sample_clause == "yes" ? " checked" : "";?>>
+                                             <input type="radio" id="coordination" name="coordination" value="yes" checked data-bv-field="member" <?php echo $sample_clause == "yes" ? " checked" : "";?>>
                                              <i class="helper"></i>Yes  
                                           </label>
                                        </div>
@@ -573,7 +576,7 @@
                                     <h4 class="sub-title">No of Packages/Box<span class="star"> *</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
-                                       <input type="text" class="form-control" id="noofpackages" name="noofpackages" placeholder="no of packages" required="" value="" value="" minlength="1" maxlength="5">
+                                       <input type="number" class="form-control" id="noofpackages" name="noofpackages" placeholder="no of packages" required="" value="" value="" minlength="1" maxlength="5">
                                     </div>
                                  </div> 
 								
@@ -589,7 +592,7 @@
                                      <h4 class="sub-title">Declared Value of Consignment<span class="star"> *</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-inr" aria-hidden="true"></i></span>
-                                       <input type="text" class="form-control" id="declared_value" name="declared_value" placeholder="declared value of consignment" required="" value="" value="" minlength="2" maxlength="10">
+                                       <input type="number" class="form-control" id="declared_value" name="declared_value" placeholder="declared value of consignment" required="" value="" value="" minlength="2" maxlength="10">
                                     </div>
                                  </div>  
                                 														 
@@ -615,17 +618,17 @@
                                     </div>
                                  </div>									 							
                                  <div class="col-sm-4">
-                                     <h4 class="sub-title">Actual Weight of Consignment (in kg)<span class="star"> *</span></h4>
+                                    <h4 class="sub-title">Actual Weight of Consignment (in kg)<span class="star"> *</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
-                                       <input type="text" class="form-control" id="actual_weight" name="actual_weight" placeholder="actual weight" required="" value="" value="" minlength="1" >
+                                       <input type="number" class="form-control" id="actual_weight" name="actual_weight" placeholder="actual weight" required="" value="" value="" minlength="1" >
                                     </div>
                                  </div>
                                  <div class="col-sm-4">
-                                    <h4 class="sub-title">Charged Weight of Consignment (in kg)<span class="star">*</span></h4>
+                                    <h4 class="sub-title">Charged Weight of Consignment (in kg)<span class="star"> *</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
-                                       <input type="text" class="form-control" id="charged_weight" name="charged_weight" placeholder="charged weight (in kg)" required="" value="" minlength="1" readonly>
+                                       <input type="number" class="form-control" id="charged_weight" name="charged_weight" placeholder="charged weight (in kg)" required="" value="" minlength="1" readonly>
                                     </div>
                                  </div>
                                  <div class="col-sm-4">
@@ -642,54 +645,120 @@
                                     <h4 class="sub-title uppercaser">Shipping Price <span class="star">*</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-inr" aria-hidden="true"></i></span>
-                                       <input type="text" class="form-control" id="shipping_charges" name="shipment_charges"  value="0.00" readonly required >
+                                       <input type="text" class="form-control" id="shipping_charges" name="shipment_charges"  value="00.00" readonly disabled ="disabled" required >
                                     </div>
                                  </div>
                                  <div class="col-sm-4">
                                     <h4 class="sub-title uppercaser" style="text-align:left;" >Action<span class="star"> *</span></h4>
                                     <div class="input-group">
                                        <!--<a id='shipping_price' onclick='calculateShipping()' class="btn  btn-round btn-block text-white btn-out-dashed" style="background: #00acaf; border: 2px solid #00acaf;font-size:18px;"><i class="fa fa-calculator"></i>Calculate Shipping price</a>-->
-									            <button  id='shipping_price' onclick='calculateShipping()' class="btn  btn-round btn-block text-white btn-out-dashed" style="background: #00acaf; border: 1px solid #00acaf;padding: 7px 19px"> <i class="fa fa-calculator"></i> Calculate Shipping price</button>
+									            <button id='shipping_price' onclick='calculateShipping()' class="btn  btn-round btn-block text-white btn-out-dashed" style="background: #00acaf; border: 1px solid #00acaf;padding: 7px 19px"> <i class="fa fa-calculator"></i> Calculate Shipping price</buttona>
                                     </div>
                                  </div>
 								      </div>
 				               </div>
                         </div>
                      </div>
-                     
+
                      <div class="row">
                         <div class="col-sm-12">
-                           <h4 class="sub-title" style="color:red;"><i class="fa fa-calculator" aria-hidden="true"></i>&nbsp; Estimate of Charges :</h4>
-                           <div class="card-block inner-card-block">                              
-                              <div class="row m-b-30">                                                                
+                           <h4 class="sub-title" style="color:red;"><i class="fa fa-calculator" aria-hidden="true"></i>&nbsp; Estimate of Charges :</h4>                           
+                           <div class="card-block inner-card-block">
+				                  <div class="row m-b-30">               
+                                 <div class="col-sm-12">                                                                   
+                                    <div class="table-responsive">
+                                       <table class="table  invoice-detail-table">
+                                          <thead>
+                                             <tr class="thead-default">
+                                                <th>Description</th>
+                                                <th>Amount ₹ </th>                                               
+                                                <th>Discount %</th>
+                                                <th>Total ₹</th>
+                                             </tr>
+                                          </thead>
+                                          <tbody>
+                                             <tr>
+                                                <td>
+                                                <h6>Coordination Charges</h6>
+                                                <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
+                                                </td>                                               
+                                                <td id="coordination_charges"> 00.00 </td>                                      
+                                                <td id="coordination_discount"> 0.0 </td>
+                                                <td id="coordination_total"> 00.00 </td>
+                                             </tr>
+                                             <tr>
+                                                <td>
+                                                <h6>Logistics Charges</h6>
+                                                <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
+                                                </td>                                              
+                                                <td id="logistics_amount"> 00.00 </td>                                               
+                                                <td id="logistics_discount"> 0.0 </td>
+                                                <td id="logistics_total"> 00.00 </td>
+                                             </tr>
+                                             <tr>
+                                                <td>
+                                                <h6>Sample Clause Facilitation Charges</h6>
+                                                <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
+                                                </td>                                              
+                                                <td id="sample_clause_amount"> 00.00 </td>                                               
+                                                <td id="sample_clause_discount"> 0.0 </td>
+                                                <td id="sample_clause_total"> 00.00 </td>
+                                             </tr>
+                                             <tr>
+                                                <td>
+                                                <h6>Cash flow Documentation Charges </h6>
+                                                <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
+                                                </td>                                              
+                                                <td id="cashflow_amount"> 00.00 </td>                                               
+                                                <td id="cashflow_discount"> 0.0 </td>
+                                                <td id="cashflow_total"> 00.00 </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </div>
+                                 </div>
+                              
                                  <div class="col-sm-12">
-                                    <h4 class="sub-title"> Product Category <span class="star">*</span></h4>
-                                    <textarea class="form-control max-textarea" rows="2" id="select_product" name="select_product" placeholder="Product Category" required="" ><?php echo $select_product; ?></textarea>
+                                    <div class="table-responsive">
+                                       <table class="table table-responsive invoice-table invoice-total">
+                                          <tbody>
+                                             <tr>
+                                                <th>Sub Total :</th>
+                                                <td>₹ 4725.00</td>
+                                             </tr>
+                                             <tr>
+                                                <th>Taxes GST (18%) :</th>
+                                                <td>₹  57.00</td>
+                                             </tr>
+                                          <!--   
+                                             <tr>
+                                                <th>Discount (5%) :</th>
+                                                <td>45.00</td>
+                                             </tr>
+                                          -->   
+                                             <tr class="text-info">
+                                                <td>
+                                                   <hr>
+                                                   <h5 class="text-primary">Total22 :</h5>
+                                                </td>
+                                                <td>
+                                                   <hr>
+                                                   <h5 class="text-primary">₹  4827.00</h5>
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </div>   
+                                 </div>                                 
+                                 <div class="col-sm-12">
+                                    <h6>Terms And Condition :</h6>
+                                    <p>This is Preliminary Estimation. Discount is negotiable on case to case basis.Cash flow bill discounting charges of financer are not included in this estimate. </p>
                                  </div>
-                              </div> 
-                              <div class="row m-b-30">
-                                 <div class="col-sm-6">
-                                    <h4 class="sub-title">Quantity (as on gem workorder) <span class="star">*</span></h4>
-                                    <div class="input-group">
-                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
-                                       <input type="number" class="form-control" name="quantity" id="quantity" placeholder="Quantity" required="" minlength="1" value="<?php echo $quantity;?>">
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-6">
-                                    <h4 class="sub-title">Contract Value (GMV) <span class="star">*</span></h4>
-                                    <div class="input-group">
-                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-inr" aria-hidden="true"></i></span>
-                                       <input type="number" class="form-control" id="value_gem_order" name="value_gem_order" placeholder="Value of Gem Order" required value="<?php echo $value_gem_order; ?>">
-                                    </div>
-                                 </div>                                  
-                              </div>                                                  
+                              </div>
                            </div>
-                        </div>
-                     </div>
-
-
-                  </div>
-                  
+                        </div>         
+                     </div>                                    
+                  </div>                
                   <div  style="background-color: #fff;border-top: 1px dashed #1abc9c;padding: 20px 25px;position: inherit"></div>
 
                      <?php
@@ -713,7 +782,7 @@
                            <input type="hidden"  name="isedit" value="<?php echo $update ; ?>"> 
                            <input type="hidden"  name="igcpl_workorder_id" value="<?php echo $igcpl_workorder_id; ?>">                       
                            <!--<button type="submit"  name="submit" onclick='submitForm()' class="btn  btn-round btn-block text-white" style="background: #00acaf; border: 1px solid #00acaf;"><i class="fa fa-user-plus"></i>Generate Workorder </button>-->
-                           <a onclick='submitForm()' id="sub_btn" class="btn  btn-round btn-block text-white" style="background: #00acaf; border: 1px solid #00acaf;"><i class="fa fa-user-plus"></i>Generate Workorder</a>
+                           <button onclick='submitForm()' id="sub_btn" class="btn  btn-round btn-block text-white" style="background: #00acaf; border: 1px solid #00acaf;"><i class="feather icon-shopping-cart"></i>Generate Workorder request</button>
 						      </div>
                      </div>
                      <div class="col-lg-4 col-md-4"></div>
@@ -725,9 +794,11 @@
       </div>
    </div>
 </div>
+
 </div>
 </div>
 </div>
+
 
 <script type="text/javascript">
    function changeAddress() 
@@ -844,14 +915,56 @@ function calculateShipping()
 				   url: "<?php  echo base_url(); ?>Seller_module/calculate_shipping_price",
 				   method:"POST", 
 				   data:{pickup_pincode:pickup_pincode,delivery_pincode:delivery_pincode,travle_mode:travle_mode,declared_value:declared_value,noofpackages:noofpackages,actual_weight:actual_weight,charged_weight:charged_weight,cod_dod:cod_dod},
-				   success: function(data) 
+				   datatype:'json',
+               success: function(data) 
 				   { 
-                     //alert(data);
-                     //$('#seller_district').html(data);
-                     $("#shipping_charges").val(data);
-                     $("#shipping_price").html('<i class="fa fa-calculator"></i> Calculate Shipping price');
-                     document.getElementById('shipping_price').disabled = false;           					   
+                     
+                     //alert(data);            
+                     const obj = JSON.parse(data);
+                     //alert(obj.status);
+                     //alert(obj.message);
+                     //alert(obj.data);
+                     
+                     if(obj.status== true)
+                     {
+                        var str = obj.message;
+                        var matches = str.match(/(\d+)/);     
+                        if (matches) 
+                        {
+                           var  shipping_charges = matches[0];
+                        }
+                        const  shipping_charges_per = (10 / 100) * shipping_charges;
+                        const  total_shipping_charges =  +shipping_charges + +shipping_charges_per ;
+                        //alert(shipping_charges);
+                        //alert(shipping_charges_per);
+                        //alert(total_shipping_charges);
+                        $("#shipping_charges").val(total_shipping_charges);
+                        $("#shipping_price").html('<i class="fa fa-calculator"></i> Calculate Shipping price');
+                        document.getElementById('shipping_price').disabled = false;
+
+                        /**** THIS IS FOR LOGISTICE ESTIMATES */
+                        var logistics_charges = total_shipping_charges;
+                        var logistics_discount = document.getElementById('logistics_discount').innerHTML;
+                        var logistics_discount_value = (logistics_discount / 100) * logistics_charges;
+                        var logistics_total = logistics_charges - logistics_discount_value;
+                        //alert(coordination_charges);
+                        //alert(coordination_discount);
+                        $('#logistics_amount').html(logistics_charges);
+                        $('#logistics_total').html(logistics_total);
+
+                     }
+                     else
+                     {
+                        $("#shipping_price").html('<i class="fa fa-calculator"></i> Calculate Shipping price');
+                        document.getElementById('shipping_price').disabled = false;
+                        $("#shipping_charges").val("00.00");
+                        $('#logistics_amount').html("00.00");
+                        $('#logistics_total').html("00.00");
+                        alert(data);
+                     }
+     
 				   }
+
 				})
 		}
 }
@@ -890,13 +1003,13 @@ function calculateShipping()
         var bill_discounting = document.getElementById('bill_discounting').value;
         var gem_workorder_doc = document.getElementById('gem_workorder_doc').value;
         var eway_bill_part_1 = document.getElementById('eway_bill_part_1').value;         
-	    var pickup_pincode = document.getElementById('pickup_pincode').value;
+	     var pickup_pincode = document.getElementById('pickup_pincode').value;
         var delivery_pincode = document.getElementById('delivery_pincode').value;
         var travle_mode = document.getElementById('travle_mode').value;
         var declared_value = document.getElementById('declared_value').value;
         var noofpackages = document.getElementById('noofpackages').value;
         var actual_weight = document.getElementById('actual_weight').value;		
-		var charged_weight = document.getElementById('charged_weight').value;	
+		  var charged_weight = document.getElementById('charged_weight').value;	
         var cod_dod = document.getElementById('cod_dod').value;	
 
         if (gemNgem_workorder_id == '')
@@ -1058,25 +1171,28 @@ function calculateShipping()
 </script>
 	
 <script type="text/javascript">
-    function ShowHideDiv() 
-    {
-        var logistics_type = document.getElementById("logistics_type");
-        //alert(logistics_type);
-        if(logistics_type.value == "selfFulfillment")
-        {
-          $("#ready_date").hide();
-          $("#delivery_date").hide();
-          $("#eway_bil").hide();
-          $("#shipping_calculation").hide();
-        }
-        else 
-        {
-          $("#ready_date").show();
-          $("#delivery_date").show();
-          $("#eway_bil").show(); 
-          $("#shipping_calculation").show();          
-        }           
-    }
+   function ShowHideDiv() 
+   {
+         var logistics_type = document.getElementById("logistics_type");
+         //alert(logistics_type);
+         if(logistics_type.value == "selfFulfillment")
+         {
+            $("#ready_date").hide();
+            $("#delivery_date").hide();
+            $("#eway_bil").hide();
+            $("#shipping_calculation").hide();
+
+            $('#logistics_amount').html("00.00");
+            $('#logistics_total').html("00.00");
+         }
+         else 
+         {
+            $("#ready_date").show();
+            $("#delivery_date").show();
+            $("#eway_bil").show(); 
+            $("#shipping_calculation").show();          
+         }           
+   }
 </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -1161,7 +1277,7 @@ $(document).ready(function()
          if(optionValue)
          {
             $("#box").not("." + optionValue).hide();
-             $("." + optionValue).show();
+            $("." + optionValue).show();
          } 
          else
          {
@@ -1170,5 +1286,94 @@ $(document).ready(function()
       });
    }).change();
 });
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+   $(document).ready(function()
+   {   
+      $('#value_gem_order').on('change', function ()
+      { 
+
+         var value_gem_order = document.getElementById('value_gem_order').value;
+         var coordination_discount = document.getElementById('coordination_discount').innerHTML;
+         var coordination_charges = (10 / 100) * value_gem_order;
+         var coordination_discount_value = (coordination_discount / 100) * coordination_charges;
+         var coordination_total = coordination_charges - coordination_discount_value;
+         //alert(coordination_charges);
+         //alert(coordination_discount_value);
+         //alert(coordination_discount);
+         $('#coordination_charges').html(coordination_charges);
+         $('#coordination_total').html(coordination_total);
+
+         
+         var cashflow_discount = document.getElementById('cashflow_discount').innerHTML;
+         var cashflow_amount = "0.00";
+         
+         if(value_gem_order > 0 && value_gem_order <= 1000000)
+         {
+            var cashflow_amount = 249 ; 
+            var cashflow_discount_value = (cashflow_discount / 100) * cashflow_amount;
+            var cashflow_total = cashflow_amount - cashflow_discount_value; 
+            
+            $('#cashflow_amount').html(cashflow_amount);
+            $('#cashflow_total').html(cashflow_total);
+         }
+         else if(value_gem_order > 1000000 && value_gem_order <= 5000000)
+         {
+            var cashflow_amount = 599 ; 
+            var cashflow_discount_value = (cashflow_discount / 100) * cashflow_amount;
+            var cashflow_total = cashflow_amount - cashflow_discount_value; 
+            
+            $('#cashflow_amount').html(cashflow_amount);
+            $('#cashflow_total').html(cashflow_total);                                                    
+         }
+         else if(value_gem_order > 5000000 )
+         {
+            var cashflow_amount = 999 ; 
+            var cashflow_discount_value = (cashflow_discount / 100) * cashflow_amount;
+            var cashflow_total = cashflow_amount - cashflow_discount_value; 
+            
+            $('#cashflow_amount').html(cashflow_amount);
+            $('#cashflow_total').html(cashflow_total);                                                    
+         }
+
+      });
+
+      $('#shipping_charges').on('change', function ()
+      { 
+         var logistics_charges = document.getElementById('shipping_charges').value;
+         var logistics_discount = document.getElementById('logistics_discount').innerHTML;
+      
+         var logistics_discount_value = (logistics_discount / 100) * logistics_charges;
+         var logistics_total = logistics_charges - logistics_discount_value;
+         
+         $('#logistics_amount').html(logistics_charges);
+         $('#logistics_total').html(logistics_total);
+      });
+
+      $(document).on('change', '#sample_clause', function()
+      { 
+         var sample_clause_amount = 249;
+         var sample_clause_discount = document.getElementById('sample_clause_discount').innerHTML;
+
+         var sample_clause_discount_value = (sample_clause_discount / 100) * sample_clause_amount;
+         var sample_clause_total = sample_clause_amount - sample_clause_discount_value;
+
+         var sample_clause= document.querySelector('input[name="sample_clause"]:checked').value;
+
+         if(sample_clause=="yes")
+         {
+            $('#sample_clause_amount').html(sample_clause_amount);
+            $('#sample_clause_total').html(sample_clause_total);
+         }
+         else if(sample_clause=="no")
+         {
+            $('#sample_clause_amount').html("00.00");
+            $('#sample_clause_total').html("00.00");
+         }
+        
+      });
+
+   });
 </script>
 

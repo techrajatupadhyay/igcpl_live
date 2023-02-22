@@ -845,11 +845,9 @@ class Seller_module extends CI_Controller
 		    $data1 = json_decode($response);
 	        $token =  $data1->token;
 			
-			
-			echo $response = $this->get_shippping_price($pickup_pincode,$delivery_pincode,$travle_mode,$declared_value,$noofpackages,$actual_weight,$charged_weight,$cod_dod,$token);
+			$response = $this->get_shippping_price($pickup_pincode,$delivery_pincode,$travle_mode,$declared_value,$noofpackages,$actual_weight,$charged_weight,$cod_dod,$token);
 						
-
-			//return $response;	
+			return $response;	
 	    }
 		else
 		{
@@ -887,11 +885,12 @@ class Seller_module extends CI_Controller
 		$response = curl_exec($curl);					
         //print_r($response);
 		curl_close($curl);					
-		$data1 = json_decode($response);
-		 
+		//$data1 = json_decode($response);
+		//$data1 = json_encode($response);
+		print_r($response);
 	    //echo $status =  $data1->status;
-        echo $message =  $data1->message;
-        echo $data_dat =  $data1->data;		
+        //echo $message =  $data1->message;
+        //echo $data_dat =  $data1->data;		
 		 	
     }
 

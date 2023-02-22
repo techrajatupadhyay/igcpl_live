@@ -353,7 +353,7 @@
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
                      <div class="modal-header" style="margin: 60px 0;">
-                        <h5 class="modal-title">HO Login →</h5>
+                        <h5 class="modal-title">HO Login &#8594; </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
@@ -402,7 +402,7 @@
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
                      <div class="modal-header" style="margin: 60px 0;">
-                        <h5 class="modal-title">Laabh Executive Login →</h5>
+                        <h5 class="modal-title">Laabh Executive Login &#8594; </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
@@ -448,7 +448,7 @@
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
                      <div class="modal-header" style="margin: 60px 0;">
-                        <h5 class="modal-title">Seller Login →</h5>
+                        <h5 class="modal-title">Seller Login &#8594; </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
@@ -492,7 +492,7 @@
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
                      <div class="modal-header" style="margin: 60px 0;">
-                        <h5 class="modal-title">Fulfilment Partner Login →</h5>
+                        <h5 class="modal-title">Fulfilment Partner Login &#8594; </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
@@ -536,7 +536,7 @@
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
                      <div class="modal-header" style="margin: 60px 0;">
-                        <h5 class="modal-title">Laabh Agent Login →</h5>
+                        <h5 class="modal-title">Laabh Agent Login &#8594; </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
@@ -580,7 +580,7 @@
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
                      <div class="modal-header" style="margin: 60px 0;">
-                        <h5 class="modal-title">Branch-Manager Login →</h5>
+                        <h5 class="modal-title">Branch-Manager Login &#8594; </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
@@ -628,7 +628,7 @@
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
                      <div class="modal-header" style="margin: 60px 0;">
-                        <h5 class="modal-title">Assistant General Manager Login →</h5>
+                        <h5 class="modal-title">Assistant General Manager Login &#8594; </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
@@ -674,7 +674,7 @@
                         <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="Home" class="indexlogo" />
                      </a>
                      <div class="modal-header" style="margin: 60px 0;">
-                        <h5 class="modal-title">Employee Login →</h5>
+                        <h5 class="modal-title">Employee Login &#8594; </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                            <span aria-hidden="true">&times;</span>
                         </button>
@@ -685,15 +685,15 @@
                         <div class="col-xs-12 mx-4">                       
                            <select id="user_type" name="usertype"  class="form-control "required>
                               <option value=""> - User Designation -</option>
-                              <option value="11">Assistant General manager (AGM) →</option>
-                              <option value="6">Branch Manager (BMG) →</option>
-                              <!--<option value="13">Assistant manager (AMG) →</option>-->
-                              <option value="2">Laabh Executive (GLE) →</option> 
-                              <option value="7">Senior Office Executive (SEE) →</option> 												   
-                              <option value="8">Office Executive(GEM)(OFE) →</option>
-                              <option value="9">Office Support Staff (MTS) →</option>                                                                                                     
-                              <option value="10">Customer Care Executive →</option>
-                              <option value="12">Senior Executive (SEE) →</option>                                                                                                
+                              <option value="11">Assistant General manager (AGM) &#8594; </option>
+                              <option value="6">Branch Manager (BMG) &#8594; </option>
+                              <!--<option value="13">Assistant manager (AMG) &#8594; </option>-->
+                              <option value="2">Laabh Executive (GLE) &#8594; </option> 
+                              <option value="7">Senior Office Executive (SEE) &#8594; </option> 												   
+                              <option value="8">Office Executive(GEM)(OFE) &#8594; </option>
+                              <option value="9">Office Support Staff (MTS) &#8594; </option>                                                                                                     
+                              <option value="10">Customer Care Executive &#8594; </option>
+                              <option value="12">Senior Executive (SEE) &#8594; </option>                                                                                                
                            </select>
                         </div>
                      </div>

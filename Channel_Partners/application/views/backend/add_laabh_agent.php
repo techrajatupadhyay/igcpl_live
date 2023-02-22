@@ -686,7 +686,7 @@
 											
 											<?php if(isset($Laabhagent_Details)) { ?>
 												<div class="col-sm-3">
-												 <h4 class="sub-title">Upload Resume <span class="star"> * </span></h4>
+												 <h4 class="sub-title">Upload Resume </h4>
 												 <div class="input-group">
 													<input type="file" accept=".pdf"   class="form-control bg-white" name="resume">
 													<span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></span>
@@ -695,9 +695,9 @@
 											    </div>
 											<?php } else { ?>
 											    <div class="col-sm-3">
-												 <h4 class="sub-title">Upload Resume <span class="star"> * </span></h4>
+												 <h4 class="sub-title">Upload Resume </h4>
 												 <div class="input-group">
-													<input type="file" accept=".pdf"   required class="form-control bg-white" placeholder="Phone"  id="resume" name="resume" >
+													<input type="file" accept=".pdf"    class="form-control bg-white" placeholder="Phone"  id="resume" name="resume" >
 													<span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></span>
 												 </div>												 
 												 <h4 class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 2MB</b> </h4>												 
@@ -705,7 +705,7 @@
 											<?php } ?>
 											<?php if(isset($Laabhagent_Details)) { ?>
 												<div class="col-sm-3">
-												 <h4 class="sub-title">Marksheet of education<span class="star"> * </span></h4>
+												 <h4 class="sub-title">Marksheet of education </h4>
 												 <div class="input-group">
 													<input type="file" accept=".pdf"  class="form-control bg-white"  name="marksheet">
 													<span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></span>
@@ -714,15 +714,15 @@
 											    </div>
 											<?php } else { ?>
 											    <div class="col-sm-3">
-												 <h4 class="sub-title">Marksheet of education<span class="star"> * </span></h4>
+												 <h4 class="sub-title">Marksheet of education </h4>
 												 <div class="input-group">
-													<input type="file" accept=".pdf"  required class="form-control bg-white" id="edu_file" name="marksheet">
+													<input type="file" accept=".pdf"   class="form-control bg-white" id="edu_file" name="marksheet">
 													<span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></span>
 												 </div>
                                      <h4 class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 2MB</b> </h4>
 											    </div>
 											<?php } ?>
-                                            <?php if(isset($Laabhagent_Details)) { ?>
+                                    <?php if(isset($Laabhagent_Details)) { ?>
 										        <div class="col-sm-3">
 												 <h4 class="sub-title">experience letter </h4>
 												 <div class="input-group">
@@ -809,8 +809,8 @@
 		var agent_image = document.getElementById('agent_image').value;
 		var agent_signature = document.getElementById('agent_signature').value;
 		var contract_letter = document.getElementById('contract_letter').value;
-		var resume = document.getElementById('resume').value;
-		var edu_file = document.getElementById('edu_file').value;
+		//var resume = document.getElementById('resume').value;
+		//var edu_file = document.getElementById('edu_file').value;
 	
 		if (user_type =="") 
 		{
@@ -901,6 +901,7 @@
 			alert("Contract Letter is Mandatory!");
          return	false;
 		}
+   /*   
 		else if (resume =='') 
 		{
 			alert("Employee Resume is Mandatory!");
@@ -911,6 +912,7 @@
 			alert("Education Decument is Mandatory!");
          return	false;
 		}
+   */   
 		else
 		{
 			

@@ -107,12 +107,12 @@ class Laabh_agent extends CI_Controller
         $bank_name = $this->input->post('bank_name');
         $bank_acc_no = $this->input->post('bank_acc_no');
         $ifsc_code = $this->input->post('ifsc_code');
-		$agent_image = $this->input->post('agent_image');		
-        $agent_signature = $this->input->post('agent_signature');		
-        $resume = $this->input->post('resume');
-        $marksheet = $this->input->post('marksheet');
-        $experience_letter = $this->input->post('experience_letter'); 
-        $contract_letter = $this->input->post('contract_letter'); 		
+		//$agent_image = $this->input->post('agent_image');		
+        //$agent_signature = $this->input->post('agent_signature');		
+        //$resume = $this->input->post('resume');
+        //$marksheet = $this->input->post('marksheet');
+        //$experience_letter = $this->input->post('experience_letter'); 
+        //$contract_letter = $this->input->post('contract_letter'); 		
         $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         $password = substr( str_shuffle( $chars ), 0, 8 );				
 		$user_password=hash_hmac('sha256',$password, 'aSm0$i_20eNh3os');
@@ -225,46 +225,60 @@ class Laabh_agent extends CI_Controller
 							ini_set('max_execution_time', 3600);
 							move_uploaded_file($_FILES["agent_signature"]["tmp_name"], $targetFilePath2); 
 						}
-						
-						//$resume = $this->input->post('resume');                  
-						$targetDir = "uploads/Agent_Documents/".$regionid."/".$user_id."/" ;
-						$allowTypes = array('pdf','doc','csv');
-						if (!file_exists($targetDir)) 
-						{    
-							mkdir($targetDir, 0777, true);
-						}                                      
-						$fileName = basename($_FILES['resume']['name']);
-						$targetFilePath3 = $targetDir . $fileName;                        
-						$fileType = pathinfo($targetFilePath3, PATHINFO_EXTENSION);
-						if (in_array($fileType, $allowTypes)) 
-						{    
-							ini_set('memory_limit', '1024M' );
-							ini_set('upload_max_filesize', '500M');  
-							ini_set('post_max_size', '500M');  
-							ini_set('max_input_time', 3600);  
-							ini_set('max_execution_time', 3600);
-							move_uploaded_file($_FILES["resume"]["tmp_name"], $targetFilePath3); 
+					
+						if($_FILES['resume']['name'] != null || $_FILES['resume']['name'] !="")
+						{	
+							//$resume = $this->input->post('resume');                  
+							$targetDir = "uploads/Agent_Documents/".$regionid."/".$user_id."/" ;
+							$allowTypes = array('pdf','doc','csv');
+							if (!file_exists($targetDir)) 
+							{    
+								mkdir($targetDir, 0777, true);
+							}                                      
+							$fileName = basename($_FILES['resume']['name']);
+							$targetFilePath3 = $targetDir . $fileName;                        
+							$fileType = pathinfo($targetFilePath3, PATHINFO_EXTENSION);
+							if (in_array($fileType, $allowTypes)) 
+							{    
+								ini_set('memory_limit', '1024M' );
+								ini_set('upload_max_filesize', '500M');  
+								ini_set('post_max_size', '500M');  
+								ini_set('max_input_time', 3600);  
+								ini_set('max_execution_time', 3600);
+								move_uploaded_file($_FILES["resume"]["tmp_name"], $targetFilePath3); 
+							}
+						}
+						else
+						{
+							$targetFilePath3="";
 						}
 						
-						//$marksheet = $this->input->post('marksheet');                  
-						$targetDir = "uploads/Agent_Documents/".$regionid."/".$user_id."/" ;
-						$allowTypes = array('pdf','doc','csv');
-						if (!file_exists($targetDir)) 
-						{    
-							mkdir($targetDir, 0777, true);
-						}                                      
-						$fileName = basename($_FILES['marksheet']['name']);
-						$targetFilePath4 = $targetDir . $fileName;                        
-						$fileType = pathinfo($targetFilePath4, PATHINFO_EXTENSION);
-						if (in_array($fileType, $allowTypes)) 
-						{    
-							ini_set('memory_limit', '1024M' );
-							ini_set('upload_max_filesize', '500M');  
-							ini_set('post_max_size', '500M');  
-							ini_set('max_input_time', 3600);  
-							ini_set('max_execution_time', 3600);
-							move_uploaded_file($_FILES["marksheet"]["tmp_name"], $targetFilePath4); 
+						if($_FILES['marksheet']['name'] != null || $_FILES['marksheet']['name'] !="")
+						{	
+							//$marksheet = $this->input->post('marksheet');                  
+							$targetDir = "uploads/Agent_Documents/".$regionid."/".$user_id."/" ;
+							$allowTypes = array('pdf','doc','csv');
+							if (!file_exists($targetDir)) 
+							{    
+								mkdir($targetDir, 0777, true);
+							}                                      
+							$fileName = basename($_FILES['marksheet']['name']);
+							$targetFilePath4 = $targetDir . $fileName;                        
+							$fileType = pathinfo($targetFilePath4, PATHINFO_EXTENSION);
+							if (in_array($fileType, $allowTypes)) 
+							{    
+								ini_set('memory_limit', '1024M' );
+								ini_set('upload_max_filesize', '500M');  
+								ini_set('post_max_size', '500M');  
+								ini_set('max_input_time', 3600);  
+								ini_set('max_execution_time', 3600);
+								move_uploaded_file($_FILES["marksheet"]["tmp_name"], $targetFilePath4); 
+							}
 						}
+						else
+						{
+							$targetFilePath4="";
+						}	
 						
 						if($_FILES['experience_letter']['name'] != null || $_FILES['experience_letter']['name'] !="")
 						{

@@ -9,7 +9,7 @@
 
 }
    </style>
-    <footer class="footer text-center"> © 2022 INDIGEM CHANNEL PARTNERS </footer>
+    <footer class="footer text-center"> &#169; 2022 INDIGEM CHANNEL PARTNERS </footer>
   
    
    
