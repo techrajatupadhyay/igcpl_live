@@ -550,8 +550,7 @@
                                                          <option value=""> -- Select District -- </option>
                                                          <?php                                                                        
                                                          foreach($district_list as $dist)
-                                                         {  ?>
-                                                            
+                                                         {  ?>                                                           
                                                             <option value="<?= $dist->Districtcode; ?>" <?php echo $district_second == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
                                                             <?php  
                                                          } 
