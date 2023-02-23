@@ -15,7 +15,7 @@
    $basicinfo = $this->employee_model->GetBasic($labhid); 
    ?>
 <style>
-  <!-- @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');-->
+  /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');*/
    .note
    {
    border: 1px solid #1976d2 !important;  
@@ -94,9 +94,10 @@
             </div>
             
            <div class="card">
+		    <?php  $this->load->view('backend/form_top',$sellerid); ?>
                         <div class="row">
                             <div class="col-12">
-	                            <?php  $this->load->view('backend/form_top',$sellerid); ?>
+	                            <?php  //$this->load->view('backend/form_top',$sellerid); ?>
 	                            <div class="container-fluid">
 	                                <div class="row">
 	                                    <div class="col-lg-12 col-xlg-12 col-md-12">	                                   

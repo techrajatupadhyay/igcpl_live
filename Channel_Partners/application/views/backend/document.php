@@ -195,18 +195,19 @@
 												   </div>
 												</div>
 										    <div class="card">
+											<?php  $this->load->view('backend/form_top',$sellerid); ?>	
 											    <div class="container-fluid">
 													<div class="row">
 														<div class="col-lg-12 col-xlg-12 col-md-12">															
 															<div class="row">
 																<div class="col-12">																	
-																	<?php  $this->load->view('backend/form_top',$sellerid); ?>																	
+																	<?php  //$this->load->view('backend/form_top',$sellerid); ?>																	
 																	<div class="card card-outline-info">
 																		<form action="<?php echo site_url('SellerRegister/submit_document'); ?>" method="post" enctype="multipart/form-data">
 																			<div class="card-body">
-																				<div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 18px; text-transform: capitalize;color:black">
+																				<div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:black">
 																					<i class="fa fa-file" aria-hidden="true" style="color:#ff0000;"></i>&nbsp;&nbsp;
-																					<span style="color:#ff0000;">Upload  Documents</span> 
+																					<span style="color:#ff0000;">Upload  Documents :</span> 
 																				</div>
 																			</div>
 																			<div class="card-body">                                          										

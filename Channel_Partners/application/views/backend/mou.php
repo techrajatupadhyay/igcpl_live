@@ -132,14 +132,12 @@
                      </div>
                   </div>
                </div>
-            </div>
-            
+            </div>            
                      <div class="card">
+					 <?php  $this->load->view('backend/form_top',$sellerid); ?>
                         <div class="row">
-                            <div class="col-12">
-						   
-                                <?php  $this->load->view('backend/form_top',$sellerid); ?>
-							  
+                            <div class="col-12">						   
+                                <?php  //$this->load->view('backend/form_top',$sellerid); ?>							  
                                 <div class="card card-outline-info">							
 									<div class="card-body">
 										<div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 18px; text-transform: capitalize;color:black">
