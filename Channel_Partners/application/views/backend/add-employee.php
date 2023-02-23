@@ -463,17 +463,17 @@
                                                 <select id="district_first" name="district_first" class="form-control"  autocomplete="off" >
                                                    <?php                                                  
                                                       if(isset($Employee_Details) && $Employee_Details !="") 
-                                                                                          {                                            
-                                                                                              foreach($district_list as $dist)
-                                                                                              {  ?>
-                                                   <option value="<?= $dist->Districtcode; ?>" <?php echo $district_first == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
-                                                   <?php  
-                                                      } 
+                                                      {                                            
+                                                         foreach($district_list as $dist)
+                                                         {  ?>
+                                                            <option value="<?= $dist->Districtcode; ?>" <?php echo $district_first == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
+                                                            <?php  
+                                                         } 
                                                       }
                                                       else 
                                                       {  ?>                                        
-                                                   <option value="">-- Select District --</option>
-                                                   <?php 
+                                                         <option value=""> -- Select District -- </option>
+                                                         <?php 
                                                       }   
                                                       ?>                                        
                                                 </select>
@@ -490,7 +490,7 @@
                                              <h4 class="sub-title"> Pincode <span class="star"> * </span></h4>
                                              <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                                <input type="number" class="form-control" id="pin_code1" name="present_pincode" placeholder="pincode"  required value="<?php echo $present_pincode;?>">
+                                                <input type="number" class="form-control" id="pin_code1" name="present_pincode" placeholder="pincode"  pattern="[0-9]{6}" required value="<?php echo $present_pincode;?>">
                                              </div>
                                           </div>
                                        </div>
@@ -508,6 +508,11 @@
                               <div class="row">
                                  <div class="col-sm-12">
                                     <h4 class="sub-title" style="color:red;"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Permanent Address :</h4>
+                                    <div class="col-md-12">
+                                    <div class="" style="float:center;">															   
+                                       <b><span style="color:#3a8ace;"> <input type="checkbox" id='same_addr_check' name="same_addr_check"  onclick="autoFilAddress()"  >&nbsp; Same as Present address </span></b>                                                                                                                         
+                                    </div>
+                                 </div>
                                     <div class="card-block inner-card-block">
                                        <div class="row m-b-30">
                                           <div class="col-md-3">
@@ -533,19 +538,25 @@
                                                 <select id="district_second" name="district_second" class="form-control"  autocomplete="off" >
                                                    <?php 
                                                       if(isset($Employee_Details) && $Employee_Details !="") 
-                                                                                          {                                            
-                                                                                              foreach($district_list as $dist)
-                                                                                              {  ?>
-                                                   <option value="<?= $dist->Districtcode; ?>" <?php echo $district_second == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
-                                                   <?php  
-                                                      } 
+                                                      {                                            
+                                                         foreach($district_list as $dist)
+                                                         {  ?>
+                                                            <option value="<?= $dist->Districtcode; ?>" <?php echo $district_second == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
+                                                            <?php  
+                                                         } 
                                                       }
                                                       else 
-                                                      {  ?>                                        
-                                                   <option value="">-- Select District --</option>
-                                                   <?php 
+                                                      {  ?>
+                                                         <option value=""> -- Select District -- </option>
+                                                         <?php                                                                        
+                                                         foreach($district_list as $dist)
+                                                         {  ?>
+                                                            
+                                                            <option value="<?= $dist->Districtcode; ?>" <?php echo $district_second == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
+                                                            <?php  
+                                                         } 
                                                       }   
-                                                      ?>                                        
+                                                   ?>                                        
                                                 </select>
                                              </div>
                                           </div>
@@ -560,7 +571,7 @@
                                              <h4 class="sub-title"> Pincode <span class="star"> * </span></h4>
                                              <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                                <input type="number" class="form-control" id="pin_code2" name="permanent_pincode" placeholder="pincode"  required value="<?php echo $permanent_pincode;?>">
+                                                <input type="number" class="form-control" id="pin_code2" name="permanent_pincode" placeholder="pincode"  pattern="[0-9]{6}" required value="<?php echo $permanent_pincode;?>">
                                              </div>
                                           </div>
                                        </div>
@@ -816,26 +827,63 @@
    </div>
 </div>
 
+<script type="text/javascript">
+   function autoFilAddress()
+   {
+      let same_addr_check= document.getElementById('same_addr_check');
 
+      let curstateid_first = document.getElementById('stateid_first').value;
+      let curdistrict_first = document.getElementById('district_first').value;
+      let curcity_first = document.getElementById('present_city').value;
+      let curpin_code1 = document.getElementById('pin_code1').value;		
+      let curpresent_full_address = document.getElementById('present_full_address').value;
+		
+      let perletstateid_second = document.getElementById('stateid_second');		
+		let perletdistrict_second = document.getElementById('district_second');	
+      let perletcity_second = document.getElementById('permanent_city');
+		let perletpin_code2 = document.getElementById('pin_code2');		
+		let perletpermanent_full_address = document.getElementById('permanent_full_address');
+
+      if (same_addr_check.checked == true)
+      {
+    
+         perletstateid_second.value = curstateid_first; 
+         perletdistrict_second.value = curdistrict_first; 
+         perletcity_second.value     = curcity_first;   
+         perletpin_code2.value      = curpin_code1;     
+         perletpermanent_full_address.value = curpresent_full_address;     
+            
+      }
+      else
+      {
+         perletstateid_second.value = "";
+         perletdistrict_second.value = ""; 
+         perletcity_second.value     = "";     
+         perletpin_code2.value      = "";     
+         perletpermanent_full_address.value  = "";         
+                  
+      }
+   }
+</script>
 
 <script type="text/javascript">
 
    function submitForm()
 	{
 		
-        //document.getElementById('sub_btn').disabled = true;
+      //document.getElementById('sub_btn').disabled = true;
 		//$("#sub_btn").html('<i class="fa fa-spinner fa-spin"></i>Submitting...');
 	    //document.getElementById('sub_btn').disabled = true;
 			
 		var frm = $('#employee_registration_form');		
 		var user_type = document.getElementById('user_type').value;
-        var designation = document.getElementById('designation').value;        		
+      var designation = document.getElementById('designation').value;        		
 		var emp_name = document.getElementById('emp_name').value;
-        var contact = document.getElementById('contact').value;
-        var email = document.getElementById('email').value;
-        var gender = document.getElementById('gender').value;		
+      var contact = document.getElementById('contact').value;
+      var email = document.getElementById('email').value;
+      var gender = document.getElementById('gender').value;		
 		var dob = document.getElementById('dob').value;			
-        var division = document.getElementById('division').value;
+      var division = document.getElementById('division').value;
 		
 		var stateid_first = document.getElementById('stateid_first').value;
         var district_first = document.getElementById('district_first').value;
