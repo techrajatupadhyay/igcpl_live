@@ -322,7 +322,7 @@
                                                       <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
                                                       <div class="input-group">
                                                          <div class="input-group-addon">
-                                                            <input type='file' accept="image/png, image/gif, image/jpeg, image/jpg" name="seller_photo" onchange="proPic(this);"  />                              
+                                                            <input type='file' accept="image/png, image/gif, image/jpeg, image/jpg" id="emp_image" name="seller_photo" onchange="proPic(this);"  />                              
                                                          </div>
                                                       </div>
                                                       <?php } else { ?>
