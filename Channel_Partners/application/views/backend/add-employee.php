@@ -509,10 +509,10 @@
                                  <div class="col-sm-12">
                                     <h4 class="sub-title" style="color:red;"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Permanent Address :</h4>
                                     <div class="col-md-12">
-                                    <div class="" style="float:center;">															   
-                                       <b><span style="color:#3a8ace;"> <input type="checkbox" id='same_addr_check' name="same_addr_check"  onclick="autoFilAddress()"  >&nbsp; Same as Present address </span></b>                                                                                                                         
+                                       <div class="" style="float:center;">															   
+                                          <b><span style="color:#3a8ace;"> <input type="checkbox" id='same_addr_check' name="same_addr_check"  onclick="autoFilAddress()"  >&nbsp; Same as Present address </span></b>                                                                                                                         
+                                       </div>
                                     </div>
-                                 </div>
                                     <div class="card-block inner-card-block">
                                        <div class="row m-b-30">
                                           <div class="col-md-3">
@@ -844,14 +844,25 @@
 		let perletpermanent_full_address = document.getElementById('permanent_full_address');
 
       if (same_addr_check.checked == true)
-      {
-    
+      {   
          perletstateid_second.value = curstateid_first; 
          perletdistrict_second.value = curdistrict_first; 
          perletcity_second.value     = curcity_first;   
          perletpin_code2.value      = curpin_code1;     
-         perletpermanent_full_address.value = curpresent_full_address;     
-            
+         perletpermanent_full_address.value = curpresent_full_address;
+         
+         document.getElementById('stateid_first').setAttribute('readonly', true);
+         document.getElementById('district_first').setAttribute('readonly', true);
+         document.getElementById('present_city').readOnly =true;
+         document.getElementById('pin_code1').readOnly =true;
+         document.getElementById('present_full_address').readOnly =true;
+
+         document.getElementById('stateid_second').setAttribute('readonly', true);
+         document.getElementById('district_second').setAttribute('readonly', true);
+         document.getElementById('permanent_city').readOnly =true;
+         document.getElementById('pin_code2').readOnly =true;
+         document.getElementById('permanent_full_address').readOnly =true;
+
       }
       else
       {
@@ -860,7 +871,18 @@
          perletcity_second.value     = "";     
          perletpin_code2.value      = "";     
          perletpermanent_full_address.value  = "";         
-                  
+         
+         document.getElementById('stateid_first').removeAttribute("readonly");
+         document.getElementById('district_first').removeAttribute("readonly");
+         document.getElementById('present_city').readOnly =false;
+         document.getElementById('pin_code1').readOnly =false;
+         document.getElementById('present_full_address').readOnly =false;
+
+         document.getElementById('stateid_second').removeAttribute("readonly");
+         document.getElementById('district_second').removeAttribute("readonly");
+         document.getElementById('permanent_city').readOnly =false;
+         document.getElementById('pin_code2').readOnly =false;
+         document.getElementById('permanent_full_address').readOnly =false;
       }
    }
 </script>

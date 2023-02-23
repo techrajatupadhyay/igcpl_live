@@ -168,9 +168,10 @@
                                        <input type="hidden" name="id" class="form-control" value="<?php echo $id;?>" placeholder="">
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>User Type  <span class="red-color span1">*</span></label>
-                                          <select id="usertype" name="usertype" required class="form-control" autocomplete="off">
+                                          <select id="usertype"  required class="form-control" autocomplete="off" disabled ="disabled">
                                              <option value="3" selected="selected">Seller</option>
                                           </select>
+                                          <input type="hidden" name="usertype"  value="3" placeholder="">	
                                        </div>
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>Seller Name  <span class="red-color">*</span></label>

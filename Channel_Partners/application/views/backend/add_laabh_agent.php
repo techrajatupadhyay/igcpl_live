@@ -436,6 +436,11 @@
                               <div class="row">
                                  <div class="col-sm-12">
                                     <h4 class="sub-title" style="color:red;"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Permanent Address :</h4>
+                                    <div class="col-md-12">
+                                       <div class="" style="float:center;">															   
+                                          <b><span style="color:#3a8ace;"> <input type="checkbox" id='same_addr_check' name="same_addr_check"  onclick="autoFilAddress()"  >&nbsp; Same as Present address </span></b>                                                                                                                         
+                                       </div>
+                                    </div>
                                     <div class="card-block inner-card-block">
                                        <div class="row m-b-30">
                                           <div class="col-md-3">
@@ -463,16 +468,21 @@
                                                       {                                            
                                                          foreach($district_list as $dist)
                                                          {  ?>
-                                                   <option value="<?= $dist->Districtcode; ?>" <?php echo $district_second == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
-                                                   <?php  
-                                                      } 
+                                                            <option value="<?= $dist->Districtcode; ?>" <?php echo $district_second == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
+                                                            <?php  
+                                                         } 
                                                       }
                                                       else 
-                                                      {  ?>                                        
-                                                   <option value="">-- Select District --</option>
-                                                   <?php 
+                                                      {  ?>
+                                                         <option value=""> -- Select District -- </option>
+                                                         <?php                                                                        
+                                                         foreach($district_list as $dist)
+                                                         {  ?>                                                           
+                                                            <option value="<?= $dist->Districtcode; ?>" <?php echo $district_second == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
+                                                            <?php  
+                                                         } 
                                                       }   
-                                                      ?>                                        
+                                                   ?>                                        
                                                 </select>
                                              </div>
                                           </div>
@@ -773,6 +783,66 @@
 </div>
 </div>
 
+<script type="text/javascript">
+   function autoFilAddress()
+   {
+      let same_addr_check= document.getElementById('same_addr_check');
+
+      let curstateid_first = document.getElementById('stateid_first').value;
+      let curdistrict_first = document.getElementById('district_first').value;
+      let curcity_first = document.getElementById('present_city').value;
+      let curpin_code1 = document.getElementById('pin_code1').value;		
+      let curpresent_full_address = document.getElementById('present_full_address').value;
+		
+      let perletstateid_second = document.getElementById('stateid_second');		
+		let perletdistrict_second = document.getElementById('district_second');	
+      let perletcity_second = document.getElementById('permanent_city');
+		let perletpin_code2 = document.getElementById('pin_code2');		
+		let perletpermanent_full_address = document.getElementById('permanent_full_address');
+
+      if (same_addr_check.checked == true)
+      {   
+         perletstateid_second.value = curstateid_first; 
+         perletdistrict_second.value = curdistrict_first; 
+         perletcity_second.value     = curcity_first;   
+         perletpin_code2.value      = curpin_code1;     
+         perletpermanent_full_address.value = curpresent_full_address;
+         
+         document.getElementById('stateid_first').setAttribute('readonly', true);
+         document.getElementById('district_first').setAttribute('readonly', true);
+         document.getElementById('present_city').readOnly =true;
+         document.getElementById('pin_code1').readOnly =true;
+         document.getElementById('present_full_address').readOnly =true;
+
+         document.getElementById('stateid_second').setAttribute('readonly', true);
+         document.getElementById('district_second').setAttribute('readonly', true);
+         document.getElementById('permanent_city').readOnly =true;
+         document.getElementById('pin_code2').readOnly =true;
+         document.getElementById('permanent_full_address').readOnly =true;
+
+      }
+      else
+      {
+         perletstateid_second.value = "";
+         perletdistrict_second.value = ""; 
+         perletcity_second.value     = "";     
+         perletpin_code2.value      = "";     
+         perletpermanent_full_address.value  = "";         
+         
+         document.getElementById('stateid_first').removeAttribute("readonly");
+         document.getElementById('district_first').removeAttribute("readonly");
+         document.getElementById('present_city').readOnly =false;
+         document.getElementById('pin_code1').readOnly =false;
+         document.getElementById('present_full_address').readOnly =false;
+
+         document.getElementById('stateid_second').removeAttribute("readonly");
+         document.getElementById('district_second').removeAttribute("readonly");
+         document.getElementById('permanent_city').readOnly =false;
+         document.getElementById('pin_code2').readOnly =false;
+         document.getElementById('permanent_full_address').readOnly =false;
+      }
+   }
+</script>
 
 <script type="text/javascript">
 
