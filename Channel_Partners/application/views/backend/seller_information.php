@@ -115,6 +115,12 @@
    border: 1px solid #1976d2 !important;
    }
 </style>
+<style>
+   .star{
+   color:red;
+   font-size: 18px;
+   }
+</style>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/seller.css">
 <div class="pcoded-content">
    
@@ -141,22 +147,26 @@
                   </div>
                </div>
             </div>  
-            <div class="card">   
-               <!--<div class="message" ></div>-->
+            <div class="card"> 
+         
+
+            <?php $this->load->view('backend/form_top'); ?> 
+
                <div class="container-fluid">
                   <div class="row">
                      <div class="col-lg-12 col-xlg-12 col-md-12">
                         <!-- <div class=""> -->
                         <div class="row">
                            <div class="col-12">
-                              <?php $this->load->view('backend/form_top'); ?>                            
+                              <?php //$this->load->view('backend/form_top'); ?>                                                          
                               <div class="card-outline-info">
+                              
                                  <form id="seller_registration_form" action="<?php echo base_url();?>SellerRegister/register_seller" method="post" enctype="multipart/form-data">
                                     <!--<div class="note" style="border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:red;">-->                               
                                     <div class="card-body">
-                                       <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 18px; text-transform: capitalize;color:black">
+                                       <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:black">
                                           <i class="fa fa-user-circle-o" aria-hidden="true" style="color:#ff0000;"></i>&nbsp;&nbsp;
-                                          <span style="color:#ff0000;">Personal Details</span> 
+                                          <span style="color:#ff0000;">Personal Details :</span> 
                                        </div>
                                     </div>
                                     <div class="row mx-3">
@@ -168,10 +178,10 @@
                                        <input type="hidden" name="id" class="form-control" value="<?php echo $id;?>" placeholder="">
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>User Type  <span class="red-color span1">*</span></label>
-                                          <select id="usertype"  required class="form-control" autocomplete="off" disabled ="disabled">
+                                          <select   required class="form-control" autocomplete="off" disabled ="disabled">
                                              <option value="3" selected="selected">Seller</option>
                                           </select>
-                                          <input type="hidden" name="usertype"  value="3" placeholder="">	
+                                          <input id="usertype" type="hidden" name="usertype"  value="3" placeholder="">	
                                        </div>
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>Seller Name  <span class="red-color">*</span></label>
@@ -212,8 +222,9 @@
                                           <label>Region <span class="red-color"> * </span></label>
                                              <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-												           <input type="text" id="region_id" name="regionid" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly > 
-											             <!--	
+												            <input type="text" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled" > 
+											               <input type="hidden" id="region_id" name="regionid" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly > 
+                                               <!--	
                                                 <select id="region_id" name="region" class="form-control"  autocomplete="off" required>
                                                    <option value="">-- Select region --</option>
                                                    <?php 
@@ -232,35 +243,33 @@
                                              <label>Region State <span class="red-color"> * </span></label>
                                              <div class="input-group">
                                                 <?php  
-												    $sta = $this->db->query("SELECT * FROM region WHERE id=".$region_state." ");
-													$state_det= $sta->result();
-													//print_r($this->db->last_query());
-													foreach($state_det as $dec)
-													{			
-														$state_name = $dec->region_name ;																																												
-													}  
-												?>
-												<span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-												<input type="text"  value="<?php echo $state_name; ?>" class="form-control"  autocomplete="off" required readonly>
-												<input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state; ?>" class="form-control"  autocomplete="off" required readonly>
-                                            <!--    
-												<select id="region_state" name="region_state" class="form-control"  autocomplete="off" required>                                                  
-                                                    <option value="">-- Select Region State --</option>
-													<?php
-													if(isset($Laabhagent_Details) && $Laabhagent_Details !="") 
-                                                    { 
-                                                      //var_dump($country);
-                                                      foreach($region_state_list as $rc)
-                                                      {   ?>
-													  
-                                                      <option value="<?= $rc->id; ?>" <?php echo $region_state == $rc->id ? " selected" : ""; ?> ><?= $rc->region_name; ?></option>
-                                                      <?php  
-													  }
-													}													  
-													
-													?> 
-                                                </select>
-											-->	
+                                                   $sta = $this->db->query("SELECT * FROM region WHERE id=".$region_state." ");
+                                                   $state_det= $sta->result();
+                                                   //print_r($this->db->last_query());
+                                                   foreach($state_det as $dec)
+                                                   {			
+                                                      $state_name = $dec->region_name ;																																												
+                                                   }  
+                                                ?>
+                                                   <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                                   <input type="text"  value="<?php echo $state_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled">
+                                                   <input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state; ?>" class="form-control"  autocomplete="off" required readonly>
+                                                   <!--    
+                                                   <select id="region_state" name="region_state" class="form-control"  autocomplete="off" required>                                                  
+                                                   <option value="">-- Select Region State --</option>
+                                                   <?php
+                                                      if(isset($Laabhagent_Details) && $Laabhagent_Details !="") 
+                                                      { 
+                                                         //var_dump($country);
+                                                         foreach($region_state_list as $rc)
+                                                         {   ?>                                
+                                                            <option value="<?= $rc->id; ?>" <?php echo $region_state == $rc->id ? " selected" : ""; ?> ><?= $rc->region_name; ?></option>
+                                                            <?php  
+                                                         }
+                                                      }													                                                       
+                                                      ?> 
+                                                   </select>
+                                                   -->	
                                              </div>
                                           </div>
 
@@ -268,40 +277,39 @@
                                              <label>Distinct Branch <span class="red-color"> * </span></label>
                                              <div class="input-group">
                                                 <?php  
-												    $dist = $this->db->query("SELECT * FROM district_branch WHERE Districtcode=".$district_branch." ");
-													$state_dest= $dist->result();
-													//print_r($this->db->last_query());
-													foreach($state_dest as $t)
-													{			
-														$dist_name = $t->Districtname ;																																												
-													}  
-												?>
-												<span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-												<input type="text" value="<?php echo $dist_name; ?>" class="form-control"  autocomplete="off"  readonly>
-												<input type="hidden" id="district_branch" name="district_branch" value="<?php echo $district_branch; ?>" class="form-control"  autocomplete="off" required readonly>
-                                            <!--    
-												<select id="district_branch" name="district_branch" class="form-control"  autocomplete="off" required>
-                                                   <option value="">-- Select Distinct Branch --</option> 
-                                                   <?php
-												    if(isset($Laabhagent_Details) && $Laabhagent_Details !="") 
-                                                    { 
-                                                      //var_dump($country);
-                                                      foreach($districtbranch as $c)
-                                                      { ?>
-														 
-														 <option value="<?= $c->Districtcode; ?>" <?php echo $district_branch == $c->Districtcode ? " selected" : ""; ?> ><?= $c->Districtname; ?></option>
-														
-														<?php  
-													  }
-													}													
-													  ?> 
-                                                </select>
-                                            --> 
-											 </div>
+                                                   $dist = $this->db->query("SELECT * FROM district_branch WHERE Districtcode=".$district_branch." ");
+                                                   $state_dest= $dist->result();
+                                                   //print_r($this->db->last_query());
+                                                   foreach($state_dest as $t)
+                                                   {			
+                                                      $dist_name = $t->Districtname ;																																												
+                                                   }  
+                                                ?>
+                                                <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                                <input type="text" value="<?php echo $dist_name; ?>" class="form-control"  autocomplete="off"  readonly disabled ="disabled">
+                                                <input type="hidden" id="district_branch" name="district_branch" value="<?php echo $district_branch; ?>" class="form-control"  autocomplete="off" required readonly>
+                                                      <!--    
+                                                <select id="district_branch" name="district_branch" class="form-control"  autocomplete="off" required>
+                                                               <option value="">-- Select Distinct Branch --</option> 
+                                                               <?php
+                                                   if(isset($Laabhagent_Details) && $Laabhagent_Details !="") 
+                                                               { 
+                                                                  //var_dump($country);
+                                                                  foreach($districtbranch as $c)
+                                                                  { ?>
+                                                      
+                                                      <option value="<?= $c->Districtcode; ?>" <?php echo $district_branch == $c->Districtcode ? " selected" : ""; ?> ><?= $c->Districtname; ?></option>
+                                                      
+                                                      <?php  
+                                                   }
+                                                   }													
+                                                   ?> 
+                                                            </select>
+                                                      --> 
+                                             </div>
                                           </div>
-
-
-                                       <div class="note" style="border: 2px solid;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;width: 1181px;color:#5049251a">
+                                          <div class="form-group col-md-12 m-t-20">
+                                       <div class="note" id="pro_img" style="border: 2px solid;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a">
                                           <div class="col-md-6 offset-md-0 photo box1"  >
                                              <div class="box">
                                                 <div class="box-body">
@@ -310,9 +318,8 @@
                                                       <span id="pro_pic" style="display: block;">                                                        
                                                       <img id="blah" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Seller_Details)) { echo $seller_image; } else{ echo "your-picture.png"; } ?> " height="100" width="100" />                                                                                                                          
                                                       </span>
-                                                      <p class="text-muted text-left" style="margin-bottom: 5px;">
-                                                         Seller Passport Size Photo Only *
-                                                      </p>
+                                                      <p class="text-muted text-left" style="margin-bottom: 5px;"> Seller Passport Size Photo Only <span class="red-color"> * </span> </p>                                                     
+                                                      <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
                                                       <div class="input-group">
                                                          <div class="input-group-addon">
                                                             <input type='file' accept="image/png, image/gif, image/jpeg, image/jpg" name="seller_photo" onchange="proPic(this);"  />                              
@@ -322,12 +329,11 @@
                                                       <span id="pro_pic" style="display: block;">                                   
                                                       <img id="blah" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>assets/images/your-picture.png" height="100" width="100" />                                                                                                                           
                                                       </span>
-                                                      <p class="text-muted text-left" style="margin-bottom: 5px;">
-                                                         Seller Passport Size Photo Only *
-                                                      </p>
+                                                      <p class="text-muted text-left" style="margin-bottom: 5px;"> Seller Passport Size Photo Only <span class="red-color"> * </span> </p>                                                     
+                                                      <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
                                                       <div class="input-group">
                                                          <div class="input-group-addon">
-                                                            <input type='file' accept="image/png, image/gif, image/jpeg, image/jpg" required id="emp_image" name="seller_photo" onchange="proPic(this);" />                              
+                                                            <input type='file' accept="image/png, image/gif, image/jpeg, image/jpg" required  id="emp_image" name="seller_photo" onchange="proPic(this);" />                              
                                                          </div>
                                                       </div>
                                                       <?php }  ?> 
@@ -337,70 +343,13 @@
                                           </div>
                                        </div>
                                     </div>
-																											
-									
-                                    <!--  ============ Permanent Address ============  -->
-                                    <div class="card-body">
-                                       <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 18px; text-transform: capitalize;color:black">
-                                          <i class="fa fa-home" aria-hidden="true" style="color:#ff0000;"></i>&nbsp;&nbsp;
-                                          <span style="color:#ff0000;">Registered/Permanaent Address</span>
-                                          <span class="pull-right "></span>                                          
-                                       </div>
-                                    </div>
-                                    <div class="row mx-3">
-                                       <div class="form-group col-md-3 m-t-20">
-                                          <label>State : <span class="red-color">*</span></label>
-                                          <select id="stateid_second" name="state_second" class="form-control get_state_id" required autocomplete="off">
-                                             <option value="">-- Select State --</option>
-                                             <?php 
-                                                //var_dump($country);
-                                                foreach($state_list as $c)
-                                                {   ?>
-                                             <option value="<?= $c->statecode; ?>" <?php echo $state_second == $c->statecode ? " selected" : ""; ?> ><?= $c->statename; ?></option>
-                                             <?php  
-                                                }  ?>
-                                          </select>
-										  <!--<input type="hidden" id="conutryprice" name="regionid" value="ctotalprice">-->
-                                       </div>
-                                       <div class="form-group col-md-3 m-t-20">
-                                          <label>District : <span class="red-color span1">*</span></label>
-                                          <select id="district_second" name="district_second" class="form-control" required autocomplete="off">
-                                             <?php if(isset($Seller_Details)) 
-                                                {                                            
-                                                   foreach($district_list as $dist)
-                                                   {  ?>
-                                             <option value="<?= $dist->Districtcode; ?>" <?php echo $district_second == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
-                                             <?php  
-                                                } 
-                                                }
-                                                else 
-                                                {  ?>                                        
-                                             <option value="">-- Select District --</option>
-                                             <?php 
-                                                }   
-                                                ?>                                        
-                                          </select>
-                                       </div>
-                                       <div class="form-group col-md-3 m-t-20">
-                                          <label>City : <span class="red-color span1">*</span></label>
-                                          <input type="text" id="permanent_city" name="city_second" class="form-control" value="<?php echo $city_second; ?>" required placeholder="city" >                                    
-                                       </div>
-                                       <div class="form-group col-md-3 m-t-20">
-                                          <label>Pin Code <span class="red-color span1">*</span></label>
-                                          <input type="number" name="pincode_second" id="pin_code2" class="form-control" id="pin_code1" value="<?php echo $pincode_second; ?>" required placeholder="pin code" minlength="6" maxlength="6" >
-                                       </div>
-                                       <div class="form-group col-md-12 m-t-20">
-                                          <label>Address : <span class="red-color">*</span></label>
-                                          <textarea id="permanent_full_address" name="permanent_address" class="form-control" rows="4" placeholder="full permanaent address" required autocomplete="off" maxlength="100"><?php echo $permanent_full_address; ?></textarea>
-                                       </div>
-                                    </div>
-                                    <!-- ============ End Permanent Address ============ -->
+												</div>
                                     
                                     <!-- ============ Current Address ============ -->
                                     <div class="card-body">
-                                       <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 18px; text-transform: capitalize;color:black">
+                                       <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:black">
                                           <i class="fa fa-address-card" aria-hidden="true" style="color:#ff0000;"></i>&nbsp;&nbsp;
-                                          <span style="color:#ff0000;">Current Address</span> 
+                                          <span style="color:#ff0000;">Current Address :</span> 
                                        </div>
                                        <!--<input type="checkbox" id="checkBox"  onclick="autoFilAddress()"> Same as permanent address-->
                                     </div>
@@ -451,44 +400,116 @@
                                           <textarea id="present_full_address" name="current_address" class="form-control" rows="4" placeholder="full current address" required autocomplete="off" maxlength="100"><?php echo $current_address; ?></textarea>
                                        </div>
                                     </div>
-                                    <!-- ============ End Current Address ============ --> 
+                                    
+                                    <!-- ============ End Current Address ============ -->                                    
+									
+                                    <!--  ============ Permanent Address ============  -->
+                                    <div class="card-body">
+                                       <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:black">
+                                          <i class="fa fa-home" aria-hidden="true" style="color:#ff0000;"></i>&nbsp;&nbsp;
+                                          <span style="color:#ff0000;">Registered/Permanaent Address :</span>
+                                          <span class="pull-right "></span>                                          
+                                       </div>
+                                       <div class="col-md-12">
+                                          <div class="" style="float:center;">															   
+                                             <b><span style="color:#3a8ace;"> <input type="checkbox" id='same_addr_check' name="same_addr_check"  onclick="autoFilAddress()"  >&nbsp; Same as Present address </span></b>                                                                                                                         
+                                          </div>
+                                       </div>
+                                    </div>
+                                    
+                                    <div class="row mx-3">            
+                                       <div class="form-group col-md-3 m-t-20">
+                                          <label>State : <span class="red-color">*</span></label>
+                                          <select id="stateid_second" name="state_second" class="form-control get_state_id" required autocomplete="off">
+                                             <option value="">-- Select State --</option>
+                                             <?php 
+                                                //var_dump($country);
+                                                foreach($state_list as $c)
+                                                {   ?>
+                                             <option value="<?= $c->statecode; ?>" <?php echo $state_second == $c->statecode ? " selected" : ""; ?> ><?= $c->statename; ?></option>
+                                             <?php  
+                                                }  ?>
+                                          </select>
+										         <!--<input type="hidden" id="conutryprice" name="regionid" value="ctotalprice">-->
+                                       </div>
+                                       <div class="form-group col-md-3 m-t-20">
+                                          <label>District : <span class="red-color span1">*</span></label>
+                                          <select id="district_second" name="district_second" class="form-control" required autocomplete="off">
+                                             <?php if(isset($Seller_Details)) 
+                                                {                                            
+                                                   foreach($district_list as $dist)
+                                                   {  ?>
+                                                      <option value="<?= $dist->Districtcode; ?>" <?php echo $district_second == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
+                                                      <?php  
+                                                   } 
+                                                }
+                                                else 
+                                                {  ?>                                        
+                                                   <option value=""> -- Select District -- </option>
+                                                   <?php                                                                        
+                                                   foreach($district_list as $dist)
+                                                   {  ?>                                                           
+                                                      <option value="<?= $dist->Districtcode; ?>" <?php echo $district_second == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
+                                                      <?php  
+                                                   }  
+                                                }   
+                                                ?>                                        
+                                          </select>
+                                       </div>
+                                       <div class="form-group col-md-3 m-t-20">
+                                          <label>City : <span class="red-color span1">*</span></label>
+                                          <input type="text" id="permanent_city" name="city_second" class="form-control" value="<?php echo $city_second; ?>" required placeholder="city" >                                    
+                                       </div>
+                                       <div class="form-group col-md-3 m-t-20">
+                                          <label>Pin Code <span class="red-color span1">*</span></label>
+                                          <input type="number" name="pincode_second" id="pin_code2" class="form-control" id="pin_code1" value="<?php echo $pincode_second; ?>" required placeholder="pin code" minlength="6" maxlength="6" >
+                                       </div>
+                                       <div class="form-group col-md-12 m-t-20">
+                                          <label>Address : <span class="red-color">*</span></label>
+                                          <textarea id="permanent_full_address" name="permanent_address" class="form-control" rows="3" placeholder="full permanaent address" required autocomplete="off" maxlength="100"><?php echo $permanent_full_address; ?></textarea>
+                                       </div>
+                                    </div>
+                                    <!-- ============ End Permanent Address ============ -->
+                                    
+ 
 									
                                     <div class="card-body">
-                                       <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 18px; text-transform: capitalize;color:black">
+                                       <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:black">
                                           <i class="fa fa-university" aria-hidden="true" style="color:#ff0000;"></i>&nbsp;&nbsp;
-                                          <span style="color:#ff0000;">Company Detail</span>
+                                          <span style="color:#ff0000;">Company Detail :</span>
                                           <span class="pull-right "></span>                                          
                                        </div>
                                     </div>
                                     <div class="row mx-3">
-                                       <div class="form-group col-md-3 m-t-20">
+                                       <div class="form-group col-md-4 m-t-20">
                                           <label>Company Name : <span class="red-color">*</span></label>
                                           <input type="text" id="companyname" name="companyname" class="form-control" value="<?php echo $companyname; ?>" required placeholder="company name">
                                        </div>
-                                       <div class="form-group col-md-3 m-t-20">
+                                       <div class="form-group col-md-4 m-t-20">
                                           <label>Director Name : <span class="red-color">*</span></label>
                                           <input type="text" id="proprietor_name" name="proprietor_name" class="form-control" value="<?php echo $proprietor_name; ?>" required placeholder="company director name">
                                        </div>
-                                       <div class="form-group col-md-3 m-t-20">
+                                       <div class="form-group col-md-4 m-t-20">
                                           <label>PAN Number : <span class="red-color">*</span></label>
                                           <input type="text" name="panNo" id="panNo" class="form-control" value="<?php echo $panNo; ?>" required placeholder="pan no">
                                        </div>
-                                       <div class="form-group col-md-3 m-t-20">
+                                       <div class="form-group col-md-6 m-t-20">
                                           <label>GSTIN : <span class="red-color">*</span></label>                                         
                                           <input type="text" id="gstin" name="gstin" class="form-control" value="<?php echo $gstin; ?>" required placeholder="gst no">
                                        </div>
-                                       <div class="form-group col-md-3 m-t-20">
+                                       <div class="form-group col-md-6 m-t-20">
                                           <label>TAN Number : </label>
                                           <input type="text" name="tanNo" class="form-control" value="<?php echo $tanNo; ?>" required placeholder="tan no">
                                        </div>
-                                    </div>
+                                    </div><br><br>
                                     <input type="hidden" name="isedit" value="<?php echo $update; ?>">
+                                    <div  style="background-color: #fff;border-top: 1px dashed #1abc9c;padding: 20px 25px;position: inherit"></div>
                                     <div class="form-actions col-md-12 mb-3">
                                        <section class="btn-section">
                                           <div class="row">
                                              <div class="col-md-12">
                                                 <div class="" style="float:right;">                                                
-                                                   <button type="submit"  name="submit" onclick='submitForm()' id="sub_btn" class="btn footer-button"><i class="fa fa-check"></i> Save & Next</button>                                                   
+                                                   <button type="submit"  name="submit" onclick='return submitForm()' id="sub_btn" class="btn footer-button"><i class="fa fa-check"></i> Save & Next</button>                                                   
                                                 </div>
                                              </div>
                                           </div>
@@ -508,10 +529,69 @@
    </div>
 <!-- Optional JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   
+<script type="text/javascript">
+   function autoFilAddress()
+   {
+      let same_addr_check= document.getElementById('same_addr_check');
+
+      let curstateid_first = document.getElementById('stateid_first').value;
+      let curdistrict_first = document.getElementById('district_first').value;
+      let curcity_first = document.getElementById('present_city').value;
+      let curpin_code1 = document.getElementById('pin_code1').value;		
+      let curpresent_full_address = document.getElementById('present_full_address').value;
+		
+      let perletstateid_second = document.getElementById('stateid_second');		
+		let perletdistrict_second = document.getElementById('district_second');	
+      let perletcity_second = document.getElementById('permanent_city');
+		let perletpin_code2 = document.getElementById('pin_code2');		
+		let perletpermanent_full_address = document.getElementById('permanent_full_address');
+
+      if (same_addr_check.checked == true)
+      {   
+         perletstateid_second.value = curstateid_first; 
+         perletdistrict_second.value = curdistrict_first; 
+         perletcity_second.value     = curcity_first;   
+         perletpin_code2.value      = curpin_code1;     
+         perletpermanent_full_address.value = curpresent_full_address;
+         
+         document.getElementById('stateid_first').setAttribute('readonly', true);
+         document.getElementById('district_first').setAttribute('readonly', true);
+         document.getElementById('present_city').readOnly =true;
+         document.getElementById('pin_code1').readOnly =true;
+         document.getElementById('present_full_address').readOnly =true;
+
+         document.getElementById('stateid_second').setAttribute('readonly', true);
+         document.getElementById('district_second').setAttribute('readonly', true);
+         document.getElementById('permanent_city').readOnly =true;
+         document.getElementById('pin_code2').readOnly =true;
+         document.getElementById('permanent_full_address').readOnly =true;
+
+      }
+      else
+      {
+         perletstateid_second.value = "";
+         perletdistrict_second.value = ""; 
+         perletcity_second.value     = "";     
+         perletpin_code2.value      = "";     
+         perletpermanent_full_address.value  = "";         
+         
+         document.getElementById('stateid_first').removeAttribute("readonly");
+         document.getElementById('district_first').removeAttribute("readonly");
+         document.getElementById('present_city').readOnly =false;
+         document.getElementById('pin_code1').readOnly =false;
+         document.getElementById('present_full_address').readOnly =false;
+
+         document.getElementById('stateid_second').removeAttribute("readonly");
+         document.getElementById('district_second').removeAttribute("readonly");
+         document.getElementById('permanent_city').readOnly =false;
+         document.getElementById('pin_code2').readOnly =false;
+         document.getElementById('permanent_full_address').readOnly =false;
+      }
+   }
+</script>   
 <script type="text/javascript">
 
-    function submitForm()
+   function submitForm()
 	{
 				
 		var frm = $('#seller_registration_form');		
@@ -548,79 +628,96 @@
 		
 		if (user_type =="") 
 		{
-			alert("User Type is Mandatory!");			
+			alert("User Type is Mandatory!");
+         return false;			
 		}
 		else if (seller_name =='') 
 		{
 			alert("Seller Name is Mandatory!");
+         return false;
 		}
 		else if (contact =='') 
 		{
 			alert("Contact Number is Mandatory!");
+         return false;
 		}
 		else if (email =='') 
 		{
 			alert("Email is Mandatory!");
+         return false;
 		}
 		else if (gender =='') 
 		{
 			alert("Gender is Mandatory!");
+         return false;
 		}
 		else if (dob =='') 
 		{
 			alert("Date of Birth is Mandatory!");
+         return false;
 		}
 		else if (stateid_first =='' || district_first =='' || city_first =='' || pin_code1 =='' || present_full_address =='') 
 		{
 			alert("Present Address is Mandatory!");
+         return false;
 		}
 		else if (stateid_second =='' || district_second =='' || city_second =='' || pin_code2 =='' || permanent_full_address =='') 
 		{
 			alert("Permanent Address is Mandatory!");
+         return false;
 		}
 		else if (companyname =='') 
 		{
 			alert("Company name is Mandatory!");
+         return false;
 		}
       else if (proprietor_name =='') 
 		{
 			alert("Director name is Mandatory!");
+         return false;
 		}
 		else if (aadharno =='') 
 		{
 			alert("Employee Aadhar Number is Mandatory!");
+         return false;
 		}
 		else if (panNo =='') 
 		{
 			alert("PAN Number is Mandatory!");
+         return false;
 		}
 		else if (gstin =='') 
 		{
 			alert("GST Number is Mandatory!");
+         return false;
 		}
 		else if (emp_image =='') 
 		{
 			alert("Seller Image is Mandatory!");
+         return false;
 		}
       else if (region_id =='') 
 		{
 			alert("Region ID is Mandatory!");
+         return false;
 		}
 		else if (region_state =='') 
 		{
 			alert("Region State is Mandatory!");
+         return false;
 		}
 		else if (district_branch =='') 
 		{
 			alert("State Branch is Mandatory!");
+         return false;
 		}	
 		else
 		{
 
-			document.getElementById("seller_registration_form").submit();
-			
+			//document.getElementById("seller_registration_form").submit();
 			$("#sub_btn").html('<i class="fa fa-spinner fa-spin"></i>Submitting...');
-	        document.getElementById('sub_btn').disabled = true;
+	      //document.getElementById('sub_btn').disabled = true;
+         return true;
 			/*	
 				$.ajax({
 					type: frm.attr('method'),
@@ -775,7 +872,7 @@ $(document).ready(function() {
         //var checksumdigit = $(this).val().substring(14, 15);
 			
         if ($(this).val().length != 15) 
-		{           
+		  {           
 			text += " \u002A" + " Please Enter Valid 15 digit GST Number.";
 			alert(text);
 			$("#gstin").attr('style', 'border:1px solid #d03100 !important;');
@@ -829,7 +926,7 @@ $(document).ready(function() {
 			$('#pin_code1').attr('style', 'border:1px solid green !important;');
             $('#pin_code1').css({ "background-color": "#ffffff" });
 			return true;			           
-        }
+      }
 		else
 		{
             $("#pin_code1").attr('style', 'border:1px solid #d03100 !important;');
@@ -968,21 +1065,42 @@ $(document).ready(function(){
       
                   
  </script>
+
  <script type="text/javascript">
-    function proPic(input) 
-    {
-          if (input.files && input.files[0]) 
-          {
-              var reader = new FileReader();
-                 reader.onload = function (e) 
-                 {
-                    $('#blah')
-                        .attr('src', e.target.result)
-                        .width(80)
-                        .height(100);
-                 };
-              document.getElementById("pro_pic").style.display = "block";
-              reader.readAsDataURL(input.files[0]);
-          }
-    }
+  
+   function proPic(input) 
+   {
+      var fileEmpty = $('#emp_image').get(0).files.length === 0;
+      var size = parseFloat(emp_image.files[0].size / 1048576).toFixed(2);
+            
+      if (!fileEmpty && size > 1) 
+      {
+         alert("File size must be under 1MB !");
+         $('#emp_image').val('');                             
+         document.getElementById("blah").src = "<?php  echo base_url(); ?>assets/images/your-picture.png";
+         $('#blah').attr('style', 'border:0px solid grey !important;');
+         $("#pro_img").attr('style', 'border: 1px solid #d03100 !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');                                       
+      }
+      else
+      {
+         if (input.files && input.files[0]) 
+         {
+
+            var reader = new FileReader();
+            reader.onload = function (e) 
+            {
+               $('#blah')
+               .attr('src', e.target.result)
+               .width(100)
+               .height(100);
+            };
+            document.getElementById("pro_pic").style.display = "block";
+            reader.readAsDataURL(input.files[0]);
+            $('#blah').attr('style', 'border:1px solid grey !important;');
+            $("#pro_img").attr('style', 'border: 1px solid green !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');
+                  
+         }
+      }
+   }
+
 </script>

@@ -55,7 +55,7 @@
    margin-right:5px;
    }
    .sub-nav{
-   margin: -7px -7px -7px 0px;
+   margin: -16px -7px -7px 0px;
    color:#000;
    border-right:1px solid #0078d2;
    }
@@ -113,7 +113,38 @@
    transition: transform 0.3s ease;
    }
 </style> 
-   				
+            <div class="tab-header card">
+                <ul class="nav nav-tabs md-tabs tab-timeline" role="tablist" id="mytab">
+                    <li class="nav-item">
+                        <a class="nav-link <?php if ($sellerpersonal >0) { ?> active<?php } ?>"data-toggle="tab" href="<?php if ($sellerpersonal >0) { echo site_url("SellerRegister/seller_personal_details/".$sellerid."") ; } ?>" role="tab">
+                        <i class="check-icon fa fa-check" aria-hidden="true"></i> Seller Infomation</a>
+                        <div class="slide"></div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php if ($sellerdoc > 0) { ?> active<?php } ?>" data-toggle="tab" href="<?php if ($sellerpersonal >0) { echo site_url("SellerRegister/seller_personal_details/".$sellerid."") ; } ?>" role="tab">
+                        <i class="check-icon fa fa-check" aria-hidden="true"></i> Documents</a>
+                        <div class="slide"></div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php if ($sellerpayment > 0) { ?> active<?php } ?>" data-toggle="tab" href="<?php if ($sellerpayment >0) { echo site_url("SellerRegister/Payment/".$sellerid.""); } ?>" role="tab">
+                        <i class="check-icon fa fa-check" aria-hidden="true"></i>Payment</a>
+                        <div class="slide"></div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php if ($sellermou >0) { ?> active<?php } ?>" data-toggle="tab" href="<?php if ($sellermou >0) { echo site_url("SellerRegister/mou/".$sellerid.""); } ?>" role="tab">
+                        <i class="check-icon fa fa-check" aria-hidden="true"></i>MOU</a>
+                        <div class="slide"></div>
+                    </li>
+                    <!--  
+                    <li class="nav-item">
+                        <a class="nav-link <?php if ($sellerpersonal && $sellerdoc && $sellermou && $sellerpaymentdoc && $sellermoudoc && $seller_status > 0 ) { ?> active<?php } ?>" data-toggle="tab" href="<?php if ($sellerpersonal && $sellerdoc && $sellermou && $sellerpaymentdoc && $sellermoudoc && $seller_status > 0 ) { echo site_url("SellerRegister/application_preview/".$sellerid."");  } ?>" role="tab">
+                        <i class="check-icon fa fa-check" aria-hidden="true"></i>Preview</a>
+                        <div class="slide"></div>
+                    </li> 
+                    -->      
+                </ul>
+            </div>
+    <!--        		
 		<ul class="nav nav-pills nav-fill mt-3 mb-2">
 		    <li class="nav-item sub-nav">
 			    <a class="nav-link <?php if ($sellerpersonal >0) { ?> active<?php } ?>" href="<?php if ($sellerpersonal >0) { echo site_url("SellerRegister/seller_personal_details/".$sellerid."") ; } ?>">
@@ -145,6 +176,8 @@
 			    </a>
 		    </li>
 		</ul>
+    -->
+            
    
    
  

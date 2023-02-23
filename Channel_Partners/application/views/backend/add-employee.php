@@ -577,7 +577,7 @@
                                        <div class="row m-b-30">
                                           <div class="col-sm-12">
                                              <h4 class="sub-title"><i class="fa fa-home" aria-hidden="true"></i> Full Address <span class="star"> * </span></h4>
-                                             <textarea class="form-control max-textarea" id="permanent_full_address" name="permanent_full_address" placeholder="Permanent Full Address" maxlength="255" rows="3" required><?php echo $permanent_full_address;?></textarea>
+                                             <textarea class="form-control max-textarea" id="permanent_full_address" name="permanent_full_address" placeholder="Permanent Full Address"  rows="3" required><?php echo $permanent_full_address;?></textarea>
                                           </div>
                                        </div>
                                     </div>
@@ -1564,13 +1564,13 @@ $(document).ready(function() {
                alert("File size must be under 1MB !");
                $('#emp_image').val('');                             
                document.getElementById("blah").src = "<?php  echo base_url(); ?>assets/images/your-picture.png";
+               $('#blah').attr('style', 'border:0px solid grey !important;');
                $("#pro_img").attr('style', 'border: 1px solid #d03100 !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');                                
             }
             else
             {
                if (input.files && input.files[0]) 
                {
-
                   var reader = new FileReader();
                   reader.onload = function (e) 
                   {
@@ -1582,8 +1582,7 @@ $(document).ready(function() {
                   document.getElementById("pro_pic").style.display = "block";
                   reader.readAsDataURL(input.files[0]);
                   $('#blah').attr('style', 'border:1px solid grey !important;');
-                  $("#pro_img").attr('style', 'border: 1px solid green !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');
-                  
+                  $("#pro_img").attr('style', 'border: 1px solid green !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');                
                }
             }
    }

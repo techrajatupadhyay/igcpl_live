@@ -270,7 +270,7 @@
                                              <h4 class="sub-title">Region <span class="star"> * </span></h4>
                                              <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-												<input type="text" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled" >
+												            <input type="text" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled" >
                                                 <input type="hidden" id="region_id" name="region" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly > 
                                              <!--	
                                                 <select id="region_id" name="region" class="form-control"  autocomplete="off" required>
@@ -418,14 +418,14 @@
                                              <h4 class="sub-title"> Pincode <span class="star"> * </span></h4>
                                              <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control"  id="pin_code1" name="present_pincode" placeholder="pincode"  required value="<?php echo $present_pincode;?>">
+                                                <input type="text" class="form-control"  id="pin_code1" name="present_pincode" placeholder="pincode" pattern="[0-9]{6}"  required value="<?php echo $present_pincode;?>">
                                              </div>
                                           </div>
                                        </div>
                                        <div class="row m-b-30">
                                           <div class="col-sm-12">
                                              <h4 class="sub-title"><i class="fa fa-home" aria-hidden="true"></i> Full Address <span class="star"> * </span></h4>
-                                             <textarea class="form-control max-textarea" id="present_full_address" name="present_full_address" placeholder="present_full_address" maxlength="255" rows="3" required ><?php echo $present_full_address ;?></textarea>
+                                             <textarea class="form-control max-textarea" id="present_full_address" name="present_full_address" placeholder="present_full_address"  rows="3" required ><?php echo $present_full_address ;?></textarea>
                                           </div>
                                        </div>
                                     </div>
@@ -497,14 +497,14 @@
                                              <h4 class="sub-title"> Pincode <span class="star"> * </span></h4>
                                              <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control"  id="pin_code2" name="permanent_pincode" placeholder="pincode"  required value="<?php echo $permanent_pincode;?>">
+                                                <input type="text" class="form-control"  id="pin_code2" name="permanent_pincode" placeholder="pincode"  pattern="[0-9]{6}" required value="<?php echo $permanent_pincode;?>">
                                              </div>
                                           </div>
                                        </div>
                                        <div class="row m-b-30">
                                           <div class="col-sm-12">
                                              <h4 class="sub-title"><i class="fa fa-home" aria-hidden="true"></i> Full Address <span class="star"> * </span></h4>
-                                             <textarea class="form-control max-textarea" id="permanent_full_address" name="permanent_full_address" placeholder="Permanent Full Address" maxlength="255" rows="3" required><?php echo $permanent_full_address;?></textarea>
+                                             <textarea class="form-control max-textarea" id="permanent_full_address" name="permanent_full_address" placeholder="Permanent Full Address"  rows="3" required><?php echo $permanent_full_address;?></textarea>
                                           </div>
                                        </div>
                                     </div>
@@ -598,7 +598,7 @@
                                                          <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
                                                          <div class="input-group">
                                                             <div class="input-group-addon">
-                                                               <input type='file'accept="image/png,image/gif, image/jpeg, image/jpg"   name="agent_image"onchange="proPic(this);"  <?php echo $em_image; ?> />
+                                                               <input type='file'accept="image/png,image/gif, image/jpeg, image/jpg"   name="agent_image" onchange="proPic(this);"  <?php echo $em_image; ?> />
                                                             </div>
                                                          </div>
                                                          
@@ -1340,28 +1340,6 @@ $(document).ready(function() {
 </script>
 
 
-<script>
-   function signature_pic(input) 
-   {
-       if (input.files && input.files[0]) 
-       {
-           var reader = new FileReader();
-           reader.onload = function (e) 
-           {
-               $('#la_signature')
-               .attr('src', e.target.result)
-               .width(80)
-               .height(100);
-           };
-           document.getElementById("signature").style.display = "block";
-		   
-           reader.readAsDataURL(input.files[0]);
-       }
-   }
-</script>
-
-
-
 <script>   
    $('.get_state_id').on('change', function() 
    {
@@ -1388,42 +1366,41 @@ $(document).ready(function() {
 
    function proPic(input) 
    {
-            var fileEmpty = $('#agent_image').get(0).files.length === 0;
-            var size = parseFloat(agent_image.files[0].size / 1048576).toFixed(2);
+      var fileEmpty = $('#agent_image').get(0).files.length === 0;
+      var size = parseFloat(agent_image.files[0].size / 1048576).toFixed(2);
             
-            if (!fileEmpty && size > 1) 
+      if (!fileEmpty && size > 1) 
+      {
+         alert("File size must be under 1MB !");
+         $('#agent_image').val('');                             
+         document.getElementById("blah").src = "<?php  echo base_url(); ?>assets/images/your-picture.png";
+         $('#blah').attr('style', 'border:0px solid grey !important;');
+         $("#pro_img").attr('style', 'border: 1px solid #d03100 !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');                                
+      }
+      else
+      {
+         if (input.files && input.files[0]) 
+         {
+            var reader = new FileReader();
+            reader.onload = function (e) 
             {
-               alert("File size must be under 1MB !");
-               $('#agent_image').val('');                             
-               document.getElementById("blah").src = "<?php  echo base_url(); ?>assets/images/your-picture.png";
-               $("#pro_img").attr('style', 'border: 1px solid #d03100 !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');                                
-            }
-            else
-            {
-               if (input.files && input.files[0]) 
-               {
-
-                  var reader = new FileReader();
-                  reader.onload = function (e) 
-                  {
-                     $('#blah')
-                     .attr('src', e.target.result)
-                     .width(100)
-                     .height(100);
-                  };
-                  document.getElementById("pro_pic").style.display = "block";
-                  reader.readAsDataURL(input.files[0]);
-                  $('#blah').attr('style', 'border:1px solid grey !important;');
-                  $("#pro_img").attr('style', 'border: 1px solid green !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');
-                  
-               }
-            }
+               $('#blah')
+               .attr('src', e.target.result)
+               .width(100)
+               .height(100);
+            };
+            document.getElementById("pro_pic").style.display = "block";
+            reader.readAsDataURL(input.files[0]);
+            $('#blah').attr('style', 'border:1px solid grey !important;');
+            $("#pro_img").attr('style', 'border: 1px solid green !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');                     
+         }
+      }
    }
 
    
    function signature_pic(input) 
    {  
-         var fileEmpty = $('#agent_signature').get(0).files.length === 0;
+      var fileEmpty = $('#agent_signature').get(0).files.length === 0;
          var size = parseFloat(agent_signature.files[0].size / 1048576).toFixed(2);
             
             if (!fileEmpty && size > 1) 
@@ -1445,20 +1422,14 @@ $(document).ready(function() {
                         .width(80)
                         .height(100);
                   };
-                  document.getElementById("signature").style.display = "block";
-                  
-                  reader.readAsDataURL(input.files[0]);
-                  
+                  document.getElementById("signature").style.display = "block";                 
+                  reader.readAsDataURL(input.files[0]);                 
                   $('#la_signature').attr('style', 'border:1px solid grey !important;');
                   $("#sign_img").attr('style', 'border: 1px solid green !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');                 
                }
             }
    }
 </script>
-
-
-
-
 
 
 <script>

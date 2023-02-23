@@ -31,6 +31,7 @@ class SellerRegister extends CI_Controller
                 $data['districtbranch'] = @$this->db->get('district_branch')->result();
 				
 				$data['state_list'] = @$this->db->get('state_master')->result();
+				$data['district_list'] = @$this->db->get('district_master')->result();
 				$this->load->view('backend/new_header'); 
 				$this->load->view('backend/new_sidebar'); 
 				$this->load->view('backend/seller_information', $data);
