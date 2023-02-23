@@ -669,7 +669,7 @@
                                                          <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
                                                          <div class="input-group">
                                                             <div class="input-group-addon">
-                                                               <input type="file" accept="image/png, image/gif, image/jpeg, image/jpg"  name="em_image" onchange="proPic(this);"  <?php echo $em_image; ?> />
+                                                               <input type="file" accept="image/png, image/gif, image/jpeg, image/jpg"  id="emp_image" name="em_image" onchange="proPic(this);"  <?php echo $em_image; ?> />
                                                             </div>
                                                          </div>
                                                          <?php } else { ?> 
@@ -709,7 +709,7 @@
                                                          <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
                                                          <div class="input-group">
                                                             <div class="input-group-addon">
-                                                               <input type="file" accept="image/png, image/gif, image/jpeg, image/jpg"  name="em_signature" onchange="signature_pic(this);"/>
+                                                               <input type="file" accept="image/png, image/gif, image/jpeg, image/jpg"  id="emp_sign" name="em_signature" onchange="signature_pic(this);"/>
                                                             </div>
                                                          </div>
                                                          <?php } else { ?>

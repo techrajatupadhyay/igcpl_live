@@ -598,7 +598,7 @@
                                                          <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
                                                          <div class="input-group">
                                                             <div class="input-group-addon">
-                                                               <input type='file'accept="image/png,image/gif, image/jpeg, image/jpg"   name="agent_image" onchange="proPic(this);"  <?php echo $em_image; ?> />
+                                                               <input type='file'accept="image/png,image/gif, image/jpeg, image/jpg"   id="agent_image"  name="agent_image" onchange="proPic(this);"  <?php echo $em_image; ?> />
                                                             </div>
                                                          </div>
                                                          
@@ -612,7 +612,7 @@
                                                          <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
                                                          <div class="input-group">
                                                             <div class="input-group-addon">
-                                                               <input type='file'accept="image/png,image/gif, image/jpeg, image/jpg"  id="agent_image" required name="agent_image"onchange="proPic(this);"  <?php echo $em_image; ?> />
+                                                               <input type='file'accept="image/png,image/gif, image/jpeg, image/jpg"  id="agent_image" required name="agent_image" onchange="proPic(this);"  <?php echo $em_image; ?> />
                                                             </div>
                                                          </div>															
                                                          
@@ -642,7 +642,7 @@
                                                             <p class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
                                                             <div class="input-group">
                                                                <div class="input-group-addon">
-                                                                  <input type='file' accept="image/png,image/gif, image/jpeg, image/jpg"  name="agent_signature"  onchange="signature_pic(this);"/>
+                                                                  <input type='file' accept="image/png,image/gif, image/jpeg, image/jpg"  id="agent_signature" name="agent_signature"  onchange="signature_pic(this);"/>
                                                                </div>
                                                             </div>
 														 
