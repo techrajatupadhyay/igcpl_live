@@ -147,7 +147,7 @@
                               <th scope="col">Select Plan</th>
                               <th scope="col">Time Duration</th>
                               <th scope="col">Amount (₹)</th>
-                              <?php if($state_second == '17') { ?> 
+                              <?php if($state_second == "09") { ?> 
                               <th scope="col">CGST %</th>
                               <th scope="col">SGST %</th>
                               <?php } else { ?> 
@@ -171,7 +171,7 @@
                               <td style="text-align:center;"> <input type="radio" name="registration"  id="chkYes<?php echo $pay_id; ?>" onclick="check_amount('<?php echo $pay_id; ?>')" class="checkoption" value="yes"  required ></td>
                               <td><?php echo $plan->reg_dur_details ?></td>
                               <td><i class="fa fa-inr" aria-hidden="true"></i> <?php echo $plan->reg_amount ?></td>
-                              <?php if($state_second == '17') { ?>	
+                              <?php if($state_second == "09") { ?>	
                               <td>
                                  <?php 																   
                                     echo $plan->cgst ." %"; 
@@ -365,8 +365,6 @@
                                  
                                 </tr>
                             
-
-
                                  <tr align="left">
                                   <td width="36" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
                                   <td style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;">

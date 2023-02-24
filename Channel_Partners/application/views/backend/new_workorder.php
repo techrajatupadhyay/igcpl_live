@@ -134,7 +134,7 @@
    <div class="row">
       <div class="col-sm-12">
          <div class="card">
-            <form id="workorder_form" action="" method="post" enctype="multipart/form-data">
+            <form id="workorder_form" action="<?php echo base_url()?>Seller_module/genrate_workorder" method="post" enctype="multipart/form-data">
                <div class="card-header">
                   <h5>Workorder Details</h5>
                   <span>fields with <b style="color:red;">* </b> is mandatory !</span>
@@ -151,21 +151,21 @@
                <div class="card-block">
                   <div class="row">
                      <div class="col-sm-12">					     
-						   <input type="hidden" class="form-control" name="labh_emp_id" readonly required value="<?php echo $labh_emp_id; ?>" >
-						   <input type="hidden" class="form-control" name="labh_agent_id" readonly required value="<?php echo $labh_agent_id; ?>" >
-						   <input type="hidden" class="form-control" name="region_id" readonly required value="<?php echo $region_id; ?>" >						 
-						   <input type="hidden" class="form-control" name="region_state"  required readonly value="<?php echo $region_state; ?>">
-						   <input type="hidden" class="form-control" name="district_branch" readonly required value="<?php echo $district_branch; ?>" >
+                        <input type="hidden" class="form-control" id="labh_executive_id" name="labh_executive_id" readonly required value="<?php echo $labh_emp_id; ?>" >
+                        <input type="hidden" class="form-control" id="labh_agent_id" name="labh_agent_id" readonly required value="<?php echo $labh_agent_id; ?>" >
+                        <input type="hidden" class="form-control" id="region_id" name="region_id" readonly required value="<?php echo $region_id; ?>" >						 
+                        <input type="hidden" class="form-control" id="region_state" name="region_state"  required readonly value="<?php echo $region_state; ?>">
+                        <input type="hidden" class="form-control" id="district_branch" name="district_branch" readonly required value="<?php echo $district_branch; ?>" >
 
-                     <h4 class="sub-title" style="color:red;"><i class="feather icon-shopping-cart"></i>&nbsp; Order Details :</h4>
-                     <div class="card-block inner-card-block">                        
+                        <h4 class="sub-title" style="color:red;"><i class="feather icon-shopping-cart"></i>&nbsp; Order Details :</h4>
+                        <div class="card-block inner-card-block">                        
                            <div class="row m-b-30">
                               <div class="col-sm-4">
                                  <h4 class="sub-title">Seller Id <span class="star">*</span></h4>
                                  <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon7"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
                                     <input type="text" class="form-control"  readonly disabled ="disabled" required value="<?php echo $sellerid; ?>" >
-                                    <input type="hidden" class="form-control" name="sellerid" readonly  required value="<?php echo $sellerid; ?>" >
+                                    <input type="hidden" class="form-control" id="sellerid" name="sellerid" readonly  required value="<?php echo $sellerid; ?>" >
                                  </div>
                               </div>
 
@@ -561,14 +561,14 @@
                                     <h4 class="sub-title">Pickup Pincode <span class="star"> *</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                       <input type="number" class="form-control" id="pickup_pincode" name="pick_pincode" placeholder="pickup pincode" required="" minlength="6" maxlength="6" value="">
+                                       <input type="number" class="form-control" id="pickup_pincode" name="pick_pincode" placeholder="pickup pincode" required="" pattern="[0-9]{6}" minlength="6" maxlength="6" value="">
                                     </div>
                                  </div>
                                  <div class="col-sm-4">
                                     <h4 class="sub-title">Delivery  Pincode <span class="star"> *</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                       <input type="number" class="form-control" id="delivery_pincode" name="delivered_pincode" placeholder="delivery pincode" required="" minlength="6" maxlength="6" value="">
+                                       <input type="number" class="form-control" id="delivery_pincode" name="delivered_pincode" placeholder="delivery pincode" required="" pattern="[0-9]{6}" minlength="6" maxlength="6" value="">
                                     </div>
                                  </div>
                                  
@@ -576,7 +576,7 @@
                                     <h4 class="sub-title">No of Packages/Box<span class="star"> *</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
-                                       <input type="number" class="form-control" id="noofpackages" name="noofpackages" placeholder="no of packages" required="" value="" value="" minlength="1" maxlength="5">
+                                       <input type="number" class="form-control" id="noofpackages" name="noofpackages" placeholder="no of packages" required="" value="" value="" pattern="[0-9]{6}" minlength="1" maxlength="5">
                                     </div>
                                  </div> 
 								
@@ -653,7 +653,7 @@
                                     <h4 class="sub-title uppercaser" style="text-align:left;" >Action<span class="star"> *</span></h4>
                                     <div class="input-group">
                                        <!--<a id='shipping_price' onclick='calculateShipping()' class="btn  btn-round btn-block text-white btn-out-dashed" style="background: #00acaf; border: 2px solid #00acaf;font-size:18px;"><i class="fa fa-calculator"></i>Calculate Shipping price</a>-->
-									            <button id='shipping_price' onclick='calculateShipping()' class="btn  btn-round btn-block text-white btn-out-dashed" style="background: #00acaf; border: 1px solid #00acaf;padding: 7px 19px"> <i class="fa fa-calculator"></i> Calculate Shipping price</buttona>
+									            <a id='shipping_price' onclick='calculateShipping()' class="btn  btn-round btn-block text-white btn-out-dashed" style="background: #00acaf; border: 1px solid #00acaf;padding: 7px 19px"> <i class="fa fa-calculator"></i> Calculate Shipping price</a>
                                     </div>
                                  </div>
 								      </div>
@@ -729,7 +729,7 @@
                                              </tr>
                                              <tr>
                                                 <th>&nbsp; Taxes GST (18%)  ₹  : &nbsp;</th>
-                                                <td id="total_gst"> 00.00 </td>
+                                                <td id="total_gst"> 00.00  </td>
                                              </tr>
                                           <!--   
                                              <tr>
@@ -744,7 +744,7 @@
                                                 </td>
                                                 <td>
                                                    <hr>
-                                                   <h5 class="text-primary" id="total_payable_amount"> 00.00 </h5>
+                                                   <h5 class="text-primary" id="total_payable_amount"> 00.00  </h5>
                                                 </td>
                                              </tr>
                                           </tbody>
@@ -800,7 +800,7 @@
                            <input type="hidden"  name="isedit" value="<?php echo $update ; ?>"> 
                            <input type="hidden"  name="igcpl_workorder_id" value="<?php echo $igcpl_workorder_id; ?>">                       
                            <!--<button type="submit"  name="submit" onclick='submitForm()' class="btn  btn-round btn-block text-white" style="background: #00acaf; border: 1px solid #00acaf;"><i class="fa fa-user-plus"></i>Generate Workorder </button>-->
-                           <button onclick='submitForm()' id="sub_btn" disabled="disabled" class="btn  btn-round btn-block text-white" style="background: #00acaf; border: 1px solid #00acaf;"><i class="feather icon-shopping-cart"></i>Generate Workorder request</button>
+                           <button onclick='return submitForm()' id="sub_btn" disabled="disabled" class="btn  btn-round btn-block text-white" style="background: #00acaf; border: 1px solid #00acaf;"><i class="feather icon-shopping-cart"></i>Generate Workorder request</button>
 						      </div>
                      </div>
                      <div class="col-lg-4 col-md-4"></div>
@@ -817,8 +817,8 @@
 </div>
 </div>
 
-
 <script type="text/javascript">
+
 $(document).ready(function() {
 
 	$('#buyer_contact').change(function () {
@@ -835,12 +835,12 @@ $(document).ready(function() {
 		else
 		{		        			
 			$("#buyer_contact").attr('style', 'border:1px solid #d03100 !important;');
-            $("#buyer_contact").css({ "background-color": "#fff2ee" });
-	        text += " \u002A" + " Please Enter Valid 10 digit Mobile Number.";
+         $("#buyer_contact").css({ "background-color": "#fff2ee" });
+	      text += " \u002A" + " Please Enter Valid 10 digit Mobile Number.";
 			alert(text);
-		    $("#buyer_contact").val("");
-            $(this).focus();
-            return false;
+		   $("#buyer_contact").val("");
+         $(this).focus();
+         return false;
 		}
 		      
     });
@@ -873,56 +873,52 @@ $(document).ready(function() {
     });
 	
 	
-	$('#pin_code1').change(function () {
-		
+	$('#pickup_pincode').change(function () {	
 		var text = "";
 		var match = "";		
 		var pin_code1 = $(this).val();	
 		var pinpat1=/^\d{6}$/;      
 		if (pin_code1.match(pinpat1))	       
 		{
-			$('#pin_code1').attr('style', 'border:1px solid green !important;');
-            $('#pin_code1').css({ "background-color": "#ffffff" });
+			$('#pickup_pincode').attr('style', 'border:1px solid green !important;');
+         $('#pickup_pincode').css({ "background-color": "#ffffff" });
 			return true;			           
-        }
+      }
 		else
 		{
-            $("#pin_code1").attr('style', 'border:1px solid #d03100 !important;');
-            $("#pin_code1").css({ "background-color": "#fff2ee" });
-	        text += " \u002A" + " Please Enter Valid 6 digit Pin code.";
+         $("#pickup_pincode").attr('style', 'border:1px solid #d03100 !important;');
+         $("#pickup_pincode").css({ "background-color": "#fff2ee" });
+	      text += " \u002A" + " Please Enter Valid 6 digit Pin code.";
 			alert(text);
-		    $("#pin_code1").val("");
-            $(this).focus();
-            return false; 		
-        }
-    });
+		   $("#pickup_pincode").val("");
+         $(this).focus();
+         return false; 		
+      }
+   });
 	
-	$('#pin_code2').change(function () {
-		
+	$('#delivery_pincode').change(function () {
 		var text = "";
 		var match = "";		
 		var pin_code2 = $(this).val();
 		var pinpat1=/^\d{6}$/;             
 		if (pin_code2.match(pinpat1))	       
 		{
-			$('#pin_code2').attr('style', 'border:1px solid green !important;');
-            $('#pin_code2').css({ "background-color": "#ffffff" });
+			$('#delivery_pincode').attr('style', 'border:1px solid green !important;');
+         $('#delivery_pincode').css({ "background-color": "#ffffff" });
 			return true;			           
-        }
+      }
 		else
 		{
-            $("#pin_code2").attr('style', 'border:1px solid #d03100 !important;');
-            $("#pin_code2").css({ "background-color": "#fff2ee" });
-	        text += " \u002A" + " Please Enter Valid 6 digit Pin code.";
+         $("#delivery_pincode").attr('style', 'border:1px solid #d03100 !important;');
+         $("#delivery_pincode").css({ "background-color": "#fff2ee" });
+	      text += " \u002A" + " Please Enter Valid 6 digit Pin code.";
 			alert(text);
-		    $("#pin_code2").val("");
-            $(this).focus();
-            return false; 		
-        }
-    });
-	
-	
-     
+		   $("#delivery_pincode").val("");
+         $(this).focus();
+         return false; 		
+      }
+   });
+	  
    $('#gem_workorder_doc').on('change', function ()
 	{   		    
          var fileEmpty = $('#gem_workorder_doc').get(0).files.length === 0;
@@ -987,15 +983,11 @@ $(document).ready(function() {
                $('#eway_bill_part_1').css({ "background-color": "#ffffff" });
             }
          }         
-   });
-
-		
+   });		
 
 });
 
 </script>
-
-
 
 <script type="text/javascript">
    function EnableDisableTextBox() 
@@ -1028,7 +1020,6 @@ $(document).ready(function() {
       */                
    }
 </script>
-
 
 <script type="text/javascript">
    /*
@@ -1402,6 +1393,14 @@ $(document).ready(function() {
 	function submitForm() 
 	{	
       var frm = $('#workorder_form');
+      
+      var labh_executive_id = document.getElementById('labh_executive_id').value;
+      var labh_agent_id = document.getElementById('labh_agent_id').value;
+      var region_id = document.getElementById('region_id').value;
+      var region_state = document.getElementById('region_state').value;
+      var district_branch = document.getElementById('district_branch').value;
+
+      var sellerid = document.getElementById('sellerid').value;
       var order_type = document.getElementById('order_type').value;
       var gemNgem_workorder_id = document.getElementById('gemNgem_workorder_id').value;
       var seller_pickup_location = document.getElementById('seller_pickup_location').value;
@@ -1421,6 +1420,7 @@ $(document).ready(function() {
       var coordination = document.getElementById('coordination').value;
 
       var gem_workorder_doc = document.getElementById('gem_workorder_doc').value;
+      var logistics_type = document.getElementById('logistics_type').value;
       var eway_bill_part_1 = document.getElementById('eway_bill_part_1').value; 
       var ready_delivery_date = document.getElementById('ready_delivery_date').value;
       var delivery_completion_date = document.getElementById('delivery_completion_date').value;
@@ -1436,226 +1436,331 @@ $(document).ready(function() {
       var actual_weight = document.getElementById('actual_weight').value;		
       var charged_weight = document.getElementById('charged_weight').value;	
       var cod_dod = document.getElementById('cod_dod').value;
-      var logistics_amount_ethics = document.getElementById('logistics_amount_ethics').value;	
+      var logistics_amount_ethics = document.getElementById('logistics_amount_ethics').value;
+      
+      /*   ESTIMATE OF CHARGES */ 
+      var coordination_total = document.getElementById('coordination_total').value;
+      var logistics_total = document.getElementById('logistics_total').value;
+      var sample_clause_total = document.getElementById('sample_clause_total').value; 
+      var cashflow_total = document.getElementById('cashflow_total').value;
 
-      if (gemNgem_workorder_id == '')
+      var total_amount = document.getElementById('total_amount').value;
+      var total_gst = document.getElementById('total_gst').value;
+      var total_payable_amount = document.getElementById('total_payable_amount').value;
+
+      if (labh_executive_id == '')
       {
-         alert("GEM Workorder ID is Mandatory!");
+         alert("Executive ID is Missing!");
+         return	false;
       }
+      else if (labh_agent_id =='') 
+      {
+         alert("Agent ID is Missing!");
+         return	false;       
+      }
+      else if (region_id =='') 
+      {
+         alert("Region ID is Missing!");
+         return	false;
+      }
+      else if (region_state =='') 
+      {
+         alert("Region State is Missing!");
+         return	false;
+      }
+      else if (district_branch =='') 
+      {
+         alert("District Branch is Missing!");
+         return	false;
+      }
+      else if (sellerid =='') 
+      {
+         alert("Seller ID is Missing!");
+         return	false;
+      }     
       else if (order_type =='') 
       {
-         alert("order ype is Mandatory!");       
+         alert("order ype is Mandatory!"); 
+         return	false;      
       }
-      else if (seller_stateid =='') 
+      else (gemNgem_workorder_id == '')
       {
-         alert("Seller Stateid is Mandatory!");       
+         alert("GEM Workorder ID is Missing!");
+         return	false;
       }
-      else if (seller_district =='') 
+      else if (seller_pickup_location =='') 
       {
-         alert("Seller District is Mandatory!");
-      }
-      else if (seller_city =='') 
-      {
-         alert("Seller City is Mandatory!");       
-      }
-      else if (seller_pincode =='') 
-      {
-         alert("Seller Pincode is Mandatory!");
-      }
-      else if (select_product =='') 
-      {
-         alert("Select Product City is Mandatory!");       
+         alert("Seller Pickup Location is Missing!"); 
+         return	false;      
       }
       else if (buyer_name =='') 
       {
-         alert("Buyer Name is Mandatory!");
+         alert("Buyer Name is Missing!");
+         return	false; 
       }
+      else if (buyer_organization_name =='') 
+      {
+         alert("Buyer Organization Name is Missing!"); 
+         return	false;       
+      }
+      else if (buyer_contact =='') 
+      {
+         alert("Buyer Contact Number is Missing!"); 
+         return	false;       
+      }
+      else if (buyer_email =='') 
+      {
+         alert("Buyer Email ID  is Missing!");
+         return	false;        
+      } 
+      else if (buyer_full_address =='') 
+      {
+         alert("Buyer Full Address is Missing!");
+         return	false;        
+      }
+      else if (product_category =='') 
+      {
+         alert("Product Category Details is Missing!");
+         return	false;        
+      }
+      else if (product_quantity =='') 
+      {
+         alert("Product Quantity is Missing!");
+         return	false;        
+      }   
       else if (value_gem_order =='') 
       {
-         alert("Value GEM Order is Mandatory!");       
+         alert("Contract Value (GMV) is Missing!");
+         return	false;        
       }
-      else if (including_gst =='') 
+      else if (sample_clause =='') 
       {
-          alert("Including GST  is Mandatory!");
+         alert("Sample Clause Details (YES/NO) is Missing!");
+         return	false;        
+      }
+      else if (bill_discounting =='') 
+      {
+         alert("Bill Discounting Details (YES/NO) is Missing!");
+         return	false;        
+      }   
+      else if (coordination =='') 
+      {
+         alert("Coordination Details (YES/NO) is Missing!");
+         return	false;        
       }
       else if (gem_workorder_doc =='') 
       {
-           alert("Value GEM Order is Mandatory!");       
+         alert("Workorder Document is Mandatory!"); 
+         return	false;       
       }
-        else if (quantity =='') 
-        {
-           alert("Quantity  is Mandatory!");
-        }
-        else if (organization_name =='') 
-        {
-           alert("Organization Name is Mandatory!");       
-        }
-        else if (sample_clause =='') 
-        {
-           alert("Eway Bill Part  is Mandatory!");
-        }
-        else if (quantity =='') 
-        {
-         alert("Quantity is Mandatory!");       
-        }
-        else if (organization_name =='') 
-        {
-         alert("Organization Name  is Mandatory!");
-        }
-        else if (logistics_type == '')
-        {
-         alert ("Logistics is Mandatory!")
-        }
-        else if (ready_delivery_date =='') 
-        {
-         alert("Delivery Date is Mandatory!");       
-        }
-        else if (expected_date =='') 
-        {
-         alert("Expected Date  is Mandatory!");
-        }
-        else if (buyer_stateid == '')
-        {
-         alert ("Buyer State is Mandatory!")
-        }
-        else if (buyer_district =='') 
-        {
-         alert("Buyer District is Mandatory!");       
-        }
-        else if (city =='') 
-        {
-         alert("city  is Mandatory!");
-        }
-        else if (pincode == '')
-        {
-           alert ("Pincode is Mandatory!")
-        }
-        else if (consignee_address =='') 
-        {
-         alert("Consignee Address is Mandatory!");       
-        }
-        else if (bill_discounting =='') 
-        {
-         alert("Bill Discounting  is Mandatory!");
-        }
-        else if (gem_workorder_doc == '')
-        {
-         alert ("Gem Workorder Doc is Mandatory!")
-        }
-        else if (pickup_pincode =='') 
+      else if (logistics_type == '')
+      {
+         alert ("Logistics type is Mandatory!");
+         return	false; 
+      }  
+      else if (eway_bill_part_1 =='') 
+      {
+         if(logistics_type !="selfFulfillment")
+         {
+            alert("Organization Name is Mandatory!");
+            return	false; 
+         }       
+      }
+      else if (ready_delivery_date =='') 
+      {
+         if(logistics_type !="selfFulfillment")
+         {
+            alert("Ready For Delevery Date is Mandatory!");
+            return	false; 
+         }       
+      }
+      else if (delivery_completion_date =='') 
+      {
+         if(logistics_type !="selfFulfillment")
+         {
+            alert("Delevery Completion Date is Mandatory!");
+            return	false; 
+         }       
+      }
+      else if (pickup_pincode =='') 
 		{
-			alert("Pickup Pincode is Mandatory!");			
+         if(logistics_type !="selfFulfillment")
+         {
+            alert("Pickup Pincode is Mandatory!");
+            return	false; 
+         }			
 		}
 		else if (delivery_pincode =='') 
 		{
-			alert("Delivery pincode is Mandatory!");
+         if(logistics_type !="selfFulfillment")
+         {
+            alert("Delivery pincode is Mandatory!");
+            return	false; 
+         }
 		}
-        else if (travle_mode =='') 
-        {
-           alert("Travle is Mandatory!");       
-        }
-        else if (declared_value =='') 
-        {
-           alert("Declared  is Mandatory!");
-        }
-        else if (noofpackages =='') 
-        {
-           alert("Noofpackages is Mandatory!");       
-        }
-        else if (actual_weight =='') 
-        {
-           alert("Actual weight is Mandatory!");
-        }
-        else if (charged_weight =='') 
-        {
-           alert("Charged Weight is Mandatory!");       
-        }
-        else if (cod_dod =='') 
-        {
-           alert("Cod Dod weight is Mandatory!");
-        }
+      else if (noofpackages =='') 
+      {
+         if(logistics_type !="selfFulfillment")
+         {
+            alert("Number of Packages is Mandatory!"); 
+            return	false;
+         }       
+      }
+      else if (travle_mode =='') 
+      {
+         if(logistics_type !="selfFulfillment")
+         {
+            alert("Mod of Travle is Mandatory!"); 
+            return	false; 
+         }      
+      }
+      else if (declared_value =='') 
+      {
+         if(logistics_type !="selfFulfillment")
+         {
+            alert("Declared Value of Consignment is Mandatory!");
+            return	false; 
+         }
+      } 
+      else if (product_length =='') 
+      {
+         if(logistics_type !="selfFulfillment")
+         {
+            alert("Product Box Length is Mandatory!"); 
+            return	false;
+         }       
+      }
+      else if (product_width =='') 
+      {
+         if(logistics_type !="selfFulfillment")
+         {
+            alert("Product Box Width is Mandatory!"); 
+            return	false;  
+         }    
+      }
+      else if (product_height =='') 
+      {
+         if(logistics_type !="selfFulfillment")
+         {
+            alert("Product Box Height is Mandatory!"); 
+            return	false; 
+         }
+      }  
+      else if (actual_weight =='') 
+      {
+         if(logistics_type !="selfFulfillment")
+         {
+            alert("Actual weight of Consighment is Mandatory!");
+            return	false;
+         } 
+      }
+      else if (charged_weight =='') 
+      {
+         if(logistics_type !="selfFulfillment")
+         {
+            alert("Charged Weight of Consighment is Mandatory!");
+            return	false; 
+         }       
+      }
+      else if (cod_dod =='') 
+      {
+         if(logistics_type !="selfFulfillment")
+         {
+            alert("Cod/Dod Details is Mandatory!");
+            return	false;
+         } 
+      }
+      else if (logistics_amount_ethics =='') 
+      {
+         if(logistics_type !="selfFulfillment")
+         {
+            alert("Logistics Charges is Missing!");
+            return	false;
+         } 
+      }
+      else if (coordination_total =='') 
+      {
+         if(coordination =="yes")
+         {
+            alert("Coordination Charges is Missing!");
+            return	false;
+         } 
+      }
+      else if (logistics_total =='') 
+      {
+         if(logistics_type !="selfFulfillment")
+         {
+            alert("Logistics Charges is Missing!");
+            return	false;
+         } 
+      }
+      else if (sample_clause_total =='') 
+      {
+         if(sample_clause =="yes")
+         {
+            alert("Sample Clause Facilitation Charges is Missing!");
+            return	false;
+         } 
+      }
+      else if (cashflow_total =='') 
+      { 
+         alert("Sample Clause Facilitation Charges is Missing!");
+         return	false;    
+      }
+      else if (sub_total_amount =='') 
+      { 
+         alert("Sub Total Amount is Missing!");
+         return	false;    
+      }
+      else if (total_gst =='') 
+      { 
+         alert("GST Amount Missing!");
+         return	false;    
+      }
+      else if (total_payable_amount =='') 
+      { 
+         alert("Total Payable Amount Missing!");
+         return	false;    
+      }
 		else 
 		{
+         //document.getElementById("workorder_form").submit();
 			$("#sub_btn").html('<i class="fa fa-spinner fa-spin"></i>Submitting...');
-	        document.getElementById('sub_btn').disabled = true;
-	        $.ajax({
-				type: frm.attr('method'),
-				url: "<?php echo base_url()?>Seller_module/genrate_workorder",
-				data: frm.serialize(),
-				success: function (data) {
-					alert('Submission was successful.');
-					console.log(data);
-				},
-				error: function (data) {
-					console.log('An error occurred.');
-					console.log(data);
-				},
-			});
+	      //document.getElementById('sub_btn').disabled = true;
+         return true;
+			/*	
+				$.ajax({
+					type: frm.attr('method'),
+					url:  frm.attr('action'),				
+					data: frm.serialize(),
+					success: function (data) {
+						alert('Submission was successful.');
+						console.log(data);
+					},
+					error: function (data) {
+						alert('An error occurred.');
+						console.log('An error occurred.');
+						console.log(data);
+					},
+				});
+			*/				
 		} 
 	}
 	
 </script>
-	
-<script type="text/javascript">
-   
-</script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script>
-   // $(document).ready(function()
-   // {
-      $('#seller_stateid').change(function()
-      {        
-         var state_id = document.getElementById('seller_stateid').value;   
-         //$('#seller_district').val();                
-         //alert("Selected value is : " + state_id);
-         if (state_id !='') 
-         {
-            $.ajax(
-            {     
-               url: "<?php  echo base_url(); ?>SellerRegister/get_district_by_state",
-               method:"POST", 
-               data:{state_id:state_id},
-               success: function(data) 
-               { 
-                  //alert(data);
-                  $('#seller_district').html(data);
-               }
-            })
-         }
-      });
 
-      $('#buyer_stateid').change(function()
-      {        
-         var state_id = document.getElementById('buyer_stateid').value;                   
-         //alert(state_id);
-         if (state_id !='') 
-         {
-            $.ajax(
-            {     
-               url: "<?php  echo base_url(); ?>SellerRegister/get_district_by_state",
-               method:"POST", 
-               data:{state_id:state_id},
-               success: function(data) 
-               { 
-                  $('#buyer_district').html(data);
-               }
-            })
-         }
-      });
-   //});  
-        
+<script>          
    $('.nav-link').on('click', function() 
    {
       $('.active-link').removeClass('active-link');
       $(this).addClass('active-link');
-   });
-   
-  
-   
+   });  
 </script>
 
 <!-- --------------------------checkBox select------------------------- -->
+
 <script>
    function myFunc() 
    {

@@ -393,7 +393,7 @@
                                        </div>
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>Pin Code <span class="red-color">*</span></label>
-                                          <input type="number" name="pincode_first" class="form-control" id="pin_code1" value="<?php echo $pincode_first; ?>" required placeholder="pin code" minlength="6" maxlength="6" >
+                                          <input type="number" name="pincode_first" class="form-control" id="pin_code1" value="<?php echo $pincode_first; ?>" required placeholder="pin code" pattern="[0-9]{6}" minlength="6" maxlength="6" >
                                        </div>
                                        <div class="form-group col-md-12 m-t-20">
                                           <label>Address : <span class="red-color">*</span></label>
@@ -462,7 +462,7 @@
                                        </div>
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>Pin Code <span class="red-color span1">*</span></label>
-                                          <input type="number" name="pincode_second" id="pin_code2" class="form-control" id="pin_code1" value="<?php echo $pincode_second; ?>" required placeholder="pin code" minlength="6" maxlength="6" >
+                                          <input type="number" name="pincode_second" id="pin_code2" class="form-control" id="pin_code1" value="<?php echo $pincode_second; ?>" pattern="[0-9]{6}" required placeholder="pin code" minlength="6" maxlength="6" >
                                        </div>
                                        <div class="form-group col-md-12 m-t-20">
                                           <label>Address : <span class="red-color">*</span></label>
