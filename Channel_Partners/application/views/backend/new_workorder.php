@@ -499,7 +499,7 @@
                                     <h4 class="sub-title">Logistics <span class="star"> *</span></h4>
                                        <div class="input-group">
                                           <span class="input-group-addon" id="basic-addon7"><i class="fa fa-truck" aria-hidden="true"></i></span>
-                                          <select name="logistics" id="logistics_type" onchange ="ShowHideDiv()" required class="form-control " value="<?php echo $logistics?>">
+                                          <select name="logistics_type" id="logistics_type" onchange ="ShowHideDiv()" required class="form-control " value="<?php echo $logistics?>">
                                              <option> --- select logistics ---</option>
                                              <option value="selfFulfillment" <?php echo $logistics == "selfFulfillment" ? " selected" : "";?>>Self Fulfillment</option>
                                              <option value="Picemeal" <?php echo $logistics == "Picemeal" ? " selected" : "";?>>Picemeal Fulfilment</option>
@@ -528,7 +528,7 @@
                                           <span class="input-group-addon " style="">
                                               <span class="icofont icofont-ui-calendar"></span>
                                           </span>
-                                          <input type="date" class="form-control" id="expected_date"  name="expected_date" value="<?php echo $expected_date; ?>">
+                                          <input type="date" class="form-control" id="delivery_completion_date"  name="delivery_completion_date" value="<?php echo $expected_date; ?>">
                                        </div>
                                     </div>
                                  </div>
@@ -536,12 +536,12 @@
                                     <h4 class="sub-title">Upload E-Way Bill(Part 1) (Only: pdf) <span class="star">*</span></h4>
                                     <?php if(isset($workorder) && $workorder !="") { ?>
                                        <div class="input-group">
-                                          <input type="file" accept=".pdf,.zip" id="eway_bill_part_1"  class="form-control bg-white" name="eway_bill_part_1"  value="<?php echo $eway_bill_part_1; ?>">
+                                          <input type="file" accept=".pdf" id="eway_bill_part_1"  class="form-control bg-white" name="eway_bill_part_1"  value="<?php echo $eway_bill_part_1; ?>">
                                           <span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-o" aria-hidden="true"></i></span>
                                        </div>
                                     <?php } else { ?>
                                       <div class="input-group">
-                                          <input type="file" accept=".pdf,.zip"  id="eway_bill_part_1" class="form-control bg-white" name="eway_bill_part_1" required="" value="<?php echo $eway_bill_part_1; ?>">
+                                          <input type="file" accept=".pdf"  id="eway_bill_part_1" class="form-control bg-white" name="eway_bill_part_1"  value="<?php echo $eway_bill_part_1; ?>">
                                           <span class="input-group-addon" id="basic-addon7"><i class="fa fa-file-o" aria-hidden="true"></i></span>
                                        </div>
                                        <h4 class="text-left" style="font-size:11px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 2MB</b> </h4>
@@ -551,7 +551,7 @@
                            </div>
                         </div>
                      </div>
-	  
+
                      <div class="row" id="shipping_calculation" style="display: block">
                         <div class="col-sm-12">
                            <h4 class="sub-title" style="color:red;"><i class="fa fa-truck " aria-hidden="true"></i>&nbsp; Shipping Rate Calculation :</h4>                           
@@ -595,7 +595,7 @@
                                        <input type="number" class="form-control" id="declared_value" name="declared_value" placeholder="declared value of consignment" required="" value="" value="" minlength="2" maxlength="10">
                                     </div>
                                  </div>  
-                                														 
+                              
 								         <div class="col-sm-4">
                                     <h4 class="sub-title">Product Box Length (in cm) <span class="star">*</span></h4>
                                     <div class="input-group">
@@ -645,7 +645,8 @@
                                     <h4 class="sub-title uppercaser">Shipping Price <span class="star">*</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-inr" aria-hidden="true"></i></span>
-                                       <input type="text" class="form-control" id="shipping_charges" name="shipment_charges"  value="00.00" readonly disabled ="disabled" required >
+                                       <input type="text" class="form-control" id="shipping_charges" name="shipping_charges"  value="00.00" readonly disabled ="disabled" required >
+                                       <input type="hidden"  id="logistics_amount_ethics" name="logistics_amount_ethics"  value readonly  required >
                                     </div>
                                  </div>
                                  <div class="col-sm-4">
@@ -955,23 +956,37 @@ $(document).ready(function() {
          }         
    });
 
-   $('#resume').on('change', function ()
-		{   		    
-            var fileEmpty = $('#resume').get(0).files.length === 0;
-            var size = parseFloat(resume.files[0].size / 1048576).toFixed(2);
+   $('#eway_bill_part_1').on('change', function ()
+	{   		    
+         var fileEmpty = $('#eway_bill_part_1').get(0).files.length === 0;
+         var size = parseFloat(eway_bill_part_1.files[0].size / 1048576).toFixed(2);
             
-            if (!fileEmpty && size > 2) 
+         if (!fileEmpty && size > 2) 
+         {
+            alert("File size must under 2MB !");
+            $('#eway_bill_part_1').val('');                               
+            $("#eway_bill_part_1").attr('style', 'border:1px solid #d03100 !important;');
+            $("#eway_bill_part_1").css({ "background-color": "#fff2ee" });
+         } 
+         else
+         {
+            var fileInput = document.getElementById('eway_bill_part_1');
+            var filePath = fileInput.value;
+            
+            var allowedExtensions =  /(\.pdf)$/i;              
+            if (!allowedExtensions.exec(filePath)) 
             {
-               alert("File size must under 2MB !");
-               $('#resume').val('');                               
-               $("#resume").attr('style', 'border:1px solid #d03100 !important;');
-               $("#resume").css({ "background-color": "#fff2ee" });
-            } 
+               alert('Invalid file type ! Please Select pdf file type');
+               $('#eway_bill_part_1').val('');                               
+               $("#eway_bill_part_1").attr('style', 'border:1px solid #d03100 !important;');
+               $("#eway_bill_part_1").css({ "background-color": "#fff2ee" });
+            }
             else
-            {                 
-               $('#resume').attr('style', 'border:1px solid green !important;');
-               $('#resume').css({ "background-color": "#ffffff" });
-            }         
+            {                  
+               $('#eway_bill_part_1').attr('style', 'border:1px solid green !important;');
+               $('#eway_bill_part_1').css({ "background-color": "#ffffff" });
+            }
+         }         
    });
 
 		
@@ -1080,6 +1095,7 @@ $(document).ready(function() {
             $('#logistics_amount').html("00.00");
             $('#logistics_total').html("00.00");
             $("#shipping_charges").val("00.00");
+            $('#logistics_amount_ethics').val('');
             Logistics_Charges= '00.00';
 				addvalue();
          }
@@ -1164,6 +1180,7 @@ $(document).ready(function() {
                         if (matches) 
                         {
                            var  shipping_charges = matches[0];
+                           $('#logistics_amount_ethics').val(Number(shipping_charges).toFixed(2));
                         }
                         const  shipping_charges_per = Number((10 / 100) * shipping_charges).toFixed(2);
                         const  total_shipping_charges =  +shipping_charges + +shipping_charges_per ;
@@ -1180,7 +1197,8 @@ $(document).ready(function() {
                         
                         $('#logistics_amount').html(Number(logistics_charges).toFixed(2));
                         $('#logistics_total').html(Number(logistics_total).toFixed(2));
-
+                        
+                        
                         Logistics_Charges=Number(logistics_total).toFixed(2);
 						      addvalue();
                      }
@@ -1191,7 +1209,7 @@ $(document).ready(function() {
                         $("#shipping_charges").val("00.00");
                         $('#logistics_amount').html("00.00");
                         $('#logistics_total').html("00.00");
-
+                        $('#logistics_amount_ethics').val('');
                         Logistics_Charges= '00.00';
 				            addvalue();
 
@@ -1314,7 +1332,7 @@ $(document).ready(function() {
          }
 
       });
-
+   /*
       $('#shipping_charges').on('change', function ()
       { 
          var logistics_charges = document.getElementById('shipping_charges').value;
@@ -1326,7 +1344,7 @@ $(document).ready(function() {
          $('#logistics_amount').html(Number(logistics_charges).toFixed(2));
          $('#logistics_total').html(Number(logistics_total).toFixed(2));
       });
-
+   */
       $(document).on('change', '#sample_clause', function()
       { 
          var sample_clause_amount = 249;
@@ -1383,95 +1401,87 @@ $(document).ready(function() {
 	
 	function submitForm() 
 	{	
-        var frm = $('#workorder_form');
-        var order_type = document.getElementById('order_type').value;
-        var gemNgem_workorder_id = document.getElementById('gemNgem_workorder_id').value;
-        var seller_pickup_location = document.getElementById('seller_pickup_location').value;
-        //var seller_stateid = document.getElementById('seller_stateid').value;
-        //var seller_district = document.getElementById('seller_district').value;
-        //var seller_city = document.getElementById('seller_city').value; 
-        //var seller_pincode = document.getElementById('seller_pincode').value;
-        
+      var frm = $('#workorder_form');
+      var order_type = document.getElementById('order_type').value;
+      var gemNgem_workorder_id = document.getElementById('gemNgem_workorder_id').value;
+      var seller_pickup_location = document.getElementById('seller_pickup_location').value;
+               
+      var buyer_name = document.getElementById('buyer_name').value;
+      var buyer_organization_name = document.getElementById('buyer_organization_name').value;
+      var buyer_contact = document.getElementById('buyer_contact').value;
+      var buyer_email = document.getElementById('buyer_email').value;
+      var buyer_full_address = document.getElementById('buyer_full_address').value;
 
-        
-        var buyer_name = document.getElementById('buyer_name').value;
-        var buyer_organization_name = document.getElementById('buyer_organization_name').value;
-        var buyer_contact = document.getElementById('buyer_contact').value;
-        var buyer_email = document.getElementById('buyer_email').value;
-        var buyer_full_address = document.getElementById('buyer_full_address').value;
+      var product_category = document.getElementById('product_category').value;
+      var product_quantity = document.getElementById('product_quantity').value;
+      var value_gem_order = document.getElementById('value_gem_order').value;
 
-        var product_category = document.getElementById('product_category').value;
-        var product_quantity = document.getElementById('product_quantity').value;
-        var value_gem_order = document.getElementById('value_gem_order').value;
+      var sample_clause = document.getElementById('sample_clause').value;
+      var bill_discounting = document.getElementById('bill_discounting').value;
+      var coordination = document.getElementById('coordination').value;
 
-        var sample_clause = document.getElementById('sample_clause').value;
-        var bill_discounting = document.getElementById('bill_discounting').value;
-        var coordination = document.getElementById('coordination').value;
+      var gem_workorder_doc = document.getElementById('gem_workorder_doc').value;
+      var eway_bill_part_1 = document.getElementById('eway_bill_part_1').value; 
+      var ready_delivery_date = document.getElementById('ready_delivery_date').value;
+      var delivery_completion_date = document.getElementById('delivery_completion_date').value;
+           
+	   var pickup_pincode = document.getElementById('pickup_pincode').value;
+      var delivery_pincode = document.getElementById('delivery_pincode').value;
+      var noofpackages = document.getElementById('noofpackages').value;
+      var travle_mode = document.getElementById('travle_mode').value;
+      var declared_value = document.getElementById('declared_value').value;              
+      var product_length = document.getElementById('product_length').value; 
+      var product_width = document.getElementById('product_width').value; 
+      var product_height = document.getElementById('product_height').value;
+      var actual_weight = document.getElementById('actual_weight').value;		
+      var charged_weight = document.getElementById('charged_weight').value;	
+      var cod_dod = document.getElementById('cod_dod').value;
+      var logistics_amount_ethics = document.getElementById('logistics_amount_ethics').value;	
 
-        var expected_date = document.getElementById('expected_date').value;
-        var buyer_stateid = document.getElementById('buyer_stateid').value;
-        var buyer_district = document.getElementById('buyer_district').value;
-        var city = document.getElementById('city').value;
-        var pincode = document.getElementById('pincode').value;
-        var buyer_full_address = document.getElementById('buyer_full_address').value;
-
-
-        
-        var gem_workorder_doc = document.getElementById('gem_workorder_doc').value;
-        var eway_bill_part_1 = document.getElementById('eway_bill_part_1').value;         
-	     var pickup_pincode = document.getElementById('pickup_pincode').value;
-        var delivery_pincode = document.getElementById('delivery_pincode').value;
-        var travle_mode = document.getElementById('travle_mode').value;
-        var declared_value = document.getElementById('declared_value').value;
-        var noofpackages = document.getElementById('noofpackages').value;
-        var actual_weight = document.getElementById('actual_weight').value;		
-		  var charged_weight = document.getElementById('charged_weight').value;	
-        var cod_dod = document.getElementById('cod_dod').value;	
-
-        if (gemNgem_workorder_id == '')
-        {
+      if (gemNgem_workorder_id == '')
+      {
          alert("GEM Workorder ID is Mandatory!");
-        }
-        else if (order_type =='') 
-        {
+      }
+      else if (order_type =='') 
+      {
          alert("order ype is Mandatory!");       
-        }
-        else if (seller_stateid =='') 
-        {
+      }
+      else if (seller_stateid =='') 
+      {
          alert("Seller Stateid is Mandatory!");       
-        }
-        else if (seller_district =='') 
-        {
+      }
+      else if (seller_district =='') 
+      {
          alert("Seller District is Mandatory!");
-        }
-        else if (seller_city =='') 
-        {
+      }
+      else if (seller_city =='') 
+      {
          alert("Seller City is Mandatory!");       
-        }
-        else if (seller_pincode =='') 
-        {
+      }
+      else if (seller_pincode =='') 
+      {
          alert("Seller Pincode is Mandatory!");
-        }
-        else if (select_product =='') 
-        {
+      }
+      else if (select_product =='') 
+      {
          alert("Select Product City is Mandatory!");       
-        }
-        else if (buyer_name =='') 
-        {
-           alert("Buyer Name is Mandatory!");
-        }
-        else if (value_gem_order =='') 
-        {
+      }
+      else if (buyer_name =='') 
+      {
+         alert("Buyer Name is Mandatory!");
+      }
+      else if (value_gem_order =='') 
+      {
+         alert("Value GEM Order is Mandatory!");       
+      }
+      else if (including_gst =='') 
+      {
+          alert("Including GST  is Mandatory!");
+      }
+      else if (gem_workorder_doc =='') 
+      {
            alert("Value GEM Order is Mandatory!");       
-        }
-        else if (including_gst =='') 
-        {
-           alert("Including GST  is Mandatory!");
-        }
-        else if (gem_workorder_doc =='') 
-        {
-           alert("Value GEM Order is Mandatory!");       
-        }
+      }
         else if (quantity =='') 
         {
            alert("Quantity  is Mandatory!");
