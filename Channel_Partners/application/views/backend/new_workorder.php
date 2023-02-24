@@ -164,7 +164,8 @@
                                  <h4 class="sub-title">Seller Id <span class="star">*</span></h4>
                                  <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon7"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="sellerid" readonly disabled ="disabled" required value="<?php echo $sellerid; ?>" >
+                                    <input type="text" class="form-control"  readonly disabled ="disabled" required value="<?php echo $sellerid; ?>" >
+                                    <input type="hidden" class="form-control" name="sellerid" readonly  required value="<?php echo $sellerid; ?>" >
                                  </div>
                               </div>
 
@@ -194,7 +195,8 @@
                                  <h4 class="sub-title">Pickup Location <span class="star">*</span></h4>
                                  <div class="input-group">
                                     <div class="input-group">
-                                       <textarea class="form-control max-textarea" id="pick_location" name="pick_location"  disabled ="disabled" placeholder="Seller Full Address" maxlength="5000" rows="2"><?php echo $permanent_address; ?></textarea>
+                                       <textarea class="form-control max-textarea" id="pick_location" name="pick_location"  disabled ="disabled" placeholder="Seller Full Address"  rows="2"><?php echo $permanent_address; ?></textarea>
+                                       <textarea hidden class="form-control max-textarea"  name="pick_location"   rows="2"><?php echo $permanent_address; ?></textarea>
                                     </div>
                                  </div>
                               </div>
@@ -359,11 +361,10 @@
                                     <h4 class="sub-title">Phone Number <span class="star">*</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-phone" aria-hidden="true"></i></span>
-                                       <input type="text" class="form-control" placeholder="Phone" required id="phone" name="contact" minlength="10" maxlength="12" value="<?php echo $contact;?>">
+                                       <input type="text" class="form-control" placeholder="Phone" required id="phone" name="buyer_contact" minlength="10" maxlength="12" value="<?php echo $contact;?>">
                                     </div>
-                                 </div>
-                                 
-                              </div>
+                                 </div>                                
+                              </div>                             
                               <div class="row m-b-30">                               
                                  <div class="col-sm-4">
                                     <h4 class="sub-title">Email Id  <span class="star">*</span></h4>
@@ -1196,11 +1197,10 @@
   
    function addvalue()
 	{
-		//var motorid = document.getElementById('motor').value;
-      console.log(Coordination_Charges);
-		console.log(Logistics_Charges);
-		console.log(Sample_Clause_Charges);	
-     	console.log(Cash_flow_Charges);	
+      //console.log(Coordination_Charges);
+		//console.log(Logistics_Charges);
+		//console.log(Sample_Clause_Charges);	
+     	//console.log(Cash_flow_Charges);	
 		totalprice = +Coordination_Charges +  +Logistics_Charges +  +Sample_Clause_Charges +  +Cash_flow_Charges ;
       gst_value =  Number((18 / 100) * totalprice).toFixed(2);
 
@@ -1209,9 +1209,6 @@
       $("#total_gst").html(Number(gst_value).toFixed(2));
 		$("#total_payable_amount").html(Number(payable_amount).toFixed(2));
      
-      //alert(totalprice);
-      //alert(gst_value);
-      //alert(payable_amount);
    }
 
 </script>

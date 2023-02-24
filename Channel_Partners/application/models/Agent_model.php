@@ -146,7 +146,7 @@ class agent_model extends CI_Model{
 		else if($user_type==6)
 		{
 			
-			$sql = "SELECT * FROM laabh_agents WHERE region='".$regionid."' and status='ACTIVE' limit 1";
+			$sql = "SELECT * FROM laabh_agents WHERE user_id='".$user_id."'  and region='".$regionid."' and status='ACTIVE' limit 1";
 			$data['laabhagent_details'] = $this->db->query($sql)->result();
 			//print_r($this->db->last_query());
 			//var_dump($Seller_Details);
