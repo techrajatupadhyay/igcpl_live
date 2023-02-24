@@ -1083,22 +1083,37 @@ $(document).ready(function(){
       }
       else
       {
-         if (input.files && input.files[0]) 
+         var fileInput = document.getElementById('emp_image');
+         var filePath = fileInput.value;
+         // Allowing file type
+         var allowedExtensions =  /(\.jpg|\.jpeg|\.png)$/i;              
+         if (!allowedExtensions.exec(filePath)) 
          {
-
-            var reader = new FileReader();
-            reader.onload = function (e) 
+            alert('Invalid file type ! Please Select jpg/jpeg/png file type');
+            $('#emp_image').val('');                             
+            document.getElementById("blah").src = "<?php  echo base_url(); ?>assets/images/your-picture.png";
+            $('#blah').attr('style', 'border:0px solid grey !important;');
+            $("#pro_img").attr('style', 'border: 1px solid #d03100 !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');
+         }
+         else
+         {
+            if (input.files && input.files[0]) 
             {
-               $('#blah')
-               .attr('src', e.target.result)
-               .width(100)
-               .height(100);
-            };
-            document.getElementById("pro_pic").style.display = "block";
-            reader.readAsDataURL(input.files[0]);
-            $('#blah').attr('style', 'border:1px solid grey !important;');
-            $("#pro_img").attr('style', 'border: 1px solid green !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');
-                  
+
+               var reader = new FileReader();
+               reader.onload = function (e) 
+               {
+                  $('#blah')
+                  .attr('src', e.target.result)
+                  .width(100)
+                  .height(100);
+               };
+               document.getElementById("pro_pic").style.display = "block";
+               reader.readAsDataURL(input.files[0]);
+               $('#blah').attr('style', 'border:1px solid grey !important;');
+               $("#pro_img").attr('style', 'border: 1px solid green !important;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a');
+                     
+            }
          }
       }
    }
