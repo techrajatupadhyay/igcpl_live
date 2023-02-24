@@ -10,42 +10,48 @@
       <link href="<?php echo base_url(); ?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
       <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
       <link href="<?php echo base_url(); ?>assets/css/colors/blue.css" id="theme" rel="stylesheet">
-
       <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
       <style>
-         body{
+         body
+         {
             background-color:#f6f2e7;
             font-family: 'Poppins', sans-serif;
             }
-            
-         .db img{
+         .db img
+         {
             margin-top: -134px;
-            }
-         .logo img {
+         }
+         .logo img 
+         {
             margin: -34px 0px 0px 35%;
-            }
-         .modal-header{
+         }
+         .modal-header
+         {
             margin: 20px 0;
-            }
-         .modal-title{
+         }
+         .modal-title
+         {
             font-size: 25px!important;
-            }
-            
-         .whitebg {
+         }
+         .whitebg 
+         {
             background-color: #fff !important;
-            }
-         .tophead{
+         }
+         .tophead
+         {
             height:105px;
          }
-         .myheader{
+         .myheader
+         {
             display: block;
             height: auto;
             box-shadow: 2px 2px 10px rgb(0 0 0 / 52%);
             position: relative;
-            }
-         .navtop-homebtn {
+         }
+         .navtop-homebtn 
+         {
             background-color: #00086f;
             font-family: 'Heebo-Bold', Helvetica, Arial, sans-serif;
             font-size: 1.1em;
@@ -60,41 +66,48 @@
             -o-transition: all 0.3s ease 0s;
             box-shadow: 0 1px 4px rgb(0 0 0 / 40%);
             text-decoration:none;
-            }
-         .navtop-homebtn:hover{
+         }
+         .navtop-homebtn:hover
+         {
             background-color: red;
             color:#fff;
             text-decoration:none;
-            }
-         .container{
+         }
+         .container
+         {
             width:700px;
             margin-top:100px;
-            }
-         .card-header{
+         }
+         .card-header
+         {
             background-color:#000770;
-            }
-         h1{
+         }
+         h1
+         {
             font-size:30px;
             color:#00086f;
             margin-right: -132px;/
-            }
-         h5{
+         }
+         h5
+         {
             font-size: 15px;
             color: #00086f;
             margin-top: -10px;
-            }
-         .db img{
+         }
+         .db img
+         {
             margin-top: -134px;
-            }
-         .logo img{
+         }
+         .logo img
+         {
             margin: -80px 0px 0px 40%;
-            }
-
-         .logo_section:hover{
-              
+         }
+         .logo_section:hover
+         {
             box-shadow: 6px 6px 6px 6px #aabbcc54;
          }
-         .ho{
+         .ho
+         {
             display: inline-block;
             border-radius: 4px;
             background-color: #00054c;
@@ -110,9 +123,9 @@
             -webkit-box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
             -moz-box-shadow: -1px 6px 10px 0px rgba(50, 50, 50, 0.25);
             box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
-            }
-
-         .bm{
+         }
+         .bm
+         {
             display: inline-block;
             border-radius: 4px;
             background-color: #54c000;
@@ -128,8 +141,9 @@
             -webkit-box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
             -moz-box-shadow: -1px 6px 10px 0px rgba(50, 50, 50, 0.25);
             box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
-            }
-            .employee{
+         }
+         .employee
+         {
             display: inline-block;
             border-radius: 4px;
             background-color:#0071c0!important;
@@ -145,8 +159,9 @@
             -webkit-box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
             -moz-box-shadow: -1px 6px 10px 0px rgba(50, 50, 50, 0.25);
             box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
-            }
-            .agm{
+         }
+         .agm
+         {
             display: inline-block;
             border-radius: 4px;
             background-color:#0071c0!important;
@@ -162,8 +177,9 @@
             -webkit-box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
             -moz-box-shadow: -1px 6px 10px 0px rgba(50, 50, 50, 0.25);
             box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
-            }
-         .laabh{
+         }
+         .laabh
+         {
             display: inline-block;
             border-radius: 4px;
             background-color:#ff8c8c;
@@ -179,8 +195,9 @@
             -webkit-box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
             -moz-box-shadow: -1px 6px 10px 0px rgba(50, 50, 50, 0.25);
             box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
-            }
-         .laabhagent{
+         }
+         .laabhagent
+         {
             display: inline-block;
             border-radius: 4px;
             background-color:#ff8c8c;
@@ -196,8 +213,9 @@
             -webkit-box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
             -moz-box-shadow: -1px 6px 10px 0px rgba(50, 50, 50, 0.25);
             box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
-            }
-         .seller{
+         }
+         .seller
+         {
             display: inline-block;
             border-radius: 4px;
             background-color: #ff0000;
@@ -213,8 +231,9 @@
             -webkit-box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
             -moz-box-shadow: -1px 6px 10px 0px rgba(50, 50, 50, 0.25);
             box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
-            }
-         .fulfilment{
+         }
+         .fulfilment
+         {
             display: inline-block;
             border-radius: 4px;
             background-color: #004352;
@@ -230,19 +249,22 @@
             -webkit-box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
             -moz-box-shadow: -1px 6px 10px 0px rgba(50, 50, 50, 0.25);
             box-shadow: -1px 6px 10px 0px rgb(50 50 50 / 25%);
-            }
-         a:hover {
+         }
+         a:hover
+         {
             color: #fff;
-            
-            }
-         .Forgot_Password a{
+         }
+         .Forgot_Password a
+         {
             margin-left:10px;
             margin-top: 5px!important;
          }
-         .Forgot_Password a:hover{
+         .Forgot_Password a:hover
+         {
             color:#00054c!important;
-            }
-         .form-control{
+         }
+         .form-control
+         {
             display: block!important;
             width: 100%!important;
             padding: 0.375rem 0.75rem!important;
@@ -255,27 +277,37 @@
             border-radius: 0.25rem!important;
             transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out!important;
          }
-         @media only screen and (max-width: 600px) {
-            .company_name{
+         .container-fluid 
+         {
+            padding: 0 15px 0px 18px;
+         } 
+         @media only screen and (max-width: 600px) 
+         {
+            .company_name
+            {
              display: none;
             }
-            .ptop20{
+            .ptop20
+            {
               margin-top: -62px;
             }
             .container {
-               width: 700px;
+               width: 350px!important;
                margin-top: 50px;
             }
             .card{
-               width: 53%;
+               width: 100%;
             }
             .card-header {
                background-color: #737483;
             }
-
-            .common-nav{
+            .common-nav
+            {
                margin-top: -65px!important;
             }
+            .logo img {
+    margin: -50px 0px 0px 33%;
+}
          }
       </style>
    </head>
@@ -284,7 +316,9 @@
          <div class="container-fluid whitebg myheader">
             <div class="row tophead">
                <div class="col-xs-12 col-sm-3 col-md-1 col-lg-1">
-                  <a href="https://indigemcp.com/"><img src="<?php echo base_url()?>assets/images/logo_new.png" class="img-responsive logo my-1 " alt="INDIGEM CHANNEL PARTNERS"></a>
+                  <a href="https://indigemcp.com/">
+                     <img src="<?php echo base_url()?>assets/images/logo_new.png" class="img-responsive logo my-1" alt="INDIGEM CHANNEL PARTNERS">
+                  </a>
                </div>
                <div class="col-xs-12 col-sm-9 col-md-5 col-lg-6 logo company_name">
                   <a href="https://indigemcp.com/">
@@ -292,7 +326,7 @@
                   </a>
                </div>
                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 common-nav text-right  my-4">
-                  <a href="https://indigemcp.com/" class="navtop-homebtn"><i class="fa fa-home fa-fw"></i>Home</a>
+                  <a href="https://indigemcp.com/"class="navtop-homebtn"><i class="fa fa-home fa-fw"></i>Home</a>
                </div>
             </div>
          </div>
@@ -301,27 +335,18 @@
          <div class="row">
             <div class="col-md-12">
                <div class="card">
-                  <div class="card-header text-white"><i class="fa fa-sign-in" aria-hidden="true"></i> <span class="ml-2">SELECT USER TYPE</span></div>
+                  <div class="card-header text-white"><i class="fa fa-sign-in" aria-hidden="true"></i> 
+                     <span class="ml-2">SELECT USER TYPE</span>
+                  </div>
                   <div class="card-body">
                      <div class="row">
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 " data-toggle="modal" data-target="#HO">
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 "data-toggle="modal" data-target="#HO">
                            <a href="#" class="ho logo_section"><i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i><br>Ho Login</a>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 "  data-toggle="modal" data-target="#Employee">
                            <a href="#" class="employee logo_section"><i class="fa fa-users fa-3x" aria-hidden="true"></i><br> Employee Login </a>
                         </div>
-                  <!--      
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 "  data-toggle="modal" data-target="#Assistant-General-Manager">
-                           <a href="#" class="agm logo_section"><i class="fa fa-user-circle fa-3x" aria-hidden="true"></i><br> Assistant General Manager </a>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 "  data-toggle="modal" data-target="#Branch-Manager">
-                           <a href="#" class="bm logo_section"><i class="fa fa-users fa-3x" aria-hidden="true"></i><br>Branch Manager</a>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 " data-toggle="modal" data-target="#laabh_executive">
-                           <a href="#" class="laabh logo_section"><i class="fa fa-user fa-3x" aria-hidden="true"></i><br>Laabh Executive</a>
-                        </div>
-                  -->      
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 " data-toggle="modal" data-target="#laabh_agent">
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 "data-toggle="modal" data-target="#laabh_agent">
                            <a href="#" class="laabhagent logo_section"><i class="fa fa-user-plus fa-3x" aria-hidden="true"></i><br>Laabh Agent</a>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 " data-toggle="modal" data-target="#seller">
