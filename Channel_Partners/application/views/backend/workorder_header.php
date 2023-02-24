@@ -34,7 +34,6 @@
                         </ul>
                      </div>
                   </div>
-
                </div>
             </div>
             <div class="tab-header card">

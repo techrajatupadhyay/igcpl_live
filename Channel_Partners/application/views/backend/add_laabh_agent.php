@@ -1256,82 +1256,136 @@ $(document).ready(function() {
 
             }
             return true;
-    });
+   });
      
-    $('#contract_letter').on('change', function ()
-		{   		    
-            var fileEmpty = $('#contract_letter').get(0).files.length === 0;
-            var size = parseFloat(contract_letter.files[0].size / 1048576).toFixed(2);
+   $('#contract_letter').on('change', function ()
+	{   		    
+         var fileEmpty = $('#contract_letter').get(0).files.length === 0;
+         var size = parseFloat(contract_letter.files[0].size / 1048576).toFixed(2);
             
-            if (!fileEmpty && size > 2) 
+         if (!fileEmpty && size > 2) 
+         {
+            alert("File size must under 2MB !");
+            $('#contract_letter').val('');                               
+            $("#contract_letter").attr('style', 'border:1px solid #d03100 !important;');
+            $("#contract_letter").css({ "background-color": "#fff2ee" });
+         } 
+         else
+         { 
+            var fileInput = document.getElementById('contract_letter');
+            var filePath = fileInput.value;  
+            var allowedExtensions =  /(\.pdf)$/i;              
+            if (!allowedExtensions.exec(filePath)) 
             {
-               alert("File size must under 2MB !");
+               alert('Invalid file type ! Please Select pdf file type');
                $('#contract_letter').val('');                               
                $("#contract_letter").attr('style', 'border:1px solid #d03100 !important;');
                $("#contract_letter").css({ "background-color": "#fff2ee" });
-            } 
+            }
             else
-            {                 
+            {                
                $('#contract_letter').attr('style', 'border:1px solid green !important;');
                $('#contract_letter').css({ "background-color": "#ffffff" });
-            }         
+            }
+         }         
    });
 
-    $('#resume').on('change', function ()
-		{   		    
-            var fileEmpty = $('#resume').get(0).files.length === 0;
-            var size = parseFloat(resume.files[0].size / 1048576).toFixed(2);
+   $('#resume').on('change', function ()
+	{   		    
+         var fileEmpty = $('#resume').get(0).files.length === 0;
+         var size = parseFloat(resume.files[0].size / 1048576).toFixed(2);
             
-            if (!fileEmpty && size > 2) 
+         if (!fileEmpty && size > 2) 
+         {
+            alert("File size must under 2MB !");
+            $('#resume').val('');                               
+            $("#resume").attr('style', 'border:1px solid #d03100 !important;');
+            $("#resume").css({ "background-color": "#fff2ee" });
+         } 
+         else
+         { 
+            var fileInput = document.getElementById('resume');
+            var filePath = fileInput.value;  
+            var allowedExtensions =  /(\.pdf)$/i;              
+            if (!allowedExtensions.exec(filePath)) 
             {
-               alert("File size must under 2MB !");
+               alert('Invalid file type ! Please Select pdf file type');
                $('#resume').val('');                               
                $("#resume").attr('style', 'border:1px solid #d03100 !important;');
                $("#resume").css({ "background-color": "#fff2ee" });
-            } 
+            }
             else
-            {                 
+            {
                $('#resume').attr('style', 'border:1px solid green !important;');
                $('#resume').css({ "background-color": "#ffffff" });
-            }         
+            }
+         }         
    });
 
    $('#edu_file').on('change', function ()
-		{   		    
-            var fileEmpty = $('#edu_file').get(0).files.length === 0;
-            var size = parseFloat(edu_file.files[0].size / 1048576).toFixed(2);
+	{   		    
+         var fileEmpty = $('#edu_file').get(0).files.length === 0;
+         var size = parseFloat(edu_file.files[0].size / 1048576).toFixed(2);
             
-            if (!fileEmpty && size > 2) 
+         if (!fileEmpty && size > 2) 
+         {
+            alert("File size must under 2MB !");
+            $('#edu_file').val('');                               
+            $("#edu_file").attr('style', 'border:1px solid #d03100 !important;');
+            $("#edu_file").css({ "background-color": "#fff2ee" });
+         } 
+         else
+         { 
+            var fileInput = document.getElementById('edu_file');
+            var filePath = fileInput.value;
+            
+            var allowedExtensions =  /(\.pdf)$/i;              
+            if (!allowedExtensions.exec(filePath)) 
             {
-               alert("File size must under 2MB !");
+               alert('Invalid file type ! Please Select pdf file type');
                $('#edu_file').val('');                               
                $("#edu_file").attr('style', 'border:1px solid #d03100 !important;');
                $("#edu_file").css({ "background-color": "#fff2ee" });
-            } 
+            }
             else
-            {                 
+            {                
                $('#edu_file').attr('style', 'border:1px solid green !important;');
                $('#edu_file').css({ "background-color": "#ffffff" });
-            }         
+            }
+         }         
    });
 
    $('#experience_letter').on('change', function ()
-		{   		    
-            var fileEmpty = $('#experience_letter').get(0).files.length === 0;
-            var size = parseFloat(experience_letter.files[0].size / 1048576).toFixed(2);
+	{   		    
+         var fileEmpty = $('#experience_letter').get(0).files.length === 0;
+         var size = parseFloat(experience_letter.files[0].size / 1048576).toFixed(2);
             
-            if (!fileEmpty && size > 2) 
+         if (!fileEmpty && size > 2) 
+         {
+            alert("File size must under 2MB !");
+            $('#experience_letter').val('');                               
+            $("#experience_letter").attr('style', 'border:1px solid #d03100 !important;');
+            $("#experience_letter").css({ "background-color": "#fff2ee" });
+         } 
+         else
+         { 
+            var fileInput = document.getElementById('experience_letter');
+            var filePath = fileInput.value;
+            
+            var allowedExtensions =  /(\.pdf)$/i;              
+            if (!allowedExtensions.exec(filePath)) 
             {
-               alert("File size must under 2MB !");
+               alert('Invalid file type ! Please Select pdf file type');
                $('#experience_letter').val('');                               
                $("#experience_letter").attr('style', 'border:1px solid #d03100 !important;');
                $("#experience_letter").css({ "background-color": "#fff2ee" });
-            } 
+            }
             else
             {                  
                $('#experience_letter').attr('style', 'border:1px solid green !important;');
                $('#experience_letter').css({ "background-color": "#ffffff" });
-            }         
+            }
+         }         
    });
 		
 

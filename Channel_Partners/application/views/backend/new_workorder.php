@@ -195,8 +195,8 @@
                                  <h4 class="sub-title">Pickup Location <span class="star">*</span></h4>
                                  <div class="input-group">
                                     <div class="input-group">
-                                       <textarea class="form-control max-textarea" id="pick_location" name="pick_location"  disabled ="disabled" placeholder="Seller Full Address"  rows="2"><?php echo $permanent_address; ?></textarea>
-                                       <textarea hidden class="form-control max-textarea"  name="pick_location"   rows="2"><?php echo $permanent_address; ?></textarea>
+                                       <textarea class="form-control max-textarea" id="seller_pickup_location" name="seller_pickup_location"  disabled ="disabled" placeholder="Seller Full Address"  rows="2"><?php echo $permanent_address; ?></textarea>
+                                       <!--<textarea hidden class="form-control max-textarea"  name="seller_pickup_location"   rows="2"><?php echo $permanent_address; ?></textarea>-->
                                     </div>
                                  </div>
                               </div>
@@ -205,8 +205,7 @@
                                  <!--<h4 class="sub-title uppercaser" style="text-align:left;" >Actio</h4>-->                                
                                  <div class="input-group" style="margin-top:55px;">                                  
 									         <a  id='change_address' onclick='changeAddress()' class="btn  btn-round btn-block text-white btn-out-dashed" style="background: #00acaf; border: 1px solid #00acaf;padding: 7px 19px"> <i class="fa fa-pencil-square-o"></i> </Address></a>
-                                 </div>
-                                 
+                                 </div>                        
                               </div>                           
                            </div>
                         </div>
@@ -354,14 +353,14 @@
                                     <h4 class="sub-title">Organization Name <span class="star"> *</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-university" aria-hidden="true"></i></span>
-                                       <input type="text" class="form-control" id="organization_name" placeholder="Organization Name" name="organization_name" value="<?php echo $organization_name?>">
+                                       <input type="text" class="form-control" id="buyer_organization_name" placeholder="Organization Name" name="buyer_organization_name" value="<?php echo $organization_name?>">
                                     </div>
                                  </div>
                                  <div class="col-sm-4">
                                     <h4 class="sub-title">Phone Number <span class="star">*</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-phone" aria-hidden="true"></i></span>
-                                       <input type="text" class="form-control" placeholder="Phone" required id="phone" name="buyer_contact" minlength="10" maxlength="12" value="<?php echo $contact;?>">
+                                       <input type="number" class="form-control" placeholder="Phone" required id="buyer_contact" name="buyer_contact" minlength="10" maxlength="12" value="<?php echo $contact;?>">
                                     </div>
                                  </div>                                
                               </div>                             
@@ -370,12 +369,12 @@
                                     <h4 class="sub-title">Email Id  <span class="star">*</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-                                       <input type="email" class="form-control" required id="email" name="email" placeholder="Email" value="<?php echo $email;?>">
+                                       <input type="email" class="form-control" required id="buyer_email" name="buyer_email" placeholder="Email" value="<?php echo $email;?>">
                                     </div>
                                  </div>
                                  <div class="col-sm-8">
                                     <h4 class="sub-title"> Buyer Full Address <span class="star">*</span></h4>
-                                    <textarea class="form-control max-textarea" maxlength="255" rows="1" id="consignee_address" name="consignee_address" placeholder="Buyer Full Address" required="" ><?php echo $consignee_address; ?></textarea>
+                                    <textarea class="form-control max-textarea" maxlength="255" rows="1" id="buyer_full_address" name="buyer_full_address" placeholder="Buyer Full Address" required="" ><?php echo $consignee_address; ?></textarea>
                                  </div>
                               </div>                                                                                                   							  
                            </div>
@@ -389,7 +388,7 @@
                               <div class="row m-b-30">                                                                
                                  <div class="col-sm-12">
                                     <h4 class="sub-title"> Product Category <span class="star">*</span></h4>
-                                    <textarea class="form-control max-textarea" rows="2" id="select_product" name="select_product" placeholder="Product Category" required="" ><?php echo $select_product; ?></textarea>
+                                    <textarea class="form-control max-textarea" rows="2" id="product_category" name="product_category" placeholder="Product Category" required="" ><?php echo $select_product; ?></textarea>
                                  </div>
                               </div> 
                               <div class="row m-b-30">
@@ -397,7 +396,7 @@
                                     <h4 class="sub-title">Quantity (as on gem workorder) <span class="star">*</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
-                                       <input type="number" class="form-control" name="quantity" id="quantity" placeholder="Quantity" required="" minlength="1" value="<?php echo $quantity;?>">
+                                       <input type="number" class="form-control" name="product_quantity" id="product_quantity" placeholder="Quantity" required="" minlength="1" value="<?php echo $quantity;?>">
                                     </div>
                                  </div>
                                  <div class="col-sm-6">
@@ -417,7 +416,7 @@
                            <h4 class="sub-title" style="color:red;"><i class="fa fa-handshake-o"></i>&nbsp; Service Requirement :</h4>
                            <div class="card-block inner-card-block">                                                            
                               <div class="row m-b-30">                                                                                           
-                                 <div class="col-sm-4">
+                                 <div class="col-sm-5">
                                     <h4 class="sub-title">Is There a Sample Clause in work Order ? <span class="star">*</span></h4>
                                     <div class="form-radio">
                                        <div class="radio radiofill radio-primary radio-inline">
@@ -434,7 +433,7 @@
                                        </div>
                                     </div>
                                  </div>
-                                 <div class="col-sm-4">
+                                 <div class="col-sm-5">
                                     <h4 class="sub-title">Would You like to opt for Bill Discounting ? <span class="star">*</span></h4>
                                     <div class="form-radio">
                                        <div class="radio radiofill radio-primary radio-inline">
@@ -460,7 +459,7 @@
                                     </div>
                                  </div>
 
-                                 <div class="col-sm-4">
+                                 <div class="col-sm-2">
                                     <h4 class="sub-title">Coordination ? <span class="star">*</span>  </br></h4>
                                     <div class="form-radio">
                                        <div class="radio radiofill radio-primary radio-inline">
@@ -481,7 +480,7 @@
                              						  
                               <div class="row m-b-30">
                                  <div class="col-sm-6">
-                                    <h4 class="sub-title">upload GeM Contract Doc. (Only: pdf / zip) <span class="star">*</span></h4>
+                                    <h4 class="sub-title">upload GeM/Non GeM Contract Doc. (Only: pdf / zip) <span class="star">*</span></h4>
                                     <?php if(isset($workorder) && $workorder !="") { ?>
                                        <div class="input-group">
                                           <input type="file" accept=".pdf,.zip" id="gem_workorder_doc"  class="form-control bg-white" name="gem_workorder_doc"  value="<?php echo $gem_workorder_doc; ?>">
@@ -501,7 +500,7 @@
                                        <div class="input-group">
                                           <span class="input-group-addon" id="basic-addon7"><i class="fa fa-truck" aria-hidden="true"></i></span>
                                           <select name="logistics" id="logistics_type" onchange ="ShowHideDiv()" required class="form-control " value="<?php echo $logistics?>">
-                                             <option>---- select logistics ----</option>
+                                             <option> --- select logistics ---</option>
                                              <option value="selfFulfillment" <?php echo $logistics == "selfFulfillment" ? " selected" : "";?>>Self Fulfillment</option>
                                              <option value="Picemeal" <?php echo $logistics == "Picemeal" ? " selected" : "";?>>Picemeal Fulfilment</option>
                                              <option value="BulkFulfilment" <?php echo $logistics == "BulkFulfilment" ? " selected" : "";?>>Bulk Fulfilment</option>                                            
@@ -817,6 +816,172 @@
 </div>
 </div>
 
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$('#buyer_contact').change(function () {
+		var text = "";
+		var mobileno = $(this).val();
+		//var cellphoneNummber = /^[0123456789]\d{9}$/;
+        var cellphoneNummber = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;		
+		if (mobileno.match(cellphoneNummber))	
+		{
+			$('#buyer_contact').attr('style', 'border:1px solid green !important;');
+            $('#buyer_contact').css({ "background-color": "#ffffff" });
+			return true;						
+		}
+		else
+		{		        			
+			$("#buyer_contact").attr('style', 'border:1px solid #d03100 !important;');
+            $("#buyer_contact").css({ "background-color": "#fff2ee" });
+	        text += " \u002A" + " Please Enter Valid 10 digit Mobile Number.";
+			alert(text);
+		    $("#buyer_contact").val("");
+            $(this).focus();
+            return false;
+		}
+		      
+    });
+	
+	
+	$('#buyer_email').change(function () {
+		
+		var text = "";
+		var match = "";		
+		var email_val = $(this).val();
+		//var mailformat = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+		var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;        
+		if (email_val.match(mailformat))	       
+		{
+			$('#buyer_email').attr('style', 'border:1px solid green !important;');
+         $('#buyer_email').css({ "background-color": "#ffffff" });
+			return true;			           
+      }
+		else
+		{
+         $("#buyer_email").attr('style', 'border:1px solid #d03100 !important;');
+         $("#buyer_email").css({ "background-color": "#fff2ee" });
+	      text += " \u002A" + " Please Enter Valid Email ID.";
+			alert(text);
+		   $("#buyer_email").val("");
+         $(this).focus();
+         return false; 		
+      }
+
+    });
+	
+	
+	$('#pin_code1').change(function () {
+		
+		var text = "";
+		var match = "";		
+		var pin_code1 = $(this).val();	
+		var pinpat1=/^\d{6}$/;      
+		if (pin_code1.match(pinpat1))	       
+		{
+			$('#pin_code1').attr('style', 'border:1px solid green !important;');
+            $('#pin_code1').css({ "background-color": "#ffffff" });
+			return true;			           
+        }
+		else
+		{
+            $("#pin_code1").attr('style', 'border:1px solid #d03100 !important;');
+            $("#pin_code1").css({ "background-color": "#fff2ee" });
+	        text += " \u002A" + " Please Enter Valid 6 digit Pin code.";
+			alert(text);
+		    $("#pin_code1").val("");
+            $(this).focus();
+            return false; 		
+        }
+    });
+	
+	$('#pin_code2').change(function () {
+		
+		var text = "";
+		var match = "";		
+		var pin_code2 = $(this).val();
+		var pinpat1=/^\d{6}$/;             
+		if (pin_code2.match(pinpat1))	       
+		{
+			$('#pin_code2').attr('style', 'border:1px solid green !important;');
+            $('#pin_code2').css({ "background-color": "#ffffff" });
+			return true;			           
+        }
+		else
+		{
+            $("#pin_code2").attr('style', 'border:1px solid #d03100 !important;');
+            $("#pin_code2").css({ "background-color": "#fff2ee" });
+	        text += " \u002A" + " Please Enter Valid 6 digit Pin code.";
+			alert(text);
+		    $("#pin_code2").val("");
+            $(this).focus();
+            return false; 		
+        }
+    });
+	
+	
+     
+   $('#gem_workorder_doc').on('change', function ()
+	{   		    
+         var fileEmpty = $('#gem_workorder_doc').get(0).files.length === 0;
+         var size = parseFloat(gem_workorder_doc.files[0].size / 1048576).toFixed(2);
+            
+         if (!fileEmpty && size > 2) 
+         {
+            alert("File size must under 2MB !");
+            $('#gem_workorder_doc').val('');                               
+            $("#gem_workorder_doc").attr('style', 'border:1px solid #d03100 !important;');
+            $("#gem_workorder_doc").css({ "background-color": "#fff2ee" });
+         } 
+         else
+         { 
+            var fileInput = document.getElementById('gem_workorder_doc');
+            var filePath = fileInput.value;
+            
+            var allowedExtensions =  /(\.pdf|\.zip)$/i;              
+            if (!allowedExtensions.exec(filePath)) 
+            {
+               alert('Invalid file type ! Please Select pdf/zip file type');
+               $('#gem_workorder_doc').val('');                               
+               $("#gem_workorder_doc").attr('style', 'border:1px solid #d03100 !important;');
+               $("#gem_workorder_doc").css({ "background-color": "#fff2ee" });
+            }
+            else
+            {                
+               $('#gem_workorder_doc').attr('style', 'border:1px solid green !important;');
+               $('#gem_workorder_doc').css({ "background-color": "#ffffff" });
+            }
+         }         
+   });
+
+   $('#resume').on('change', function ()
+		{   		    
+            var fileEmpty = $('#resume').get(0).files.length === 0;
+            var size = parseFloat(resume.files[0].size / 1048576).toFixed(2);
+            
+            if (!fileEmpty && size > 2) 
+            {
+               alert("File size must under 2MB !");
+               $('#resume').val('');                               
+               $("#resume").attr('style', 'border:1px solid #d03100 !important;');
+               $("#resume").css({ "background-color": "#fff2ee" });
+            } 
+            else
+            {                 
+               $('#resume').attr('style', 'border:1px solid green !important;');
+               $('#resume').css({ "background-color": "#ffffff" });
+            }         
+   });
+
+		
+
+});
+
+</script>
+
+
+
 <script type="text/javascript">
    function EnableDisableTextBox() 
    {       
@@ -835,15 +1000,15 @@
 <script type="text/javascript">
    function changeAddress() 
    {
-      document.getElementById("pick_location").disabled = false;
+      document.getElementById("seller_pickup_location").disabled = false;
       /*
-         if(document.getElementById("pick_location").disabled == true)
+         if(document.getElementById("seller_pickup_location").disabled == true)
          {    
-            document.getElementById("pick_location").disabled = false;
+            document.getElementById("seller_pickup_location").disabled = false;
          }
          else
          {
-            document.getElementById("pick_location").disabled = true;
+            document.getElementById("seller_pickup_location").disabled = true;
          }
       */                
    }
@@ -1219,31 +1384,39 @@
 	function submitForm() 
 	{	
         var frm = $('#workorder_form');
-        var gemNgem_workorder_id = document.getElementById('gemNgem_workorder_id').value;
         var order_type = document.getElementById('order_type').value;
-        var seller_stateid = document.getElementById('seller_stateid').value;
-       
-        var seller_district = document.getElementById('seller_district').value;
-        var seller_city = document.getElementById('seller_city').value; 
-        var seller_pincode = document.getElementById('seller_pincode').value;
-        var select_product = document.getElementById('select_product').value;
+        var gemNgem_workorder_id = document.getElementById('gemNgem_workorder_id').value;
+        var seller_pickup_location = document.getElementById('seller_pickup_location').value;
+        //var seller_stateid = document.getElementById('seller_stateid').value;
+        //var seller_district = document.getElementById('seller_district').value;
+        //var seller_city = document.getElementById('seller_city').value; 
+        //var seller_pincode = document.getElementById('seller_pincode').value;
+        
+
+        
         var buyer_name = document.getElementById('buyer_name').value;
-        var phone = document.getElementById('phone').value;
-        var email = document.getElementById('email').value;
+        var buyer_organization_name = document.getElementById('buyer_organization_name').value;
+        var buyer_contact = document.getElementById('buyer_contact').value;
+        var buyer_email = document.getElementById('buyer_email').value;
+        var buyer_full_address = document.getElementById('buyer_full_address').value;
+
+        var product_category = document.getElementById('product_category').value;
+        var product_quantity = document.getElementById('product_quantity').value;
         var value_gem_order = document.getElementById('value_gem_order').value;
-        var including_gst = document.getElementById('including_gst').value;
+
         var sample_clause = document.getElementById('sample_clause').value;
-        var quantity = document.getElementById('quantity').value;
-        var organization_name = document.getElementById('organization_name').value;
-        var logistics_type = document.getElementById('logistics_type').value;
-        var ready_delivery_date = document.getElementById('ready_delivery_date').value;
+        var bill_discounting = document.getElementById('bill_discounting').value;
+        var coordination = document.getElementById('coordination').value;
+
         var expected_date = document.getElementById('expected_date').value;
         var buyer_stateid = document.getElementById('buyer_stateid').value;
         var buyer_district = document.getElementById('buyer_district').value;
         var city = document.getElementById('city').value;
         var pincode = document.getElementById('pincode').value;
-        var consignee_address = document.getElementById('consignee_address').value;
-        var bill_discounting = document.getElementById('bill_discounting').value;
+        var buyer_full_address = document.getElementById('buyer_full_address').value;
+
+
+        
         var gem_workorder_doc = document.getElementById('gem_workorder_doc').value;
         var eway_bill_part_1 = document.getElementById('eway_bill_part_1').value;         
 	     var pickup_pincode = document.getElementById('pickup_pincode').value;
