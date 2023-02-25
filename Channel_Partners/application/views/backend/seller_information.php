@@ -362,8 +362,8 @@
                                                 //var_dump($country);
                                                 foreach($state_list as $c)
                                                 {  ?>
-                                             <option value="<?= $c->statecode; ?>" <?php echo $state_first == $c->statecode ? " selected" : ""; ?>   ><?= $c->statename; ?></option>
-                                             <?php  
+                                                   <option value="<?= $c->statecode; ?>" <?php echo $state_first == $c->statecode ? " selected" : ""; ?>   ><?= $c->statename; ?></option>
+                                                   <?php  
                                                 }  
                                                 ?>
                                           </select>
@@ -376,14 +376,14 @@
                                                 {                                            
                                                    foreach($district_list as $dist)
                                                    {  ?>
-                                             <option value="<?= $dist->Districtcode; ?>" <?php echo $district_first == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
-                                             <?php  
-                                                } 
+                                                      <option value="<?= $dist->Districtcode; ?>" <?php echo $district_first == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
+                                                      <?php  
+                                                   } 
                                                 }
                                                 else 
                                                 {  ?>                                        
-                                             <option value="">-- Select District --</option>
-                                             <?php 
+                                                   <option value="">-- Select District --</option>
+                                                   <?php 
                                                 }   ?>                                                
                                           </select>
                                        </div>

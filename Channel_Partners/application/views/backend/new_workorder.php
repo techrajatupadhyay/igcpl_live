@@ -6,20 +6,21 @@
       foreach ($seller as $value)
       {
          $seller_id = $value->seller_id;
-         $current_address = $value->current_address;
-         $state_first = $value->state_first;
-         $city_first =$value->city_first;
-         $pincode_first =$value->pincode_first;
-		   $region_id =$value->region_id;
-		   $labh_emp_id =$value->labh_emp_id;
+         $permanent_state = $value->state_second;
+         $permanent_district = $value->district_second;
+         $permanent_city =$value->city_second;
+         $permanent_pincode =$value->pincode_second;
+         $permanent_address =$value->permanent_address;
+		   $labh_executive_id =$value->labh_emp_id;
 		   $labh_agent_id =$value->labh_agent_id;
+         $region_id =$value->region_id;
 			$region_state =$value->region_state;
 			$district_branch =$value->district_branch;
-         $permanent_address =$value->permanent_address; 
+          
       }
 			
     /*
-        $state = $this->db->query("SELECT statename FROM state_master WHERE state_id=".$state_first." limit 1");
+        $state = $this->db->query("SELECT statename FROM state_master WHERE state_id=".$permanent_state." limit 1");
         $state = $state->result_array();
         foreach($state as $state)
         { 
@@ -27,7 +28,7 @@
         } 
 		
         $District_name='';
-        $district = $this->db->query("SELECT Districtname FROM district_master WHERE Districtcode=".$district_first." limit 1");
+        $district = $this->db->query("SELECT Districtname FROM district_master WHERE Districtcode=".$permanent_district." limit 1");
         $district = $district->result_array();
         foreach($district as $district)
         {
@@ -42,7 +43,7 @@
    
    //$seller_id = "";
    //$region_id = "";
-   //$labh_emp_id = "";
+   //$labh_executive_id = "";
    //$labh_agent_id = "";
 
    $igcpl_workorder_id="";
@@ -85,7 +86,7 @@
          $sellerid = $value['sellerid'];
 
          //$region_id = $value['region_id'];
-         //$labh_emp_id = $value['labh_emp_id'];
+         //$labh_executive_id = $value['labh_emp_id'];
          //$labh_agent_id = $value['agent_id'];
 
          $igcpl_workorder_id = $value['igcpl_workorder_id'];
@@ -151,7 +152,7 @@
                <div class="card-block">
                   <div class="row">
                      <div class="col-sm-12">					     
-                        <input type="hidden" class="form-control" id="labh_executive_id" name="labh_executive_id" readonly required value="<?php echo $labh_emp_id; ?>" >
+                        <input type="hidden" class="form-control" id="labh_executive_id" name="labh_executive_id" readonly required value="<?php echo $labh_executive_id; ?>" >
                         <input type="hidden" class="form-control" id="labh_agent_id" name="labh_agent_id" readonly required value="<?php echo $labh_agent_id; ?>" >
                         <input type="hidden" class="form-control" id="region_id" name="region_id" readonly required value="<?php echo $region_id; ?>" >						 
                         <input type="hidden" class="form-control" id="region_state" name="region_state"  required readonly value="<?php echo $region_state; ?>">
@@ -190,9 +191,75 @@
                                     <input type="text" class="form-control" id="gemNgem_workorder_id" name="gemNgem_workorder_id" required placeholder="Gem Workorder Id" value="<?php echo $gemNgem_workorder_id; ?>">
                                  </div>
                               </div>
+
+                              <div class="col-sm-12">
+                                 <h4 class="sub-title" style="color:red;"><i class="fa fa-map-marker"></i>&nbsp; Product Pickup Address :</h4>
+                              </div>
+
+                              <div class="col-sm-3" id="seller_registered_state" style="display:none;">
+                                 <h4 class="sub-title"> State <span class="star">*</span></h4>
+                                 <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>    
+									         <select name="seller_state" class="form-control" id="seller_stateid" required autocomplete="off">
+                                       <option value="">-- Select State --</option>                                      
+                                       <?php 
+                                          foreach($state_list as $c)
+                                          {  ?>
+                                             <option value="<?= $c->statecode; ?>" <?php echo $permanent_state == $c->statecode ? " selected" : ""; ?> ><?= $c->statename; ?></option>
+                                             <?php  
+                                          }  ?>
+                                       ?>
+                                    </select>
+                                 </div>
+                              </div>
+
+                              <div class="col-sm-3" id="seller_registered_district" style="display:none;">
+                                 <h4 class="sub-title">  District <span class="star">*</span></h4>                                   
+                                 <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>   
+                                    <select id="seller_district" name="seller_district" class="form-control"  autocomplete="off">                                                                                                          
+                                       <?php 
+                                          if(isset($workorder) && $workorder !="") 
+                                          {                                            
+                                             foreach($district_list as $dist)
+                                             {  ?>
+                                                <option value="<?= $dist->Districtcode; ?>" <?php echo workorder[0]['seller_district'] == $dist->Districtcode ? " selected" : ""; ?>><?= $dist->Districtname; ?></option>
+                                                <?php  
+                                             } 
+                                          }
+                                          else 
+                                          {  ?>
+                                             <option value=""> -- Select District -- </option>
+                                             <?php                                                                        
+                                             foreach($district_list as $dist)
+                                             {  ?>                                                           
+                                                <option value="<?= $dist->Districtcode; ?>" <?php echo $permanent_district == $dist->Districtcode ? " selected" : ""; ?>><?= $dist->Districtname; ?></option>
+                                                <?php  
+                                             } 
+                                          }   
+                                       ?> 
+                                    </select>
+                                 </div>
+                              </div>
+
+                              <div class="col-sm-3" id="seller_registered_city" style="display:none;">
+                                 <h4 class="sub-title"> City <span class="star">*</span></h4>
+                                 <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>   
+                                    <input type="text" class="form-control" id="seller_city" required name="seller_city" value="<?php echo $permanent_city ; ?>">
+                                 </div>
+                              </div>
+
+                              <div class="col-sm-3" id="seller_registered_pincode" style="display:none;">
+                                 <h4 class="sub-title"> Pincode <span class="star">*</span></h4>
+                                 <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" required id="seller_pincode"name="seller_pincode" value="<?php echo $permanent_pincode; ?>">
+                                 </div>
+                              </div>
                               
                               <div class="col-sm-11">
-                                 <h4 class="sub-title">Pickup Location <span class="star">*</span></h4>
+                                 <h4 class="sub-title">Address <span class="star">*</span></h4>
                                  <div class="input-group">
                                     <div class="input-group">
                                        <textarea class="form-control max-textarea" id="seller_pickup_location" name="seller_pickup_location"  disabled ="disabled" placeholder="Seller Full Address"  rows="2"><?php echo $permanent_address; ?></textarea>
@@ -211,90 +278,7 @@
                         </div>
                      </div>
                   </div>
-               <!--      
-                  <div class="card-block">
-                     <div class="row">
-                        <div class="col-sm-12">
-                           <h4 class="sub-title">Seller Address </h4>
-                           <div class="card-block inner-card-block">
-                              <div class="row m-b-30">
-                                 <div class="col-sm-3">
-                                    <h4 class="sub-title">Seller State <span class="star">*</span></h4>
-                                    <div class="input-group">
-                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>    
-									            <select name="seller_state" class="form-control get_state_id" id="seller_stateid" required autocomplete="off">
-                                          <option value="">-- Select State --</option>
-                                          <?php if(isset($state_list))
-                                          {
-                                             foreach($state_list as $c)
-                                             { 
-                                                if($state_first == $c->state_id)
-                                                {
-                                                   ?>
-                                                   <option value="<?= $c->state_id; ?>" selected ><?= $c->statename; ?></option>
-                                                   <?php  } else {  ?>
-                                                   <option value="<?= $c->state_id; ?>" ><?= $c->statename; ?></option>
-                                                   <?php }  
-                                                        
-                                                } 
-                                                } 
-                                          ?>
-                                       </select>
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h4 class="sub-title">Seller District <span class="star">*</span></h4>
-                                    
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>   
-                                        <select id="seller_district" name="seller_district" class="form-control"  autocomplete="off">
-                                        <?php 
-                                          if(isset($workorder[0]['seller_district'])) 
-                                          {
-
-                                             foreach($district_list as $dist)
-                                             { ?>
-                                                <option value="<?= $dist->Districtcode; ?>" <?php if($dist->Districtcode == $workorder[0]['seller_district']){ ?> selected <?php } ?>  > <?= $dist->Districtname; ?></option>
-                                             <?php 
-                                             } 
-                                          } 
-                                        else 
-										            {   ?>
-                                            <option value="">-- Select District --</option>
-                                            <?php 
-										            }   ?>
-                                                    
-                                        </select>
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h4 class="sub-title">Seller City <span class="star">*</span></h4>
-                                    <div class="input-group">
-                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>   
-                                       <input type="text" class="form-control" id="seller_city" required name="seller_city" value="<?php echo $seller_city ; ?>">
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-3">
-                                    <h4 class="sub-title">Seller Pincode <span class="star">*</span></h4>
-                                    <div class="input-group">
-                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                       <input type="text" class="form-control" required id="seller_pincode"name="seller_pincode" value="<?php echo $seller_pincode; ?>">
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="row m-b-30">
-                                 <div class="col-sm-12">
-                                    <h4 class="sub-title"><i class="fa fa-home" aria-hidden="true"></i> Pickup Location <span class="star">*</span></h4>
-                                    <textarea class="form-control max-textarea" name="pick_location" placeholder="Seller Full Address" maxlength="5000" rows="3" readonly><?php echo $permanent_address; ?></textarea>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               -->
-
-
+             
                <!--
                   <div class="card-block">
                      <div class="row">
@@ -346,7 +330,7 @@
                                     <h4 class="sub-title">Buyer Name <span class="star">*</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                       <input type="text" class="form-control" required id="buyer_name" name="buyer_name" placeholder="Buyer Name"  minlength="3" value="<?php echo $buyer_name;?>">
+                                       <input type="text" class="form-control" required id="buyer_name"  name="buyer_name" placeholder="Buyer Name"  minlength="3" value="<?php echo $buyer_name;?>">
                                     </div>
                                  </div>
                                  <div class="col-sm-4">
@@ -680,8 +664,8 @@
                                           <tbody>
                                              <tr>
                                                 <td>
-                                                <h6>Coordination Charges :</h6>
-                                                <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
+                                                <h6><b>Coordination Charges : </b></h6>
+                                                <p>G-Laabh Services </p>
                                                 </td>                                               
                                                 <td id="coordination_charges"> 00.00 </td>                                      
                                                 <td id="coordination_discount"> 0.0 </td>
@@ -689,8 +673,8 @@
                                              </tr>
                                              <tr>
                                                 <td>
-                                                <h6>Logistics Charges :</h6>
-                                                <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
+                                                <h6><b>Logistics Charges : </b></h6>
+                                                <p>G-Plus Services (Fulfilment Charges) { 50% Advance Payment } </p>
                                                 </td>                                              
                                                 <td id="logistics_amount"> 00.00 </td>                                               
                                                 <td id="logistics_discount"> 0.0 </td>
@@ -698,8 +682,8 @@
                                              </tr>
                                              <tr>
                                                 <td>
-                                                <h6>Sample Clause Facilitation Charges :</h6>
-                                                <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
+                                                <h6><b>Sample Clause Facilitation Charges : </b></h6>
+                                                <p>G-Laabh Services </p>
                                                 </td>                                              
                                                 <td id="sample_clause_amount"> 00.00 </td>                                               
                                                 <td id="sample_clause_discount"> 0.0 </td>
@@ -707,8 +691,8 @@
                                              </tr>
                                              <tr>
                                                 <td>
-                                                <h6>Cash flow Documentation Charges :</h6>
-                                                <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
+                                                <h6><b>Cash flow Documentation Charges : </b></h6>
+                                                <p>G-Laabh Services </p>
                                                 </td>                                              
                                                 <td id="cashflow_amount"> 00.00 </td>                                               
                                                 <td id="cashflow_discount"> 0.0 </td>
@@ -724,19 +708,21 @@
                                        <table class="table table-responsive invoice-table invoice-total">
                                           <tbody>
                                              <tr>
-                                                <th>&nbsp; Sub Total  ₹ : &nbsp;</th>
+                                                <th>&nbsp; Total Taxable Amount  ₹ : &nbsp;</th>
                                                 <td id="total_amount"> 00.00 </td>
                                              </tr>
                                              <tr>
-                                                <th>&nbsp; Taxes GST (18%)  ₹  : &nbsp;</th>
+                                                <th>&nbsp;  IGST (18%)  ₹  : &nbsp;</th>
                                                 <td id="total_gst"> 00.00  </td>
-                                             </tr>
-                                          <!--   
+                                             </tr>                                            
                                              <tr>
-                                                <th>Discount (5%) :</th>
-                                                <td>45.00</td>
+                                                <th>&nbsp;  SGST (9%)  ₹  : &nbsp;</th>
+                                                <td id="sgst"> 00.00 </td>
                                              </tr>
-                                          -->   
+                                             <tr>
+                                                <th>&nbsp;  CGST (9%)  ₹  : &nbsp;</th>
+                                                <td id="cgst"> 00.00 </td>
+                                             </tr>                                            
                                              <tr class="text-info">
                                                 <td>
                                                    <hr>
@@ -758,7 +744,7 @@
                               </div>
                            </div>
                         </div>         
-                     </div>
+                     </div>ś
                      
                      <div class="card-body">
                         <div class="row my-4">
@@ -983,7 +969,7 @@ $(document).ready(function() {
                $('#eway_bill_part_1').css({ "background-color": "#ffffff" });
             }
          }         
-   });		
+   });
 
 });
 
@@ -1008,27 +994,40 @@ $(document).ready(function() {
    function changeAddress() 
    {
       document.getElementById("seller_pickup_location").disabled = false;
+      $("#seller_registered_state").show();
+      $("#seller_registered_district").show();
+      $("#seller_registered_city").show();
+      $("#seller_registered_pincode").show();
       /*
-         if(document.getElementById("seller_pickup_location").disabled == true)
-         {    
-            document.getElementById("seller_pickup_location").disabled = false;
-         }
-         else
-         {
-            document.getElementById("seller_pickup_location").disabled = true;
-         }
-      */                
+      if(document.getElementById("seller_pickup_location").disabled == true)
+      {    
+         document.getElementById("seller_pickup_location").disabled = false;
+         $("#seller_registered_state").show();
+         $("#seller_registered_district").show();
+         $("#seller_registered_city").show();
+         $("#seller_registered_pincode").show();
+      }
+      else
+      {
+         document.getElementById("seller_pickup_location").disabled = true;
+         $("#seller_registered_state").hide();
+         $("#seller_registered_district").hide();
+         $("#seller_registered_city").hide();
+         $("#seller_registered_pincode").hide();
+      }
+      */                     
    }
 </script>
 
 <script type="text/javascript">
-   /*
-   document.getElementById("product_width").onchange = function() {upp()};
-   function upp() {
-   var dat = document.getElementById("product_width");
-   dat.value = dat.value.toUpperCase();
+    
+   document.getElementById("buyer_name").onchange = function() {uppCase()};
+   function uppCase() 
+   {
+      var dat = document.getElementById("buyer_name");
+      dat.value = dat.value.toUpperCase();
    }
-   */
+  
    function getChangedWeight()
 	{
      			
@@ -1069,7 +1068,9 @@ $(document).ready(function() {
    var Sample_Clause_Charges=0;
    var Cash_flow_Charges=0;
    var totalprice=0;
-   var gst_value=0;
+   var igst_value=0;
+   var sgst_value=0;
+   var cgst_value=0;
    var payable_amount=0;
 
    function ShowHideDiv() 
@@ -1364,7 +1365,7 @@ $(document).ready(function() {
 				addvalue();
          }
         
-      });
+      });   
 
    });
 
@@ -1372,22 +1373,68 @@ $(document).ready(function() {
    function addvalue()
 	{
       //console.log(Coordination_Charges);
-		//console.log(Logistics_Charges);
+	   //console.log(Logistics_Charges);
 		//console.log(Sample_Clause_Charges);	
-     	//console.log(Cash_flow_Charges);	
-		totalprice = +Coordination_Charges +  +Logistics_Charges +  +Sample_Clause_Charges +  +Cash_flow_Charges ;
-      gst_value =  Number((18 / 100) * totalprice).toFixed(2);
-
-      payable_amount = +totalprice +  +gst_value;
+     	//console.log(Cash_flow_Charges);
+      //console.log(totalprice);
+      //console.log(igst_value);
+      //console.log(sgst_value);
+      //console.log(cgst_value);
+      //console.log(payable_amount);
+      var seller_state_id = document.getElementById('seller_stateid').value;   
+      //alert(seller_state_id);
+      if(seller_state_id =="09")
+      {
+         totalprice = +Coordination_Charges +  +Logistics_Charges +  +Sample_Clause_Charges +  +Cash_flow_Charges ;
+         igst_value =  '0';
+         sgst_value =  Number((9 / 100) * totalprice).toFixed(2);
+         cgst_value =  Number((9 / 100) * totalprice).toFixed(2);
+         payable_amount = +totalprice +  +igst_value + +sgst_value + +cgst_value;
+      }
+      else
+      {   
+         totalprice = +Coordination_Charges +  +Logistics_Charges +  +Sample_Clause_Charges +  +Cash_flow_Charges ;
+         igst_value =  Number((18 / 100) * totalprice).toFixed(2);
+         sgst_value =  '0';
+         cgst_value =  '0';
+         payable_amount = +totalprice +  +igst_value + +sgst_value + +cgst_value;
+      }
+      
       $("#total_amount").html(Number(totalprice).toFixed(2));
-      $("#total_gst").html(Number(gst_value).toFixed(2));
+      $("#total_gst").html(Number(igst_value).toFixed(2));
+      $("#sgst").html(Number(sgst_value).toFixed(2));
+      $("#cgst").html(Number(cgst_value).toFixed(2));
 		$("#total_payable_amount").html(Number(payable_amount).toFixed(2));
      
    }
-
 </script>
 
-	
+<script type="text/javascript">
+   $(document).ready(function()
+   {
+      $(document).on('change', '#seller_stateid', function()
+      {        
+         var state_id = document.getElementById('seller_stateid').value;   
+         //$('#seller_district').val();                
+         if (state_id !='') 
+         {
+            $.ajax(
+            {     
+               url: "<?php  echo base_url(); ?>SellerRegister/get_district_by_state",
+               method:"POST", 
+               data:{state_id:state_id},
+               success: function(data) 
+               { 
+                  //alert(data);
+                  $('#seller_district').html(data);
+                  addvalue();
+               }
+            })
+         }
+      });
+   });   
+</script>
+
 <script type="text/javascript">	
 	
 	function submitForm() 
@@ -1483,7 +1530,7 @@ $(document).ready(function() {
          alert("order ype is Mandatory!"); 
          return	false;      
       }
-      else (gemNgem_workorder_id == '')
+      else if (gemNgem_workorder_id == '')
       {
          alert("GEM Workorder ID is Missing!");
          return	false;

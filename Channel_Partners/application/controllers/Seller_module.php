@@ -41,13 +41,10 @@ class Seller_module extends CI_Controller
 		}
 	}
 
-
-
-
     public function New_workorder()
     {
  
-      if ($this->session->userdata('user_login_access') == 1)
+        if ($this->session->userdata('user_login_access') == 1)
 		{
            		   
             $sellerid = $this->session->userdata('user_login_id');
@@ -61,11 +58,8 @@ class Seller_module extends CI_Controller
             $sql ="SELECT * from seller Where  seller_id=".$sellerid."  " ;
 			$data['seller'] = $this->db->query($sql)->result();
 
-
 			$sql ="SELECT * from gem_product_category " ;
 			$data['product'] = $this->db->query($sql)->result();
-
-
 
             $this->load->view('backend/new_header');
             $this->load->view('backend/new_sidebar'); 

@@ -1,19 +1,19 @@
 <?php
-    if($this->session->userdata('user_login_access') != 1)
-    {
-        return redirect('Login'); 
-    }
+   if($this->session->userdata('user_login_access') != 1)
+   {
+      return redirect('Login'); 
+   }
 
-    $laabh_executive = $this->session->userdata('user_login_id');
+   $laabh_executive = $this->session->userdata('user_login_id');
 	
-    $laabh_executive_details = $this->db->query("SELECT * FROM users WHERE user_id='".$laabh_executive."' ");
+   $laabh_executive_details = $this->db->query("SELECT * FROM users WHERE user_id='".$laabh_executive."' ");
 	$executive_details= $laabh_executive_details->result();
 	//print_r($this->db->last_query());
 	foreach($executive_details as $row)
 	{			
 		$region_name = $row->region;
-        $region_state = $row->region_state;
-        $district_branch = $row->district_branch;		
+      $region_state = $row->region_state;
+      $district_branch = $row->district_branch;		
 	}
     
    if(isset($user_id))

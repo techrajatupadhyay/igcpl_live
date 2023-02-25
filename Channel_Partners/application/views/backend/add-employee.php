@@ -450,8 +450,8 @@
                                                       //var_dump($country);
                                                       foreach($state_list as $c)
                                                       {   ?>
-                                                   <option value="<?= $c->statecode; ?>" <?php echo $state_first == $c->statecode ? " selected" : ""; ?> ><?= $c->statename; ?></option>
-                                                   <?php  
+                                                         <option value="<?= $c->statecode; ?>" <?php echo $state_first == $c->statecode ? " selected" : ""; ?> ><?= $c->statename; ?></option>
+                                                         <?php  
                                                       }   ?>
                                                 </select>
                                              </div>
@@ -524,10 +524,10 @@
                                                    <?php 
                                                       //var_dump($country);
                                                       foreach($state_list as $c)
-                                                      {   ?>
-                                                   <option value="<?= $c->statecode; ?>" <?php echo $state_second == $c->statecode ? " selected" : ""; ?> ><?= $c->statename; ?></option>
-                                                   <?php  
-                                                      }   ?>
+                                                      {  ?>
+                                                         <option value="<?= $c->statecode; ?>" <?php echo $state_second == $c->statecode ? " selected" : ""; ?> ><?= $c->statename; ?></option>
+                                                         <?php  
+                                                      }  ?>
                                                 </select>
                                              </div>
                                           </div>
