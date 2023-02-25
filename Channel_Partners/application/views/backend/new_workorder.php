@@ -175,10 +175,10 @@
                                  <div class="input-group">
                                     <div class="input-group">
                                         <span class="input-group-addon" id="basic-addon7"><i class="fa fa-shopping-basket" aria-hidden="true"></i></span>
-                                        <select name="order_type" id="order_type" required class="form-control form-control-primary">
+                                        <select name="order_type" id="order_type" required class="form-control">
                                           <option value="">Order Type</option>                                                                                  
-                                          <option value="01" <?php echo $order_type == "01" ? " selected" : "";?>>GeM Work Order</option>
-                                          <option value="02" <?php echo $order_type == "02" ? " selected" : "";?>>Non GeM Work Order</option>
+                                          <option value="01" <?php echo $order_type == "01" ? " selected" : "";?>> GeM </option>
+                                          <option value="02" <?php echo $order_type == "02" ? " selected" : "";?>> Non GeM </option>
                                         </select>
                                     </div>
                                  </div>
@@ -193,14 +193,14 @@
                               </div>
 
                               <div class="col-sm-12">
-                                 <h4 class="sub-title" style="color:red;"><i class="fa fa-map-marker"></i>&nbsp; Product Pickup Address :</h4>
+                                 <h4 class="sub-title" style="color:red;"><i class="fa fa-map-marker"></i>&nbsp; Seller Address/Product Pickup Address :</h4>
                               </div>
 
                               <div class="col-sm-3" id="seller_registered_state" style="display:none;">
                                  <h4 class="sub-title"> State <span class="star">*</span></h4>
                                  <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>    
-									         <select name="seller_state" class="form-control" id="seller_stateid" required autocomplete="off">
+									         <select name="seller_state" class="form-control" id="seller_state" required autocomplete="off">
                                        <option value="">-- Select State --</option>                                      
                                        <?php 
                                           foreach($state_list as $c)
@@ -254,7 +254,7 @@
                                  <h4 class="sub-title"> Pincode <span class="star">*</span></h4>
                                  <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" required id="seller_pincode"name="seller_pincode" value="<?php echo $permanent_pincode; ?>">
+                                    <input type="text" class="form-control"  id="seller_pincode" name="seller_pincode" required pattern="[0-9]{6}" minlength="6" maxlength="6" value="<?php echo $permanent_pincode; ?>">
                                  </div>
                               </div>
                               
@@ -262,8 +262,9 @@
                                  <h4 class="sub-title">Address <span class="star">*</span></h4>
                                  <div class="input-group">
                                     <div class="input-group">
-                                       <textarea class="form-control max-textarea" id="seller_pickup_location" name="seller_pickup_location"  disabled ="disabled" placeholder="Seller Full Address"  rows="2"><?php echo $permanent_address; ?></textarea>
-                                       <!--<textarea hidden class="form-control max-textarea"  name="seller_pickup_location"   rows="2"><?php echo $permanent_address; ?></textarea>-->
+                                       <textarea class="form-control max-textarea" id="seller_pickup_location_disable" oninput="newAddress()"  required disabled ="disabled" placeholder="Seller Full Address"  rows="2"><?php echo $permanent_address; ?></textarea>
+                                       <input type="hidden" class="form-control" id="seller_pickup_location" name="seller_pickup_location" required  value="<?php echo $permanent_address; ?>">
+                                       <!--<textarea hidden class="form-control max-textarea"  id="seller_pickup_location" name="seller_pickup_location"  value="<?php //echo $permanent_address; ?>" >-->
                                     </div>
                                  </div>
                               </div>
@@ -326,34 +327,41 @@
                            
                            <div class="card-block inner-card-block">
                               <div class="row m-b-30">
-                                 <div class="col-sm-4">
+                                 <div class="col-sm-3">
                                     <h4 class="sub-title">Buyer Name <span class="star">*</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-user" aria-hidden="true"></i></span>
                                        <input type="text" class="form-control" required id="buyer_name"  name="buyer_name" placeholder="Buyer Name"  minlength="3" value="<?php echo $buyer_name;?>">
                                     </div>
                                  </div>
-                                 <div class="col-sm-4">
+                                 <div class="col-sm-3">
                                     <h4 class="sub-title">Organization Name <span class="star"> *</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-university" aria-hidden="true"></i></span>
                                        <input type="text" class="form-control" id="buyer_organization_name" placeholder="Organization Name" name="buyer_organization_name" value="<?php echo $organization_name?>">
                                     </div>
                                  </div>
-                                 <div class="col-sm-4">
+                                 <div class="col-sm-3">
                                     <h4 class="sub-title">Phone Number <span class="star">*</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-phone" aria-hidden="true"></i></span>
                                        <input type="number" class="form-control" placeholder="Phone" required id="buyer_contact" name="buyer_contact" minlength="10" maxlength="12" value="<?php echo $contact;?>">
                                     </div>
-                                 </div>                                
-                              </div>                             
-                              <div class="row m-b-30">                               
-                                 <div class="col-sm-4">
+                                 </div>
+                                 <div class="col-sm-3">
                                     <h4 class="sub-title">Email Id  <span class="star">*</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
                                        <input type="email" class="form-control" required id="buyer_email" name="buyer_email" placeholder="Email" value="<?php echo $email;?>">
+                                    </div>
+                                 </div>                                
+                              </div>                             
+                              <div class="row m-b-30">                               
+                                 <div class="col-sm-4">
+                                    <h4 class="sub-title">Delevery Pincode <span class="star">*</span></h4>
+                                    <div class="input-group"><!--oninput="getAddressByPincode()"-->
+                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                       <input type="text" class="form-control" id="buyer_pincode"  name="buyer_pincode" onchange="getAddressByPincode()" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="pincode" required pattern="[0-9]{6}" minlength="6" maxlength="6" value="<?php echo $pincode; ?>">
                                     </div>
                                  </div>
                                  <div class="col-sm-8">
@@ -538,7 +546,7 @@
 
                      <div class="row" id="shipping_calculation" style="display: block">
                         <div class="col-sm-12">
-                           <h4 class="sub-title" style="color:red;"><i class="fa fa-truck " aria-hidden="true"></i>&nbsp; Shipping Rate Calculation :</h4>                           
+                           <h4 class="sub-title" style="color:red;"><i class="fa fa-truck " aria-hidden="true"></i>&nbsp; Shipping Charges Calculation :</h4>                           
                            <div class="card-block inner-card-block">
 				                  <div class="row m-b-30">								
                                  <div class="col-sm-4">
@@ -831,7 +839,7 @@ $(document).ready(function() {
 		      
     });
 	
-	
+    	
 	$('#buyer_email').change(function () {
 		
 		var text = "";
@@ -857,6 +865,29 @@ $(document).ready(function() {
       }
 
     });
+
+   $('#seller_pincode').change(function () {	
+		var text = "";
+		var match = "";		
+		var pin_code1 = $(this).val();	
+		var pinpat1=/^\d{6}$/;      
+		if (pin_code1.match(pinpat1))	       
+		{
+			$('#seller_pincode').attr('style', 'border:1px solid green !important;');
+         $('#seller_pincode').css({ "background-color": "#ffffff" });
+			return true;			           
+      }
+		else
+		{
+         $("#seller_pincode").attr('style', 'border:1px solid #d03100 !important;');
+         $("#seller_pincode").css({ "background-color": "#fff2ee" });
+	      text += " \u002A" + " Please Enter Valid 6 digit Pin code.";
+			alert(text);
+		   $("#seller_pincode").val("");
+         $(this).focus();
+         return false; 		
+      }
+   }); 
 	
 	
 	$('#pickup_pincode').change(function () {	
@@ -993,15 +1024,15 @@ $(document).ready(function() {
 <script type="text/javascript">
    function changeAddress() 
    {
-      document.getElementById("seller_pickup_location").disabled = false;
+      document.getElementById("seller_pickup_location_disable").disabled = false;
       $("#seller_registered_state").show();
       $("#seller_registered_district").show();
       $("#seller_registered_city").show();
       $("#seller_registered_pincode").show();
       /*
-      if(document.getElementById("seller_pickup_location").disabled == true)
+      if(document.getElementById("seller_pickup_location_disable").disabled == true)
       {    
-         document.getElementById("seller_pickup_location").disabled = false;
+         document.getElementById("seller_pickup_location_disable").disabled = false;
          $("#seller_registered_state").show();
          $("#seller_registered_district").show();
          $("#seller_registered_city").show();
@@ -1009,7 +1040,7 @@ $(document).ready(function() {
       }
       else
       {
-         document.getElementById("seller_pickup_location").disabled = true;
+         document.getElementById("seller_pickup_location_disable").disabled = true;
          $("#seller_registered_state").hide();
          $("#seller_registered_district").hide();
          $("#seller_registered_city").hide();
@@ -1381,7 +1412,7 @@ $(document).ready(function() {
       //console.log(sgst_value);
       //console.log(cgst_value);
       //console.log(payable_amount);
-      var seller_state_id = document.getElementById('seller_stateid').value;   
+      var seller_state_id = document.getElementById('seller_state').value;   
       //alert(seller_state_id);
       if(seller_state_id =="09")
       {
@@ -1412,9 +1443,9 @@ $(document).ready(function() {
 <script type="text/javascript">
    $(document).ready(function()
    {
-      $(document).on('change', '#seller_stateid', function()
+      $(document).on('change', '#seller_state', function()
       {        
-         var state_id = document.getElementById('seller_stateid').value;   
+         var state_id = document.getElementById('seller_state').value;   
          //$('#seller_district').val();                
          if (state_id !='') 
          {
@@ -1431,8 +1462,73 @@ $(document).ready(function() {
                }
             })
          }
-      });
-   });   
+      });      
+   });
+   
+   function newAddress() 
+	{        
+      var seller_addr = document.getElementById('seller_pickup_location_disable').value;     
+      $("#seller_pickup_location").val(seller_addr);
+      //$('#seller_pickup_location').html(seller_addr);
+   }
+
+
+   function getAddressByPincode() 
+	{  
+
+      var buyer_pincode = document.getElementById('buyer_pincode').value;
+                 
+      let pin = document.getElementById("buyer_pincode").value; 
+         $.getJSON("https://api.postalpincode.in/pincode/" + pin, function (data) {
+            createHTML(data);
+               //console.log( "JSON Data: " + data[0].Message );
+               //console.log( "JSON Data: " + data[0].Status );
+               //console.log( "JSON Data: " + data[0].PostOffice.length );
+            })
+                    
+            function createHTML(data) 
+            {
+               var htmlElements = " ";
+               var PostOfficeCircle = " ";
+               var PostOfficeRegion = " ";
+               var PostOfficeBlock = " ";
+               var PostOfficeDivision = " ";
+               var PostOfficeDistrict = " ";
+               var PostOfficeState = " ";
+               var PostOfficeCountry = " ";
+               var PostOfficePincode = " ";
+
+               if (data[0].PostOffice && data[0].PostOffice.length && data[0].Status=="Success") 
+               {
+                  for (var i = 0; i < data[0].PostOffice.length; i++) 
+                  {
+                     var PostOfficeCountry = data[0].PostOffice[i].Country ;
+                     var PostOfficeState = data[0].PostOffice[i].State ;
+                     var PostOfficeCircle = data[0].PostOffice[i].Circle ;
+                     var PostOfficeRegion = data[0].PostOffice[i].Region ;
+                     var PostOfficeDivision = data[0].PostOffice[i].Division ;
+                     var PostOfficeDistrict = data[0].PostOffice[i].District ;
+                     var PostOfficeBlock = data[0].PostOffice[i].Block ;                                     
+                     var PostOfficePincode = data[0].PostOffice[i].Pincode ;
+                     
+                     //htmlElements += "State -" + PostOfficeState + ", Division - " + PostOfficeDivision + ", District - " + PostOfficeDistrict + ", Block - " + PostOfficeBlock + ", Pincode - " + PostOfficePincode ;                     
+                  }
+
+                  htmlElements += "State : " + PostOfficeState + ", Division : " + PostOfficeDivision + ", District : " + PostOfficeDistrict + ", Block : " + PostOfficeBlock + ", Pincode : " + PostOfficePincode ;
+               
+                  $("#buyer_full_address").val(htmlElements);
+               }
+               else 
+               {
+                  $("#buyer_pincode").val("");
+                  $("#buyer_full_address").val("");
+                  alert('Please Enter Valid Pincode!');                  
+               }
+                                                      
+            }
+
+   }
+   
 </script>
 
 <script type="text/javascript">	
@@ -1450,12 +1546,18 @@ $(document).ready(function() {
       var sellerid = document.getElementById('sellerid').value;
       var order_type = document.getElementById('order_type').value;
       var gemNgem_workorder_id = document.getElementById('gemNgem_workorder_id').value;
+
+      var seller_state = document.getElementById('seller_state').value;
+      var seller_district = document.getElementById('seller_district').value;
+      var seller_city = document.getElementById('seller_city').value;
+      var seller_pincode = document.getElementById('seller_pincode').value;
       var seller_pickup_location = document.getElementById('seller_pickup_location').value;
                
       var buyer_name = document.getElementById('buyer_name').value;
       var buyer_organization_name = document.getElementById('buyer_organization_name').value;
       var buyer_contact = document.getElementById('buyer_contact').value;
       var buyer_email = document.getElementById('buyer_email').value;
+      var buyer_pincode = document.getElementById('buyer_pincode').value;
       var buyer_full_address = document.getElementById('buyer_full_address').value;
 
       var product_category = document.getElementById('product_category').value;
@@ -1535,6 +1637,26 @@ $(document).ready(function() {
          alert("GEM Workorder ID is Missing!");
          return	false;
       }
+      else if (seller_state =='') 
+      {
+         alert("Pickup State is Missing!"); 
+         return	false;      
+      }
+      else if (seller_district =='') 
+      {
+         alert("Pickup District is Missing!"); 
+         return	false;      
+      }
+      else if (seller_city =='') 
+      {
+         alert("Pickup City is Missing!"); 
+         return	false;      
+      }
+      else if (seller_pincode =='') 
+      {
+         alert("Seller Pincode is Missing!"); 
+         return	false;      
+      }
       else if (seller_pickup_location =='') 
       {
          alert("Seller Pickup Location is Missing!"); 
@@ -1560,6 +1682,11 @@ $(document).ready(function() {
          alert("Buyer Email ID  is Missing!");
          return	false;        
       } 
+      else if (buyer_pincode =='') 
+      {
+         alert("Buyer Pincode is Missing!");
+         return	false;        
+      }
       else if (buyer_full_address =='') 
       {
          alert("Buyer Full Address is Missing!");
