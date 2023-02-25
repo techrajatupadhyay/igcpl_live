@@ -753,7 +753,7 @@
                                  <div class="col-md-12">
                                     <div class="" style="float:center;">															   
                                        <b><span> <input type="checkbox" id='tac' name="terms_and_conditions" value="yes" onclick="EnableDisableTextBox()" >&nbsp; I have read and agree to the
-                                       <a href="https://indigemcp.tsdemo.co.in/uploads/Terms_and_conditions/terms_and_conditions.pdf" style="color:#3a8ace;" target="_blank">  Terms and Conditions</a>
+                                       <a href="https://indigemcp.com/uploads/Terms_and_conditions/terms_and_conditions.pdf" style="color:#3a8ace;" target="_blank">  Terms and Conditions</a>
                                        </span></b>                                             
                                     </div>
                                  </div>
