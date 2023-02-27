@@ -1156,7 +1156,7 @@ class SellerRegister extends CI_Controller
 
 	}
 	
-	
+	--
 	public function seller_approvel($sellerid)
     {
 
