@@ -262,8 +262,7 @@
 															echo "<i class='fa fa-times Rejected ' aria-hidden='true' ></i>";
 														}
 													?>
-												</td> 
-												
+												</td> 												
 												<?php if($user_type==1) { ?>
 													<td class="jsgrid-align-center ">                         
 													   <a href="<?php echo base_url();?>SellerRegister/SellerDetails/<?php echo $value->seller_id; ?>" title="view" class="btn btn-sm btn-info waves-effect waves-light"><i class="fa fa-eye"></i></a>

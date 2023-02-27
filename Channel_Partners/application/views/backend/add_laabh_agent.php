@@ -255,12 +255,17 @@
                                              <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
                                                 <select id="division" name="division" class="form-control form-control" required>
-                                                   <option value=""> select division </option>
-                                                    <?php  foreach($division as $division){  ?>
-												   
-                                                      <option value="<?= $division->id; ?>" <?php echo $division_id == $division->id ? "selected" : ""; ?> ><?= $division->division_name; ?></option> 
-                                                                                                   
-                                                   <?php  }  ?>
+                                                   <option value="2"> select division </option>
+                                                   <option value="2" <?php echo $division_id == "2" ? " selected" : "";?>> Laabh </option>
+                                                   <?php
+                                                   /*   
+                                                      foreach($division as $division)
+                                                      {  ?>					   
+                                                         <option value="<?= $division->id; ?>" <?php echo $division->id == $division_id  ? "selected" : ""; ?> ><?= $division->division_name; ?></option>                                                                    
+                                                         <?php  
+                                                      } 
+                                                   */   
+                                                   ?>
                                                    </select>
                                                 </div>
                                              </div>

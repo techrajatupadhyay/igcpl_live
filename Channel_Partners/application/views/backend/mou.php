@@ -361,6 +361,7 @@
 																		$manager_approvel = $det->manager_approvel ;
                                                                         $executive_approvel = $det->executive_approvel ;
 																		$seller_status = $det->seller_status ;
+																		$ispaid = $det->ispaid ;
 																	}
 																	if($paymentdoc && $moudoc > 0)  
 																	{  																        

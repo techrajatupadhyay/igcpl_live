@@ -13,7 +13,7 @@ class Transaction extends CI_Controller
 		//$this->load->library('Payg');
 		$this->load->model('Seller_model');
 		$this->load->model('Admin_model');
-		$this->load->library('Payg');
+		//$this->load->library('Payg');
 		$this->load->library('email');
         
 		//$this->load->library('Payg');
@@ -30,14 +30,26 @@ class Transaction extends CI_Controller
 		$this->merchant_id=$payg_config->merchant_id;
 		$this->payg_url=$payg_config->pay_url;
 	*/
-	
-		//$this->merchant_key = 'zEjxm6Km1Y1lNxpnIVybKbWCdPqya7Bfn6zjwZO06MM=';  for testing
-		$this->merchant_key = '1MEWWe8SirXYhEsYLwzou2PesNDPZhoOcYVv7Ftauak=';
+	    /*  FOR TESTING  */
+		$this->merchant_key = 'zEjxm6Km1Y1lNxpnIVybKbWCdPqya7Bfn6zjwZO06MM=';  
+
+		/*  FOR LIVE  */
+		//$this->merchant_key = '1MEWWe8SirXYhEsYLwzou2PesNDPZhoOcYVv7Ftauak=';
+
 		$this->aggregator_id = 'Paygate'; 
-		//$this->merchant_id = '202209050002';  for testing
-		$this->merchant_id = '202301210021';
-		//$this->payg_url = 'https://pguat.safexpay.com/agcore/paymentProcessing';   
-		$this->payg_url = 'https://www.avantgardepayments.com/agcore/paymentProcessing';		
+
+		/*  FOR TESTING  */
+		$this->merchant_id = '202209050002';  
+
+		/*  FOR LIVE  */
+		//$this->merchant_id = '202301210021';
+
+		/*  FOR TESTING  */
+		$this->payg_url = 'https://pguat.safexpay.com/agcore/paymentProcessing'; 
+		
+		/*  FOR LIVE  */
+		//$this->payg_url = 'https://www.avantgardepayments.com/agcore/paymentProcessing';	
+			
     }
 	 
 	public function index()

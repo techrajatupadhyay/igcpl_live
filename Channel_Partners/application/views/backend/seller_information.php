@@ -13,38 +13,38 @@
        $seller_id=" ";      
     }
     
-    $labhid = $this->session->userdata('user_login_id');
+   $labhid = $this->session->userdata('user_login_id');
 	$user_type = $this->session->userdata('user_type');
-    $sellerid = $seller_id;
+   $sellerid = $seller_id;
 	
-    $sql2 ="SELECT * from users Where user_id='".$labhid."' AND user_type='".$user_type."' and status='ACTIVE'" ;
+   $sql2 ="SELECT * from users Where user_id='".$labhid."' AND user_type='".$user_type."' and status='ACTIVE'" ;
 	$data['User_Details'] = $this->db->query($sql2)->result();
 	
 	foreach($data['User_Details'] as $user)
 	{				
 		$laabh_executive = $user->Laabh_executive;
 		$region_name = $user->region;
-        $region_state = $user->region_state;
-        $district_branch = $user->district_branch;
+      $region_state = $user->region_state;
+      $district_branch = $user->district_branch;
 	}
 	
-    $update = "";
-    $id = "";
-    $seller_id = "";
-    $fname = "";
-    $lname = "";
-    $em_gender = "";
-    $labh_emp_id = "";
-    $contact = "";
-    $altcontact = "";
-    $dob = "";
-    $email = "";
+   $update = "";
+   $id = "";
+   $seller_id = "";
+   $fname = "";
+   $lname = "";
+   $em_gender = "";
+   $labh_emp_id = "";
+   $contact = "";
+   $altcontact = "";
+   $dob = "";
+   $email = "";
 
-    //$region ="";
-    //$region_state ="";
-    //$distinct_branch  ="";
+   $region_id_edit ="";
+   $region_state_edit ="";
+   $distinct_branch_edit  ="";
 	
-    $aadhar = "";      
+   $aadhar = "";      
    $current_address = "";
    $state_first = "";
    $district_first = "";
@@ -66,9 +66,9 @@
    //var_dump($Seller_Details);
    if(isset($Seller_Details) && $Seller_Details !="")
    {
-        $update = true;
-        foreach($Seller_Details as $row)
-        {
+      $update = true;
+      foreach($Seller_Details as $row)
+      {
         
         $id = $row['id'];
         $seller_id = $row['seller_id'];
@@ -81,9 +81,9 @@
         $dob = $row['dob'];
         $email = $row['email'];
 
-        //$region_id = $row['region_id'];
-        //$region_state =$row['region_state'];
-        //$distinct_branch =$row['distinct_branch'];
+        $region_id_edit = $row['region_id'];
+        $region_state_edit =$row['region_state'];
+        $distinct_branch_edit =$row['district_branch'];
 		
         $aadhar = $row['aadhar'];       
         $current_address = $row['current_address'];
@@ -217,7 +217,102 @@
                                           <label>Email  <span class="red-color">*</span></label>
                                           <input type="text" id="email" name="email" value="<?php echo $email; ?>" required class="form-control" placeholder="email@mail.com" >
                                        </div>
-										  
+
+                                 <?php if(isset($Seller_Details)) { ?>
+
+                                    <div class="form-group col-md-4 m-t-20">
+                                          <label>Region <span class="red-color"> * </span></label>
+                                             <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+												            <input type="text" value="<?php echo $region_id_edit; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled" > 
+											               <input type="hidden" id="region_id" name="regionid" value="<?php echo $region_id_edit; ?>" class="form-control"  autocomplete="off" required readonly > 
+                                               <!--	
+                                                <select id="region_id" name="region" class="form-control"  autocomplete="off" required>
+                                                   <option value="">-- Select region --</option>
+                                                   <?php 
+                                                      //var_dump($country);
+                                                      foreach($region_list as $c)
+                                                      {   ?>
+                                                      <option value="<?= $c->region_id; ?>" <?php echo $region_id_edit == $c->region_id ? " selected" : ""; ?> ><?= $c->region_name; ?></option>
+                                                   <?php  
+                                                      }  ?>
+                                                </select>
+										            	-->	
+                                             </div>
+                                          </div> 
+                                       
+                                          <div class="form-group col-md-4 m-t-20">
+                                             <label>Region State <span class="red-color"> * </span></label>
+                                             <div class="input-group">
+                                                <?php  
+                                                   $sta = $this->db->query("SELECT * FROM region WHERE id=".$region_state_edit." ");
+                                                   $state_det= $sta->result();
+                                                   //print_r($this->db->last_query());
+                                                   foreach($state_det as $dec)
+                                                   {			
+                                                      $state_name = $dec->region_name ;																																												
+                                                   }  
+                                                ?>
+                                                   <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                                   <input type="text"  value="<?php echo $state_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled">
+                                                   <input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state_edit; ?>" class="form-control"  autocomplete="off" required readonly>
+                                                   <!--    
+                                                   <select id="region_state" name="region_state" class="form-control"  autocomplete="off" required>                                                  
+                                                   <option value="">-- Select Region State --</option>
+                                                   <?php
+                                                      if(isset($Seller_Details) && $Seller_Details !="") 
+                                                      { 
+                                                         //var_dump($country);
+                                                         foreach($region_state_list as $rc)
+                                                         {   ?>                                
+                                                            <option value="<?= $rc->id; ?>" <?php echo $region_state_edit == $rc->id ? " selected" : ""; ?> ><?= $rc->region_name; ?></option>
+                                                            <?php  
+                                                         }
+                                                      }													                                                       
+                                                      ?> 
+                                                   </select>
+                                                   -->	
+                                             </div>
+                                          </div>
+
+                                          <div class="form-group col-md-4 m-t-20">
+                                             <label>District Branch <span class="red-color"> * </span></label>
+                                             <div class="input-group">
+                                                <?php  
+                                                   $dist = $this->db->query("SELECT * FROM district_branch WHERE Districtcode=".$distinct_branch_edit." ");
+                                                   $state_dest= $dist->result();
+                                                   //print_r($this->db->last_query());
+                                                   foreach($state_dest as $t)
+                                                   {			
+                                                      $dist_name = $t->Districtname ;																																												
+                                                   }  
+                                                ?>
+                                                <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                                <input type="text" value="<?php echo $dist_name; ?>" class="form-control"  autocomplete="off"  readonly disabled ="disabled">
+                                                <input type="hidden" id="district_branch" name="district_branch" value="<?php echo $distinct_branch_edit; ?>" class="form-control"  autocomplete="off" required readonly>
+                                                      <!--    
+                                                <select id="district_branch" name="district_branch" class="form-control"  autocomplete="off" required>
+                                                               <option value="">-- Select Distinct Branch --</option> 
+                                                               <?php
+                                                   if(isset($Seller_Details) && $Seller_Details !="") 
+                                                               { 
+                                                                  //var_dump($country);
+                                                                  foreach($districtbranch as $c)
+                                                                  { ?>
+                                                      
+                                                      <option value="<?= $c->Districtcode; ?>" <?php echo $distinct_branch_edit == $c->Districtcode ? " selected" : ""; ?> ><?= $c->Districtname; ?></option>
+                                                      
+                                                      <?php  
+                                                   }
+                                                   }													
+                                                   ?> 
+                                                            </select>
+                                                      --> 
+                                             </div>
+                                          </div>
+
+                                 <?php } else  { ?> 
+
 									            <div class="form-group col-md-4 m-t-20">
                                           <label>Region <span class="red-color"> * </span></label>
                                              <div class="input-group">
@@ -239,7 +334,7 @@
                                              </div>
                                           </div> 
                                        
-                                        <div class="form-group col-md-4 m-t-20">
+                                          <div class="form-group col-md-4 m-t-20">
                                              <label>Region State <span class="red-color"> * </span></label>
                                              <div class="input-group">
                                                 <?php  
@@ -250,7 +345,7 @@
                                                    {			
                                                       $state_name = $dec->region_name ;																																												
                                                    }  
-                                                ?>
+                                                   ?>
                                                    <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
                                                    <input type="text"  value="<?php echo $state_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled">
                                                    <input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state; ?>" class="form-control"  autocomplete="off" required readonly>
@@ -274,7 +369,7 @@
                                           </div>
 
                                           <div class="form-group col-md-4 m-t-20">
-                                             <label>Distinct Branch <span class="red-color"> * </span></label>
+                                             <label>District Branch <span class="red-color"> * </span></label>
                                              <div class="input-group">
                                                 <?php  
                                                    $dist = $this->db->query("SELECT * FROM district_branch WHERE Districtcode=".$district_branch." ");
@@ -308,7 +403,10 @@
                                                       --> 
                                              </div>
                                           </div>
-                                          <div class="form-group col-md-12 m-t-20">
+
+                                    <?php } ?> 
+
+                                    <div class="form-group col-md-12 m-t-20">
                                        <div class="note" id="pro_img" style="border: 2px solid;margin-left: 17px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a">
                                           <div class="col-md-6 offset-md-0 photo box1"  >
                                              <div class="box">

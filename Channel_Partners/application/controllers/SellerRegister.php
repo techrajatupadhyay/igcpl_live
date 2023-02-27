@@ -796,10 +796,6 @@ class SellerRegister extends CI_Controller
 	}
 
 
-		
-	
-	
-	
 	public function submit_document()
 	{
 		

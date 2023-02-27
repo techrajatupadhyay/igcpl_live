@@ -1,43 +1,43 @@
 <?php
 
-    if($this->session->userdata('user_login_access') != 1)
-    {
-       return redirect('Login'); 
-    }
+   if($this->session->userdata('user_login_access') != 1)
+   {
+      return redirect('Login'); 
+   }
      
-    if(isset($sellerid))
-    {        
-       $seller_id = $sellerid;                    
-    }
+   if(isset($sellerid))
+   {        
+      $seller_id = $sellerid;                    
+   }
    
-    if(isset($ispaid))
-    {        
-       $ispaid = $ispaid;                    
-    }
+   if(isset($ispaid))
+   {        
+      $ispaid = $ispaid;                    
+   }
    
-    if(isset($state_second))
-    {        
-       $state_second = $state_second;                    
-    }
+   if(isset($state_second))
+   {        
+      $state_second = $state_second;                    
+   }
     
-    $labhid = $this->session->userdata('user_login_id');	
-    $sellerid = $seller_id;
+   $labhid = $this->session->userdata('user_login_id');	
+   $sellerid = $seller_id;
     	
-    $ispaid = '';							
-    $pay_status = '';
-    $reg_duration = '';
-    $renew_date = ''; 
+   $ispaid = '';							
+   $pay_status = '';
+   $reg_duration = '';
+   $renew_date = ''; 
 	
-    $seller_payment = $this->db->query("SELECT * FROM seller WHERE seller_id='".$sellerid."'AND labh_agent_id='".$labhid."'  AND isactive=1 ");
-    $sellerpayment= $seller_payment->result();
-    //print_r($sellerpayment);
-    foreach($sellerpayment as $pay)
-    {				
-        $ispaid = $pay->ispaid;							
-        $pay_status = $pay->pay_status;
-        $reg_duration = $pay->reg_duration;
-        $renew_date = $pay->renew_date;							
-    }
+   $seller_payment = $this->db->query("SELECT * FROM seller WHERE   seller_id='".$sellerid."'   AND isactive=1 ");
+   $sellerpayment= $seller_payment->result();
+   //print_r($sellerpayment);
+   foreach($sellerpayment as $pay)
+   {				
+      $ispaid = $pay->ispaid;							
+      $pay_status = $pay->pay_status;
+      $reg_duration = $pay->reg_duration;
+      $renew_date = $pay->renew_date;							
+   }
         
 ?>
 <style>
@@ -281,15 +281,16 @@
                   <input type="hidden" class="form-control" id="udf_3" name="udf_3" />
                   <input type="hidden" class="form-control" id="udf_4" name="udf_4" value="" />
                   <input type="hidden" class="form-control" id="udf_5" name="udf_5" />
-                  <input type="hidden" class="form-control" name="labhid"    value="<?php echo $labhid; ?>">                                    
-                  <input type="hidden" class="form-control" name="sellerid"  value="<?php echo $sellerid;  ?>">
+                  <input type="hidden" class="form-control" name="labhid" value="<?php echo $labhid; ?>">                                    
+                  <input type="hidden" class="form-control" name="sellerid" value="<?php echo $sellerid;  ?>">
                   <div class="card-body">
                      <div class="row my-4">
                         <div class="form-actions col-md-12">
                            <section class="btn-section">
                               <div class="row">
                                  <div class="col-md-12">
-                                    <div class="" style="float:right;">                                                                                                  
+                                    <div class="" style="float:right;">
+
                                        <button type="submit" name="submit" id="submit" class="btn footer-button" disabled="disabled" ><i class="fa fa-check"></i> Pay Now</button>                                                                                                                                                                 
                                     </div>
                                  </div>

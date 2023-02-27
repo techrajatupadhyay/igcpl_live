@@ -14,33 +14,28 @@
 		$sellerid = " ";		
 	}
     
-    $labhid = $this->session->userdata('user_login_id');
-    //$sellerid = $this->session->userdata('sellerid');
-   
-    //$labhid = $this->session->userdata('user_login_id');
-	   	
+    $labhid = $this->session->userdata('user_login_id');  	
     //$loggedUserId = $this->session->userdata('user_login_id');
-   
       
-    $seller_personaldata = $this->db->query("SELECT * FROM seller WHERE labh_agent_id='".$labhid."' AND seller_id='".$sellerid."' AND isactive=1");
+    $seller_personaldata = $this->db->query("SELECT * FROM seller WHERE   seller_id='".$sellerid."' AND isactive=1");
     $sellerpersonal= $seller_personaldata->num_rows();
 	
-	$seller_status = $this->db->query("SELECT * FROM seller WHERE labh_agent_id='".$labhid."' AND seller_id='".$sellerid."' AND seller_status='1' limit 1 ");
+	$seller_status = $this->db->query("SELECT * FROM seller WHERE  seller_id='".$sellerid."' AND seller_status='1' limit 1 ");
 	$seller_status = $seller_status->num_rows();
       
-    $seller_document = $this->db->query("SELECT * FROM seller_document WHERE labhid='".$labhid."' AND seller_id='".$sellerid."' and (doc_type_id =1 || doc_type_id =2 || doc_type_id =3 || doc_type_id =4) and status=1");
+    $seller_document = $this->db->query("SELECT * FROM seller_document WHERE  seller_id='".$sellerid."' AND (doc_type_id =1 || doc_type_id =2 || doc_type_id =3 || doc_type_id =4) and status=1");
     $sellerdoc= $seller_document->num_rows();
 	
-	$seller_payment = $this->db->query("SELECT * FROM seller WHERE seller_id='".$sellerid."'AND labh_agent_id='".$labhid."' AND ispaid='1' and (pay_status='Successful' || pay_status='Pending') AND isactive=1 ");
+	$seller_payment = $this->db->query("SELECT * FROM seller WHERE   seller_id='".$sellerid."' AND  ispaid='1' AND (pay_status='Successful' || pay_status='Pending') AND isactive=1 ");
     $sellerpayment= $seller_payment->num_rows();
 	     
-    $seller_mou = $this->db->query("SELECT * FROM seller_document WHERE labhid='".$labhid."' AND seller_id='".$sellerid."' and (doc_type_id =5 || doc_type_id =6)  and status=1");
+    $seller_mou = $this->db->query("SELECT * FROM seller_document WHERE  seller_id='".$sellerid."' AND (doc_type_id =5 || doc_type_id =6)  AND status=1");
     $sellermou= $seller_mou->num_rows();
 	
-	$seller_mou_doc = $this->db->query("SELECT * FROM seller_document WHERE labhid='".$labhid."' AND seller_id='".$sellerid."' and doc_type_id =5   and status=1");
+	$seller_mou_doc = $this->db->query("SELECT * FROM seller_document WHERE  seller_id='".$sellerid."' AND doc_type_id =5   AND status=1");
     $sellermoudoc= $seller_mou_doc->num_rows();
 	
-	$seller_payment = $this->db->query("SELECT * FROM seller_document WHERE labhid='".$labhid."' AND seller_id='".$sellerid."' and  doc_type_id =6  and status=1");
+	$seller_payment = $this->db->query("SELECT * FROM seller_document WHERE  seller_id='".$sellerid."' AND  doc_type_id =6  AND status=1");
     $sellerpaymentdoc= $seller_payment->num_rows();
     
 ?>
@@ -118,30 +113,29 @@
                     <li class="nav-item">
                         <a class="nav-link <?php if ($sellerpersonal >0) { ?> active<?php } ?>" href="<?php if ($sellerpersonal >0) { echo site_url("SellerRegister/seller_personal_details/".$sellerid."") ; } ?>" >
                         <i class="check-icon fa fa-check" aria-hidden="true"></i> Seller Infomation</a>
-                        <div class="slide"></div>
+                        <div class="slide" style="width: calc(100%/5)"></div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php if ($sellerdoc > 0) { ?> active<?php } ?>"  href="<?php if ($sellerpersonal >0) { echo site_url("SellerRegister/Documents/".$sellerid."") ; } ?>" >
                         <i class="check-icon fa fa-check" aria-hidden="true"></i> Documents</a>
-                        <div class="slide"></div>
+                        <div class="slide" style="width: calc(100%/5)"></div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php if ($sellerpayment > 0) { ?> active<?php } ?>"  href="<?php if ($sellerpayment >0) { echo site_url("SellerRegister/Payment/".$sellerid.""); } ?>" >
                         <i class="check-icon fa fa-check" aria-hidden="true"></i>Payment</a>
-                        <div class="slide"></div>
+                        <div class="slide" style="width: calc(100%/5)"></div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php if ($sellermou >0) { ?> active<?php } ?>"  href="<?php if ($sellermou >0) { echo site_url("SellerRegister/mou/".$sellerid.""); } ?>" >
                         <i class="check-icon fa fa-check" aria-hidden="true"></i>MOU</a>
-                        <div class="slide"></div>
+                        <div class="slide" style="width: calc(100%/5)"></div>
                     </li>
                                      
                     <li class="nav-item">
                         <a class="nav-link <?php if ($sellerpersonal && $sellerdoc && $sellermou && $sellerpaymentdoc && $sellermoudoc && $seller_status > 0 ) { ?> active<?php } ?>"  href="<?php if ($sellerpersonal && $sellerdoc && $sellermou && $sellerpaymentdoc && $sellermoudoc && $seller_status > 0 ) { echo site_url("SellerRegister/application_preview/".$sellerid."");  } ?>" >
                         <i class="check-icon fa fa-check" aria-hidden="true"></i>Preview</a>
-                        <div class="slide"></div>
-                    </li> 
-                          
+                        <div class="slide" style="width: calc(100%/5)"></div>
+                    </li>                          
                 </ul>
             </div>
     <!--        		

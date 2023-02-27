@@ -457,40 +457,50 @@
 									<tr>
 										<td>Action</td>
 										<td style="float:right; border:none;">
-											<?php if($seller->seller_status==0)
+											<?php if($seller->ispaid==1)
 											{ 
-												if($seller->ispaid==1) 
-												{   ?>
-													<a href="<?php echo base_url();?>SellerRegister/seller_approvel/<?php echo $seller->seller_id; ?>" class="btn btn-success">
-														<i class="fa fa-check"></i> Approve 
-													</a>								
-													<a class="btn btn-danger">
-														<i class="fa fa-ban"></i> Reject 
-													</a>
-													<?php
+												if($seller->executive_approvel==0) 
+												{													
+													?>
+														<a class="btn btn-info">
+															<i class="fa fa-info-circle" aria-hidden="true"></i> Executive Approvel is Pending!
+														</a>																					
+													<?php																																				
 												}
-												else 
+												else if($seller->manager_approvel==0) 
 												{
 													?>
-													<a class="btn btn-danger">
-														<i class="fa fa-ban"></i> Payment is Pending 
-													</a>																					
+														<a href="<?php echo base_url();?>SellerRegister/seller_approvel/<?php echo $seller->seller_id; ?>" class="btn btn-success">
+															<i class="fa fa-check"></i> Approve 
+														</a>								
+														<a class="btn btn-danger">
+															<i class="fa fa-ban"></i> Reject 
+														</a>																					
+													<?php
+												}
+												else if($seller->seller_status==1) 
+												{
+													?>
+														<a class="btn btn-success">
+															<i class="fa fa-check"></i> Approved 
+														</a>																					
+													<?php
+												}
+												else if($seller->seller_status==2) 
+												{
+													?>
+														<a class="btn btn-danger">
+															<i class="fa fa-ban"></i> Rejected 
+														</a>																					
 													<?php
 												}										
 											} 
-											else if($seller->seller_status==1)
-											{   ?>
-												<a class="btn btn-success">
-													<i class="fa fa-check"></i> Approved 
-												</a>
-												<?php 
-											} 
-											else if($seller->seller_status==2) 
-											{   ?>
-												<a class="btn btn-danger">
-													<i class="fa fa-ban"></i> Rejected 
-												</a>										
-												<?php 
+											else
+											{   ?>												    
+													<a class="btn btn-info">
+														<i class="fa fa-info-circle" aria-hidden="true"></i> Payment is Pending!
+													</a>
+												<?php 							
 											}  ?>
 									    </td>
 								    </tr>
@@ -516,10 +526,9 @@
 												else 
 												{
 													?>
-													<a class="btn btn-danger">
-														<i class="fa fa-ban"></i> Payment is Pending 
-													</a>								
-													
+													<a class="btn btn-info">
+														<i class="fa fa-info-circle" aria-hidden="true"></i> Payment is Pending!
+													</a>																					
 													<?php
 												}																																		
 											} 
@@ -545,27 +554,51 @@
 								{   ?>
                                     <tr>
 										<td>Action</td>
-										<td style="float:right; border:none;">										
-										<?php if($seller->executive_approvel ==0 ) { ?>
-											<a class="btn btn-info">
-												<i class="fa fa-info-circle" aria-hidden="true"></i> Approvel Pending by Executive!
-											</a>
-										<?php } else if($seller->executive_approvel ==1 && $seller->manager_approvel==0) { ?>										
-											<a  href="<?php echo base_url();?>SellerRegister/seller_approvel/<?php echo $seller->seller_id; ?>"  class="btn btn-success">
-												<i class="fa fa-check"></i> Approve 
-											</a>
-											<a class="btn btn-danger">
-												<i class="fa fa-ban"></i> Reject 
-											</a>										                                          											
-										<?php } else if($seller->manager_approvel==1) { ?>
-											<a class="btn btn-success">
-												<i class="fa fa-check"></i> Approved 
-											</a>
-										<?php } else if($seller->manager_approvel==2) { ?>
-											<a class="btn btn-danger">
-												<i class="fa fa-ban"></i> Rejected 
-											</a>											
-										<?php }  ?>
+										<td style="float:right; border:none;">
+										<?php if($seller->ispaid==1)
+										{ 										
+											 
+											if($seller->executive_approvel ==0 ) 
+											{   ?>
+													<a class="btn btn-info">
+														<i class="fa fa-info-circle" aria-hidden="true"></i> Executive Approvel is Pending!
+													</a>
+											    <?php 
+										    } 
+											else if($seller->executive_approvel ==1 && $seller->manager_approvel==0) 
+											{   ?>										
+													<a  href="<?php echo base_url();?>SellerRegister/seller_approvel/<?php echo $seller->seller_id; ?>"  class="btn btn-success">
+														<i class="fa fa-check"></i> Approve 
+													</a>
+													<a class="btn btn-danger">
+														<i class="fa fa-ban"></i> Reject 
+													</a>										                                          											
+											    <?php 
+										    } 
+											else if($seller->manager_approvel==1) 
+											{   ?>
+													<a class="btn btn-success">
+														<i class="fa fa-check"></i> Approved 
+													</a>
+											    <?php 
+										    } 
+											else if($seller->manager_approvel==2) 
+											{   ?>
+													<a class="btn btn-danger">
+														<i class="fa fa-ban"></i> Rejected 
+													</a>											
+											    <?php 
+										    }   ?>
+										    <?php 
+									    } 
+										else
+										{   ?>												    
+												<a class="btn btn-info">
+													<i class="fa fa-info-circle" aria-hidden="true"></i> Payment is Pending!
+												</a>
+											<?php 							
+										}   ?>
+
 										</td>
 									</tr>
 								    <?php 
