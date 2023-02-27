@@ -503,7 +503,7 @@
                                        </div>
                                     </div><br><br>
                                     <input type="hidden" name="isedit" value="<?php echo $update; ?>">
-                                    <div  style="background-color: #fff;border-top: 1px dashed #1abc9c;padding: 20px 25px;position: inherit"></div>
+                                    <!--<div  style="background-color: #fff;border-top: 1px dashed #1abc9c;padding: 20px 25px;position: inherit"></div>-->
                                     <div class="form-actions col-md-12 mb-3">
                                        <section class="btn-section">
                                           <div class="row">

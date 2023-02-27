@@ -15,7 +15,6 @@ class Seller_model extends CI_Model
         return true;
     }
 
- 
 
 	public function sellerSingle($sellerid)
 	{
@@ -37,24 +36,76 @@ class Seller_model extends CI_Model
         $createddate = date('Y-m-d H:i:s', time());
         $currentyear=date('Y');
         
-		if($user_type==2)
+		if($user_type==1)
 		{
 			
-			$data = array(
-													
-					'executive_approvel' => 1,
-					
+			$sql2 ="SELECT * from seller Where seller_id='".$sellerid."' and isactive='1'" ;
+			$data['user_details'] = $this->db->query($sql2)->result();	
+							
+			foreach($data['user_details'] as $det)
+			{				
+				$labh_emp_id = $det->labh_emp_id;
+                $labh_agent_id = $det->labh_agent_id;				
+			}
+			
+			$data = array(													
+					'manager_approvel' => 1,
+					'seller_status' => 1,					
 					);  
+				$this->db->set($data);          
+				$this->db->where('seller_id',$sellerid);
+				//$this->db->where('region_id',$region);
+				$this->db->where('labh_emp_id',$labh_emp_id);
+				$this->db->where('labh_agent_id',$labh_agent_id);				
+				$this->db->update('seller', $data);
+				$queryresult = $this->db->affected_rows();
+				//print_r($this->db->last_query());
+				
+			$data = array(			  
+					'user_status' => 1,					
+					'manager_approvel' => 1,
+					);  
+				$this->db->set($data);          
+				$this->db->where('user_id',$sellerid);
+				//$this->db->where('region',$region);
+				$this->db->where('Laabh_executive',$labh_emp_id);								
+				$this->db->update('users', $data);	
+				
+				$queryresult2 = $this->db->affected_rows();
+				//print_r($this->db->last_query());
+				
+			return $queryresult2;
 
+		}
+		else if($user_type==2)
+		{
+			
+			$data = array(										
+					'executive_approvel' => 1,		
+					);  
 				$this->db->set($data);          
 				$this->db->where('seller_id',$sellerid);
 				$this->db->where('region_id',$region);
 				$this->db->where('labh_emp_id',$user_id);
 				//$this->db->where('seller_status',0);
-				$this->db->update('seller', $data);
-				
-				return $queryresult = $this->db->affected_rows();
+				$this->db->update('seller', $data);	
+				$queryresult = $this->db->affected_rows();
 				//print_r($this->db->last_query());
+
+				$data = array(											
+					'executive_approvel' => 1,		
+					);  
+				$this->db->set($data);          
+				$this->db->where('user_id',$sellerid);
+				$this->db->where('region',$region);
+				$this->db->where('Laabh_executive',$user_id);
+				//$this->db->where('seller_status',0);
+				$this->db->update('users', $data);
+				
+				$queryresult2 = $this->db->affected_rows();
+				//print_r($this->db->last_query());
+				
+			return $queryresult2;
 				
 		}
 		else if($user_type==6)
@@ -69,35 +120,32 @@ class Seller_model extends CI_Model
                 $labh_agent_id = $det->labh_agent_id;				
 			}
 			
-			$data = array(
-													
+			$data = array(													
 					'manager_approvel' => 1,
-					'seller_status' => 1,
-					
+					'seller_status' => 1,					
 					);  
-
 				$this->db->set($data);          
 				$this->db->where('seller_id',$sellerid);
 				$this->db->where('region_id',$region);
 				$this->db->where('labh_emp_id',$labh_emp_id);
 				$this->db->where('labh_agent_id',$labh_agent_id);				
 				$this->db->update('seller', $data);
+				$queryresult = $this->db->affected_rows();
+				//print_r($this->db->last_query());	
 				
-			$data = array(
-													
+			$data = array(			  
 					'user_status' => 1,					
-					
+					'manager_approvel' => 1,
 					);  
-
 				$this->db->set($data);          
 				$this->db->where('user_id',$sellerid);
 				$this->db->where('region',$region);
 				$this->db->where('Laabh_executive',$labh_emp_id);								
-				$this->db->update('users', $data);	
-				
-				return $queryresult = $this->db->affected_rows();
+				$this->db->update('users', $data);					
+				$queryresult2 = $this->db->affected_rows();
 				//print_r($this->db->last_query());
-			
+				
+			return $queryresult2;	
 		}
             
     }
@@ -126,14 +174,13 @@ class Seller_model extends CI_Model
     }
     
 
+    public function SellerDelete($sellerid)	
+	{
 
-     public function SellerDelete($sellerid){
-        $this->db->delete('seller',array('seller_id'=> $sellerid));        
+        $this->db->delete('seller',array('seller_id'=> $sellerid)); 
+
     }
     
-    
-
-
 
     public function getData($tblName, $dataget='', $limits ='', $orderby='', $orderformat ='DESC', $orDatget='' ) 
     {

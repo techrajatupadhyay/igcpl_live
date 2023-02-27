@@ -109,7 +109,7 @@
 						<div class="page-body">
 							<div class="card">
 								<div class="card-header">
-									<h5>All Onborded Sellers onborded by Laabh Agents</h5>
+									<h5>All Onborded Sellers </h5>
 									<!--<span>The Responsive extension for DataTables can be applied to a DataTable in one of two ways; with a specific class name on the table, or using the DataTables initialisation options. This method shows the latter, with the responsive option being set to the boolean value true.</span>-->
 									<div class="card-header-right">
 									<ul class="list-unstyled card-option">
@@ -294,7 +294,7 @@
 													{  ?>
 												       <td class="jsgrid-align-center ">                         
 														   <a href="<?php echo base_url();?>SellerRegister/SellerDetails/<?php echo $value->seller_id; ?>" title="view" class="btn btn-sm btn-info waves-effect waves-light"><i class="fa fa-eye"></i></a>
-														   <a href="<?php echo base_url();?>SellerRegister/seller_personal_details/<?php echo $value->seller_id; ?>" title="Edit" class="btn btn-sm btn-info waves-effect waves-light"><i class="fa fa-pencil-square-o"></i></a>                           
+														   <!--<a href="<?php echo base_url();?>SellerRegister/seller_personal_details/<?php echo $value->seller_id; ?>" title="Edit" class="btn btn-sm btn-info waves-effect waves-light"><i class="fa fa-pencil-square-o"></i></a>-->                           
 														   <!--<a href="<?php echo base_url();?>SellerRegister/seller_personal_details/<?php echo $value->seller_id; ?>" title="Delete" onclick="confirm('Are Yoy Want To Delet This Seller!!!')" class="btn btn-sm btn-info waves-effect waves-light sellerdelet"><i class="fa fa-trash-o"></i></a>-->
 														</td>
 													    <?php 

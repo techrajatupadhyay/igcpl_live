@@ -196,10 +196,11 @@
 								   <tr>
 									<td>Region</td>
 									<td>
-										<?php 
-											echo $seller->region_id;									 
+										<?php 											
+											echo "Region - ".$seller->region_id;									 
 										?>
-										<?php										
+										<?php
+										/*										
 											$region_name='';																							
 											$seller_payment_details = $this->db->query("SELECT * FROM region WHERE region_id='".$seller->region_id."' ");
 											$pay_details= $seller_payment_details->result();
@@ -209,6 +210,7 @@
 												$region_name = $pay_det->region_name;																																									
 											}
 											echo $region_name ;
+										*/	
 										?>											
 									</td>
 							       </tr>
@@ -450,51 +452,97 @@
 						<div class="col-md-12">
 							<table class="table table-bordered">
 								<tbody>
-								<?php if($user_type==1) { ?>
+							    <?php if($user_type==1) 
+								{   ?>
 									<tr>
 										<td>Action</td>
 										<td style="float:right; border:none;">
-										<?php if($seller->seller_status==0){ ?>
-											<a class="btn btn-success">
-												<i class="fa fa-check"></i> Approve 
-											</a>								
-											<a class="btn btn-danger">
-												<i class="fa fa-ban"></i> Reject 
-											</a>										
-										<?php } else if($seller->seller_status==1) { ?>
-											<a class="btn btn-success">
-												<i class="fa fa-check"></i> Approved 
-											</a>
-										<?php } else if($seller->seller_status==2) { ?>
-											<a class="btn btn-danger">
-												<i class="fa fa-ban"></i> Rejected 
-											</a>										
-										<?php }  ?>
-										</td>
-									</tr>
-								<?php } else if($user_type == 2) { ?>
+											<?php if($seller->seller_status==0)
+											{ 
+												if($seller->ispaid==1) 
+												{   ?>
+													<a href="<?php echo base_url();?>SellerRegister/seller_approvel/<?php echo $seller->seller_id; ?>" class="btn btn-success">
+														<i class="fa fa-check"></i> Approve 
+													</a>								
+													<a class="btn btn-danger">
+														<i class="fa fa-ban"></i> Reject 
+													</a>
+													<?php
+												}
+												else 
+												{
+													?>
+													<a class="btn btn-danger">
+														<i class="fa fa-ban"></i> Payment is Pending 
+													</a>																					
+													<?php
+												}										
+											} 
+											else if($seller->seller_status==1)
+											{   ?>
+												<a class="btn btn-success">
+													<i class="fa fa-check"></i> Approved 
+												</a>
+												<?php 
+											} 
+											else if($seller->seller_status==2) 
+											{   ?>
+												<a class="btn btn-danger">
+													<i class="fa fa-ban"></i> Rejected 
+												</a>										
+												<?php 
+											}  ?>
+									    </td>
+								    </tr>
+								    <?php 
+							    } 
+								else if($user_type == 2) 
+								{   ?>
 									<tr>
 										<td>Action</td>
 										<td style="float:right; border:none;">
-										<?php if($seller->executive_approvel==0){ ?>
-											<a  href="<?php echo base_url();?>SellerRegister/seller_approvel/<?php echo $seller->seller_id; ?>"  class="btn btn-success">
-												<i class="fa fa-check"></i> Approve 
-											</a>
-										    <a class="btn btn-danger">
-												<i class="fa fa-ban"></i> Reject 
-											</a>	
-										<?php } else if($seller->executive_approvel==1) { ?>
-											<a class="btn btn-success">
-												<i class="fa fa-check"></i> Approved 
-											</a>
-										<?php } else if($seller->seller_status==2) { ?>
-											<a class="btn btn-danger">
-												<i class="fa fa-ban"></i> Rejected 
-											</a>											
-										<?php }  ?>
+											<?php if($seller->executive_approvel==0)
+											{  
+												if($seller->ispaid==1) 
+												{   ?>
+													<a href="<?php echo base_url();?>SellerRegister/seller_approvel/<?php echo $seller->seller_id; ?>" class="btn btn-success">
+														<i class="fa fa-check"></i> Approve 
+													</a>								
+													<a class="btn btn-danger">
+														<i class="fa fa-ban"></i> Reject 
+													</a>
+													<?php
+												}
+												else 
+												{
+													?>
+													<a class="btn btn-danger">
+														<i class="fa fa-ban"></i> Payment is Pending 
+													</a>								
+													
+													<?php
+												}																																		
+											} 
+											else if($seller->executive_approvel==1) 
+											{   ?>
+												<a class="btn btn-success">
+													<i class="fa fa-check"></i> Approved 
+												</a>
+											    <?php 
+										    } 
+											else if($seller->seller_status==2) 
+											{   ?>
+												<a class="btn btn-danger">
+													<i class="fa fa-ban"></i> Rejected 
+												</a>											
+											    <?php 
+										    }   ?>
 										</td>
 									</tr>                               
-								<?php } else if($user_type==6 ) { ?>
+								    <?php 
+							    } 
+								else if($user_type==6 ) 
+								{   ?>
                                     <tr>
 										<td>Action</td>
 										<td style="float:right; border:none;">										
@@ -520,30 +568,46 @@
 										<?php }  ?>
 										</td>
 									</tr>
-								<?php } else if($user_type == 11) { ?>
+								    <?php 
+							    } 
+								else if($user_type == 11) 
+								{   ?>
 									<tr>
 										<td>Action</td>
 										<td style="float:right; border:none;">
-										<?php if($seller->seller_status==0){ ?>
-											<a class="btn btn-info">
-												<i class="fa fa-info-circle" aria-hidden="true"></i>Pending
-											</a>								
-											<a class="btn btn-danger">
-												<i class="fa fa-ban"></i> Reject 
-											</a>										
-										<?php } else if($seller->seller_status==1) { ?>
-											<a class="btn btn-success">
-												<i class="fa fa-check"></i> Approved 
-											</a>
-										<?php } else if($seller->seller_status==2) { ?>
-											<a class="btn btn-danger">
-												<i class="fa fa-ban"></i> Rejected 
-											</a>										
-										<?php }  ?>
+										<?php
+											if($seller->ispaid==1)
+											{ 
+												if($seller->seller_status==0)
+												{   ?>
+													<a class="btn btn-info">
+														<i class="fa fa-info-circle" aria-hidden="true"></i>Pending
+													</a>								
+													<a class="btn btn-danger">
+														<i class="fa fa-ban"></i> Reject 
+													</a>										
+												    <?php 
+											    } 
+												else if($seller->seller_status==1) 
+												{   ?>
+													<a class="btn btn-success">
+														<i class="fa fa-check"></i> Approved 
+													</a>
+												    <?php 
+											    } 
+												else if($seller->seller_status==2) 
+												{   ?>
+													<a class="btn btn-danger">
+														<i class="fa fa-ban"></i> Rejected 
+													</a>										
+												    <?php 
+												}
+											}  
+										?>
 										</td>
 									</tr>	
-								<?php }  ?>
-									
+								    <?php 
+							    }   ?>
 								</tbody>
 							</table>
 						</div>
@@ -554,8 +618,3 @@
 		</div>
 	</div>
 <br><br>
-<!--
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
--->

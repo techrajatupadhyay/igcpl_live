@@ -1166,7 +1166,109 @@ class SellerRegister extends CI_Controller
 			$user_id = $this->session->userdata('user_login_id');	
             $user_type = $this->session->userdata('user_type');
 			
-            if($user_type==2)
+			if($user_type==1)
+			{	
+		
+			    $sql2 ="SELECT * from users Where user_id='".$user_id."' and status='ACTIVE'" ;
+				$data['user_details'] = $this->db->query($sql2)->result();	
+							
+				foreach($data['user_details'] as $det)
+				{				
+					$region = $det->region ;				
+				}
+				
+				$update = $this->Seller_model->approve_seller($region,$user_id,$sellerid,$user_type);
+				$data['seller'] = $this->Seller_model->sellerSingle($sellerid);
+				
+				foreach ($data['seller'] as $seller_data) 
+				{ 			
+					$seller_name=$seller_data->fname;
+					$labh_agent_id=$seller_data->labh_agent_id;
+					$contact=$seller_data->contact;
+					$email=$seller_data->email;
+					$password=$seller_data->dec_pass;
+					$renew_date=$seller_data->renew_date;
+				}
+				
+				if($update > 0)	
+				{
+					
+					$this->load->library('email');
+											
+					$message  = 'Dear Client <b>'.ucwords(strtolower($seller_name)).'</b>,<br><br>';
+					$message .= 'Thank you for your Registration with INDIGEM CHANNEL PARTNERS PVT. LTD. <br><br>';
+					$message .= 'Your Login details is...<br>';
+					$message .= 'User Type : <b>Seller</b> <br>';
+					$message .= 'Seller ID : <b>'.$sellerid.'</b> <br>';
+					$message .= 'Laabh Agent ID : <b>'.$labh_agent_id.'</b> <br>';
+					$message .= 'User ID : <b>'.$email.'</b> <br>';
+					$message .= 'Password : <b>'.$password.'</b> <br>';
+					$message .= 'Valid Upto : <b>'.$renew_date.'</b>';
+					$message .= '<br><br><br>';
+					$message .= ' Regards <br>';
+					$message .= 'INDIGEMCP';
+					
+					$config = array(
+							'protocol'  => 'smtp',
+							'smtp_host' => 'mail.smtp2go.com',
+							'smtp_port' => 2525,						
+							'smtp_user' => 'indigemcp',
+							'smtp_pass' => 'VmIMtvHx6xzNhmln',
+							'mailtype'  => 'html',
+							'charset'   => 'utf-8',
+							'smtp_timeout' => '30',
+							'mailpath' => '/usr/sbin/sendmail',
+							'wordwrap' => TRUE
+						);
+					$this->email->initialize($config);
+					$this->email->set_mailtype("html");
+					$this->email->set_newline("\r\n");
+					
+					$htmlContent = $message;
+					$this->email->to($email);
+					$this->email->from('indigeminfo@gmail.com', 'indigeminfo@gmail.com');
+					$this->email->subject('Registration Confirmation || INDIGEMCP');
+					$this->email->message($htmlContent);
+								
+					$email_response= $this->email->send();
+					//var_dump($email_response);				
+					$errors = $this->email->print_debugger();
+					//var_dump($errors);
+					//echo $email_response;
+					
+					if($email_response == 1)
+					{
+																										
+						$this->session->set_flashdata('status_test', 'Seller Approved & Activated !');
+						$this->session->set_flashdata('status_icon', 'success');
+						$this->session->set_flashdata('status', 'Approved !');
+						
+						redirect('SellerRegister/AllSeller');
+						
+					}
+					else
+					{
+						
+						$this->session->set_flashdata('status_test', 'Somthing went Wrong! Pease try Again!');
+						$this->session->set_flashdata('status_icon', 'error');
+						$this->session->set_flashdata('status', 'E-MAIL Not Send !');
+						
+						redirect('SellerRegister/AllSeller');
+						
+					}
+					
+				}
+				else
+				{
+					$this->session->set_flashdata('status_test', 'Somthing went Wrong! Pease try Again!');
+					$this->session->set_flashdata('status_icon', 'error');
+					$this->session->set_flashdata('status', 'Data Not Saved !');
+					
+					redirect('SellerRegister/AllSeller');
+				}
+				
+			}
+            else if($user_type==2)
 			{	
 		
 			    $sql2 ="SELECT * from users Where user_id='".$user_id."' and status='ACTIVE'" ;
@@ -1382,41 +1484,6 @@ class SellerRegister extends CI_Controller
 		}
 		
 	}
-
-
-    
-
-
-
-	
-/*
-    public function sellerlistDelet()
-	{
-		
-		if ($this->session->userdata('user_login_access') != False) 
-		{
-			$id    = base64_decode($this->input->get('D'));
-			$value = $this->seller_model->DletSellerData($id);
-			redirect('SellerRegister/AllSeller');
-		} 
-		else 
-		{
-			redirect(base_url(), 'refresh');
-		}
-		
-	}
-
-*/
-
-
-
-
-
-
-
-
-
-
 
 
 
