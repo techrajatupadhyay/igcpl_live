@@ -267,7 +267,7 @@
 												<?php if($user_type==1) { ?>
 													<td class="jsgrid-align-center ">                         
 													   <a href="<?php echo base_url();?>SellerRegister/SellerDetails/<?php echo $value->seller_id; ?>" title="view" class="btn btn-sm btn-info waves-effect waves-light"><i class="fa fa-eye"></i></a>
-													  <!-- <a href="<?php echo base_url();?>SellerRegister/seller_personal_details/<?php echo $value->seller_id; ?>" title="Edit" class="btn btn-sm btn-info waves-effect waves-light"><i class="fa fa-pencil-square-o"></i></a>-->                           
+													   <a href="<?php echo base_url();?>SellerRegister/seller_personal_details/<?php echo $value->seller_id; ?>" title="Edit" class="btn btn-sm btn-info waves-effect waves-light"><i class="fa fa-pencil-square-o"></i></a>                           
 													  <!--<a href="<?php echo base_url();?>SellerRegister/seller_personal_details/<?php echo $value->seller_id; ?>" title="Delete" onclick="confirm('Are Yoy Want To Delet This Seller!!!')" class="btn btn-sm btn-info waves-effect waves-light sellerdelet"><i class="fa fa-trash-o"></i></a>-->
 													</td>
 												<?php } else if($user_type==2) { ?>
