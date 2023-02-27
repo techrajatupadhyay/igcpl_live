@@ -664,9 +664,9 @@
                                           <thead>
                                              <tr class="thead-default">
                                                 <th>Description</th>
-                                                <th>Amount ₹ </th>                                               
+                                                <th>Amount &#8377 </th>                                               
                                                 <th>Discount %</th>
-                                                <th>Total ₹</th>
+                                                <th>Total &#8377</th>
                                              </tr>
                                           </thead>
                                           <tbody>
@@ -716,25 +716,25 @@
                                        <table class="table table-responsive invoice-table invoice-total">
                                           <tbody>
                                              <tr>
-                                                <th>&nbsp; Total Taxable Amount  ₹ : &nbsp;</th>
+                                                <th>&nbsp; Total Taxable Amount  &#8377 : &nbsp;</th>
                                                 <td id="total_amount"> 00.00 </td>
                                              </tr>
                                              <tr>
-                                                <th>&nbsp;  IGST (18%)  ₹  : &nbsp;</th>
+                                                <th>&nbsp;  IGST (18%)  &#8377  : &nbsp;</th>
                                                 <td id="total_gst"> 00.00  </td>
                                              </tr>                                            
                                              <tr>
-                                                <th>&nbsp;  SGST (9%)  ₹  : &nbsp;</th>
+                                                <th>&nbsp;  SGST (9%)  &#8377  : &nbsp;</th>
                                                 <td id="sgst"> 00.00 </td>
                                              </tr>
                                              <tr>
-                                                <th>&nbsp;  CGST (9%)  ₹  : &nbsp;</th>
+                                                <th>&nbsp;  CGST (9%)  &#8377;  : &nbsp;</th>
                                                 <td id="cgst"> 00.00 </td>
                                              </tr>                                            
                                              <tr class="text-info">
                                                 <td>
                                                    <hr>
-                                                   <h5 class="text-primary">&nbsp; Payable Total ₹ : &nbsp;</h5>
+                                                   <h5 class="text-primary">&nbsp; Payable Total &#8377; : &nbsp;</h5>
                                                 </td>
                                                 <td>
                                                    <hr>

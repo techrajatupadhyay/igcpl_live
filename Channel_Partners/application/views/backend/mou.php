@@ -365,13 +365,13 @@
 																	}
 																	if($paymentdoc && $moudoc > 0)  
 																	{  																        
-																		if($manager_approvel == 0) {  ?>
+																		if( $executive_approvel == 0) {  ?>
 																		    <div class="" style="float:right;">	
-																		        <button type="submit" name="submit" class="btn footer-button" disabled="disable"> Approvel is pending by Manager !</button>																														 																	
+																		        <button type="submit" name="submit" class="btn footer-button" disabled="disable">  Approvel is pending by Laabh Executive !</button>																														 																	
 																		    </div>
-																		<?php } else if($executive_approvel == 0) {  ?>
+																		<?php } else if($manager_approvel == 0) {  ?>
 																		    <div class="" style="float:right;">	
-																		        <button type="submit" name="submit" class="btn footer-button" disabled="disable"> Approvel is pending by Laabh Executive !</button>																														 																	
+																		        <button type="submit" name="submit" class="btn footer-button" disabled="disable">Approvel is pending by Manager !</button>																														 																	
 																		    </div>
                                                                         <?php } else {  ?>
 																			<div class="" style="float:right;">	
