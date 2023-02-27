@@ -160,7 +160,7 @@
 												
                                                 <td>
 												<?php 
-																																																				
+												/*																																								
 													$region_name='';
 																											
 													$seller_payment_details = $this->db->query("SELECT * FROM region WHERE region_id='".$value->region_id."' ");
@@ -171,7 +171,9 @@
 														$region_name = $pay_det->region_name;																																									
 													}
 													
-													echo $region_name." (".$value->region_id.")";		
+													echo $region_name." (".$value->region_id.")";
+												*/			
+												    echo $value->region_id;
 												?> 
 											    </td>
 											  <td>

@@ -1235,6 +1235,7 @@ $(document).ready(function() {
                         $('#logistics_amount_ethics').val('');
                         Logistics_Charges= '00.00';
 				            addvalue();
+                        
 
                         alert(data);
                      }

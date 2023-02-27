@@ -79,12 +79,12 @@ class Seller_module extends CI_Controller
 		
        	date_default_timezone_set('Asia/Kolkata');      
         $create_time = date('Y-m-d H:i:s', time());
-		echo $sellerid = $this->input->post('sellerid');
+		$sellerid = $this->input->post('sellerid');
 		
-		echo $region_id = $this->input->post('region_id');
-		echo $region_state = $this->input->post('region_state');
-        echo $district_branch = $this->input->post('district_branch');
-		die();	
+		$region_id = $this->input->post('region_id');
+		$region_state = $this->input->post('region_state');
+        $district_branch = $this->input->post('district_branch');
+		
 		$labh_emp_id = $this->input->post('labh_emp_id');
 		$labh_agent_id = $this->input->post('labh_agent_id');
 		$gemNgem_workorder_id = $this->input->post('gemNgem_workorder_id');
@@ -132,7 +132,9 @@ class Seller_module extends CI_Controller
 		$shipment_charges = $this->input->post('shipment_charges');
 		$declaredValue = $this->input->post('declaredValue');
 
-
+    
+	print_r($_POST);
+	die;
 		if($this->input->post('isedit')==0)
 		{
 

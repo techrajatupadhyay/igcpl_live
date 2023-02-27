@@ -156,9 +156,14 @@
                                 <li class="pcoded-hasmenu" dropdown-icon="style1" subitem-icon="style1">
 									<a href="javascript:void(0)">
 										<span class="pcoded-micon"><i class="fa fa-user-o"></i></span>
-										<span class="pcoded-mtext">Onborded Sellers</span>
+										<span class="pcoded-mtext"> Sellers</span>
 									</a>								
-									<ul class="pcoded-submenu">										
+									<ul class="pcoded-submenu">
+									<li class="">
+											<a href="<?php echo base_url();?>SellerRegister">
+												<span class="pcoded-mtext">Onboard New Seller</span>
+											</a>
+										</li>										
 										<li class="">
 											<a href="<?php echo base_url();?>SellerRegister/AllSeller">
 												<span class="pcoded-mtext">All Sellers</span>
