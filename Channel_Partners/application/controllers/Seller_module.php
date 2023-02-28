@@ -79,62 +79,66 @@ class Seller_module extends CI_Controller
 		
        	date_default_timezone_set('Asia/Kolkata');      
         $create_time = date('Y-m-d H:i:s', time());
+
+		$labh_executive_id = $this->input->post('labh_executive_id');
+		$labh_agent_id = $this->input->post('labh_agent_id');
 		$sellerid = $this->input->post('sellerid');
-		
 		$region_id = $this->input->post('region_id');
 		$region_state = $this->input->post('region_state');
         $district_branch = $this->input->post('district_branch');
 		
-		$labh_emp_id = $this->input->post('labh_emp_id');
-		$labh_agent_id = $this->input->post('labh_agent_id');
+        $order_type = $this->input->post('order_type');
 		$gemNgem_workorder_id = $this->input->post('gemNgem_workorder_id');
-	    $pick_location = $this->input->post('pick_location');
-        $seller_state = $this->input->post('seller_state');
+		$seller_state = $this->input->post('seller_state');
 	    $seller_district = $this->input->post('seller_district');
 	    $seller_city = $this->input->post('seller_city');
 	    $seller_pincode = $this->input->post('seller_pincode');
-	    $select_product = $this->input->post('select_product');
-        $order_type = $this->input->post('order_type');
-		$buyer_name = $this->input->post('buyer_name');
-		$email = $this->input->post('email');
-        $product_length = $this->input->post('product_length');
-        $product_width = $this->input->post('product_width');
-        $product_height = $this->input->post('product_height');
-        $quantity = $this->input->post('quantity');
-		$contact = $this->input->post('contact');
-		$statename = $this->input->post('statename');
-		$districtname = $this->input->post('districtname');
-		$consignee_address = $this->input->post('consignee_address');
-		$city = $this->input->post('city');
-		$pincode = $this->input->post('pincode');
-		$organization_name = $this->input->post('organization_name');
-        $gstin = $this->input->post('gstin');
-		$logistics = $this->input->post('logistics');
-		$ready_delivery_date = $this->input->post('ready_delivery_date');
-        $expected_date = $this->input->post('expected_date');
-		$value_gem_order = $this->input->post('value_gem_order');
-		$including_gst = $this->input->post('including_gst');
-		$sample_clause = $this->input->post('sample_clause');
-		$bill_discounting = $this->input->post('bill_discounting');
-		//$gem_workorder_doc = $this->input->post('gem_workorder_doc');       
-		$docfile = $this->input->post('gem_workorder_doc');
+        $seller_pickup_location = $this->input->post('seller_pickup_location');
 
+		$buyer_name = $this->input->post('buyer_name');
+		$buyer_organization_name = $this->input->post('buyer_organization_name');
+		$buyer_contact = $this->input->post('buyer_contact');
+		$buyer_email = $this->input->post('buyer_email');
+		$buyer_pincode = $this->input->post('buyer_pincode');
+		$buyer_full_address = $this->input->post('buyer_full_address');
+
+		$product_category = $this->input->post('product_category');
+        $product_quantity = $this->input->post('product_quantity');
+		$value_gem_order = $this->input->post('value_gem_order');
+        $sample_clause = $this->input->post('sample_clause');
+        $bill_discounting = $this->input->post('bill_discounting');
+        $coordination = $this->input->post('coordination');
+		$gem_workorder_doc = $this->input->post('gem_workorder_doc');
+		$logistics_type = $this->input->post('logistics_type');
+		$ready_delivery_date = $this->input->post('ready_delivery_date');
+        $delivery_completion_date = $this->input->post('delivery_completion_date');
 		$eway_bill_part_1 = $this->input->post('eway_bill_part_1');
-        $pick_pincode = $this->input->post('pick_pincode');
-		$delivered_pincode = $this->input->post('delivered_pincode');
+					
+        $pickup_pincode = $this->input->post('pickup_pincode');
+		$delivery_pincode = $this->input->post('delivery_pincode');
+		$noofpackages = $this->input->post('noofpackages');
 		$travle_mode = $this->input->post('travle_mode');
 		$declared_value = $this->input->post('declared_value');
-		//$packages = $this->input->post('packages');
-		$noofpackages = $this->input->post('noofpackages');
+		$product_length = $this->input->post('product_length');
+		$product_width = $this->input->post('product_width');
+		$product_height = $this->input->post('product_height');	
 		$actual_weight = $this->input->post('actual_weight');
 		$charged_weight = $this->input->post('charged_weight');
 		$cod_dod = $this->input->post('cod_dod');
-		$shipment_charges = $this->input->post('shipment_charges');
-		$declaredValue = $this->input->post('declaredValue');
 
-    
+		$coordination_payable_amount = $this->input->post('coordination_payable_amount');
+		$logistics_amount_ethics = $this->input->post('logistics_amount_ethics');
+		$logistics_payable_amount = $this->input->post('logistics_payable_amount');
+		$sample_clause_payable_amount = $this->input->post('sample_clause_payable_amount');
+		$cashflow_payable_amount = $this->input->post('cashflow_payable_amount');
+		$total_igst_amount = $this->input->post('total_igst_amount');
+		$total_sgst_amount = $this->input->post('total_sgst_amount');
+		$total_cgst_amount = $this->input->post('total_cgst_amount');
+		$total_workorder_payable_amount = $this->input->post('total_workorder_payable_amount');
+		 
 	print_r($_POST);
 	die;
+
 		if($this->input->post('isedit')==0)
 		{
 
@@ -145,6 +149,50 @@ class Seller_module extends CI_Controller
 						
 			if($count<=0)
 			{
+
+                $auth_access_url = '';							
+				$login_id = '';
+				$login_pass = '';
+				$access_token = '';
+				$valid_upto = '';					
+				$is_expired = '';			
+				$ethics_auth = $this->db->query("SELECT * FROM ethics_login WHERE status=1 ");
+				$ethicsauth= $ethics_auth->result();
+				//print_r($sellerpayment);
+				foreach($ethicsauth as $row)
+				{				
+					$auth_access_url = $row->auth_access_url;							
+					$login_id = $row->login_id;
+					$login_pass = $row->login_pass;
+					$access_token = $row->access_token;
+					$valid_upto = $row->valid_upto;					
+					$is_expired = $row->is_expired;					
+				}									
+				$url = $auth_access_url ;
+				$data = array(
+						"userName" => $login_id,
+						"password" => $login_pass,										
+					);
+				$encodedData = json_encode($data);
+				$curl = curl_init($url);
+				$data_string = urlencode(json_encode($data));
+				curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+				curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
+				curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+				curl_setopt($curl, CURLOPT_POST, true);
+				curl_setopt($curl, CURLOPT_POSTFIELDS, $encodedData);
+				$response = curl_exec($curl);					
+				//print_r($response);
+				curl_close($curl);					
+				$data1 = json_decode($response);
+				$token =  $data1->token;
+				
+				$response = $this->workorder_request($pickup_pincode,$delivery_pincode,$travle_mode,$declared_value,$noofpackages,$actual_weight,$charged_weight,$cod_dod,$token);
+							
+				//return $response;
+				print_r($response);
+       die;
 				$statecode="";
 				$state_length = strlen($statename);
 				if($state_length < 2)
@@ -428,6 +476,44 @@ class Seller_module extends CI_Controller
            								
 	    }
 	
+    }
+
+
+
+	public function workorder_request($pickup_pincode,$delivery_pincode,$travle_mode,$declared_value,$noofpackages,$actual_weight,$charged_weight,$cod_dod,$token)
+    {
+		//$token1="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJHcm91cElkIjoiMSIsIm5iZiI6MTY3MzUxOTE2MiwiZXhwIjoxNjczNTIyNzYyLCJpYXQiOjE2NzM1MTkxNjIsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzU0LyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMC8ifQ.K6xtZRWL_osX_V8nRZWo5YF89yzZTTT6LeWgjce824s";
+		$url = "http://136.232.165.58:6168/RateCalculate/ratecalculate" ;
+		$data = array(
+					"fromPinCode" => $pickup_pincode,
+					"toPincode" => $delivery_pincode,
+                    "mode" => $travle_mode,
+                    "declaredValue" => $declared_value,
+					"packages" => $noofpackages,
+                    "actualWeight" => $actual_weight,
+                    "chargedWeight" => $charged_weight,
+                    "cod_dod" => $cod_dod,					
+				);
+		$authorization = "Authorization: Bearer ".$token;		
+		$encodedData = json_encode($data);
+		$curl = curl_init($url);
+		$data_string = urlencode(json_encode($data));
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
+		curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json' , $authorization ));
+		curl_setopt($curl, CURLOPT_POST, true);
+		curl_setopt($curl, CURLOPT_POSTFIELDS, $encodedData);
+		$response = curl_exec($curl);					
+        //print_r($response);
+		curl_close($curl);					
+		//$data1 = json_decode($response);
+		//$data1 = json_encode($response);
+		print_r($response);
+	    //echo $status =  $data1->status;
+        //echo $message =  $data1->message;
+        //echo $data_dat =  $data1->data;		
+		 	
     }
 
 

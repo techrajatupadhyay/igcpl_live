@@ -553,14 +553,14 @@
                                     <h4 class="sub-title">Pickup Pincode <span class="star"> *</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                       <input type="number" class="form-control" id="pickup_pincode" name="pick_pincode" placeholder="pickup pincode" required="" pattern="[0-9]{6}" minlength="6" maxlength="6" value="">
+                                       <input type="number" class="form-control" id="pickup_pincode" name="pickup_pincode" placeholder="pickup pincode" required="" pattern="[0-9]{6}" minlength="6" maxlength="6" value="">
                                     </div>
                                  </div>
                                  <div class="col-sm-4">
                                     <h4 class="sub-title">Delivery  Pincode <span class="star"> *</span></h4>
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                       <input type="number" class="form-control" id="delivery_pincode" name="delivered_pincode" placeholder="delivery pincode" required="" pattern="[0-9]{6}" minlength="6" maxlength="6" value="">
+                                       <input type="number" class="form-control" id="delivery_pincode" name="delivery_pincode" placeholder="delivery pincode" required="" pattern="[0-9]{6}" minlength="6" maxlength="6" value="">
                                     </div>
                                  </div>
                                  
@@ -638,7 +638,7 @@
                                     <div class="input-group">
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-inr" aria-hidden="true"></i></span>
                                        <input type="text" class="form-control" id="shipping_charges" name="shipping_charges"  value="00.00" readonly disabled ="disabled" required >
-                                       <input type="hidden"  id="logistics_amount_ethics" name="logistics_amount_ethics"  value readonly  required >
+                                       <!--<input type="hidden"  id="logistics_amount_ethics" name="logistics_amount_ethics"  value readonly  required >-->
                                     </div>
                                  </div>
                                  <div class="col-sm-4">
@@ -744,7 +744,18 @@
                                           </tbody>
                                        </table>
                                     </div>   
-                                 </div>                                 
+                                 </div>
+                                 
+                                 <input type="hidden" class="form-control" id="coordination_payable_amount" name="coordination_payable_amount" readonly  required value >
+                                 <input type="hidden"  id="logistics_amount_ethics" name="logistics_amount_ethics"  value readonly  required >
+                                 <input type="hidden" class="form-control" id="logistics_payable_amount" name="logistics_payable_amount" readonly  required value >
+                                 <input type="hidden" class="form-control" id="sample_clause_payable_amount" name="sample_clause_payable_amount" readonly  required value >
+                                 <input type="hidden" class="form-control" id="cashflow_payable_amount" name="cashflow_payable_amount" readonly  required value >
+                                 <input type="hidden" class="form-control" id="total_igst_amount" name="total_igst_amount" readonly  required value >
+                                 <input type="hidden" class="form-control" id="total_sgst_amount" name="total_sgst_amount" readonly  required value >
+                                 <input type="hidden" class="form-control" id="total_cgst_amount" name="total_cgst_amount" readonly  required value >
+                                 <input type="hidden" class="form-control" id="total_workorder_payable_amount" name="total_workorder_payable_amount" readonly  required value >
+
                                  <div class="col-sm-12">
                                     <h6><b> Note : </b></h6>
                                     <p>This is Preliminary Estimation. Discount is negotiable on case to case basis.Cash flow bill discounting charges of financer are not included in this estimate. </p>
@@ -1119,6 +1130,7 @@ $(document).ready(function() {
             $('#logistics_total').html("00.00");
             $("#shipping_charges").val("00.00");
             $('#logistics_amount_ethics').val('');
+            $("#logistics_payable_amount").val('') ;
             Logistics_Charges= '00.00';
 				addvalue();
          }
@@ -1212,7 +1224,7 @@ $(document).ready(function() {
                         $("#shipping_price").html('<i class="fa fa-calculator"></i> Calculate Shipping price');
                         document.getElementById('shipping_price').disabled = false;
 
-                        /**** THIS IS FOR LOGISTICE ESTIMATES */
+                        /**** THIS IS FOR LOGISTICE ESTIMATES ****/
                         var logistics_charges = total_shipping_charges;
                         var logistics_discount = document.getElementById('logistics_discount').innerHTML;
                         var logistics_discount_value = Number((logistics_discount / 100) * logistics_charges).toFixed(2);
@@ -1220,7 +1232,7 @@ $(document).ready(function() {
                         
                         $('#logistics_amount').html(Number(logistics_charges).toFixed(2));
                         $('#logistics_total').html(Number(logistics_total).toFixed(2));
-                        
+                        $("#logistics_payable_amount").val(Number(logistics_total).toFixed(2)) ;                       
                         
                         Logistics_Charges=Number(logistics_total).toFixed(2);
 						      addvalue();
@@ -1233,10 +1245,10 @@ $(document).ready(function() {
                         $('#logistics_amount').html("00.00");
                         $('#logistics_total').html("00.00");
                         $('#logistics_amount_ethics').val('');
+                        $("#logistics_payable_amount").val('') ;  
                         Logistics_Charges= '00.00';
 				            addvalue();
-                        
-
+                     
                         alert(data);
                      }
      
@@ -1266,6 +1278,7 @@ $(document).ready(function() {
                
                $('#coordination_charges').html(Number(coordination_charges).toFixed(2));
                $('#coordination_total').html(Number(coordination_total).toFixed(2));
+               $("#coordination_payable_amount").val(Number(coordination_total).toFixed(2)) ;
 
                Coordination_Charges=Number(coordination_total).toFixed(2);
 					addvalue();
@@ -1279,6 +1292,7 @@ $(document).ready(function() {
          {
             $('#coordination_charges').html("00.00");
             $('#coordination_total').html("00.00");
+            $("#coordination_payable_amount").val('') ;
 
             Coordination_Charges= '00.00';
 				addvalue();
@@ -1316,6 +1330,7 @@ $(document).ready(function() {
                
                $('#cashflow_amount').html(Number(cashflow_amount).toFixed(2));
                $('#cashflow_total').html(Number(cashflow_total).toFixed(2));
+               $("#cashflow_payable_amount").val(Number(cashflow_total).toFixed(2)) ;
 
                Cash_flow_Charges=Number(cashflow_total).toFixed(2);
 					addvalue();
@@ -1328,6 +1343,7 @@ $(document).ready(function() {
                
                $('#cashflow_amount').html(Number(cashflow_amount).toFixed(2));
                $('#cashflow_total').html(Number(cashflow_total).toFixed(2));
+               $("#cashflow_payable_amount").val(Number(cashflow_total).toFixed(2)) ;
                
                Cash_flow_Charges=Number(cashflow_total).toFixed(2);
 					addvalue();
@@ -1339,7 +1355,8 @@ $(document).ready(function() {
                var cashflow_total = cashflow_amount - cashflow_discount_value; 
                
                $('#cashflow_amount').html(Number(cashflow_amount).toFixed(2));
-               $('#cashflow_total').html(Number(cashflow_total).toFixed(2)); 
+               $('#cashflow_total').html(Number(cashflow_total).toFixed(2));
+               $("#cashflow_payable_amount").val(Number(cashflow_total).toFixed(2)) ; 
                
                Cash_flow_Charges=Number(cashflow_total).toFixed(2);
 					addvalue();
@@ -1376,6 +1393,7 @@ $(document).ready(function() {
 
          var sample_clause_discount_value =  Number((sample_clause_discount / 100) * sample_clause_amount).toFixed(2);
          var sample_clause_total = sample_clause_amount - sample_clause_discount_value;
+        
 
          var sample_clause= document.querySelector('input[name="sample_clause"]:checked').value;
 
@@ -1384,6 +1402,7 @@ $(document).ready(function() {
 
             $('#sample_clause_amount').html(Number(sample_clause_amount).toFixed(2));
             $('#sample_clause_total').html(Number(sample_clause_total).toFixed(2));
+            $("#sample_clause_payable_amount").val(Number(sample_clause_total).toFixed(2)) ;
 
             Sample_Clause_Charges=Number(sample_clause_total).toFixed(2);
 				addvalue();
@@ -1392,6 +1411,7 @@ $(document).ready(function() {
          {
             $('#sample_clause_amount').html("00.00");
             $('#sample_clause_total').html("00.00");
+            $("#sample_clause_payable_amount").val('') ;
 
             Sample_Clause_Charges= '00.00';
 				addvalue();
@@ -1433,11 +1453,14 @@ $(document).ready(function() {
       }
       
       $("#total_amount").html(Number(totalprice).toFixed(2));
-      $("#total_gst").html(Number(igst_value).toFixed(2));
+      $("#total_gst").html(Number(igst_value).toFixed(2)); 
       $("#sgst").html(Number(sgst_value).toFixed(2));
       $("#cgst").html(Number(cgst_value).toFixed(2));
 		$("#total_payable_amount").html(Number(payable_amount).toFixed(2));
-     
+      $("#total_igst_amount").val(Number(igst_value).toFixed(2)) ;
+      $("#total_cgst_amount").val(Number(cgst_value).toFixed(2)) ;
+      $("#total_sgst_amount").val(Number(sgst_value).toFixed(2)) ;
+      $("#total_workorder_payable_amount").val(Number(payable_amount).toFixed(2)) ;
    }
 </script>
 
@@ -1536,6 +1559,7 @@ $(document).ready(function() {
 	
 	function submitForm() 
 	{	
+      //debugger;
       var frm = $('#workorder_form');
       
       var labh_executive_id = document.getElementById('labh_executive_id').value;
@@ -1596,7 +1620,20 @@ $(document).ready(function() {
 
       var total_amount = document.getElementById('total_amount').value;
       var total_gst = document.getElementById('total_gst').value;
+      var cgst = document.getElementById('cgst').value;
+      var sgst = document.getElementById('sgst').value;
       var total_payable_amount = document.getElementById('total_payable_amount').value;
+     
+      //$("#coordination_payable_amount").val(coordination_total) ;
+      //$("#logistics_amount_ethics").val(logistics_amount_ethics) ;
+      //$("#logistics_payable_amount").val(logistics_total) ;
+      //$("#sample_clause_payable_amount").val(sample_clause_total) ;
+      //$("#cashflow_payable_amount").val(cashflow_total) ;
+      //$("#total_igst_amount").val(total_gst) ;
+      //$("#total_cgst_amount").val(cgst) ;
+      //$("#total_sgst_amount").val(sgst) ;
+      //$("#total_workorder_payable_amount").val(total_payable_amount) ;
+      //return false;
 
       if (labh_executive_id == '')
       {
@@ -1879,7 +1916,7 @@ $(document).ready(function() {
       }
       else if (cashflow_total =='') 
       { 
-         alert("Sample Clause Facilitation Charges is Missing!");
+         alert("Cash Flow Charges is Missing!");
          return	false;    
       }
       else if (sub_total_amount =='') 
@@ -1888,9 +1925,20 @@ $(document).ready(function() {
          return	false;    
       }
       else if (total_gst =='') 
-      { 
-         alert("GST Amount Missing!");
-         return	false;    
+      {
+         if(seller_state !="09")
+         {
+            alert("IGST Charges is Missing!");
+            return	false;
+         }             
+      }
+      else if (cgst =='' && sgst == '') 
+      {
+         if(seller_state =="09")
+         {
+            alert("CGST & SGST Charges is Missing!");
+            return	false;
+         }             
       }
       else if (total_payable_amount =='') 
       { 
