@@ -12,6 +12,7 @@ class Admin extends CI_Controller
 		//is_checked_in();
 		//is_checked_out();
 		$this->load->library('form_validation');
+		$this->load->library('Ciqrcode');
 		$this->load->model('Seller_model');
 		$this->load->model('Admin_model');
     }
@@ -1869,6 +1870,21 @@ class Admin extends CI_Controller
         {
             
             $data['Employee_Details'] = $this->Admin_model->get_employee_details($user_id,$user_type);
+			//$emp_details = $data['Employee_Details'];
+
+			$sql2 ="SELECT * from master_idcard Where employee_code='".$user_id."'  " ;
+            $emp_details = $this->db->query($sql2)->result(); 
+			//print_r($this->db->last_query());
+            
+			foreach($data['Employee_Details'] as $row)
+            {
+				$reg_val = $row->region;
+				$region_value = explode (",", $reg_val); 
+				$regionid = $region_value[0];
+			}
+
+			$this->genQr($emp_details,$user_id,$user_type,$regionid);
+            //var_dump($this->genQr($emp_details,$user_id,$user_type,$regionid));
             $this->load->view('backend/new_header');
             $this->load->view('backend/new_sidebar'); 
             $this->load->view('backend/employee_details',$data);            
@@ -1880,6 +1896,70 @@ class Admin extends CI_Controller
             redirect(base_url(), 'refresh');
         }
         
+    }
+
+	function genQr($emp_details,$user_id,$user_type,$regionid)
+	{
+        
+		foreach($emp_details as $emp)
+		{
+			
+			$data = "Father/Spouse Name : ".$emp->father_spouse_name."<\br>  Phone Number  : ".$emp->phone_number."<\br> Email ID : ". $emp->email_id . "<\br>  Residential Address : ".$emp->residential_address."<\br> Adhaar Number : ". $emp->adhaar_number. "<\br>  PAN  : ". $emp->pan. "<\br>  Date of Birth : ". $emp->birthday. "<\br> Date of Joining : ". $emp->joining_date. "<\br> Vallid Till : ". $emp->valid_till. "<\br> Website : https://indigemcp.com  <\br> Head Office : 305-306,3rd Floor, Tower A, Spacedge, Sector 46, Sohna Road Gurgaon, Haryana, India, 122018";
+			$qr   = $this->generate_qrcode($data,$user_id,$user_type,$regionid); 						
+		}						
+			
+	}
+
+	function generate_qrcode($data,$user_id,$user_type,$regionid)
+	{
+        /* Load QR Code Library */
+        $this->load->library('Ciqrcode');
+        /* Data */
+        $hex_data   = bin2hex($data);
+        $save_name  = $user_id.'.png';
+        /* QR Code File Directory Initialize */
+		if($user_type==3)
+		{
+			$dir = "uploads/Seller_Documents/".$regionid."/".$user_id."/" ;
+		}
+		else if($user_type==5)
+		{
+			$dir = "uploads/Agent_Documents/".$regionid."/".$user_id."/" ;
+		}
+		else
+		{		
+		    $dir = "uploads/Employee_Documents/".$regionid."/".$user_id."/" ;
+		}
+
+        //$dir = 'assets/qrcode/';
+        if (!file_exists($dir)) {
+            mkdir($dir, 0775, true);
+        }
+
+        /* QR Configuration  */
+        $config['cacheable']    = true;
+        $config['imagedir']     = $dir;
+        $config['quality']      = true;
+        $config['size']         = '1024';
+        $config['black']        = array(255,255,255);
+        $config['white']        = array(255,255,255);
+
+        $this->ciqrcode->initialize($config);
+  
+        /* QR Data  */
+        $params['data']     = $data;
+        $params['level'] = 'H'; //H=High
+        $params['size'] = 10;
+        $params['savename'] = FCPATH.$config['imagedir']. $save_name;
+        
+        $this->ciqrcode->generate($params);
+
+        /* Return Data */
+        $return = array(
+            'content' => $data,
+            'file'    => $dir. $save_name
+        );
+        return $return;
     }
 	
 	
