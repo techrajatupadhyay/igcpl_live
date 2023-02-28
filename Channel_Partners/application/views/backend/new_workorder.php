@@ -355,7 +355,7 @@
                                        <input type="email" class="form-control" required id="buyer_email" name="buyer_email" placeholder="Email" value="<?php echo $email;?>">
                                     </div>
                                  </div>                                
-                              </div>buyer_city                             
+                              </div>                             
                               <div class="row m-b-30">
                                  <div class="col-sm-3">
                                     <h4 class="sub-title">Delevery City <span class="star">*</span></h4>

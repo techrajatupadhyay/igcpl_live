@@ -164,7 +164,7 @@ class Seller_module extends CI_Controller
 						$workorder_ip = $workorderid['workorder_id']; 
 					}												    
 					$registerNo = intval($workorder_ip) + 1;
-					$igcpl_workorder_id = $year.$order_type.$statecode.'000'.$registerNo;
+					$igcpl_workorder_id = $year.$order_type.$seller_state.'000'.$registerNo;
 				}
 
 
