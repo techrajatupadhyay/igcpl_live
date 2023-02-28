@@ -99,6 +99,7 @@ class Seller_module extends CI_Controller
 		$buyer_organization_name = $this->input->post('buyer_organization_name');
 		$buyer_contact = $this->input->post('buyer_contact');
 		$buyer_email = $this->input->post('buyer_email');
+		$buyer_city = $this->input->post('buyer_city');
 		$buyer_pincode = $this->input->post('buyer_pincode');
 		$buyer_full_address = $this->input->post('buyer_full_address');
 
@@ -136,9 +137,7 @@ class Seller_module extends CI_Controller
 		$total_cgst_amount = $this->input->post('total_cgst_amount');
 		$total_workorder_payable_amount = $this->input->post('total_workorder_payable_amount');
 		 
-	print_r($_POST);
-	die;
-
+	
 		if($this->input->post('isedit')==0)
 		{
 
@@ -149,6 +148,25 @@ class Seller_module extends CI_Controller
 						
 			if($count<=0)
 			{
+                date_default_timezone_set('Asia/Kolkata');      
+				$createddate = date('Y-m-d');
+				$year = date('y', strtotime($createddate));
+				$regionid = $this->input->post('regionid');
+				$query = $this->db->query('SELECT id  AS workorder_id FROM work_order ORDER BY id DESC  limit 1');
+				$usercount= $query->result_array() ; 
+				$sell_ip="";
+				
+				if($usercount >=0)
+				{   
+					$workorder_ip="";
+					foreach($usercount as $workorderid)
+					{			
+						$workorder_ip = $workorderid['workorder_id']; 
+					}												    
+					$registerNo = intval($workorder_ip) + 1;
+					$igcpl_workorder_id = $year.$order_type.$statecode.'000'.$registerNo;
+				}
+
 
                 $auth_access_url = '';							
 				$login_id = '';
@@ -167,7 +185,38 @@ class Seller_module extends CI_Controller
 					$access_token = $row->access_token;
 					$valid_upto = $row->valid_upto;					
 					$is_expired = $row->is_expired;					
-				}									
+				}
+
+				$companyname ="";
+				
+				$seller_details = $this->db->query("SELECT * FROM seller WHERE seller_id='".$sellerid."'  AND seller_status=1 ");
+				$seller_Data= $seller_details->result();
+				//print_r($sellerpayment);
+				foreach($seller_Data as $row)
+				{				
+					$companyname = $row->companyname;																
+				}
+
+                $orderno = $igcpl_workorder_id;
+				$material = $product_category;
+				$mode = $travle_mode;
+				$servicetype = "Express";
+				$sellerCompany = $companyname;
+				$sellerAddress = $seller_pickup_location;
+				$sellerCity = $seller_city;
+				$sellerPincode = $pickup_pincode;
+				$buyerCompany = $buyer_organization_name;
+				$buyerAddress = $buyer_full_address;
+				$buyerCity = $buyer_city;
+				$buyerPincode = $buyer_pincode;
+				$invoiceNumber = "Tech-123456";
+				$declaredValue = $declared_value;
+				$packages = $noofpackages;
+				$actualWeight = $actual_weight;
+				$chargedWeight = $charged_weight;
+				$cod_dod = $cod_dod;
+				$remarks = "Handle With Care"; 
+
 				$url = $auth_access_url ;
 				$data = array(
 						"userName" => $login_id,
@@ -188,11 +237,11 @@ class Seller_module extends CI_Controller
 				$data1 = json_decode($response);
 				$token =  $data1->token;
 				
-				$response = $this->workorder_request($pickup_pincode,$delivery_pincode,$travle_mode,$declared_value,$noofpackages,$actual_weight,$charged_weight,$cod_dod,$token);
+				$response = $this->workorder_request($orderno,$material,$mode,$servicetype,$sellerCompany,$sellerAddress,$sellerCity,$sellerPincode,$buyerCompany,$buyerAddress,$buyerCity,$buyerPincode,$invoiceNumber,$declaredValue,$packages,$actualWeight,$chargedWeight,$cod_dod,$remarks,$token);
 							
 				//return $response;
 				print_r($response);
-       die;
+                die;
 				$statecode="";
 				$state_length = strlen($statename);
 				if($state_length < 2)
@@ -203,28 +252,9 @@ class Seller_module extends CI_Controller
 				{
 					$statecode = $statename;
 				}
-				
-	            date_default_timezone_set('Asia/Kolkata');      
-				$createddate = date('Y-m-d');
-				$year = date('y', strtotime($createddate));
-				$regionid = $this->input->post('regionid');
-				$query = $this->db->query('SELECT id  AS workorder_id FROM work_order ORDER BY id DESC  limit 1');
-				$usercount= $query->result_array() ; 
-				$sell_ip="";
-				
-				if($usercount >=0)
-				{   
-					$workorder_ip="";
-					foreach($usercount as $workorderid)
-					{			
-						$workorder_ip = $workorderid['workorder_id']; 
-					}
-													    
-					$registerNo = intval($workorder_ip) + 1;
-					$igcpl_workorder_id = $year.$order_type.$statecode.'000'.$registerNo;
-				}
-				
-				 //$gem_workorder_doc = $this->input->post('gem_workorder_doc');			 				
+
+				            				
+				//$gem_workorder_doc = $this->input->post('gem_workorder_doc');			 				
 				$targetDir = "uploads/Seller_Documents/".$region_id ."/".$sellerid ."/Workorder/".$igcpl_workorder_id ."/" ;
 	            $allowTypes = array('pdf','zip');
 	            if (!file_exists($targetDir)) 
@@ -480,19 +510,30 @@ class Seller_module extends CI_Controller
 
 
 
-	public function workorder_request($pickup_pincode,$delivery_pincode,$travle_mode,$declared_value,$noofpackages,$actual_weight,$charged_weight,$cod_dod,$token)
+	public function workorder_request($orderno,$material,$mode,$servicetype,$sellerCompany,$sellerAddress,$sellerCity,$sellerPincode,$buyerCompany,$buyerAddress,$buyerCity,$buyerPincode,$invoiceNumber,$declaredValue,$packages,$actualWeight,$chargedWeight,$cod_dod,$remarks,$token)
     {
-		//$token1="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJHcm91cElkIjoiMSIsIm5iZiI6MTY3MzUxOTE2MiwiZXhwIjoxNjczNTIyNzYyLCJpYXQiOjE2NzM1MTkxNjIsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzU0LyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMC8ifQ.K6xtZRWL_osX_V8nRZWo5YF89yzZTTT6LeWgjce824s";
-		$url = "http://136.232.165.58:6168/RateCalculate/ratecalculate" ;
+		
+		$url = "http://136.232.165.58:6168/ShipmentOrder/insertorder" ;
 		$data = array(
-					"fromPinCode" => $pickup_pincode,
-					"toPincode" => $delivery_pincode,
-                    "mode" => $travle_mode,
-                    "declaredValue" => $declared_value,
-					"packages" => $noofpackages,
-                    "actualWeight" => $actual_weight,
-                    "chargedWeight" => $charged_weight,
-                    "cod_dod" => $cod_dod,					
+					"orderno" => $orderno,
+					"material" => $material,
+                    "mode" => $mode,
+                    "servicetype" => $servicetype,
+					"consignor" => $sellerCompany,
+                    "bkAddress" => $sellerAddress,
+                    "bkCity" => $sellerCity,
+                    "bkPincode" => $sellerPincode,
+					"consignee" => $buyerCompany,
+					"dlAddress" => $buyerAddress,
+					"dlCity" => $buyerCity,
+					"dlPincode" => $buyerPincode,
+					"invoiceNumber" => $invoiceNumber,					
+					"declaredValue" => $declaredValue,
+					"packages" => $packages,
+					"actualWeight" => $actualWeight,
+					"chargedWeight" => $chargedWeight,
+					"cod_dod" => $cod_dod,
+					"remarks" => $remarks,
 				);
 		$authorization = "Authorization: Bearer ".$token;		
 		$encodedData = json_encode($data);
@@ -509,7 +550,7 @@ class Seller_module extends CI_Controller
 		curl_close($curl);					
 		//$data1 = json_decode($response);
 		//$data1 = json_encode($response);
-		print_r($response);
+		return $response ;
 	    //echo $status =  $data1->status;
         //echo $message =  $data1->message;
         //echo $data_dat =  $data1->data;		

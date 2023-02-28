@@ -355,16 +355,23 @@
                                        <input type="email" class="form-control" required id="buyer_email" name="buyer_email" placeholder="Email" value="<?php echo $email;?>">
                                     </div>
                                  </div>                                
-                              </div>                             
-                              <div class="row m-b-30">                               
-                                 <div class="col-sm-4">
+                              </div>buyer_city                             
+                              <div class="row m-b-30">
+                                 <div class="col-sm-3">
+                                    <h4 class="sub-title">Delevery City <span class="star">*</span></h4>
+                                    <div class="input-group"><!--oninput="getAddressByPincode()"-->
+                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                       <input type="text" class="form-control" id="buyer_city"  name="buyer_city"  placeholder="city name"  value="<?php echo $pincode; ?>">
+                                    </div>
+                                 </div>                               
+                                 <div class="col-sm-3">
                                     <h4 class="sub-title">Delevery Pincode <span class="star">*</span></h4>
                                     <div class="input-group"><!--oninput="getAddressByPincode()"-->
                                        <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
                                        <input type="text" class="form-control" id="buyer_pincode"  name="buyer_pincode" onchange="getAddressByPincode()" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="pincode" required pattern="[0-9]{6}" minlength="6" maxlength="6" value="<?php echo $pincode; ?>">
                                     </div>
                                  </div>
-                                 <div class="col-sm-8">
+                                 <div class="col-sm-6">
                                     <h4 class="sub-title"> Buyer Full Address <span class="star">*</span></h4>
                                     <textarea class="form-control max-textarea" maxlength="255" rows="1" id="buyer_full_address" name="buyer_full_address" placeholder="Buyer Full Address" required="" ><?php echo $consignee_address; ?></textarea>
                                  </div>
@@ -1582,6 +1589,7 @@ $(document).ready(function() {
       var buyer_organization_name = document.getElementById('buyer_organization_name').value;
       var buyer_contact = document.getElementById('buyer_contact').value;
       var buyer_email = document.getElementById('buyer_email').value;
+      var buyer_city = document.getElementById('buyer_city').value;
       var buyer_pincode = document.getElementById('buyer_pincode').value;
       var buyer_full_address = document.getElementById('buyer_full_address').value;
 
@@ -1718,6 +1726,11 @@ $(document).ready(function() {
       else if (buyer_email =='') 
       {
          alert("Buyer Email ID  is Missing!");
+         return	false;        
+      } 
+      else if (buyer_city =='') 
+      {
+         alert("Buyer City  is Missing!");
          return	false;        
       } 
       else if (buyer_pincode =='') 
