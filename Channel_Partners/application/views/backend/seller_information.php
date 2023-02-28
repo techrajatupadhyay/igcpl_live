@@ -171,10 +171,10 @@
                                     </div>
                                     <div class="row mx-3">
 									
-									            <input type="hidden" name="labh_executive_id" class="form-control" value="<?php echo $laabh_executive;?>" placeholder="">
-                                       <input type="hidden" name="labh_agent_id" class="form-control" value="<?php echo $labhid;?>" placeholder="">
+									            <input type="hidden" name="labh_executive_id" class="form-control" value="<?php echo $laabh_executive;?>" required placeholder="">
+                                       <input type="hidden" name="labh_agent_id" class="form-control" value="<?php echo $labhid;?>" required placeholder="">
 									   								   
-                                       <input type="hidden" name="sellerid" class="form-control" value="<?php echo $sellerid;?>" placeholder="">
+                                       <input type="hidden" name="sellerid" class="form-control" value="<?php echo $sellerid;?>" required placeholder="">
                                        <input type="hidden" name="id" class="form-control" value="<?php echo $id;?>" placeholder="">
                                        <div class="form-group col-md-3 m-t-20">
                                           <label>User Type  <span class="red-color span1">*</span></label>
