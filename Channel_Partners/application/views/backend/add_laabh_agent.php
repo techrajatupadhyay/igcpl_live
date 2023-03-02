@@ -649,8 +649,7 @@
                                                                <div class="input-group-addon">
                                                                   <input type='file' accept="image/png,image/gif, image/jpeg, image/jpg"  id="agent_signature" name="agent_signature"  onchange="signature_pic(this);"/>
                                                                </div>
-                                                            </div>
-														 
+                                                            </div>													 
 														               <?php } else { ?>
                                                             <span id="signature" style="display: block;">  
                                                                <img id="la_signature" style="border:1px solid grey !important;" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>assets/images/signature.png" height="100" width="100" />                        
@@ -662,8 +661,7 @@
                                                                <div class="input-group-addon">
                                                                   <input type='file' accept="image/png,image/gif, image/jpeg, image/jpg"  id="agent_signature" name="agent_signature" required onchange="signature_pic(this);"/>
                                                                </div>
-                                                            </div>
-														 
+                                                            </div>						 
 														               <?php } ?>
                                                       </div>
                                                    </div>

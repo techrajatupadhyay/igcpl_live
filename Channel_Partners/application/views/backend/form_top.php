@@ -111,29 +111,29 @@
             <div class="tab-header card">
                 <ul class="nav nav-tabs md-tabs tab-timeline" style="flex-wrap: nowrap;" role="tablist" id="mytab">
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($sellerpersonal >0) { ?> active<?php } ?>" href="<?php if ($sellerpersonal >0) { echo site_url("SellerRegister/seller_personal_details/".$sellerid."") ; } ?>" >
-                        <i class="check-icon fa fa-check" aria-hidden="true"></i> Seller Infomation</a>
+                        <a class="nav-link <?php if ($sellerpersonal >0) { ?> active<?php } ?>" <?php if ($sellerpersonal ==0) { ?> style="pointer-events: none;" <?php } ?> href="<?php if ($sellerpersonal >0) { echo site_url("SellerRegister/seller_personal_details/".$sellerid."") ; } ?>" >
+                        <i class="check-icon fa fa-check" aria-hidden="true"></i> Client Details </a>
                         <div class="slide" style="width: calc(100%/5)"></div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($sellerdoc > 0) { ?> active<?php } ?>"  href="<?php if ($sellerpersonal >0) { echo site_url("SellerRegister/Documents/".$sellerid."") ; } ?>" >
-                        <i class="check-icon fa fa-check" aria-hidden="true"></i> Documents</a>
+                        <a class="nav-link <?php if ($sellerdoc > 0) { ?> active<?php } ?>" <?php if ($sellerdoc ==0) { ?> style="pointer-events: none;" <?php } ?> href="<?php if ($sellerdoc >0) { echo site_url("SellerRegister/Documents/".$sellerid."") ; } ?>" >
+                        <i class="check-icon fa fa-check" aria-hidden="true"></i> Documents </a>
                         <div class="slide" style="width: calc(100%/5)"></div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($sellerpayment > 0) { ?> active<?php } ?>"  href="<?php if ($sellerpayment >0) { echo site_url("SellerRegister/Payment/".$sellerid.""); } ?>" >
-                        <i class="check-icon fa fa-check" aria-hidden="true"></i>Payment</a>
+                        <a class="nav-link <?php if ($sellerpayment > 0) { ?> active<?php } ?>" <?php if ($sellerpayment ==0) { ?> style="pointer-events: none;" <?php } ?> href="<?php if ($sellerpayment >0) { echo site_url("SellerRegister/Payment/".$sellerid.""); } ?>" >
+                        <i class="check-icon fa fa-check" aria-hidden="true"></i> Payment </a>
                         <div class="slide" style="width: calc(100%/5)"></div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($sellermou >0) { ?> active<?php } ?>"  href="<?php if ($sellermou >0) { echo site_url("SellerRegister/mou/".$sellerid.""); } ?>" >
+                        <a class="nav-link <?php if ($sellermou >0) { ?> active<?php } ?>" <?php if ($sellermou ==0) { ?> style="pointer-events: none;" <?php } ?> href="<?php if ($sellermou >0) { echo site_url("SellerRegister/mou/".$sellerid.""); } ?>" >
                         <i class="check-icon fa fa-check" aria-hidden="true"></i>MOU</a>
                         <div class="slide" style="width: calc(100%/5)"></div>
                     </li>
                                      
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($sellerpersonal && $sellerdoc && $sellermou && $sellerpaymentdoc && $sellermoudoc && $seller_status > 0 ) { ?> active<?php } ?>"  href="<?php if ($sellerpersonal && $sellerdoc && $sellermou && $sellerpaymentdoc && $sellermoudoc && $seller_status > 0 ) { echo site_url("SellerRegister/application_preview/".$sellerid."");  } ?>" >
-                        <i class="check-icon fa fa-check" aria-hidden="true"></i>Preview</a>
+                        <a class="nav-link <?php if ($sellerpersonal && $sellerdoc && $sellermou && $sellerpaymentdoc && $sellermoudoc && $seller_status > 0 ) { ?> active<?php } ?>" <?php if ($seller_status == 0 ) { ?> style="pointer-events: none;" <?php } ?> href="<?php if ($sellerpersonal && $sellerdoc && $sellermou && $sellerpaymentdoc && $sellermoudoc && $seller_status > 0 ) { echo site_url("SellerRegister/application_preview/".$sellerid."");  } ?>" >
+                        <i class="check-icon fa fa-check" aria-hidden="true"></i>Acknowledgment</a>
                         <div class="slide" style="width: calc(100%/5)"></div>
                     </li>                          
                 </ul>
