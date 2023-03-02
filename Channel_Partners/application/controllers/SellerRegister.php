@@ -506,9 +506,9 @@ class SellerRegister extends CI_Controller
 																												
 					//'seller_image'=>$targetFilePath,
 					//'seller_signature'=>$targetFilePath2,
-					'isactive'=>1															
+					'isactive'=>1,															
 					//'createdon'=>date('Y-m-d H:i:s', time()),
-					'updatedon'=>date('Y-m-d H:i:s', time()),					
+					'updatedon'=>date('Y-m-d H:i:s', time())					
 			    );
 		    $this->db->set($saveData);
             $this->db->where('id',$id);			
