@@ -1,17 +1,17 @@
 <?php
-   if($this->session->userdata('user_login_access') != 1)
-   {
-      return redirect('Login'); 
-   }
+    if($this->session->userdata('user_login_access') != 1)
+    {
+       return redirect('Login'); 
+    }
 
-   $laabh_executive = $this->session->userdata('user_login_id');
+    $laabh_executive = $this->session->userdata('user_login_id');
 	
-   $laabh_executive_details = $this->db->query("SELECT * FROM users WHERE user_id='".$laabh_executive."' ");
+    $laabh_executive_details = $this->db->query("SELECT * FROM users WHERE user_id='".$laabh_executive."' ");
 	$executive_details= $laabh_executive_details->result();
 	//print_r($this->db->last_query());
 	foreach($executive_details as $row)
 	{			
-		$region_name = $row->region;
+	  $region_name = $row->region;
       $region_state = $row->region_state;
       $district_branch = $row->district_branch;		
 	}
@@ -36,7 +36,7 @@
    //$region_name = "";
    $user_type = "";
    //$Laabh_executive = "";
-   $designation_id = "";
+   //$designation_id = "";
    $first_name ="";
    $contact_no ="";
    $alter_mobileno ="";
@@ -82,7 +82,7 @@
          $district_second = $row['district_second'];
          $user_type = $row['user_type'];
          //$Laabh_executive = $row['laabh_executive'];
-         $designation_id = $row['des_id'];
+         //$designation_id = $row['des_id'];
          $first_name =$row['first_name'];
          $contact_no =$row['contact_no'];
          $alter_mobileno =$row['alter_mobileno'];
@@ -172,16 +172,20 @@
                                     <h4 class="sub-title" style="color:red;"><i class="fa fa-user-secret"></i>&nbsp; Laabh Agent Details : </h4>
                                     <div class="card-block inner-card-block">
                                        <div class="row m-b-30">
-                                          <input type="hidden" class="form-control"  id="user_type" name="user_type" value="5" >
-                                          <input type="hidden" class="form-control"  name="laabh_executive" value="<?php echo $laabh_executive;?>" >
-										  
-										            <input type="hidden" name="laabh_agent_id" class="form-control" value="<?php echo $user_id;?>" placeholder="">
-                                          <input type="hidden" name="id" class="form-control" value="<?php echo $id;?>" placeholder="">
-                                          <div class="col-sm-4">
-                                             <h4 class="sub-title">Designation <span class="star"> * </span></h4>
-                                             <div class="input-group">
+                                            <input type="hidden" id="user_type" name="user_type" value="5" >
+                                            <input type="hidden" name="laabh_executive" value="<?php echo $laabh_executive;?>" >										  
+										    <input type="hidden" name="laabh_agent_id" value="<?php echo $user_id;?>">
+                                            <input type="hidden" name="id" class="form-control" value="<?php echo $id;?>" >
+											<input type="hidden" id="designation" name="designation"  value="GLA">
+											<input type="hidden" id="region_id" name="region" value="<?php echo $region_name; ?>">
+                                            <input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state; ?>" >											
+                                            <input type="hidden" id="district_branch" name="district_branch" value="<?php echo $district_branch; ?>" >
+											
+											<div class="col-sm-4">
+                                            <h4 class="sub-title">Designation <span class="star"> * </span></h4>
+                                            <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>												
-                                                <select class="form-control form-control" required readonly disabled ="disabled">
+                                                <select class="form-control form-control"  disabled ="disabled">
                                                    <option value=""> select designation </option>												   
                                                    <?php 
                                                       if(isset($designation) && $designation !="")
@@ -190,8 +194,8 @@
                                                          <option selected value="<?= $designation->value; ?>" ><?= $designation->des_name; ?> (<?= $designation->value; ?>)</option>
                                                    <?php  } } ?>
                                                 </select> 
-                                                <input type="hidden" id="designation" name="designation"  value="<?php echo $designation->value;?>" placeholder="">												
-                                             </div>
+                                                <!--<input type="hidden" id="designation" name="designation"  value="<?php //echo $designation->value;?>" placeholder="">	-->											
+                                            </div>
                                           </div>
                                           <div class="col-sm-4">
                                              <h4 class="sub-title">Agent Name <span class="star"> * </span></h4>
@@ -250,13 +254,13 @@
                                                 </div>
                                              </div>
                                           </div>
-										            <div class="col-sm-6">
+										    <div class="col-sm-6">
                                              <h4 class="sub-title">Division  <span class="star"> * </span></h4>
                                              <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
                                                 <select id="division" name="division" class="form-control form-control" required>
                                                    <option value="2"> select division </option>
-                                                   <option value="2" <?php echo $division_id == "2" ? " selected" : "";?>> Laabh </option>
+                                                   <option value="2" selected <?php echo $division_id == "2" ? " selected" : "";?>> Laabh </option>
                                                    <?php
                                                    /*   
                                                       foreach($division as $division)
@@ -266,7 +270,7 @@
                                                       } 
                                                    */   
                                                    ?>
-                                                   </select>
+                                                </select>
                                                 </div>
                                              </div>
 										            </div>  
@@ -275,8 +279,8 @@
                                              <h4 class="sub-title">Region <span class="star"> * </span></h4>
                                              <div class="input-group">
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-												            <input type="text" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled" >
-                                                <input type="hidden" id="region_id" name="region" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly > 
+												<input type="text" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled" >
+                                                <!--<input type="hidden" id="region_id" name="region" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly >--> 
                                              <!--	
                                                 <select id="region_id" name="region" class="form-control"  autocomplete="off" required>
                                                    <option value="">-- Select region --</option>
@@ -306,7 +310,7 @@
                                              ?>
                                              <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>												
                                              <input type="text"  value="<?php echo $state_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled">
-                                             <input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state; ?>" class="form-control"  autocomplete="off" required readonly >
+                                             <!--<input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state; ?>" class="form-control"  autocomplete="off" required readonly >-->
                                           <!--    
                                              <select id="region_state" name="region_state" class="form-control"  autocomplete="off" required>                                                  
                                                             <option value="">-- Select Region State --</option>
@@ -342,7 +346,7 @@
                                                 ?>
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
                                                 <input type="text" value="<?php echo $dist_name; ?>" class="form-control"  autocomplete="off"  readonly disabled ="disabled">
-                                                <input type="hidden" id="district_branch" name="district_branch" value="<?php echo $district_branch; ?>" class="form-control"  autocomplete="off" required readonly >
+                                                <!--<input type="hidden" id="district_branch" name="district_branch" value="<?php echo $district_branch; ?>" class="form-control"  autocomplete="off" required readonly >-->
                                                       <!--    
                                                 <select id="district_branch" name="district_branch" class="form-control"  autocomplete="off" required>
                                                                <option value="">-- Select Distinct Branch --</option> 
@@ -649,7 +653,8 @@
                                                                <div class="input-group-addon">
                                                                   <input type='file' accept="image/png,image/gif, image/jpeg, image/jpg"  id="agent_signature" name="agent_signature"  onchange="signature_pic(this);"/>
                                                                </div>
-                                                            </div>													 
+                                                            </div>
+														 
 														               <?php } else { ?>
                                                             <span id="signature" style="display: block;">  
                                                                <img id="la_signature" style="border:1px solid grey !important;" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>assets/images/signature.png" height="100" width="100" />                        
@@ -661,7 +666,8 @@
                                                                <div class="input-group-addon">
                                                                   <input type='file' accept="image/png,image/gif, image/jpeg, image/jpg"  id="agent_signature" name="agent_signature" required onchange="signature_pic(this);"/>
                                                                </div>
-                                                            </div>						 
+                                                            </div>
+														 
 														               <?php } ?>
                                                       </div>
                                                    </div>
