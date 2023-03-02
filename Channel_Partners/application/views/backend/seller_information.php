@@ -160,490 +160,461 @@
                               <input type="hidden" name="labh_agent_id" class="form-control" value="<?php echo $labhid;?>" required placeholder="">									   								   
                               <input type="hidden" name="sellerid" class="form-control" value="<?php echo $sellerid;?>" required placeholder="">
                               <input type="hidden" id="usertype" name="usertype" value="3" required placeholder="">
-                              <input type="hidden" name="id" class="form-control" value="<?php echo $id;?>" placeholder="">
+                              <input type="hidden" id="region_id" name="regionid" value="<?php echo $region_name; ?>"  required  >  
+                              <input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state; ?>"  required > 
+                              <input type="hidden" id="district_branch" name="district_branch" value="<?php echo $district_branch; ?>" required >
+                              <input type="hidden" name="id" class="form-control" value="<?php echo $id;?>" >
 
                               <div class="tab-header card">
                                  <div class="form-group col-md-12 m-t-20">
-                                    <label>Seller Type  <span class="star span1"> * </span></label>
-                                    <select id="seller_type" name="seller_type" onchange ="ShowHideDiv()" class="form-control" autocomplete="off"  required>
-                                       <option> Select Seller Type </option>
-                                       <option value="1" > Proprietorship  </option>
-                                       <option value="2" > Partnership Firm </option>
-                                       <option value="3" > Company </option>
-                                       <option value="4" > LLP </option>
-                                       <option value="5" > Others </option>                                      
+                                 <h4 class="sub-title">Seller Type <span class="star"> * </span>  </h4>
+                                    <select id="seller_type" name="seller_type" onchange ="ShowHideDiv()" class="form-control"  required>
+                                       <option> Please Select Seller Type &#8594; </option>
+                                       <option value="1" > Proprietorship &#8594; </option>
+                                       <option value="2" > Partnership Firm &#8594; </option>
+                                       <option value="3" > Company &#8594; </option>
+                                       <option value="4" > LLP &#8594; </option>
+                                       <option value="5" > Others &#8594; </option>                                      
                                     </select>                                          
                                  </div>
                               </div>
-
-                              <div class="card-body" >
-                                 <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:black">
-                                    <i class="fa fa-university" aria-hidden="true" style="color:#ff0000;"></i>&nbsp;&nbsp;
-                                    <span style="color:#ff0000;">Organization/Company/Firm/Shop Details :</span> 
+                              <div id="seller_info" style="display:none">
+                                 <div class="card-body" >
+                                    <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:black">
+                                       <i class="fa fa-university" aria-hidden="true" style="color:#ff0000;"></i>&nbsp;&nbsp;
+                                       <span style="color:#ff0000;">Organization/Company/Firm/Shop Details &#8594; </span> 
+                                    </div>
                                  </div>
-                              </div>
 
-                              <div class="col-12" id="proprietorship_or_others" style="display:block">
-                                 <div class="row mx-3">
-                                    <!--                                     
-                                    <div class="form-group col-md-3 m-t-20">
-                                       <label>User Type  <span class="red-color span1">*</span></label>
-                                       <select class="form-control" autocomplete="off" disabled ="disabled" required>
-                                          <option value="3" selected="selected">Seller</option>
-                                       </select> 	
-                                    </div>
-                                    -->
-                                    <div class="form-group col-md-4 m-t-20" id="seller_name_detail">
-                                       <label> Seller name (Name of Shop/company) : <span class="star">*</span></label>
-                                       <input type="text" name="fname" class="form-control form-control-line" id="seller_name" required value="<?php echo $fname; ?>" placeholder="Seller name (Name of Shop/company)" minlength="2"  >
-                                    </div>
-
-                                    <div class="form-group col-md-4 m-t-20" id="partners_name" style="display:block">
-                                       <label>Partner’s name (Name of any one partner) : <span class="star">*</span></label>
-                                       <input type="text" name="fname" class="form-control form-control-line" id="seller_name" required value="<?php echo $fname; ?>" placeholder="Partner’s name (Name of any one partner)" minlength="2" >
-                                    </div>
-
-                                    <div class="form-group col-md-4 m-t-20" id="proprietor_name" style="display:block">
-                                       <label>Proprietor name (Name of individual) : <span class="star">*</span></label>
-                                       <input type="text" name="fname" class="form-control form-control-line" id="seller_name" required value="<?php echo $fname; ?>" placeholder="Your first name" minlength="2"  s>
-                                    </div>
-
-                                    <div class="form-group col-md-4 m-t-20" id="director_name" style="display:block">
-                                       <label>Director’s name (Name of any one Director) : <span class="star">*</span></label>
-                                       <input type="text" name="fname" class="form-control form-control-line" id="seller_name" required value="<?php echo $fname; ?>" placeholder="Director’s name (Name of any one Director)" minlength="2"  s>
-                                    </div>
-
-                                    <div class="form-group col-md-4 m-t-20" id="gender_details" style="display:block">
-                                       <label>Gender : <span class="star">*</span></label>                                         
-                                       <select id="gender" name="gender" class="form-control custom-select" required >
-                                          <option>Select Gender</option>
-                                          <option value="MALE" <?php echo $em_gender == "MALE" ? " selected" : "";?> >Male</option>
-                                          <option value="FEMALE" <?php echo $em_gender == "FEMALE" ? " selected" : "";?> >Female</option>
-                                          <option value="OTHER" <?php echo $em_gender == "OTHER" ? " selected" : "";?> >Other</option>
-                                       </select>
-                                    </div>                          
-
-                                    <div class="form-group col-md-4 m-t-20" id="aadharno_details" style="display:block">
-                                       <label>Aadhar Number :  <span class="star span1">*</span></label>
-                                       <input type="number" name="aadhar" id="aadharno" class="form-control form-control-line" value="<?php echo $aadhar; ?>" required placeholder="Aadhar" minlength="12" maxlength="12" >
-                                    </div>
-                                  
-                                    <div class="form-group col-md-4 m-t-20">
-                                       <label>PAN Number : <span class="star">*</span></label>
-                                       <input type="text" name="panNo" id="panNo" class="form-control" value="<?php echo $panNo; ?>" required placeholder="PAN Number">
-                                    </div>
-
-                                    <div class="form-group col-md-4 m-t-20" id="cin_no_details" style="display:block">
-                                       <label>CIN of company : <span class="star">*</span></label>
-                                       <input type="text" name="cin_no" id="cin_no" class="form-control" value="<?php echo $panNo; ?>" required placeholder="CIN of company">
-                                    </div>
-
-                                    <div class="form-group col-md-4 m-t-20">
-                                       <label>GSTIN Number : <span class="star">*</span></label>                                         
-                                       <input type="text" id="gstin" name="gstin" class="form-control" value="<?php echo $gstin; ?>" required placeholder="gst no">
-                                    </div>
-
-                                    <div class="form-group col-md-4 m-t-20">
-                                       <label>TAN Number : </label>
-                                       <input type="text" name="tanNo" class="form-control" value="<?php echo $tanNo; ?>" required placeholder="tan no">
-                                    </div>
-
-                                    <div class="form-group col-md-4 m-t-20">    
-										         <label>Mobile Number : <span class="star">*</span></label>
-                                       <input type="number" name="contact" id="contact" class="form-control"  value="<?php echo $contact; ?>" required placeholder="Please enter mobile number" minlength="10" maxlength="12" >
-                                    </div>
-
-                                    <div class="form-group col-md-4 m-t-20">
-                                       <label>Alternate Number : </label>
-                                       <input type="number" name="altcontact" id="altcontact" class="form-control" value="<?php echo $altcontact; ?>" placeholder="Please enter alternate mobile number" minlength="10" maxlength="12">
-                                    </div>
-                                   
-                                    <!--
-                                    <div class="form-group col-md-3 m-t-20">
-                                       <label>Date Of Birth <span class="red-color span1">*</span></label>
-                                       <input type="date" name="dob" id="dob" value="<?php echo $dob; ?>" class="form-control" placeholder="" required >
-                                    </div>
-                                    -->
-                                    <div class="form-group col-md-4 m-t-20">
-                                       <label>Email  <span class="star">*</span></label>
-                                       <input type="text" id="email" name="email" value="<?php echo $email; ?>" required class="form-control" placeholder="email@mail.com" >
-                                    </div>
-                                                                     
-                                    <?php if(isset($Seller_Details)) { ?>
-                                          <div class="form-group col-md-4 m-t-20">
-                                             <label>Region <span class="star"> * </span></label>
-                                             <div class="input-group">
-                                                <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-												            <input type="text" value="<?php echo $region_id_edit; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled" > 
-											               <input type="hidden" id="region_id" name="regionid" value="<?php echo $region_id_edit; ?>" class="form-control"  autocomplete="off" required readonly >                                               	
-                                             </div>
-                                          </div> 
-                                       
-                                          <div class="form-group col-md-4 m-t-20">
-                                             <label>Region State <span class="star"> * </span></label>
-                                             <div class="input-group">
-                                                <?php  
-                                                   $sta = $this->db->query("SELECT * FROM region WHERE id=".$region_state_edit." ");
-                                                   $state_det= $sta->result();
-                                                   //print_r($this->db->last_query());
-                                                   foreach($state_det as $dec)
-                                                   {			
-                                                      $state_name = $dec->region_name ;																																												
-                                                   }  
-                                                ?>
-                                                   <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                                   <input type="text"  value="<?php echo $state_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled">
-                                                   <input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state_edit; ?>" class="form-control"  autocomplete="off" required readonly>                                                   	
-                                             </div>
-                                          </div>
-
-                                          <div class="form-group col-md-4 m-t-20">
-                                             <label>District Branch <span class="star"> * </span></label>
-                                             <div class="input-group">
-                                                <?php  
-                                                   $dist = $this->db->query("SELECT * FROM district_branch WHERE Districtcode=".$distinct_branch_edit." ");
-                                                   $state_dest= $dist->result();
-                                                   //print_r($this->db->last_query());
-                                                   foreach($state_dest as $t)
-                                                   {			
-                                                      $dist_name = $t->Districtname ;																																												
-                                                   }  
-                                                ?>
-                                                <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                                <input type="text" value="<?php echo $dist_name; ?>" class="form-control"  autocomplete="off"  readonly disabled ="disabled">
-                                                <input type="hidden" id="district_branch" name="district_branch" value="<?php echo $distinct_branch_edit; ?>" class="form-control"  autocomplete="off" required readonly>                                                     
-                                             </div>
-                                          </div>
-                                       <?php } else  { ?> 
-									               <div class="form-group col-md-4 m-t-20">
-                                             <label>Region <span class="star"> * </span></label>
-                                             <div class="input-group">
-                                                <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-												            <input type="text" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled" > 
-											               <input type="hidden" id="region_id" name="regionid" value="<?php echo $region_name; ?>" class="form-control"  autocomplete="off" required readonly >                                                	
-                                             </div>
-                                          </div> 
-                                       
-                                          <div class="form-group col-md-4 m-t-20">
-                                             <label>Region State <span class="star"> * </span></label>
-                                             <div class="input-group">
-                                                <?php  
-                                                   $sta = $this->db->query("SELECT * FROM region WHERE id=".$region_state." ");
-                                                   $state_det= $sta->result();
-                                                   //print_r($this->db->last_query());
-                                                   foreach($state_det as $dec)
-                                                   {			
-                                                      $state_name = $dec->region_name ;																																												
-                                                   }  
-                                                   ?>
-                                                   <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                                   <input type="text"  value="<?php echo $state_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled">
-                                                   <input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state; ?>" class="form-control"  autocomplete="off" required readonly>                                                   	
-                                             </div>
-                                          </div>
-
-                                          <div class="form-group col-md-4 m-t-20">
-                                             <label>District Branch <span class="star"> * </span></label>
-                                             <div class="input-group">
-                                                <?php  
-                                                   $dist = $this->db->query("SELECT * FROM district_branch WHERE Districtcode=".$district_branch." ");
-                                                   $state_dest= $dist->result();
-                                                   //print_r($this->db->last_query());
-                                                   foreach($state_dest as $t)
-                                                   {			
-                                                      $dist_name = $t->Districtname ;																																												
-                                                   }  
-                                                ?>
-                                                <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                                <input type="text" value="<?php echo $dist_name; ?>" class="form-control"  autocomplete="off"  readonly disabled ="disabled">
-                                                <input type="hidden" id="district_branch" name="district_branch" value="<?php echo $district_branch; ?>" class="form-control"  autocomplete="off" required readonly>                                                       
-                                             </div>
-                                          </div>
-                                    <?php } ?> 
-                                 </div>
-                              </div>
-
-                              <div class="card-body">
-                                 <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:black">
-                                    <i class="fa fa-address-card" aria-hidden="true" style="color:#ff0000;"></i>&nbsp;&nbsp;
-                                    <span style="color:#ff0000;">Nodal Person (employee who will coordinate with IndiGem)  Details :</span>
-                                    <span class="pull-right "></span>                                          
-                                 </div>
-                              </div>
-                              <div class="col-12" style="display:block">
-                                 <div class="row mx-3">                                          
-                                    <div class="form-group col-md-4 m-t-20">
-                                          <label>Nodal Person  Name : <span class="star">*</span></label>
-                                          <input type="text" id="nodal_person_pame" name="nodal_person_pame" class="form-control" value="<?php echo $companyname; ?>" required placeholder="Nodal Person  Name">
-                                    </div>
-                                    <div class="form-group col-md-4 m-t-20">
-                                          <label>Nodal Person  Contact Number : <span class="star">*</span></label>
-                                          <input type="text" id="proprietor_name" name="proprietor_name" class="form-control" value="<?php echo $proprietor_name; ?>" required placeholder="Nodal Person  Contact Number">
-                                    </div>
-                                    <div class="form-group col-md-4 m-t-20">
-                                          <label>Nodal Person  Email : <span class="star">*</span></label>
-                                          <input type="text" name="panNo" id="panNo" class="form-control" value="<?php echo $panNo; ?>" required placeholder="Nodal Person  Email">
-                                    </div>                                    
-                                 </div>
-                              </div>
-
-
-                              <div class="card-body" >
-                                 <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:black">
-                                    <i class="fa fa-user-circle-o" aria-hidden="true" style="color:#ff0000;"></i>&nbsp;&nbsp;
-                                    <span style="color:#ff0000;">Organization/Company/Firm/Shop Logo & Signature :</span> 
-                                 </div>
-                              </div>
-                              <div class="col-12" style="display:block">
-                                 <div class="row mx-3">
-                                    <div class="form-group col-md-6 m-t-20">
-                                       <div class="note" id="pro_img" style="border: 2px solid;margin-left: 0px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a">
-                                          <div class="col-md-12 offset-md-0 photo box1"  >
-                                             <div class="box">
-                                                <div class="box-body">
-                                                   <div class="box-body box-profile">
-                                                      <?php if(isset($Seller_Details)) { ?>
-                                                      <span id="pro_pic" style="display: block;">                                                        
-                                                      <img id="blah" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Seller_Details)) { echo $seller_image; } else{ echo "arrow-emblem.png"; } ?> " height="100" width="100" />                                                                                                                          
-                                                      </span>
-                                                      <p class="text-muted text-left" style="font-size:12px; margin-top:5px; margin-bottom: 10px;"> Organization/Company/Firm/Shop Logo <span class="star"> * </span> </p>                                                     
-                                                      <p class="text-left" style="font-size:10px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
-                                                      <div class="input-group">
-                                                         <div class="input-group-addon">
-                                                            <input type='file' accept="image/png, image/gif, image/jpeg, image/jpg" id="emp_image" name="seller_photo" onchange="proPic(this);"  />                              
-                                                         </div>
-                                                      </div>
-                                                      <?php } else { ?>
-                                                      <span id="pro_pic" style="display: block;">                                   
-                                                      <img id="blah" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>assets/images/arrow-emblem.png" height="100" width="100" />                                                                                                                           
-                                                      </span>
-                                                      <p class="text-muted text-left" style="font-size:12px; margin-top:5px; margin-bottom: 10px;"> Organization/Company/Firm/Shop Logo <span class="star"> * </span> </p>                                                     
-                                                      <p class="text-left" style="font-size:10px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
-                                                      <div class="input-group">
-                                                         <div class="input-group-addon">
-                                                            <input type='file' accept="image/png, image/gif, image/jpeg, image/jpg" required  id="emp_image" name="seller_photo" onchange="proPic(this);" />                              
-                                                         </div>
-                                                      </div>
-                                                      <?php }  ?> 
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-
-                                    <div class="form-group col-md-6 m-t-20">
-                                       <div class="note" id="sign_img" style="border: 2px solid;margin-left: 0px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a">
-                                          <div class="col-md-12 offset-md-0 photo box1"  >
-                                             <div class="box">
-                                                <div class="box-body">
-                                                   <div class="box-body box-profile">
-                                                      <?php if(isset($Seller_Details)) { ?>
-                                                      <span id="signature" style="display: block;">                                                        
-                                                      <img id="la_signature" style="border:1px solid grey !important;" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Seller_Details)) { echo $seller_image; } else{ echo "your-picture.png"; } ?> " height="100" width="100" />                                                                                                                          
-                                                      </span>
-                                                      <p class="text-muted text-left" style="font-size:12px; margin-top:5px; margin-bottom: 10px;"> Seller Scan signature Photo Only <span class="star"> * </span> </p>                                                     
-                                                      <p class="text-left" style="font-size:10px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
-                                                      <div class="input-group">
-                                                         <div class="input-group-addon">
-                                                            <input type='file' accept="image/png, image/gif, image/jpeg, image/jpg" id="agent_signature" name="agent_signature" onchange="signature_pic(this);"  />                              
-                                                         </div>
-                                                      </div>
-                                                      <?php } else { ?>
-                                                      <span id="signature" style="display: block;">                                   
-                                                      <img id="la_signature" style="border:1px solid grey !important;" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>assets/images/signature.png" height="100" width="100" />                                                                                                                           
-                                                      </span>
-                                                      <p class="text-muted text-left" style="font-size:12px; margin-top:5px; margin-bottom: 10px;"> Seller Scan signature Photo Only <span class="star"> * </span> </p>                                                     
-                                                      <p class="text-left" style="font-size:10px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
-                                                      <div class="input-group">
-                                                         <div class="input-group-addon">
-                                                            <input type='file' accept="image/png, image/gif, image/jpeg, image/jpg" required  id="agent_signature" name="agent_signature" onchange="signature_pic(this);" />                              
-                                                         </div>
-                                                      </div>
-                                                      <?php }  ?> 
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-											</div>
-                              </div>
-
-
-                              
-                                   
-                           <!-- ============ Current Address ============ -->
-                              <div class="card-body">
-                                 <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:black">
-                                    <i class="fa fa-map-marker" aria-hidden="true" style="color:#ff0000;"></i>&nbsp;&nbsp;
-                                    <span style="color:#ff0000;">Current Address :</span> 
-                                 </div>                                   
-                              </div>
-                              <div class="col-12" style="display:block">
-                                    <div class="row mx-3">                                         
+                                 <div style="display:block">
+                                    <div class="row mx-3">
+                                       <!--                                     
                                        <div class="form-group col-md-3 m-t-20">
-                                          <label>State : <span class="star">*</span></label>
-                                          <select id="stateid_first" name="state_first" class="form-control " id="stateid" required autocomplete="off">
-                                             <option value="">-- Select State --</option>
-                                             <?php 
-                                                //var_dump($country);
-                                                foreach($state_list as $c)
-                                                {  ?>
-                                                   <option value="<?= $c->statecode; ?>" <?php echo $state_first == $c->statecode ? " selected" : ""; ?>   ><?= $c->statename; ?></option>
-                                                   <?php  
-                                                }  
-                                                ?>
-                                          </select>                                         
+                                          <label>User Type  <span class="red-color span1">*</span></label>
+                                          <select class="form-control" autocomplete="off" disabled ="disabled" required>
+                                             <option value="3" selected="selected">Seller</option>
+                                          </select> 	
+                                       </div>
+                                       -->
+                                       <div class="form-group col-md-4 m-t-20" id="seller_name_view">
+                                          <label> Seller name (Name of Shop/company) : <span class="star">*</span></label>
+                                          <input type="text" id="seller_name" name="fname" class="form-control form-control-line" required value="<?php echo $fname; ?>" placeholder="Seller name (Name of Shop/company)" >
                                        </div>
 
-                                       <div class="form-group col-md-3 m-t-20">
-                                          <label>District : <span class="star span1">*</span></label>
-                                          <select id="district_first" name="district_first" class="form-control" required autocomplete="off">
-                                             <?php if(isset($Seller_Details)) 
-                                                {                                            
-                                                   foreach($district_list as $dist)
-                                                   {  ?>
-                                                      <option value="<?= $dist->Districtcode; ?>" <?php echo $district_first == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
-                                                      <?php  
-                                                   } 
-                                                }
-                                                else 
-                                                {  ?>                                        
-                                                   <option value="">-- Select District --</option>
-                                                   <?php 
-                                                }   ?>                                                
+                                       <div class="form-group col-md-4 m-t-20" id="partners_name_view" style="display:block">
+                                          <label>Partner’s name (Name of any one partner) : <span class="star">*</span></label>
+                                          <input type="text" id="partners_name" name="partners_name" class="form-control form-control-line" value="<?php echo $fname; ?>" placeholder="Partner’s name (Name of any one partner)" >
+                                       </div>
+
+                                       <div class="form-group col-md-4 m-t-20" id="proprietor_name_view" style="display:block">
+                                          <label>Proprietor name (Name of individual) : <span class="star">*</span></label>
+                                          <input type="text" id="proprietor_name" name="proprietor_name" class="form-control form-control-line" value="<?php echo $fname; ?>" placeholder="Proprietor name (Name of individual)" >
+                                       </div>
+
+                                       <div class="form-group col-md-4 m-t-20" id="director_name_view" style="display:block">
+                                          <label>Director’s name (Name of any one Director) : <span class="star">*</span></label>
+                                          <input type="text" id="director_name" name="director_name" class="form-control form-control-line" value="<?php echo $fname; ?>" placeholder="Director’s name (Name of any one Director)" >
+                                       </div>
+
+                                       <div class="form-group col-md-4 m-t-20" id="gender_details_view" style="display:block">
+                                          <label>Gender : <span class="star">*</span></label>                                         
+                                          <select id="gender" name="gender" class="form-control custom-select" >
+                                             <option>Select Gender</option>
+                                             <option value="MALE" <?php echo $em_gender == "MALE" ? " selected" : "";?> >Male</option>
+                                             <option value="FEMALE" <?php echo $em_gender == "FEMALE" ? " selected" : "";?> >Female</option>
+                                             <option value="OTHER" <?php echo $em_gender == "OTHER" ? " selected" : "";?> >Other</option>
                                           </select>
                                        </div>
+                                       
+                                       <div class="form-group col-md-4 m-t-20">    
+                                          <label>Mobile Number : <span class="star">*</span></label>
+                                          <input type="number" name="contact" id="contact" class="form-control"  value="<?php echo $contact; ?>" required placeholder=" mobile number" minlength="10" maxlength="12" >
+                                       </div>
+
+                                       <div class="form-group col-md-4 m-t-20">
+                                          <label>Alternate Number : </label>
+                                          <input type="number" name="altcontact" id="altcontact" class="form-control" value="<?php echo $altcontact; ?>" placeholder=" alternate mobile number" minlength="10" maxlength="12">
+                                       </div>
+                                                                     
+                                       <div class="form-group col-md-4 m-t-20">
+                                          <label>Email  <span class="star">*</span></label>
+                                          <input type="text" id="email" name="email" value="<?php echo $email; ?>" required class="form-control" placeholder="email@mail.com" >
+                                       </div>
+
+                                       <div class="form-group col-md-4 m-t-20" id="aadharno_details_view" style="display:block">
+                                          <label>Aadhar Number :  <span class="star span1">*</span></label>
+                                          <input type="number" name="aadhar" id="aadharno" class="form-control form-control-line" value="<?php echo $aadhar; ?>" placeholder="Aadhar" minlength="12" maxlength="12" >
+                                       </div>
+                                    
+                                       <div class="form-group col-md-4 m-t-20">
+                                          <label>PAN Number : <span class="star">*</span></label>
+                                          <input type="text" name="panNo" id="panNo" class="form-control" value="<?php echo $panNo; ?>" required placeholder="PAN Number">
+                                       </div>
+                                      
+                                       <div class="form-group col-md-4 m-t-20">
+                                          <label>GSTIN Number : <span class="star">*</span></label>                                         
+                                          <input type="text" id="gstin" name="gstin" class="form-control" value="<?php echo $gstin; ?>" required placeholder="GSTIN number">
+                                       </div>
+
+                                       <div class="form-group col-md-4 m-t-20">
+                                          <label>TAN Number : </label>
+                                          <input type="text" id="tanNo" name="tanNo" class="form-control" value="<?php echo $tanNo; ?>" required placeholder="TAN number">
+                                       </div>
+
+                                       <div class="form-group col-md-4 m-t-20" id="cin_no_view" style="display:block">
+                                          <label>CIN Number of company : <span class="star">*</span></label>
+                                          <input type="text" name="cin_no" id="cin_no" class="form-control" value="<?php echo $panNo; ?>" required placeholder="CIN number of company">
+                                       </div>
+                                                                                                   
+                                       <?php if(isset($Seller_Details)) { ?>
+                                             <div class="form-group col-md-4 m-t-20">
+                                                <label>Region <span class="star"> * </span></label>
+                                                <div class="input-group">
+                                                   <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                                   <input type="text" value="<?php echo $region_id_edit; ?>" class="form-control" disabled ="disabled" > 
+                                                   <input type="hidden" id="region_id" name="regionid" value="<?php echo $region_id_edit; ?>" required >                                            	
+                                                </div>
+                                             </div> 
+                                          
+                                             <div class="form-group col-md-4 m-t-20">
+                                                <label>Region State <span class="star"> * </span></label>
+                                                <div class="input-group">
+                                                   <?php  
+                                                      $sta = $this->db->query("SELECT * FROM region WHERE id=".$region_state_edit." ");
+                                                      $state_det= $sta->result();
+                                                      //print_r($this->db->last_query());
+                                                      foreach($state_det as $dec)
+                                                      {			
+                                                         $state_name = $dec->region_name ;																																												
+                                                      }  
+                                                   ?>
+                                                      <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                                      <input type="text"  value="<?php echo $state_name; ?>" class="form-control"  disabled ="disabled">
+                                                      <input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state_edit; ?>" required >                                                   	
+                                                </div>
+                                             </div>
+
+                                             <div class="form-group col-md-4 m-t-20">
+                                                <label>District Branch <span class="star"> * </span></label>
+                                                <div class="input-group">
+                                                   <?php  
+                                                      $dist = $this->db->query("SELECT * FROM district_branch WHERE Districtcode=".$distinct_branch_edit." ");
+                                                      $state_dest= $dist->result();
+                                                      //print_r($this->db->last_query());
+                                                      foreach($state_dest as $t)
+                                                      {			
+                                                         $dist_name = $t->Districtname ;																																												
+                                                      }  
+                                                   ?>
+                                                   <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                                   <input type="text" value="<?php echo $dist_name; ?>" class="form-control"  disabled ="disabled">
+                                                   <input type="hidden" id="district_branch" name="district_branch" value="<?php echo $distinct_branch_edit; ?>"  required >                                                  
+                                                </div>
+                                             </div>
+                                          <?php } else  { ?> 
+                                             <div class="form-group col-md-4 m-t-20">
+                                                <label>Region <span class="star"> * </span></label>
+                                                <div class="input-group">
+                                                   <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                                   <input type="text" value="<?php echo $region_name; ?>" class="form-control"  disabled ="disabled" > 
+                                                   <!--<input type="hidden" id="region_id" name="regionid" value="<?php //echo $region_name; ?>" class="form-control" required  >-->                                                	
+                                                </div>
+                                             </div> 
+                                          
+                                             <div class="form-group col-md-4 m-t-20">
+                                                <label>Region State <span class="star"> * </span></label>
+                                                <div class="input-group">
+                                                   <?php  
+                                                      $sta = $this->db->query("SELECT * FROM region WHERE id=".$region_state." ");
+                                                      $state_det= $sta->result();
+                                                      //print_r($this->db->last_query());
+                                                      foreach($state_det as $dec)
+                                                      {			
+                                                         $state_name = $dec->region_name ;																																												
+                                                      }  
+                                                      ?>
+                                                      <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                                      <input type="text"  value="<?php echo $state_name; ?>" class="form-control"  autocomplete="off" disabled ="disabled">
+                                                      <!--<input type="hidden" id="region_state" name="region_state" value="<?php //echo $region_state; ?>" class="form-control" required >-->                                                   	
+                                                </div>
+                                             </div>
+
+                                             <div class="form-group col-md-4 m-t-20">
+                                                <label>District Branch <span class="star"> * </span></label>
+                                                <div class="input-group">
+                                                   <?php  
+                                                      $dist = $this->db->query("SELECT * FROM district_branch WHERE Districtcode=".$district_branch." ");
+                                                      $state_dest= $dist->result();
+                                                      //print_r($this->db->last_query());
+                                                      foreach($state_dest as $t)
+                                                      {			
+                                                         $dist_name = $t->Districtname ;																																												
+                                                      }  
+                                                   ?>
+                                                   <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                                   <input type="text" value="<?php echo $dist_name; ?>" class="form-control"   disabled ="disabled">
+                                                   <!--<input type="hidden" id="district_branch" name="district_branch" value="<?php echo $district_branch; ?>" required >-->                                                       
+                                                </div>
+                                             </div>
+                                          <?php } ?> 
+                                    </div>
+                                 </div>
+
+                                 <div class="card-body">
+                                    <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:black">
+                                       <i class="fa fa-address-card" aria-hidden="true" style="color:#ff0000;"></i>&nbsp;&nbsp;
+                                       <span style="color:#ff0000;">Nodal Person (employee who will coordinate with IndiGem)  Details &#8594; </span>
+                                       <span class="pull-right "></span>                                          
+                                    </div>
+                                 </div>
+                                 <div style="display:block">
+                                    <div class="row mx-3">                                          
+                                       <div class="form-group col-md-4 m-t-20">
+                                             <label>Nodal Person  Name : <span class="star">*</span></label>
+                                             <input type="text" id="nodal_person_pame" name="nodal_person_pame" class="form-control" value="<?php echo $companyname; ?>" required placeholder="Nodal Person  Name">
+                                       </div>
+                                       <div class="form-group col-md-4 m-t-20">
+                                             <label>Nodal Person  Contact Number : <span class="star">*</span></label>
+                                             <input type="number" id="nodal_person_contact" name="nodal_person_contact" class="form-control" minlength="10" maxlength="10" value="<?php echo $proprietor_name; ?>" required placeholder="Nodal Person  Contact Number">
+                                       </div>
+                                       <div class="form-group col-md-4 m-t-20">
+                                             <label>Nodal Person  Email : <span class="star">*</span></label>
+                                             <input type="text" name="nodal_person_email" id="nodal_person_email" class="form-control" value="<?php echo $panNo; ?>" required placeholder="Nodal Person  Email">
+                                       </div>                                    
+                                    </div>
+                                 </div><br><br>
+
+                                 <div class="card-body" >
+                                    <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:black">
+                                       <i class="fa fa-user-circle-o" aria-hidden="true" style="color:#ff0000;"></i>&nbsp;&nbsp;
+                                       <span style="color:#ff0000;">Organization/Company/Firm/Shop Logo & Signature &#8594; </span> 
+                                    </div>
+                                 </div>
+                                 <div style="display:block">
+                                    <div class="row mx-3">
+                                       <div class="form-group col-md-6 m-t-20">
+                                          <div class="note" id="pro_img" style="border: 2px solid;margin-left: 0px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a">
+                                             <div class="col-md-12 offset-md-0 photo box1"  >
+                                                <div class="box">
+                                                   <div class="box-body">
+                                                      <div class="box-body box-profile">
+                                                         <?php if(isset($Seller_Details)) { ?>
+                                                         <span id="pro_pic" style="display: block;">                                                        
+                                                         <img id="blah" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Seller_Details)) { echo $seller_image; } else{ echo "arrow-emblem.png"; } ?> " height="100" width="100" />                                                                                                                          
+                                                         </span>
+                                                         <p class="text-muted text-left" style="font-size:12px; margin-top:5px; margin-bottom: 10px;"> Organization/Company/Firm/Shop Logo <span class="star"> * </span> </p>                                                     
+                                                         <p class="text-left" style="font-size:10px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
+                                                         <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                               <input type='file' accept="image/png, image/gif, image/jpeg, image/jpg" id="emp_image" name="seller_photo" onchange="proPic(this);"  />                              
+                                                            </div>
+                                                         </div>
+                                                         <?php } else { ?>
+                                                         <span id="pro_pic" style="display: block;">                                   
+                                                         <img id="blah" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>assets/images/arrow-emblem.png" height="100" width="100" />                                                                                                                           
+                                                         </span>
+                                                         <p class="text-muted text-left" style="font-size:12px; margin-top:5px; margin-bottom: 10px;"> Organization/Company/Firm/Shop Logo <span class="star"> * </span> </p>                                                     
+                                                         <p class="text-left" style="font-size:10px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
+                                                         <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                               <input type='file' accept="image/png, image/gif, image/jpeg, image/jpg" required  id="emp_image" name="seller_photo" onchange="proPic(this);" />                              
+                                                            </div>
+                                                         </div>
+                                                         <?php }  ?> 
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+
+                                       <div class="form-group col-md-6 m-t-20">
+                                          <div class="note" id="sign_img" style="border: 2px solid;margin-left: 0px; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 13px; text-transform: capitalize;color:#5049251a">
+                                             <div class="col-md-12 offset-md-0 photo box1"  >
+                                                <div class="box">
+                                                   <div class="box-body">
+                                                      <div class="box-body box-profile">
+                                                         <?php if(isset($Seller_Details)) { ?>
+                                                         <span id="signature" style="display: block;">                                                        
+                                                         <img id="la_signature" style="border:1px solid grey !important;" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>/<?php if(isset($Seller_Details)) { echo $seller_image; } else{ echo "your-picture.png"; } ?> " height="100" width="100" />                                                                                                                          
+                                                         </span>
+                                                         <p class="text-muted text-left" style="font-size:12px; margin-top:5px; margin-bottom: 10px;"> Seller Scan signature Photo Only <span class="star"> * </span> </p>                                                     
+                                                         <p class="text-left" style="font-size:10px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
+                                                         <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                               <input type='file' accept="image/png, image/gif, image/jpeg, image/jpg" id="agent_signature" name="seller_signature" onchange="signature_pic(this);"  />                              
+                                                            </div>
+                                                         </div>
+                                                         <?php } else { ?>
+                                                         <span id="signature" style="display: block;">                                   
+                                                         <img id="la_signature" style="border:1px solid grey !important;" accept="image/png, image/gif, image/jpeg, image/jpg" src="<?=base_url()?>assets/images/signature.png" height="100" width="100" />                                                                                                                           
+                                                         </span>
+                                                         <p class="text-muted text-left" style="font-size:12px; margin-top:5px; margin-bottom: 10px;"> Seller Scan signature Photo Only <span class="star"> * </span> </p>                                                     
+                                                         <p class="text-left" style="font-size:10px; margin-top:-11px; margin-bottom: 5px;"><b>Maximum upload file size : 1MB</b></p>
+                                                         <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                               <input type='file' accept="image/png, image/gif, image/jpeg, image/jpg" required  id="agent_signature" name="seller_signature" onchange="signature_pic(this);" />                              
+                                                            </div>
+                                                         </div>
+                                                         <?php }  ?> 
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                                               
+                                 <!-- ============ Current Address ============ -->
+                                 <div class="card-body">
+                                    <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:black">
+                                       <i class="fa fa-map-marker" aria-hidden="true" style="color:#ff0000;"></i>&nbsp;&nbsp;
+                                       <span style="color:#ff0000;">Current Address &#8594; </span> 
+                                    </div>                                   
+                                 </div>
+                                 <div  style="display:block">
+                                    <div class="row mx-3">                                         
+                                          <div class="form-group col-md-3 m-t-20">
+                                             <label>State : <span class="star">*</span></label>
+                                             <select id="stateid_first" name="state_first" class="form-control " id="stateid" required autocomplete="off">
+                                                <option value="">-- Select State --</option>
+                                                <?php 
+                                                   //var_dump($country);
+                                                   foreach($state_list as $c)
+                                                   {  ?>
+                                                      <option value="<?= $c->statecode; ?>" <?php echo $state_first == $c->statecode ? " selected" : ""; ?>   ><?= $c->statename; ?></option>
+                                                      <?php  
+                                                   }  
+                                                   ?>
+                                             </select>                                         
+                                          </div>
+
+                                          <div class="form-group col-md-3 m-t-20">
+                                             <label>District : <span class="star span1">*</span></label>
+                                             <select id="district_first" name="district_first" class="form-control" required autocomplete="off">
+                                                <?php if(isset($Seller_Details)) 
+                                                   {                                            
+                                                      foreach($district_list as $dist)
+                                                      {  ?>
+                                                         <option value="<?= $dist->Districtcode; ?>" <?php echo $district_first == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
+                                                         <?php  
+                                                      } 
+                                                   }
+                                                   else 
+                                                   {  ?>                                        
+                                                      <option value="">-- Select District --</option>
+                                                      <?php 
+                                                   }   ?>                                                
+                                             </select>
+                                          </div>
+                                          <div class="form-group col-md-3 m-t-20">
+                                             <label>City : <span class="star span1">*</span></label>
+                                             <input type="text" name="city_first" id="present_city" class="form-control" value="<?php echo $city_first; ?>" required placeholder="city" >                       
+                                          </div>
+                                          <div class="form-group col-md-3 m-t-20">
+                                             <label>Pin Code <span class="star">*</span></label>
+                                             <input type="number" name="pincode_first" class="form-control" id="pin_code1" value="<?php echo $pincode_first; ?>" required placeholder="pin code" pattern="[0-9]{6}" minlength="6" maxlength="6" >
+                                          </div>
+                                          <div class="form-group col-md-12 m-t-20">
+                                             <label>Address : <span class="star">*</span></label>
+                                             <textarea id="present_full_address" name="current_address" class="form-control" rows="4" placeholder="Complete Current/Present address" required autocomplete="off" maxlength="100"><?php echo $current_address; ?></textarea>
+                                          </div>
+                                    </div>
+                                 </div>
+                                                                                                                                                   
+                                 <div class="card-body">
+                                    <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:black">
+                                       <i class="fa fa-home" aria-hidden="true" style="color:#ff0000;"></i>&nbsp;&nbsp;
+                                       <span style="color:#ff0000;">Registered/Permanaent Address &#8594; </span>
+                                       <span class="pull-right "></span>                                          
+                                    </div>
+                                    <div class="col-md-12">
+                                       <div class="" style="float:center;">															   
+                                          <b><span style="color:#3a8ace;"> <input type="checkbox" id='same_addr_check' name="same_addr_check"  onclick="autoFilAddress()"  >&nbsp; Same as Present address </span></b>                                                                                                                         
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <div style="display:block">
+                                    <div class="row mx-3">                                                   
                                        <div class="form-group col-md-3 m-t-20">
-                                          <label>City : <span class="starspan1">*</span></label>
-                                          <input type="text" name="city_first" id="present_city" class="form-control" value="<?php echo $city_first; ?>" required placeholder="city" >                       
+                                             <label>State : <span class="star">*</span></label>
+                                             <select id="stateid_second" name="state_second" class="form-control get_state_id" required autocomplete="off">
+                                                <option value="">-- Select State --</option>
+                                                <?php 
+                                                   //var_dump($country);
+                                                   foreach($state_list as $c)
+                                                   {   ?>
+                                                <option value="<?= $c->statecode; ?>" <?php echo $state_second == $c->statecode ? " selected" : ""; ?> ><?= $c->statename; ?></option>
+                                                <?php  
+                                                   }  ?>
+                                             </select>
+                                             <!--<input type="hidden" id="conutryprice" name="regionid" value="ctotalprice">-->
                                        </div>
                                        <div class="form-group col-md-3 m-t-20">
-                                          <label>Pin Code <span class="star">*</span></label>
-                                          <input type="number" name="pincode_first" class="form-control" id="pin_code1" value="<?php echo $pincode_first; ?>" required placeholder="pin code" pattern="[0-9]{6}" minlength="6" maxlength="6" >
+                                             <label>District : <span class="star span1">*</span></label>
+                                             <select id="district_second" name="district_second" class="form-control" required autocomplete="off">
+                                                <?php if(isset($Seller_Details)) 
+                                                   {                                            
+                                                      foreach($district_list as $dist)
+                                                      {  ?>
+                                                         <option value="<?= $dist->Districtcode; ?>" <?php echo $district_second == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
+                                                         <?php  
+                                                      } 
+                                                   }
+                                                   else 
+                                                   {  ?>                                        
+                                                      <option value=""> -- Select District -- </option>
+                                                      <?php                                                                        
+                                                      foreach($district_list as $dist)
+                                                      {  ?>                                                           
+                                                         <option value="<?= $dist->Districtcode; ?>" <?php echo $district_second == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
+                                                         <?php  
+                                                      }  
+                                                   }   
+                                                   ?>                                        
+                                             </select>
+                                       </div>
+                                       <div class="form-group col-md-3 m-t-20">
+                                          <label>City : <span class="star span1">*</span></label>
+                                          <input type="text" id="permanent_city" name="city_second" class="form-control" value="<?php echo $city_second; ?>" required placeholder="city" >                                    
+                                       </div>
+                                       <div class="form-group col-md-3 m-t-20">
+                                          <label>Pin Code <span class="star span1">*</span></label>
+                                          <input type="number" name="pincode_second" id="pin_code2" class="form-control" id="pin_code1" value="<?php echo $pincode_second; ?>" pattern="[0-9]{6}" required placeholder="pin code" minlength="6" maxlength="6" >
                                        </div>
                                        <div class="form-group col-md-12 m-t-20">
                                           <label>Address : <span class="star">*</span></label>
-                                          <textarea id="present_full_address" name="current_address" class="form-control" rows="4" placeholder="full current address" required autocomplete="off" maxlength="100"><?php echo $current_address; ?></textarea>
+                                          <textarea id="permanent_full_address" name="permanent_address" class="form-control" rows="3" placeholder="Complete Registered/Permanaent address" required autocomplete="off" maxlength="100"><?php echo $permanent_full_address; ?></textarea>
                                        </div>
-                                    </div>
-                                 </div>
-                                                                                             						                                   
-                                    <div class="card-body">
-                                       <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:black">
-                                          <i class="fa fa-home" aria-hidden="true" style="color:#ff0000;"></i>&nbsp;&nbsp;
-                                          <span style="color:#ff0000;">Registered/Permanaent Address :</span>
-                                          <span class="pull-right "></span>                                          
-                                       </div>
-                                       <div class="col-md-12">
-                                          <div class="" style="float:center;">															   
-                                             <b><span style="color:#3a8ace;"> <input type="checkbox" id='same_addr_check' name="same_addr_check"  onclick="autoFilAddress()"  >&nbsp; Same as Present address </span></b>                                                                                                                         
+                                    </div>                                   
+                                 </div>  
+                                                                                                 
+                                 <br><br><br><br>                              
+                                 <input type="hidden" name="isedit" value="<?php echo $update; ?>">                                 
+                                 <div style="background-color: #fff;border-top: 1px dashed #1abc9c;padding: 20px 25px;position: inherit"></div>
+                                 
+                                    <!--<section class="btn-section" style="border-color:#1976d2">-->
+                                       <div class="row">
+                                          <div class="col-md-12">
+                                             <div class="" style="float:right;">                                                
+                                                <button type="submit"  name="submit" onclick='return submitForm()' id="sub_btn" class="btn footer-button"><i class="fa fa-check"></i> Save & Next</button>                                                   
+                                             </div>
                                           </div>
                                        </div>
-                                    </div>
+                                    <!--</section>-->                                                       
 
-                              <div class="col-12" style="display:block">
-                                 <div class="row mx-3">                                                   
-                                    <div class="form-group col-md-3 m-t-20">
-                                          <label>State : <span class="star">*</span></label>
-                                          <select id="stateid_second" name="state_second" class="form-control get_state_id" required autocomplete="off">
-                                             <option value="">-- Select State --</option>
-                                             <?php 
-                                                //var_dump($country);
-                                                foreach($state_list as $c)
-                                                {   ?>
-                                             <option value="<?= $c->statecode; ?>" <?php echo $state_second == $c->statecode ? " selected" : ""; ?> ><?= $c->statename; ?></option>
-                                             <?php  
-                                                }  ?>
-                                          </select>
-										            <!--<input type="hidden" id="conutryprice" name="regionid" value="ctotalprice">-->
-                                    </div>
-                                    <div class="form-group col-md-3 m-t-20">
-                                          <label>District : <span class="star span1">*</span></label>
-                                          <select id="district_second" name="district_second" class="form-control" required autocomplete="off">
-                                             <?php if(isset($Seller_Details)) 
-                                                {                                            
-                                                   foreach($district_list as $dist)
-                                                   {  ?>
-                                                      <option value="<?= $dist->Districtcode; ?>" <?php echo $district_second == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
-                                                      <?php  
-                                                   } 
-                                                }
-                                                else 
-                                                {  ?>                                        
-                                                   <option value=""> -- Select District -- </option>
-                                                   <?php                                                                        
-                                                   foreach($district_list as $dist)
-                                                   {  ?>                                                           
-                                                      <option value="<?= $dist->Districtcode; ?>" <?php echo $district_second == $dist->Districtcode ? " selected" : ""; ?>   ><?= $dist->Districtname; ?></option>
-                                                      <?php  
-                                                   }  
-                                                }   
-                                                ?>                                        
-                                          </select>
-                                    </div>
-                                    <div class="form-group col-md-3 m-t-20">
-                                          <label>City : <span class="star span1">*</span></label>
-                                          <input type="text" id="permanent_city" name="city_second" class="form-control" value="<?php echo $city_second; ?>" required placeholder="city" >                                    
-                                    </div>
-                                    <div class="form-group col-md-3 m-t-20">
-                                          <label>Pin Code <span class="star span1">*</span></label>
-                                          <input type="number" name="pincode_second" id="pin_code2" class="form-control" id="pin_code1" value="<?php echo $pincode_second; ?>" pattern="[0-9]{6}" required placeholder="pin code" minlength="6" maxlength="6" >
-                                    </div>
+                                 <!--
+                                 <div class="tab-header card">
                                     <div class="form-group col-md-12 m-t-20">
-                                          <label>Address : <span class="star">*</span></label>
-                                          <textarea id="permanent_full_address" name="permanent_address" class="form-control" rows="3" placeholder="full permanaent address" required autocomplete="off" maxlength="100"><?php echo $permanent_full_address; ?></textarea>
-                                    </div>
-                                 </div>                                   
-                              </div>  
-                           <!--                                                                                     
-                              <div class="card-body">
-                                 <div class="note" style="border-radius: 5px;border: 2px solid; margin-bottom: 15px; padding: 5px; font-weight: bold; font-size: 15px; text-transform: capitalize;color:black">
-                                    <i class="fa fa-university" aria-hidden="true" style="color:#ff0000;"></i>&nbsp;&nbsp;
-                                    <span style="color:#ff0000;">Company Detail :</span>
-                                    <span class="pull-right "></span>                                          
-                                 </div>
-                              </div>
-
-                              <div class="col-12" style="display:block">
-                                 <div class="row mx-3">                                          
-                                    <div class="form-group col-md-4 m-t-20">
-                                          <label>Company Name : <span class="red-color">*</span></label>
-                                          <input type="text" id="companyname" name="companyname" class="form-control" value="<?php echo $companyname; ?>" required placeholder="company name">
-                                    </div>
-                                    <div class="form-group col-md-4 m-t-20">
-                                          <label>Director Name : <span class="red-color">*</span></label>
-                                          <input type="text" id="proprietor_name" name="proprietor_name" class="form-control" value="<?php echo $proprietor_name; ?>" required placeholder="company director name">
-                                    </div>
-                                    <div class="form-group col-md-4 m-t-20">
-                                          <label>PAN Number : <span class="red-color">*</span></label>
-                                          <input type="text" name="panNo" id="panNo" class="form-control" value="<?php echo $panNo; ?>" required placeholder="pan no">
-                                    </div>
-                                    <div class="form-group col-md-6 m-t-20">
-                                          <label>GSTIN : <span class="red-color">*</span></label>                                         
-                                          <input type="text" id="gstin" name="gstin" class="form-control" value="<?php echo $gstin; ?>" required placeholder="gst no">
-                                    </div>
-                                    <div class="form-group col-md-6 m-t-20">
-                                          <label>TAN Number : </label>
-                                          <input type="text" name="tanNo" class="form-control" value="<?php echo $tanNo; ?>" required placeholder="tan no">
+                                       <div class="" style="float:right;">                                                
+                                          <button type="submit"  name="submit" onclick='return submitForm()' id="sub_btn" class="btn footer-button"><i class="fa fa-check"></i> Save & Next</button>                                                   
+                                       </div>                                          
                                     </div>
                                  </div>
-                              </div>
-                           -->   
-                              <br><br>                              
-                              <input type="hidden" name="isedit" value="<?php echo $update; ?>">
-                              <!--<div  style="background-color: #fff;border-top: 1px dashed #1abc9c;padding: 20px 25px;position: inherit"></div>-->
-                              <div class="form-actions col-md-12 mb-3">
-                                 <section class="btn-section">
-                                    <div class="row">
-                                       <div class="col-md-12">
-                                          <div class="" style="float:right;">                                                
-                                             <button type="submit"  name="submit" onclick='return submitForm()' id="sub_btn" class="btn footer-button"><i class="fa fa-check"></i> Save & Next</button>                                                   
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </section>
+                                 -->
                               </div>                                                                 
                            </form>
                         </div>
@@ -652,7 +623,9 @@
                </div>
             </div>
          </div>
-      </div>   
+      </div> 
+   </div> 
+</div></div></div>      
 <!-- Optional JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -662,34 +635,44 @@
          var seller_type = document.getElementById("seller_type");
          //alert(seller_type);
          if(seller_type.value == "1" || seller_type.value == "5")
-         {
-            $("#proprietor_name").show();
-            $("#gender_details").show();
-            $("#aadharno_details").show();
+         {           
+            $("#seller_info").show();
 
-            $("#partners_name").hide();
-            $("#director_name").hide();
-            $("#cin_no_details").hide();                     
+            $("#proprietor_name_view").show();
+            $("#gender_details_view").show();
+            $("#aadharno_details_view").show();
+
+            $("#partners_name_view").hide();
+            $("#director_name_view").hide();
+            $("#cin_no_view").hide();                     
          }
          else if(seller_type.value == "2" || seller_type.value == "4")
          {
-            $("#partners_name").show();
+            $("#seller_info").show();
+
+            $("#partners_name_view").show();
             
-            $("#proprietor_name").hide();
-            $("#director_name").hide();
-            $("#gender_details").hide();
-            $("#aadharno_details").hide();
-            $("#cin_no_details").hide();                   
+            $("#proprietor_name_view").hide();
+            $("#director_name_view").hide();
+            $("#gender_details_view").hide();
+            $("#aadharno_details_view").hide();
+            $("#cin_no_view").hide();                   
          } 
          else if(seller_type.value == "3")
          {
-            $("#director_name").show();
-            $("#cin_no_details").show();
+            $("#seller_info").show();
 
-            $("#partners_name").hide();            
-            $("#proprietor_name").hide();   
-            $("#gender_details").hide();
-            $("#aadharno_details").hide();                      
+            $("#director_name_view").show();
+            $("#cin_no_view").show();
+
+            $("#partners_name_view").hide();            
+            $("#proprietor_name_view").hide();   
+            $("#gender_details_view").hide();
+            $("#aadharno_details_view").hide();                      
+         } 
+         else
+         {
+            $("#seller_info").hide();                                 
          }             
    }
    
@@ -758,14 +741,27 @@
    function submitForm()
 	{
 				
-		var frm = $('#seller_registration_form');		
-		var user_type = document.getElementById('usertype').value;      		
+		var frm = $('#seller_registration_form');
+      var seller_type = document.getElementById('seller_type').value;		
+		var user_type = document.getElementById('usertype').value;
+
 		var seller_name = document.getElementById('seller_name').value;
+      var proprietor_name = document.getElementById('proprietor_name').value;
+      var partners_name = document.getElementById('partners_name').value;
+      var director_name = document.getElementById('director_name').value;
+      var cin_no = document.getElementById('cin_no').value;
+      var panNo = document.getElementById('panNo').value;
+		var gstin = document.getElementById('gstin').value;
+      var tanNo = document.getElementById('tanNo').value;
+   
+      var nodal_person_pame = document.getElementById('nodal_person_pame').value;
+      var nodal_person_contact = document.getElementById('nodal_person_contact').value;
+      var nodal_person_email = document.getElementById('nodal_person_email').value;
+
       var contact = document.getElementById('contact').value;
       var email = document.getElementById('email').value;
       var gender = document.getElementById('gender').value;
-      var aadharno = document.getElementById('aadharno').value;		
-		var dob = document.getElementById('dob').value;	
+      var aadharno = document.getElementById('aadharno').value;					
 
       var region_id = document.getElementById('region_id').value;
       var region_state = document.getElementById('region_state').value;
@@ -783,26 +779,66 @@
 		var pin_code2 = document.getElementById('pin_code2').value;		
 		var permanent_full_address = document.getElementById('permanent_full_address').value;	
         
-		var companyname = document.getElementById('companyname').value;
-      var proprietor_name = document.getElementById('proprietor_name').value;
-		var panNo = document.getElementById('panNo').value;
-		var gstin = document.getElementById('gstin').value;
 		var emp_image = document.getElementById('emp_image').value;
+      var agent_signature = document.getElementById('agent_signature').value;
 		
-		
-		if (user_type =="") 
+		if (seller_type =="") 
+		{
+			alert("Seller Type is Mandatory!");
+         return false;			
+		}
+		else if (user_type =="") 
 		{
 			alert("User Type is Mandatory!");
          return false;			
 		}
 		else if (seller_name =='') 
 		{
-			alert("Seller Name is Mandatory!");
+			if(seller_type ==1 || seller_type ==5 || seller_type ==2 || seller_type ==4)
+         {
+            alert("Seller name (Name of Shop) is Mandatory!");
+            return	false; 
+         }
+         else if(seller_type ==3)
+         {
+            alert("Seller name (Name of company) is Mandatory!");
+            return	false; 
+         } 
+		}
+      else if (proprietor_name =='') 
+		{
+			if(seller_type ==1 || seller_type ==5)
+         {
+            alert("Proprietor name (Name of individual) is Mandatory!");
+            return	false; 
+         } 
+		}
+      else if (partners_name =='') 
+		{
+			if(seller_type ==2 || seller_type ==4)
+         {
+            alert("Partner’s name (Name of any one partner) is Mandatory!");
+            return	false; 
+         } 
+		}
+      else if (nodal_person_pame =='') 
+		{
+			alert("Nodal Person (Employee who will coordinate with IndiGem) is Mandatory!");
          return false;
+		}
+      else if (nodal_person_contact =='') 
+		{
+			alert("Nodal Person (Employee who will coordinate with IndiGem) is Mandatory!");
+         return false; 
+		}
+      else if (nodal_person_email =='') 
+		{
+			alert("Nodal Person (Employee who will coordinate with IndiGem) is Mandatory!");
+         return false; 
 		}
 		else if (contact =='') 
 		{
-			alert("Contact Number is Mandatory!");
+			alert("Mobile Number is Mandatory!");
          return false;
 		}
 		else if (email =='') 
@@ -812,38 +848,19 @@
 		}
 		else if (gender =='') 
 		{
-			alert("Gender is Mandatory!");
-         return false;
+			if(seller_type ==1 || seller_type ==5)
+         {
+            alert("Gender is  Mandatory!");
+            return	false; 
+         } 
 		}
-		else if (dob =='') 
+      else if (aadharno =='') 
 		{
-			alert("Date of Birth is Mandatory!");
-         return false;
-		}
-		else if (stateid_first =='' || district_first =='' || city_first =='' || pin_code1 =='' || present_full_address =='') 
-		{
-			alert("Present Address is Mandatory!");
-         return false;
-		}
-		else if (stateid_second =='' || district_second =='' || city_second =='' || pin_code2 =='' || permanent_full_address =='') 
-		{
-			alert("Permanent Address is Mandatory!");
-         return false;
-		}
-		else if (companyname =='') 
-		{
-			alert("Company name is Mandatory!");
-         return false;
-		}
-      else if (proprietor_name =='') 
-		{
-			alert("Director name is Mandatory!");
-         return false;
-		}
-		else if (aadharno =='') 
-		{
-			alert("Employee Aadhar Number is Mandatory!");
-         return false;
+         if(seller_type ==1 || seller_type ==5)
+         {
+            alert("Aadhar Number is  Mandatory!");
+            return	false; 
+         }  
 		}
 		else if (panNo =='') 
 		{
@@ -852,13 +869,16 @@
 		}
 		else if (gstin =='') 
 		{
-			alert("GST Number is Mandatory!");
+			alert("GSTIN Number is Mandatory!");
          return false;
 		}
-		else if (emp_image =='') 
+      else if (tanNo =='') 
 		{
-			alert("Seller Image is Mandatory!");
-         return false;
+			if(seller_type ==2 || seller_type ==3 || seller_type ==4)
+         {
+            alert("TAN Number is Mandatory!");
+            return	false; 
+         } 
 		}
       else if (region_id =='') 
 		{
@@ -874,10 +894,29 @@
 		{
 			alert("State Branch is Mandatory!");
          return false;
+		}
+		else if (stateid_first =='' || district_first =='' || city_first =='' || pin_code1 =='' || present_full_address =='') 
+		{
+			alert("Current/Present address is Mandatory!");
+         return false;
+		}
+		else if (stateid_second =='' || district_second =='' || city_second =='' || pin_code2 =='' || permanent_full_address =='') 
+		{
+			alert("Registered/Permanent address is Mandatory!");
+         return false;
+		}		
+		else if (emp_image =='') 
+		{
+			alert("Organization/Company/Firm/Shop Logo is Mandatory!");
+         return false;
+		}
+      else if (agent_signature =='') 
+		{
+			alert("Seller Scan Signature Photo in Passport size is Mandatory!");
+         return false;
 		}	
 		else
 		{
-
 			//document.getElementById("seller_registration_form").submit();
 			$("#sub_btn").html('<i class="fa fa-spinner fa-spin"></i>Submitting...');
 	      //document.getElementById('sub_btn').disabled = true;
@@ -900,7 +939,7 @@
 			*/	
 		}
 		
-    }
+   }
 		
 </script>
 
@@ -941,7 +980,7 @@ $(document).ready(function() {
         }
         return true;
     });
-	
+    
 	
 	$('#contact').change(function () {
 		var text = "";
@@ -964,12 +1003,10 @@ $(document).ready(function() {
 		    $("#contact").val("");
             $(this).focus();
             return false;
-		}
-		      
-    });
-	
-	
-	$('#email').change(function () {
+		}		      
+   });
+
+   $('#email').change(function () {
 		var text = "";
 		var match = "";		
 		var email_val = $(this).val();
@@ -992,6 +1029,57 @@ $(document).ready(function() {
             return false; 		
         }
     });
+
+   $('#nodal_person_contact').change(function () {
+		var text = "";
+		//var mobileno = document.getElementById('nodal_person_contact').val;
+		var mobileno = $(this).val();
+		//var cellphoneNummber = /^[0123456789]\d{9}$/;
+        var cellphoneNummber = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;		
+		if (mobileno.match(cellphoneNummber))	
+		{
+			$('#nodal_person_contact').attr('style', 'border:1px solid green !important;');
+            $('#nodal_person_contact').css({ "background-color": "#ffffff" });
+			return true;						
+		}
+		else
+		{		        			
+			$("#nodal_person_contact").attr('style', 'border:1px solid #d03100 !important;');
+            $("#nodal_person_contact").css({ "background-color": "#fff2ee" });
+	        text += " \u002A" + " Please Enter Valid 10 digit Mobile Number.";
+			alert(text);
+		    $("#nodal_person_contact").val("");
+            $(this).focus();
+            return false;
+		}		      
+   });
+
+   $('#nodal_person_email').change(function () {
+		var text = "";
+		var match = "";		
+		var email_val = $(this).val();
+        //var regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+		var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;        
+		if (email_val.match(mailformat))	       
+		{
+			$('#nodal_person_email').attr('style', 'border:1px solid green !important;');
+            $('#nodal_person_email').css({ "background-color": "#ffffff" });
+			return true;			           
+        }
+		else
+		{
+            $("#nodal_person_email").attr('style', 'border:1px solid #d03100 !important;');
+            $("#nodal_person_email").css({ "background-color": "#fff2ee" });
+	        text += " \u002A" + " Please Enter Valid Email ID.";
+			alert(text);
+		    $("#nodal_person_email").val("");
+            $(this).focus();
+            return false; 		
+        }
+    });
+	
+	
+	
 	
 	$('#panNo').change(function () {
         var text = "";		

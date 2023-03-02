@@ -310,25 +310,7 @@
                                              ?>
                                              <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>												
                                              <input type="text"  value="<?php echo $state_name; ?>" class="form-control"  autocomplete="off" required readonly disabled ="disabled">
-                                             <!--<input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state; ?>" class="form-control"  autocomplete="off" required readonly >-->
-                                          <!--    
-                                             <select id="region_state" name="region_state" class="form-control"  autocomplete="off" required>                                                  
-                                                            <option value="">-- Select Region State --</option>
-                                                <?php
-                                                if(isset($Laabhagent_Details) && $Laabhagent_Details !="") 
-                                                            { 
-                                                               //var_dump($country);
-                                                               foreach($region_state_list as $rc)
-                                                               {   ?>
-                                                
-                                                               <option value="<?= $rc->id; ?>" <?php echo $region_state == $rc->id ? " selected" : ""; ?> ><?= $rc->region_name; ?></option>
-                                                               <?php  
-                                                }
-                                                }													  
-                                                
-                                                ?> 
-                                                         </select>
-                                          -->	
+                                             <!--<input type="hidden" id="region_state" name="region_state" value="<?php //echo $region_state; ?>" class="form-control"  autocomplete="off" required readonly >-->                                         	
                                              </div>
                                           </div>
 
@@ -347,26 +329,9 @@
                                                 <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
                                                 <input type="text" value="<?php echo $dist_name; ?>" class="form-control"  autocomplete="off"  readonly disabled ="disabled">
                                                 <!--<input type="hidden" id="district_branch" name="district_branch" value="<?php echo $district_branch; ?>" class="form-control"  autocomplete="off" required readonly >-->
-                                                      <!--    
-                                                <select id="district_branch" name="district_branch" class="form-control"  autocomplete="off" required>
-                                                               <option value="">-- Select Distinct Branch --</option> 
-                                                               <?php
-                                                   if(isset($Laabhagent_Details) && $Laabhagent_Details !="") 
-                                                               { 
-                                                                  //var_dump($country);
-                                                                  foreach($districtbranch as $c)
-                                                                  { ?>														 
-                                                      <option value="<?= $c->Districtcode; ?>" <?php echo $district_branch == $c->Districtcode ? " selected" : ""; ?> ><?= $c->Districtname; ?></option>														
-                                                      <?php  
-                                                      }
-                                                   }													
-                                                   ?> 
-                                                            </select>
-                                                      --> 
+                                                                                                         
                                              </div>
-                                          </div>
-
-                                                                                                                           
+                                          </div>                                                                                                                          
                                        </div>
                                     </div>
                                  </div>
@@ -901,7 +866,7 @@
 		else if (designation =='') 
 		{
 			alert("Designation is Mandatory!");
-         return	false;
+            return	false;
 		}
 		else if (agent_name =='') 
 		{
@@ -981,19 +946,7 @@
 		{
 			alert("Contract Letter is Mandatory!");
          return	false;
-		}
-   /*   
-		else if (resume =='') 
-		{
-			alert("Employee Resume is Mandatory!");
-         return	false;
-		}
-		else if (edu_file =='') 
-		{
-			alert("Education Decument is Mandatory!");
-         return	false;
-		}
-   */   
+		}   
 		else
 		{
 			

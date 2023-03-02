@@ -133,59 +133,59 @@ class SellerRegister extends CI_Controller
 	public function register_seller()
     {
 						
-            date_default_timezone_set('Asia/Kolkata');      
-	        $createddate = date('Y-m-d H:i:s', time());
-	        $fname = $this->input->post('fname');				
-			$gender = $this->input->post('gender');
-			
-			$labh_executive_id = $this->input->post('labh_executive_id');
-			$labh_agent_id = $this->input->post('labh_agent_id');			
-			
-			$usertype = $this->input->post('usertype');		
-			$aadhar = $this->input->post('aadhar');
-			$contact = $this->input->post('contact');
-			$altcontact = $this->input->post('altcontact');
-			$dob = $this->input->post('dob');
-			$username = $this->input->post('username');
-			$email = $this->input->post('email');
-			
-	        $regionid = $this->input->post('regionid');           
-            $region_state = $this->input->post('region_state');
-            $district_branch = $this->input->post('district_branch');
+        date_default_timezone_set('Asia/Kolkata');      
+	    $createddate = date('Y-m-d H:i:s', time());
+        $labh_executive_id = $this->input->post('labh_executive_id');
+		$labh_agent_id = $this->input->post('labh_agent_id');
+		$seller_type = $this->input->post('seller_type');
+		$usertype = $this->input->post('usertype');
+		$regionid = $this->input->post('regionid');           
+		$region_state = $this->input->post('region_state');
+		$district_branch = $this->input->post('district_branch');
 
-			$state_first = $this->input->post('state_first');
-			$district_first = $this->input->post('district_first');
-			$city_first = $this->input->post('city_first');
-			$pincode_first = $this->input->post('pincode_first');
-			$current_address = $this->input->post('current_address');
+        $sellername = $this->input->post('fname');
+		$partners_name = $this->input->post('partners_name');
+		$proprietor_name = $this->input->post('proprietor_name');
+		$director_name = $this->input->post('director_name');
+		$gender = $this->input->post('gender');
+        $contact = $this->input->post('contact');
+		$altcontact = $this->input->post('altcontact');
+        $email = $this->input->post('email');
+
+		$aadhar = $this->input->post('aadhar');
+		$panNo = $this->input->post('panNo');
+		$gstin = $this->input->post('gstin');		
+		$tanNo = $this->input->post('tanNo');
+		$cin_no = $this->input->post('cin_no');
+
+		$nodal_person_pame = $this->input->post('nodal_person_pame');
+		$nodal_person_contact = $this->input->post('nodal_person_contact');
+		$nodal_person_email = $this->input->post('nodal_person_email');
+					        
+		$state_first = $this->input->post('state_first');
+		$district_first = $this->input->post('district_first');
+		$city_first = $this->input->post('city_first');
+		$pincode_first = $this->input->post('pincode_first');
+		$current_address = $this->input->post('current_address');
 						
-			$state_second = $this->input->post('state_second');
-			$district_second = $this->input->post('district_second');
-			$city_second = $this->input->post('city_second');
-			$pincode_second = $this->input->post('pincode_second');
-            $permanent_address = $this->input->post('permanent_address');
-
-			$state = $this->input->post('state');
-			$pincode = $this->input->post('pincode');
-
-			$companyname = $this->input->post('companyname');
-			$proprietor_name = $this->input->post('proprietor_name');
-			$gstin = $this->input->post('gstin');
-			$panNo = $this->input->post('panNo');
-			$tanNo = $this->input->post('tanNo');
-			$seller_photo = $this->input->post('seller_photo');
+		$state_second = $this->input->post('state_second');
+		$district_second = $this->input->post('district_second');
+		$city_second = $this->input->post('city_second');
+		$pincode_second = $this->input->post('pincode_second');
+        $permanent_address = $this->input->post('permanent_address');
 			
-            $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            $password = substr( str_shuffle( $chars ), 0, 8 );				
-		    $user_password=hash_hmac('sha256',$password, 'aSm0$i_20eNh3os');
+		//$seller_photo = $this->input->post('seller_photo');
+		//$seller_signature = $this->input->post('seller_signature');
+
+        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $password = substr( str_shuffle( $chars ), 0, 8 );				
+		$user_password=hash_hmac('sha256',$password, 'aSm0$i_20eNh3os');
 			
 		if($this->input->post('isedit') == 0)
         {
 						
 	        $this->db->select('*');
-	        $this->db->from('users');
-	        //$this->db->where('contact_no',$contact);
-	        //$this->db->where('em_email',$email); 
+	        $this->db->from('users');	        
 	        $this->db->where('user_type',$usertype);
 	        $this->db->where('pan_number',$panNo);	                   
 	        //$this->db->where('isactive ',1);                    
@@ -220,8 +220,9 @@ class SellerRegister extends CI_Controller
                     $registerNo = 1;                    
                     $seller_id = $year.$regionid."000000".$registerNo;					
 				}
-				
-				
+
+				if($_FILES['seller_photo']['name'] !=null)				
+                {
 				    //$seller_photo = $this->input->post('seller_photo');
                     $targetDir = "uploads/Seller_Documents/".$regionid."/".$seller_id."/" ;										
 					$allowTypes = array('jpg', 'png', 'jpeg');
@@ -241,12 +242,43 @@ class SellerRegister extends CI_Controller
 						ini_set('max_execution_time', 3600);
 						move_uploaded_file($_FILES["seller_photo"]["tmp_name"], $targetFilePath); 
 					}
-					
+				}
+				else
+				{
+					$targetFilePath="";
+				}
+
+                if($_FILES['seller_photo']['name'] !=null)				
+                {
+					//$seller_signature = $this->input->post('seller_signature');
+                    $targetDir = "uploads/Seller_Documents/".$regionid."/".$seller_id."/" ;										
+					$allowTypes = array('jpg', 'png', 'jpeg');
+					if (!file_exists($targetDir)) 
+					{    
+						mkdir($targetDir, 0777, true);
+					}					
+					$fileName = basename($_FILES['seller_signature']['name']);
+					$targetFilePath2 = $targetDir . $fileName;                        
+					$fileType = pathinfo($targetFilePath2, PATHINFO_EXTENSION);
+					if (in_array($fileType, $allowTypes)) 
+					{    
+						ini_set('memory_limit', '1024M' );
+						ini_set('upload_max_filesize', '500M');  
+						ini_set('post_max_size', '500M');  
+						ini_set('max_input_time', 3600);  
+						ini_set('max_execution_time', 3600);
+						move_uploaded_file($_FILES["seller_signature"]["tmp_name"], $targetFilePath2); 
+					}
+				}
+				else
+				{
+					$targetFilePath2="";
+				}	
 
                     $usersaveData=array(		   
 							'user_id'=>$seller_id,							
 							'user_type'=> $usertype,
-							'first_name'=>$fname,
+							'first_name'=>$sellername,
 							'des_id'=>'SEL',
 							'designation'=>'SEL',
 							'em_email'=>$email,
@@ -260,7 +292,7 @@ class SellerRegister extends CI_Controller
 							'region_state'=>$region_state,
                             'district_branch'=>$district_branch,
 
-							//'division'=>$fname,
+							'division'=> 2,
 							'Laabh_executive'=>$labh_executive_id,
 							
 							'state_first'=>$state_first,
@@ -274,44 +306,44 @@ class SellerRegister extends CI_Controller
 							'permanent_city'=>$city_second,
 							'permanent_pincode'=>$pincode_second,
 							'permanent_full_address'=>$permanent_address,
-														
-							'status'=> 'ACTIVE',														
+																												
 							'em_gender'=>$gender,							
 							'aadhar_number'=>$aadhar,
 							'pan_number'=>$panNo,													
-							'em_birthday'=>$dob,
+							//'em_birthday'=>$dob,
 							'em_image'=>$targetFilePath,
+							'signature'=>$targetFilePath2,
 							
 							'status'=>'ACTIVE',
 							'created_on'=>date('Y-m-d H:i:s', time()),
-							'updated_on'=>date('Y-m-d H:i:s', time()) ,
-							
+							'updated_on'=>date('Y-m-d H:i:s', time())							
 						   );
 				        $user_insert_id = $this->db->insert('users', $usersaveData);
 						$user_insert_id = $this->db->insert_id();
 						//print_r($this->db->last_query());
 
-			        $saveData=array(		   
-							'fname'=>$fname,							
-							'gender'=>$gender,
+			        $saveData=array(						
 							'seller_id'=>$seller_id,
+							'usertype'=>$usertype,							
+							'seller_type'=>$seller_type,
+							'fname'=>  $sellername,
+							'partners_name' =>$partners_name,                           							
+							'proprietor_name'=>$proprietor_name,
+							'director_name'=>$director_name,
+							'gender'=>$gender,
+
 							'labh_emp_id'=>  $labh_executive_id,
-							'labh_agent_id' =>$labh_agent_id,                           							
-							'usertype'=>$usertype,
-							'aadhar'=>$aadhar,
+							'labh_agent_id' =>$labh_agent_id,
+
 							'contact'=>$contact,
 							'altcontact'=>$altcontact,
-							'dob'=>$dob,
-							'username'=>$email,							
+							'username'=>$email,
 							'email'=>$email,
-							'seller_image'=>$targetFilePath,
 							'password'=>$user_password,
 							'dec_pass'=>$password,
-							
 							'region_id'=>$regionid,
 							'region_state'=>$region_state,
-                            'district_branch'=>$district_branch,
-							
+							'district_branch'=>$district_branch,
 							'state_first'=>$state_first,
 							'district_first'=>$district_first,
 							'city_first'=>$city_first,
@@ -324,37 +356,41 @@ class SellerRegister extends CI_Controller
 							'pincode_second'=>$pincode_second,
 							'permanent_address'=>$permanent_address,
 
-							'companyname'=>$companyname,
-							'proprietor_name'=>$proprietor_name,
+							'aadhar'=>$aadhar,
 							'gstin'=>$gstin,
 							'panNo'=>$panNo,
 							'tanNo'=>$tanNo,
+							'cin_no'=>$cin_no,
+							
+							'nodal_person_pame'=>$nodal_person_pame,
+							'nodal_person_contact'=>$nodal_person_contact,
+							'nodal_person_email'=>$nodal_person_email,
+																												
+							'seller_image'=>$targetFilePath,
+							'seller_signature'=>$targetFilePath2,	
+							'isactive'=>1,												
 							'createdon'=>date('Y-m-d H:i:s', time()),
-							'updatedon'=>date('Y-m-d H:i:s', time()),
-							'isactive'=>1
-						   );
-				        $lastinsertid = $this->Seller_model->insert_data($saveData);
+							'updatedon'=>date('Y-m-d H:i:s', time())							
+					    );
+				    $lastinsertid = $this->Seller_model->insert_data($saveData);
 													    
-				        if($lastinsertid > 0)
-				        { 
-										 	    
-							//$this->session->set_userdata('sellerid',$seller_id);
-	                        $this->session->set_flashdata('status_test', 'Data Save Successfully !');
-	                        $this->session->set_flashdata('status_icon', 'success');
-	                        $this->session->set_flashdata('status', 'Data Saved !');
+				    if($lastinsertid > 0)
+				    { 										 	    
+						//$this->session->set_userdata('sellerid',$seller_id);
+	                    $this->session->set_flashdata('status_test', 'Data Save Successfully !');
+	                    $this->session->set_flashdata('status_icon', 'success');
+	                    $this->session->set_flashdata('status', 'Data Saved !');
 	                        
-                            return redirect("SellerRegister/Documents/".$seller_id." ");							
-							
-                        }
-				        else
-				        {
-							
-				  	        $this->session->set_flashdata('status_test', 'Error due to Faild to Save Data!');
-                            $this->session->set_flashdata('status_icon', 'error');
-                            $this->session->set_flashdata('status', 'Data Not Saved !');
-                            return redirect('SellerRegister/index');
-							
-				        }			 
+                        return redirect("SellerRegister/Documents/".$seller_id." ");														
+                    }
+				    else
+				    {							
+				  	    $this->session->set_flashdata('status_test', 'Error due to Faild to Save Data!');
+                        $this->session->set_flashdata('status_icon', 'error');
+                        $this->session->set_flashdata('status', 'Data Not Saved !');
+
+                        return redirect('SellerRegister/index');						
+				    }			 
 			}
 			else
 			{
@@ -373,40 +409,47 @@ class SellerRegister extends CI_Controller
 			$sellerid = $this->input->post('sellerid');
 			$id = $this->input->post('id');
 			
-			$usersaveData=array(		   
+		    $usersaveData=array(		   				
 					//'user_id'=>$seller_id,							
 					//'user_type'=> $usertype,
-					'first_name'=>$fname,
-					//'em_email'=>$email,
-					//'username'=>$email,
+					'first_name'=>$sellername,
+					//'des_id'=>'SEL',
+				    //'designation'=>'SEL',
+					'em_email'=>$email,
+					'username'=>$email,
 					//'em_password'=>$user_password,
 					//'password_dec'=>$password,
-					//'contact_no'=>$contact,							
-                    'alter_mobileno'=>$altcontact,							
+					'contact_no'=>$contact,							
+                    'alter_mobileno'=>$altcontact,
+							
 					//'region'=>$regionid,
-					//'division'=>$fname,
-					//'Laabh_executive'=>$labh_executive_id,							
-					
+					//'region_state'=>$region_state,
+                    //'district_branch'=>$district_branch,
+
+					//'division'=> 2,
+					//'Laabh_executive'=>$labh_executive_id,
+							
 					'state_first'=>$state_first,
 					'district_first'=>$district_first,
 					'present_city'=>$city_second,
 					'present_pincode'=>$pincode_first,
 					'present_full_address'=>$current_address,	
 							
-				    'state_second'=>$state_second,
+					'state_second'=>$state_second,
 					'district_second'=>$district_second,
 					'permanent_city'=>$city_second,
 					'permanent_pincode'=>$pincode_second,
 					'permanent_full_address'=>$permanent_address,
-
-					'status'=> 'ACTIVE',														
+																												
 					'em_gender'=>$gender,							
-					'aadhar_number'=>$aadhar,
-					'pan_number'=>$panNo,													
-					'em_birthday'=>$dob,											
-					'status'=>'ACTIVE',					
-					'updated_on'=>date('Y-m-d H:i:s', time())
-							
+					//'aadhar_number'=>$aadhar,
+					//'pan_number'=>$panNo,													
+					//'em_birthday'=>$dob,
+					//'em_image'=>$targetFilePath,
+					//'signature'=>$targetFilePath2,							
+					'status'=>'ACTIVE',
+					//'created_on'=>date('Y-m-d H:i:s', time()),
+					'updated_on'=>date('Y-m-d H:i:s', time()) 							
 				);		    
 			$this->db->set($usersaveData);					
 			$this->db->where('user_id',$sellerid);
@@ -417,24 +460,28 @@ class SellerRegister extends CI_Controller
 			//print_r($this->db->last_query());
 						
 						
-			$saveData=array(		   
-					'fname'=>$fname,					
-					'gender'=>$gender,
+			$saveData=array(		   									
 					//'seller_id'=>$seller_id,
-					//'labh_agent_id'=>$labh_agent_id,
-					//'usertype'=>$usertype,
-					'aadhar'=>$aadhar,
-					//'contact'=>$contact,
+					//'usertype'=>$usertype,							
+					'seller_type'=>$seller_type,
+					'fname'=>  $sellername,
+					'partners_name' =>$partners_name,                           							
+					'proprietor_name'=>$proprietor_name,
+					'director_name'=>$director_name,
+					'gender'=>$gender,
+
+					//'labh_emp_id'=>  $labh_executive_id,
+					//'labh_agent_id' =>$labh_agent_id,
+
+					'contact'=>$contact,
 					'altcontact'=>$altcontact,
-					'dob'=>$dob,
-				
-					//'username'=>$email,
-					//'email'=>$email,
-					//'seller_image'=>$targetFilePath,
+					'username'=>$email,
+					'email'=>$email,
 					//'password'=>$user_password,
-					//'dec_pass'=>$password,						
-					//'region_id'=>$regionid,
-					
+					//'dec_pass'=>$password,
+					'region_id'=>$regionid,
+					'region_state'=>$region_state,
+					'district_branch'=>$district_branch,
 					'state_first'=>$state_first,
 					'district_first'=>$district_first,
 					'city_first'=>$city_first,
@@ -447,24 +494,33 @@ class SellerRegister extends CI_Controller
 					'pincode_second'=>$pincode_second,
 					'permanent_address'=>$permanent_address,
 
-					'companyname'=>$companyname,
-					'proprietor_name'=>$proprietor_name,
+					'aadhar'=>$aadhar,
 					'gstin'=>$gstin,
 					'panNo'=>$panNo,
-					'tanNo'=>$tanNo,					
-					'updatedon'=>date('Y-m-d H:i:s', time()) 					
+					'tanNo'=>$tanNo,
+					'cin_no'=>$cin_no,
+							
+					'nodal_person_pame'=>$nodal_person_pame,
+					'nodal_person_contact'=>$nodal_person_contact,
+					'nodal_person_email'=>$nodal_person_email,
+																												
+					//'seller_image'=>$targetFilePath,
+					//'seller_signature'=>$targetFilePath2,
+					'isactive'=>1															
+					//'createdon'=>date('Y-m-d H:i:s', time()),
+					'updatedon'=>date('Y-m-d H:i:s', time()),					
 			    );
 		    $this->db->set($saveData);
             $this->db->where('id',$id);			
 			$this->db->where('seller_id',$sellerid);
 			$this->db->where('isactive',1);
 			$this->db->update('seller', $saveData);
-			$queryresult = $this->db->affected_rows();
+			$queryresult2 = $this->db->affected_rows();
 			//print_r($this->db->last_query());
             
             if($_FILES['seller_photo']['name'] !=null)				
             {
-                $seller_photo = $this->input->post('seller_photo');
+                //$seller_photo = $this->input->post('seller_photo');
 					$targetDir = "uploads/Seller_Documents/".$regionid."/".$sellerid."/" ;					
 					$allowTypes = array('jpg', 'png', 'jpeg');
 					if (!file_exists($targetDir)) 
@@ -484,37 +540,100 @@ class SellerRegister extends CI_Controller
 						ini_set('max_execution_time', 3600);
 						move_uploaded_file($_FILES["seller_photo"]["tmp_name"], $targetFilePath); 
 					}
-					
-					$data = array(
-					
-							'seller_image'=>$targetFilePath,
-							
-						    );
-					    $this->db->set($data);
+
+					$data = array(					
+						    'em_image'=>$targetFilePath,							
+						);
+						$this->db->set($data);					
+						$this->db->where('user_id',$sellerid);
+						$this->db->where('user_type',$usertype);
+						$this->db->where('status','ACTIVE');
+						$this->db->update('users', $data);
+						$queryresult3 = $this->db->affected_rows();
+                        //print_r($this->db->last_query());
+
+										
+					$data2 = array(					
+							'seller_image'=>$targetFilePath,							
+						);
+					    $this->db->set($data2);
 						$this->db->where('id',$id);			
 						$this->db->where('seller_id',$sellerid);
 						$this->db->where('isactive',1);
-						$this->db->update('seller', $data);
-						$queryresult2 = $this->db->affected_rows();
+						$this->db->update('seller', $data2);
+						$queryresult4 = $this->db->affected_rows();
+						//print_r($this->db->last_query());
+                					
+            }
+			else if($_FILES['seller_signature']['name'] !=null)				
+            {
+                //$seller_photo = $this->input->post('seller_signature');
+					$targetDir = "uploads/Seller_Documents/".$regionid."/".$sellerid."/" ;					
+					$allowTypes = array('jpg', 'png', 'jpeg');
+					if (!file_exists($targetDir)) 
+					{    
+						mkdir($targetDir, 0777, true);
+					}
+                    					
+					$fileName = basename($_FILES['seller_signature']['name']);
+					$targetFilePath2 = $targetDir . $fileName;                        
+					$fileType = pathinfo($targetFilePath2, PATHINFO_EXTENSION);
+					if (in_array($fileType, $allowTypes)) 
+					{    
+						ini_set('memory_limit', '1024M' );
+						ini_set('upload_max_filesize', '500M');  
+						ini_set('post_max_size', '500M');  
+						ini_set('max_input_time', 3600);  
+						ini_set('max_execution_time', 3600);
+						move_uploaded_file($_FILES["seller_signature"]["tmp_name"], $targetFilePath2); 
+					}
+
+					$data = array(					
+						    'signature'=>$targetFilePath2,							
+						);
+						$this->db->set($data);					
+						$this->db->where('user_id',$sellerid);
+						$this->db->where('user_type',$usertype);
+						$this->db->where('status','ACTIVE');
+						$this->db->update('users', $data);
+						$queryresult3 = $this->db->affected_rows();
+                        //print_r($this->db->last_query());
+
+										
+					$data2 = array(					
+							'seller_signature'=>$targetFilePath2,							
+						);
+					    $this->db->set($data2);
+						$this->db->where('id',$id);			
+						$this->db->where('seller_id',$sellerid);
+						$this->db->where('isactive',1);
+						$this->db->update('seller', $data2);
+						$queryresult4 = $this->db->affected_rows();
 						//print_r($this->db->last_query());
                 
-				$this->session->set_flashdata('status_test', 'Data Updated Successfully !');
-	            $this->session->set_flashdata('status_icon', 'success');
-	            $this->session->set_flashdata('status', 'Data Updated !');
-	            //return redirect('SellerRegister/addDocument/');
-                return redirect("SellerRegister/Documents/".$sellerid." ");
+				//$this->session->set_flashdata('status_test', 'Data Updated Successfully !');
+	            //$this->session->set_flashdata('status_icon', 'success');
+	            //$this->session->set_flashdata('status', 'Data Updated !');
+                //return redirect("SellerRegister/Documents/".$sellerid." ");
 				
             }
-            else
-			{
-				
+            
+			if($queryresult2)
+			{				
 				$this->session->set_flashdata('status_test', 'Data Updated Successfully !');
-	            $this->session->set_flashdata('status_icon', 'success');
-	            $this->session->set_flashdata('status', 'Data Updated !');
-	            //return redirect('SellerRegister/addDocument/');
-                return redirect("SellerRegister/Documents/".$sellerid." ");
-								
+				$this->session->set_flashdata('status_icon', 'success');
+				$this->session->set_flashdata('status', 'Data Updated !');
+				
+				return redirect("SellerRegister/Documents/".$sellerid." ");
 			}
+			else
+			{
+                $this->session->set_flashdata('status_test', 'Error due to Faild to Save Data!');
+                $this->session->set_flashdata('status_icon', 'error');
+                $this->session->set_flashdata('status', 'Data Not Saved !');
+               
+				return redirect("SellerRegister/seller_personal_details/".$sellerid." ");
+			}						
            								
 		}
 
