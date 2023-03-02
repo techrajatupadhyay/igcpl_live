@@ -821,6 +821,14 @@
             return	false; 
          } 
 		}
+      else if (director_name =='') 
+		{
+			if(seller_type ==3)
+         {
+            alert("Director’s name (Name of any one Director) is Mandatory!");
+            return	false; 
+         } 
+		}
       else if (nodal_person_pame =='') 
 		{
 			alert("Nodal Person (Employee who will coordinate with IndiGem) is Mandatory!");
@@ -877,6 +885,14 @@
 			if(seller_type ==2 || seller_type ==3 || seller_type ==4)
          {
             alert("TAN Number is Mandatory!");
+            return	false; 
+         } 
+		}
+      else if (cin_no =='') 
+		{
+			if(seller_type ==3)
+         {
+            alert("CIN Number of company is Mandatory!");
             return	false; 
          } 
 		}
