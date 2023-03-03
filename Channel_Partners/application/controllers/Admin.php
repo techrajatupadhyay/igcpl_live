@@ -1873,7 +1873,8 @@ class Admin extends CI_Controller
 			//$emp_details = $data['Employee_Details'];
 
 			$sql2 ="SELECT * from master_idcard Where employee_code='".$user_id."'  " ;
-            $emp_details = $this->db->query($sql2)->result(); 
+            $emp_details = $this->db->query($sql2)->result();
+			$data['Id_Card_Details'] = $emp_details;
 			//print_r($this->db->last_query());
             
 			foreach($data['Employee_Details'] as $row)
@@ -1899,15 +1900,13 @@ class Admin extends CI_Controller
     }
 
 	function genQr($emp_details,$user_id,$user_type,$regionid)
-	{
-        
+	{    
 		foreach($emp_details as $emp)
 		{
 			
 			$data = "Father/Spouse Name : ".$emp->father_spouse_name."<\br>  Phone Number  : ".$emp->phone_number."<\br> Email ID : ". $emp->email_id . "<\br>  Residential Address : ".$emp->residential_address."<\br> Adhaar Number : ". $emp->adhaar_number. "<\br>  PAN  : ". $emp->pan. "<\br>  Date of Birth : ". $emp->birthday. "<\br> Date of Joining : ". $emp->joining_date. "<\br> Vallid Till : ". $emp->valid_till. "<\br> Website : https://indigemcp.com  <\br> Head Office : 305-306,3rd Floor, Tower A, Spacedge, Sector 46, Sohna Road Gurgaon, Haryana, India, 122018";
 			$qr   = $this->generate_qrcode($data,$user_id,$user_type,$regionid); 						
-		}						
-			
+		}								
 	}
 
 	function generate_qrcode($data,$user_id,$user_type,$regionid)
@@ -2664,6 +2663,39 @@ class Admin extends CI_Controller
             redirect('Login');
         }
 
+    }
+
+	public function print_idcard($user_id,$user_type)
+    {
+		
+        if ($this->session->userdata('user_login_access') != False)
+        {
+
+			$data['Employee_Details'] = $this->Admin_model->get_employee_details($user_id,$user_type);
+			//$emp_details = $data['Employee_Details'];
+
+            $sql2 ="SELECT * from master_idcard Where employee_code='".$user_id."'  " ;
+            $emp_details = $this->db->query($sql2)->result();
+			$data['Id_Card_Details'] = $emp_details;
+			//print_r($this->db->last_query());
+            
+			foreach($data['Employee_Details'] as $row)
+            {
+				$reg_val = $row->region;
+				$region_value = explode (",", $reg_val); 
+				$regionid = $region_value[0];
+			}
+
+			$this->genQr($emp_details,$user_id,$user_type,$regionid);
+                     
+            $this->load->view('backend/id_card',$data);
+           
+        } 
+        else 
+        {
+            redirect(base_url(), 'refresh');
+        }
+		
     }
     
 
