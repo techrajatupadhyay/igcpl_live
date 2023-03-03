@@ -180,7 +180,10 @@ class SellerRegister extends CI_Controller
         $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         $password = substr( str_shuffle( $chars ), 0, 8 );				
 		$user_password=hash_hmac('sha256',$password, 'aSm0$i_20eNh3os');
-			
+
+		print_r($_POST);
+		print_r($_FILES);
+		die;	
 		if($this->input->post('isedit') == 0)
         {
 						

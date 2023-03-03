@@ -258,12 +258,12 @@
 
                                        <div class="form-group col-md-4 m-t-20">
                                           <label>TAN Number : </label>
-                                          <input type="text" id="tanNo" name="tanNo" class="form-control" value="<?php echo $tanNo; ?>" required placeholder="TAN number">
+                                          <input type="text" id="tanNo" name="tanNo" class="form-control" value="<?php echo $tanNo; ?>"  placeholder="TAN number">
                                        </div>
 
                                        <div class="form-group col-md-4 m-t-20" id="cin_no_view" style="display:block">
                                           <label>CIN Number of company : <span class="star">*</span></label>
-                                          <input type="text" name="cin_no" id="cin_no" class="form-control" value="<?php echo $panNo; ?>" required placeholder="CIN number of company">
+                                          <input type="text" name="cin_no" id="cin_no" class="form-control" value="<?php echo $panNo; ?>"  placeholder="CIN number of company">
                                        </div>
                                                                                                    
                                        <?php if(isset($Seller_Details)) { ?>
@@ -272,7 +272,7 @@
                                                 <div class="input-group">
                                                    <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
                                                    <input type="text" value="<?php echo $region_id_edit; ?>" class="form-control" disabled ="disabled" > 
-                                                   <input type="hidden" id="region_id" name="regionid" value="<?php echo $region_id_edit; ?>" required >                                            	
+                                                   <!--<input type="hidden" id="region_id" name="regionid" value="<?php echo $region_id_edit; ?>" required > -->                                           	
                                                 </div>
                                              </div> 
                                           
@@ -290,7 +290,7 @@
                                                    ?>
                                                       <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
                                                       <input type="text"  value="<?php echo $state_name; ?>" class="form-control"  disabled ="disabled">
-                                                      <input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state_edit; ?>" required >                                                   	
+                                                      <!--<input type="hidden" id="region_state" name="region_state" value="<?php echo $region_state_edit; ?>" required > -->                                                  	
                                                 </div>
                                              </div>
 
@@ -308,7 +308,7 @@
                                                    ?>
                                                    <span class="input-group-addon" id="basic-addon7"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
                                                    <input type="text" value="<?php echo $dist_name; ?>" class="form-control"  disabled ="disabled">
-                                                   <input type="hidden" id="district_branch" name="district_branch" value="<?php echo $distinct_branch_edit; ?>"  required >                                                  
+                                                   <!--<input type="hidden" id="district_branch" name="district_branch" value="<?php echo $distinct_branch_edit; ?>"  required > -->                                                 
                                                 </div>
                                              </div>
                                           <?php } else  { ?> 
@@ -1154,7 +1154,7 @@ $(document).ready(function() {
 			$('#gstin').attr('style', 'border:1px solid green !important;');
             $('#gstin').css({ "background-color": "#ffffff" });
 			return true;			           
-        }
+      }
 		/*	
             if (pancarno.length != 10) {
                 alert('GST number is invalid ');
@@ -1420,7 +1420,7 @@ $(document).ready(function(){
                      {
                            $('#la_signature')
                            .attr('src', e.target.result)
-                           .width(80)
+                           .width(100)
                            .height(100);
                      };
                      document.getElementById("signature").style.display = "block";                 
