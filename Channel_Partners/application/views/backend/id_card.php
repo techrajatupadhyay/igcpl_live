@@ -119,8 +119,8 @@
                                 </div>
                                 <div class="col-md-12 employee_details">
                                     <div class="user_info">
-                                        <p class="mt-1"><span class="label"><?php echo $row->employee_name; ?></span></p>
-                                        <p><span class="ml-2" style="font-size:12px;"><?php echo $row->designation; ?></span></p>
+                                        <p class="mt-1"><span class="label"><?php echo ucwords(strtolower($row->employee_name));?></span></p>
+	                                    <p><span class="ml-2" style="font-size:12px;"><?php echo ucwords($row->designation);?></span></p>
                                         <p style="margin-top: -19px;"><span class="ml-2" style="font-size:12px;"><?php echo $row->employee_code; ?></span></p>
                                     </div>                                    
                                 </div>
